@@ -8,7 +8,7 @@ target 'homepoint' do
   # Pods for homepoint
   pod 'SDWebImage'
   pod 'Alamofire'
-  pod 'RxSwift', '6.0.0'
-  pod 'RxCocoa', '6.0.0'
+  pod 'RxSwift', '5.0.0'
+  pod 'RxCocoa', '5.0.0'
 
 end

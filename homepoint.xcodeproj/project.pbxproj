@@ -17,7 +17,7 @@
 		62FCC0E3283E5B6C00BF79E2 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC0E2283E5B6C00BF79E2 /* String+Ext.swift */; };
 		62FCC0E8283E5BA500BF79E2 /* ExampleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC0E6283E5BA500BF79E2 /* ExampleTableViewCell.swift */; };
 		62FCC0E9283E5BA500BF79E2 /* ExampleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62FCC0E7283E5BA500BF79E2 /* ExampleTableViewCell.xib */; };
-		62FCC0F0283E5BFA00BF79E2 /* AFApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC0EF283E5BFA00BF79E2 /* AFApiClient.swift */; };
+		62FCC0F0283E5BFA00BF79E2 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC0EF283E5BFA00BF79E2 /* ApiClient.swift */; };
 		62FCC0FF283E660500BF79E2 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC0FE283E660500BF79E2 /* MainCoordinator.swift */; };
 		62FCC103283E666200BF79E2 /* ExampleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC102283E666200BF79E2 /* ExampleResponse.swift */; };
 		62FCC105283E668000BF79E2 /* ExampleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC104283E668000BF79E2 /* ExampleUseCase.swift */; };
@@ -40,7 +40,7 @@
 		62FCC0E2283E5B6C00BF79E2 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		62FCC0E6283E5BA500BF79E2 /* ExampleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTableViewCell.swift; sourceTree = "<group>"; };
 		62FCC0E7283E5BA500BF79E2 /* ExampleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExampleTableViewCell.xib; sourceTree = "<group>"; };
-		62FCC0EF283E5BFA00BF79E2 /* AFApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFApiClient.swift; sourceTree = "<group>"; };
+		62FCC0EF283E5BFA00BF79E2 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		62FCC0FE283E660500BF79E2 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		62FCC102283E666200BF79E2 /* ExampleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleResponse.swift; sourceTree = "<group>"; };
 		62FCC104283E668000BF79E2 /* ExampleUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUseCase.swift; sourceTree = "<group>"; };
@@ -149,7 +149,7 @@
 		62FCC0EE283E5BDF00BF79E2 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				62FCC0EF283E5BFA00BF79E2 /* AFApiClient.swift */,
+				62FCC0EF283E5BFA00BF79E2 /* ApiClient.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -276,6 +276,7 @@
 				62CFEE19283E574600E909AA /* Sources */,
 				62CFEE1A283E574600E909AA /* Frameworks */,
 				62CFEE1B283E574600E909AA /* Resources */,
+				EE466B700E376FEE6880941A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -356,6 +357,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		EE466B700E376FEE6880941A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-homepoint/Pods-homepoint-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-homepoint/Pods-homepoint-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-homepoint/Pods-homepoint-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -367,7 +385,7 @@
 				62FCC0E1283E5B5400BF79E2 /* Constants.swift in Sources */,
 				62FCC10C283E6B2C00BF79E2 /* ExampleRepository.swift in Sources */,
 				62FCC0D6283E59CA00BF79E2 /* ViewController.swift in Sources */,
-				62FCC0F0283E5BFA00BF79E2 /* AFApiClient.swift in Sources */,
+				62FCC0F0283E5BFA00BF79E2 /* ApiClient.swift in Sources */,
 				62FCC105283E668000BF79E2 /* ExampleUseCase.swift in Sources */,
 				62FCC0DB283E5AE600BF79E2 /* ExampleViewModel.swift in Sources */,
 				62FCC109283E66DE00BF79E2 /* ExampleRepository.swift in Sources */,
