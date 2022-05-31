@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		626A1D1428465BE500B2DA8A /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626A1D1328465BE500B2DA8A /* UIView+Ext.swift */; };
+		626A1D17284660A100B2DA8A /* LargeProductCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626A1D15284660A100B2DA8A /* LargeProductCardViewCell.swift */; };
+		626A1D18284660A100B2DA8A /* LargeProductCardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 626A1D16284660A100B2DA8A /* LargeProductCardViewCell.xib */; };
+		62BECBDC2845BDAC00E5E374 /* SmallProductCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BECBDA2845BDAC00E5E374 /* SmallProductCardViewCell.swift */; };
+		62BECBDD2845BDAC00E5E374 /* SmallProductCardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62BECBDB2845BDAC00E5E374 /* SmallProductCardViewCell.xib */; };
 		62CFEE21283E574600E909AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CFEE20283E574600E909AA /* AppDelegate.swift */; };
 		62CFEE2A283E574A00E909AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CFEE29283E574A00E909AA /* Assets.xcassets */; };
 		62CFEE2D283E574A00E909AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62CFEE2B283E574A00E909AA /* LaunchScreen.storyboard */; };
@@ -28,6 +33,11 @@
 
 /* Begin PBXFileReference section */
 		34D91DF7C9A9C7D91F2D44A3 /* Pods-homepoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homepoint.release.xcconfig"; path = "Target Support Files/Pods-homepoint/Pods-homepoint.release.xcconfig"; sourceTree = "<group>"; };
+		626A1D1328465BE500B2DA8A /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		626A1D15284660A100B2DA8A /* LargeProductCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeProductCardViewCell.swift; sourceTree = "<group>"; };
+		626A1D16284660A100B2DA8A /* LargeProductCardViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LargeProductCardViewCell.xib; sourceTree = "<group>"; };
+		62BECBDA2845BDAC00E5E374 /* SmallProductCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallProductCardViewCell.swift; sourceTree = "<group>"; };
+		62BECBDB2845BDAC00E5E374 /* SmallProductCardViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmallProductCardViewCell.xib; sourceTree = "<group>"; };
 		62CFEE1D283E574600E909AA /* homepoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = homepoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62CFEE20283E574600E909AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62CFEE29283E574A00E909AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,6 +87,25 @@
 				917D9AE6C7ECA095AA9F8E72 /* Pods_homepoint.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		62BECBD82845BD3400E5E374 /* Reusables */ = {
+			isa = PBXGroup;
+			children = (
+				62BECBD92845BD4B00E5E374 /* ProductCard */,
+			);
+			path = Reusables;
+			sourceTree = "<group>";
+		};
+		62BECBD92845BD4B00E5E374 /* ProductCard */ = {
+			isa = PBXGroup;
+			children = (
+				62BECBDA2845BDAC00E5E374 /* SmallProductCardViewCell.swift */,
+				62BECBDB2845BDAC00E5E374 /* SmallProductCardViewCell.xib */,
+				626A1D15284660A100B2DA8A /* LargeProductCardViewCell.swift */,
+				626A1D16284660A100B2DA8A /* LargeProductCardViewCell.xib */,
+			);
+			path = ProductCard;
 			sourceTree = "<group>";
 		};
 		62CFEE14283E574600E909AA = {
@@ -142,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				62FCC0E2283E5B6C00BF79E2 /* String+Ext.swift */,
+				626A1D1328465BE500B2DA8A /* UIView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -157,6 +187,7 @@
 		62FCC0F1283E616100BF79E2 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				62BECBD82845BD3400E5E374 /* Reusables */,
 				62FCC0F2283E616B00BF79E2 /* Example */,
 			);
 			path = Features;
@@ -325,9 +356,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				626A1D18284660A100B2DA8A /* LargeProductCardViewCell.xib in Resources */,
 				62FCC0E9283E5BA500BF79E2 /* ExampleTableViewCell.xib in Resources */,
 				62CFEE2D283E574A00E909AA /* LaunchScreen.storyboard in Resources */,
 				62FCC0D7283E59CA00BF79E2 /* ViewController.xib in Resources */,
+				62BECBDD2845BDAC00E5E374 /* SmallProductCardViewCell.xib in Resources */,
 				62CFEE2A283E574A00E909AA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,9 +416,12 @@
 			files = (
 				62FCC0E3283E5B6C00BF79E2 /* String+Ext.swift in Sources */,
 				62FCC0E1283E5B5400BF79E2 /* Constants.swift in Sources */,
+				626A1D17284660A100B2DA8A /* LargeProductCardViewCell.swift in Sources */,
 				62FCC10C283E6B2C00BF79E2 /* ExampleRepository.swift in Sources */,
 				62FCC0D6283E59CA00BF79E2 /* ViewController.swift in Sources */,
+				626A1D1428465BE500B2DA8A /* UIView+Ext.swift in Sources */,
 				62FCC0F0283E5BFA00BF79E2 /* ApiClient.swift in Sources */,
+				62BECBDC2845BDAC00E5E374 /* SmallProductCardViewCell.swift in Sources */,
 				62FCC105283E668000BF79E2 /* ExampleUseCase.swift in Sources */,
 				62FCC0DB283E5AE600BF79E2 /* ExampleViewModel.swift in Sources */,
 				62FCC109283E66DE00BF79E2 /* ExampleRepository.swift in Sources */,
