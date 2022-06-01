@@ -13,4 +13,13 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNavigationBar(type: .defaultNav)
+    }
+    
+    @IBAction func tap(_ sender: UIButton) {
+        navigationController?.pushViewController(ViewController2(), animated: true)
+        
+    }
 }
