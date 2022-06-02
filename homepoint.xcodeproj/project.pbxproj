@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5370DFC82848FE6500FD1ED5 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFBF2848FE6500FD1ED5 /* Inter-Regular.ttf */; };
+		5370DFC92848FE6500FD1ED5 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFC02848FE6500FD1ED5 /* Inter-Medium.ttf */; };
+		5370DFCA2848FE6500FD1ED5 /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFC12848FE6500FD1ED5 /* Inter-Black.ttf */; };
+		5370DFCB2848FE6500FD1ED5 /* Inter-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFC22848FE6500FD1ED5 /* Inter-ExtraLight.ttf */; };
+		5370DFCC2848FE6500FD1ED5 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFC32848FE6500FD1ED5 /* Inter-SemiBold.ttf */; };
+		5370DFCD2848FE6500FD1ED5 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFC42848FE6500FD1ED5 /* Inter-Light.ttf */; };
+		5370DFCE2848FE6500FD1ED5 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFC52848FE6500FD1ED5 /* Inter-Bold.ttf */; };
+		5370DFCF2848FE6500FD1ED5 /* Inter-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFC62848FE6500FD1ED5 /* Inter-ExtraBold.ttf */; };
+		5370DFD02848FE6500FD1ED5 /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFC72848FE6500FD1ED5 /* Inter-Thin.ttf */; };
 		6216E07A2848EC780019747D /* Font+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216E0782848EC780019747D /* Font+Ext.swift */; };
 		6216E07B2848EC780019747D /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216E0792848EC780019747D /* Color+Ext.swift */; };
 		6216E0852848ED4D0019747D /* SmallProductCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216E0812848ED4D0019747D /* SmallProductCardViewCell.swift */; };
@@ -35,6 +44,15 @@
 
 /* Begin PBXFileReference section */
 		34D91DF7C9A9C7D91F2D44A3 /* Pods-homepoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homepoint.release.xcconfig"; path = "Target Support Files/Pods-homepoint/Pods-homepoint.release.xcconfig"; sourceTree = "<group>"; };
+		5370DFBF2848FE6500FD1ED5 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
+		5370DFC02848FE6500FD1ED5 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
+		5370DFC12848FE6500FD1ED5 /* Inter-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Black.ttf"; sourceTree = "<group>"; };
+		5370DFC22848FE6500FD1ED5 /* Inter-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLight.ttf"; sourceTree = "<group>"; };
+		5370DFC32848FE6500FD1ED5 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.ttf"; sourceTree = "<group>"; };
+		5370DFC42848FE6500FD1ED5 /* Inter-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light.ttf"; sourceTree = "<group>"; };
+		5370DFC52848FE6500FD1ED5 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
+		5370DFC62848FE6500FD1ED5 /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
+		5370DFC72848FE6500FD1ED5 /* Inter-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Thin.ttf"; sourceTree = "<group>"; };
 		6216E0782848EC780019747D /* Font+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Font+Ext.swift"; sourceTree = "<group>"; };
 		6216E0792848EC780019747D /* Color+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 		6216E0812848ED4D0019747D /* SmallProductCardViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallProductCardViewCell.swift; sourceTree = "<group>"; };
@@ -93,6 +111,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5370DFBD2848FE4B00FD1ED5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5370DFBE2848FE5600FD1ED5 /* Font */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5370DFBE2848FE5600FD1ED5 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				5370DFC12848FE6500FD1ED5 /* Inter-Black.ttf */,
+				5370DFC52848FE6500FD1ED5 /* Inter-Bold.ttf */,
+				5370DFC62848FE6500FD1ED5 /* Inter-ExtraBold.ttf */,
+				5370DFC22848FE6500FD1ED5 /* Inter-ExtraLight.ttf */,
+				5370DFC42848FE6500FD1ED5 /* Inter-Light.ttf */,
+				5370DFC02848FE6500FD1ED5 /* Inter-Medium.ttf */,
+				5370DFBF2848FE6500FD1ED5 /* Inter-Regular.ttf */,
+				5370DFC32848FE6500FD1ED5 /* Inter-SemiBold.ttf */,
+				5370DFC72848FE6500FD1ED5 /* Inter-Thin.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		6216E07F2848ED2A0019747D /* Reusables */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +175,7 @@
 		62CFEE1F283E574600E909AA /* homepoint */ = {
 			isa = PBXGroup;
 			children = (
+				5370DFBD2848FE4B00FD1ED5 /* Resources */,
 				62FCC0FD283E65EC00BF79E2 /* Coordinator */,
 				62FCC0F1283E616100BF79E2 /* Features */,
 				62FCC0F9283E621400BF79E2 /* Domain */,
@@ -363,11 +406,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				62FCC0E9283E5BA500BF79E2 /* ExampleTableViewCell.xib in Resources */,
+				5370DFCB2848FE6500FD1ED5 /* Inter-ExtraLight.ttf in Resources */,
+				5370DFCA2848FE6500FD1ED5 /* Inter-Black.ttf in Resources */,
+				5370DFCF2848FE6500FD1ED5 /* Inter-ExtraBold.ttf in Resources */,
+				5370DFCE2848FE6500FD1ED5 /* Inter-Bold.ttf in Resources */,
+				5370DFCC2848FE6500FD1ED5 /* Inter-SemiBold.ttf in Resources */,
 				6216E0862848ED4D0019747D /* LargeProductCardViewCell.xib in Resources */,
 				62CFEE2D283E574A00E909AA /* LaunchScreen.storyboard in Resources */,
+				5370DFD02848FE6500FD1ED5 /* Inter-Thin.ttf in Resources */,
 				6216E0882848ED4D0019747D /* SmallProductCardViewCell.xib in Resources */,
+				5370DFC92848FE6500FD1ED5 /* Inter-Medium.ttf in Resources */,
 				62FCC0D7283E59CA00BF79E2 /* ViewController.xib in Resources */,
 				62CFEE2A283E574A00E909AA /* Assets.xcassets in Resources */,
+				5370DFCD2848FE6500FD1ED5 /* Inter-Light.ttf in Resources */,
+				5370DFC82848FE6500FD1ED5 /* Inter-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
