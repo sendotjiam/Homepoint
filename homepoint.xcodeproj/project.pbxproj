@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		6216E07A2848EC780019747D /* Font+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216E0782848EC780019747D /* Font+Ext.swift */; };
 		6216E07B2848EC780019747D /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216E0792848EC780019747D /* Color+Ext.swift */; };
+		6216E0852848ED4D0019747D /* SmallProductCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216E0812848ED4D0019747D /* SmallProductCardViewCell.swift */; };
+		6216E0862848ED4D0019747D /* LargeProductCardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6216E0822848ED4D0019747D /* LargeProductCardViewCell.xib */; };
+		6216E0872848ED4D0019747D /* LargeProductCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216E0832848ED4D0019747D /* LargeProductCardViewCell.swift */; };
+		6216E0882848ED4D0019747D /* SmallProductCardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6216E0842848ED4D0019747D /* SmallProductCardViewCell.xib */; };
 		626A1D1428465BE500B2DA8A /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626A1D1328465BE500B2DA8A /* UIView+Ext.swift */; };
 		626A1D17284660A100B2DA8A /* LargeProductCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626A1D15284660A100B2DA8A /* LargeProductCardViewCell.swift */; };
 		626A1D18284660A100B2DA8A /* LargeProductCardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 626A1D16284660A100B2DA8A /* LargeProductCardViewCell.xib */; };
@@ -37,6 +41,10 @@
 		34D91DF7C9A9C7D91F2D44A3 /* Pods-homepoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homepoint.release.xcconfig"; path = "Target Support Files/Pods-homepoint/Pods-homepoint.release.xcconfig"; sourceTree = "<group>"; };
 		6216E0782848EC780019747D /* Font+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Font+Ext.swift"; sourceTree = "<group>"; };
 		6216E0792848EC780019747D /* Color+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
+		6216E0812848ED4D0019747D /* SmallProductCardViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallProductCardViewCell.swift; sourceTree = "<group>"; };
+		6216E0822848ED4D0019747D /* LargeProductCardViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LargeProductCardViewCell.xib; sourceTree = "<group>"; };
+		6216E0832848ED4D0019747D /* LargeProductCardViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeProductCardViewCell.swift; sourceTree = "<group>"; };
+		6216E0842848ED4D0019747D /* SmallProductCardViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallProductCardViewCell.xib; sourceTree = "<group>"; };
 		626A1D1328465BE500B2DA8A /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		626A1D15284660A100B2DA8A /* LargeProductCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeProductCardViewCell.swift; sourceTree = "<group>"; };
 		626A1D16284660A100B2DA8A /* LargeProductCardViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LargeProductCardViewCell.xib; sourceTree = "<group>"; };
@@ -102,6 +110,25 @@
 				62BECBDB2845BDAC00E5E374 /* SmallProductCardViewCell.xib */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		6216E07F2848ED2A0019747D /* Reusables */ = {
+			isa = PBXGroup;
+			children = (
+				6216E0802848ED300019747D /* ProductCard */,
+			);
+			path = Reusables;
+			sourceTree = "<group>";
+		};
+		6216E0802848ED300019747D /* ProductCard */ = {
+			isa = PBXGroup;
+			children = (
+				6216E0832848ED4D0019747D /* LargeProductCardViewCell.swift */,
+				6216E0822848ED4D0019747D /* LargeProductCardViewCell.xib */,
+				6216E0812848ED4D0019747D /* SmallProductCardViewCell.swift */,
+				6216E0842848ED4D0019747D /* SmallProductCardViewCell.xib */,
+			);
+			path = ProductCard;
 			sourceTree = "<group>";
 		};
 		62CFEE14283E574600E909AA = {
@@ -186,6 +213,7 @@
 		62FCC0F1283E616100BF79E2 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				6216E07F2848ED2A0019747D /* Reusables */,
 				62FCC0F2283E616B00BF79E2 /* Example */,
 			);
 			path = Features;
@@ -356,7 +384,9 @@
 			files = (
 				626A1D18284660A100B2DA8A /* LargeProductCardViewCell.xib in Resources */,
 				62FCC0E9283E5BA500BF79E2 /* ExampleTableViewCell.xib in Resources */,
+				6216E0862848ED4D0019747D /* LargeProductCardViewCell.xib in Resources */,
 				62CFEE2D283E574A00E909AA /* LaunchScreen.storyboard in Resources */,
+				6216E0882848ED4D0019747D /* SmallProductCardViewCell.xib in Resources */,
 				62FCC0D7283E59CA00BF79E2 /* ViewController.xib in Resources */,
 				62BECBDD2845BDAC00E5E374 /* SmallProductCardViewCell.xib in Resources */,
 				62CFEE2A283E574A00E909AA /* Assets.xcassets in Resources */,
@@ -412,6 +442,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6216E0872848ED4D0019747D /* LargeProductCardViewCell.swift in Sources */,
+				6216E0852848ED4D0019747D /* SmallProductCardViewCell.swift in Sources */,
 				62FCC0E3283E5B6C00BF79E2 /* String+Ext.swift in Sources */,
 				62FCC0E1283E5B5400BF79E2 /* Constants.swift in Sources */,
 				626A1D17284660A100B2DA8A /* LargeProductCardViewCell.swift in Sources */,
