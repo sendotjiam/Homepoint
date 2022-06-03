@@ -91,7 +91,6 @@ extension UIViewController {
             guard let action = action else {return}
             let btn = UIButton(type: .custom)
             btn.setImage(image, for: .normal)
-            btn.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
             btn.addTarget(self, action: action, for: .touchUpInside)
             btn.widthAnchor.constraint(equalToConstant: 22).isActive = true
             btn.heightAnchor.constraint(equalToConstant: 22).isActive = true
@@ -114,7 +113,6 @@ extension UIViewController {
     private func addBackButton() {
         let btn = UIButton(type: .custom)
         btn.setImage(UIImage(named: "ic_left.arrow"), for: .normal)
-        btn.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
         btn.addTarget(self, action: #selector(backTapped(sender:)), for: .touchUpInside)
         btn.widthAnchor.constraint(equalToConstant: 22).isActive = true
         btn.heightAnchor.constraint(equalToConstant: 18).isActive = true
@@ -122,17 +120,32 @@ extension UIViewController {
         navigationItem.setLeftBarButton(item, animated: false)
     }
     
+    private func addLikeButton() {
+        let btn = UIButton(type: .custom)
+        btn.setImage(UIImage(named: "ic_left.arrow"), for: .normal)
+        btn.addTarget(self, action: #selector(likeTapped(sender:)), for: .touchUpInside)
+        btn.widthAnchor.constraint(equalToConstant: 22).isActive = true
+        btn.heightAnchor.constraint(equalToConstant: 22).isActive = true
+        let item = UIBarButtonItem(customView: btn)
+        navigationItem.setRightBarButton(item, animated: false)
+    }
+    
     func setNavigationBar(type: NavigationBarType) {
         setDefaultNavigationBar()
         switch type {
         case .hidden:
-            navigationController?.setNavigationBarHidden(true, animated: false)
+            navigationController?
+                .setNavigationBarHidden(true, animated: false)
         case .backAndTitle(let title):
             addStatusBar(.blue)
             addBackButton()
             addTitle(title ?? "")
         case .backTitleAndLike(let title):
-            break
+            addStatusBar(.blue)
+            addBackButton()
+            addLikeButton()
+            addSearchBar()
+            addTitle(title ?? "")
         case .backSearchAndCart:
             addStatusBar(.blue)
             addBackButton()

@@ -16,7 +16,7 @@ class ViewController2: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setNavigationBar(type: .backAndTitle(title: "Keranjang"))
+        setNavigationBar(type: .backTitleAndLike(title: "Keranjang"))
         if #available(iOS 11.0, *) {
             navigationController?.view.layoutSubviews()
         }
