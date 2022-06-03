@@ -32,17 +32,13 @@ extension UIViewController {
     private func setDefaultNavigationBar() {
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
-        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.backgroundColor = .blue
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.barTintColor = .blue
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationItem.leftBarButtonItem = nil
-
-//        navigationController?.navigationBar.titleTextAttributes = [
-//            NSAttributedString.Key.font:
-//        ]
     }
     
     private func addStatusBar(_ color: UIColor) {
