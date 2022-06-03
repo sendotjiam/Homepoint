@@ -14,4 +14,13 @@ final class ViewController: UIViewController {
         view.backgroundColor = .red
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNavigationBar(type: .defaultNav)
+    }
+    
+    @IBAction func tap(_ sender: UIButton) {
+        navigationController?.pushViewController(ViewController2(), animated: true)
+        
+    }
 }

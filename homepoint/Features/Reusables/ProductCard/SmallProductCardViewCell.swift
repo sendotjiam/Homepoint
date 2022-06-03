@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SmallProductCardViewCell: UICollectionViewCell {
+final class SmallProductCardViewCell: UICollectionViewCell {
 
     // MARK: - Outlets
     @IBOutlet weak var containerView : UIView!
