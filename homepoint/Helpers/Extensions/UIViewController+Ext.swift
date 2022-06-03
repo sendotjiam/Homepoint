@@ -12,7 +12,7 @@ enum NavigationBarType {
     case hidden
     case backSearchAndCart
     case backAndTitle(title: String?)
-    case backTitleAndLike(title: String?)
+    case backTitleAndLike(title: String?, isFavorite: Bool = false)
 }
 
 enum NavigationBarRightItemType {
@@ -25,20 +25,22 @@ protocol NavigationItemHandler {
     func cartTapped(sender: UIBarButtonItem)
     func notificationTapped(sender: UIBarButtonItem)
     func likeTapped(sender: UIBarButtonItem)
-    func backTapped(sender: UIBarButtonItem)
 }
 
-extension UIViewController {
+
+extension UIViewController  {
+    
     private func setDefaultNavigationBar() {
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.backgroundColor = .blue
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.barTintColor = .blue
+        navigationController?.navigationBar.backgroundColor = ColorCollection.blueColor.value
+        navigationController?.navigationBar.tintColor = ColorCollection.whiteColor.value
+        navigationController?.navigationBar.barTintColor = ColorCollection.blueColor.value
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationItem.leftBarButtonItem = nil
+        navigationController?.navigationBar.topItem?.backButtonTitle = ""
     }
     
     private func addStatusBar(_ color: UIColor) {
@@ -56,7 +58,7 @@ extension UIViewController {
         searchBar.sizeToFit()
         searchBar.placeholder = "Search"
         if let searchField = searchBar.value(forKey: "searchField") as? UITextField {
-            searchField.backgroundColor = .white
+            searchField.backgroundColor = ColorCollection.whiteColor.value
         }
         navigationItem.titleView = searchBar
     }
@@ -64,7 +66,8 @@ extension UIViewController {
     private func addTitle(_ title: String) {
         let label = UILabel()
         label.text = title
-        label.textColor = .white
+        label.font = UIFont.font(type: .semiBold, size: 16)
+        label.textColor = ColorCollection.whiteColor.value
         navigationItem.titleView = label
     }
     
@@ -105,23 +108,18 @@ extension UIViewController {
         let items = UIBarButtonItem(customView: stack)
         navigationItem.setRightBarButtonItems([items], animated: false)
     }
-    
-    private func addBackButton() {
+
+    private func addLikeButton(_ isFavorite: Bool) {
         let btn = UIButton(type: .custom)
-        btn.setImage(UIImage(named: "ic_left.arrow"), for: .normal)
-        btn.addTarget(self, action: #selector(backTapped(sender:)), for: .touchUpInside)
-        btn.widthAnchor.constraint(equalToConstant: 22).isActive = true
-        btn.heightAnchor.constraint(equalToConstant: 18).isActive = true
-        let item = UIBarButtonItem(customView: btn)
-        navigationItem.setLeftBarButton(item, animated: false)
-    }
-    
-    private func addLikeButton() {
-        let btn = UIButton(type: .custom)
-        btn.setImage(UIImage(named: "ic_left.arrow"), for: .normal)
+        btn.setImage(
+            isFavorite
+            ? UIImage(named: "ic_heart.fill")
+            : UIImage(named: "ic_heart"),
+            for: .normal
+        )
         btn.addTarget(self, action: #selector(likeTapped(sender:)), for: .touchUpInside)
-        btn.widthAnchor.constraint(equalToConstant: 22).isActive = true
-        btn.heightAnchor.constraint(equalToConstant: 22).isActive = true
+        btn.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        btn.heightAnchor.constraint(equalToConstant: 20).isActive = true
         let item = UIBarButtonItem(customView: btn)
         navigationItem.setRightBarButton(item, animated: false)
     }
@@ -134,21 +132,18 @@ extension UIViewController {
                 .setNavigationBarHidden(true, animated: false)
         case .backAndTitle(let title):
             addStatusBar(.blue)
-            addBackButton()
             addTitle(title ?? "")
-        case .backTitleAndLike(let title):
-            addStatusBar(.blue)
-            addBackButton()
-            addLikeButton()
+        case .backTitleAndLike(let title, let isFavorite):
+            addStatusBar(ColorCollection.blueColor.value)
+            addLikeButton(isFavorite)
             addSearchBar()
             addTitle(title ?? "")
         case .backSearchAndCart:
-            addStatusBar(.blue)
-            addBackButton()
+            addStatusBar(ColorCollection.blueColor.value)
             addSearchBar()
             addRightBarButtonItems([.cart])
         default:
-            addStatusBar(.blue)
+            addStatusBar(ColorCollection.blueColor.value)
             addSearchBar()
             addRightBarButtonItems([.cart, .notification])
         }
@@ -164,9 +159,6 @@ extension UIViewController : NavigationItemHandler {
     }
     @objc func likeTapped(sender: UIBarButtonItem) {
         print("LIKED")
-    }
-    @objc func backTapped(sender: UIBarButtonItem) {
-        self.navigationController?.popViewController(animated: true)
     }
 }
 
