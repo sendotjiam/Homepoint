@@ -23,10 +23,9 @@
 		6216E0872848ED4D0019747D /* LargeProductCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216E0832848ED4D0019747D /* LargeProductCardViewCell.swift */; };
 		6216E0882848ED4D0019747D /* SmallProductCardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6216E0842848ED4D0019747D /* SmallProductCardViewCell.xib */; };
 		626A1D1428465BE500B2DA8A /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626A1D1328465BE500B2DA8A /* UIView+Ext.swift */; };
-		626A1D17284660A100B2DA8A /* LargeProductCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626A1D15284660A100B2DA8A /* LargeProductCardViewCell.swift */; };
-		626A1D18284660A100B2DA8A /* LargeProductCardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 626A1D16284660A100B2DA8A /* LargeProductCardViewCell.xib */; };
-		62BECBDC2845BDAC00E5E374 /* SmallProductCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BECBDA2845BDAC00E5E374 /* SmallProductCardViewCell.swift */; };
-		62BECBDD2845BDAC00E5E374 /* SmallProductCardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62BECBDB2845BDAC00E5E374 /* SmallProductCardViewCell.xib */; };
+		62759B81284A52AD00622184 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62759B7F284A52AD00622184 /* SearchViewController.swift */; };
+		62759B82284A52AD00622184 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62759B80284A52AD00622184 /* SearchViewController.xib */; };
+		62A33F04284B5E0500D030F8 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A33F03284B5E0500D030F8 /* CustomSearchBar.swift */; };
 		62CA2D312847989200389230 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CA2D302847989200389230 /* UIViewController+Ext.swift */; };
 		62CA2D342847AEA200389230 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CA2D322847AEA200389230 /* ViewController2.swift */; };
 		62CA2D352847AEA200389230 /* ViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62CA2D332847AEA200389230 /* ViewController2.xib */; };
@@ -67,10 +66,9 @@
 		6216E0832848ED4D0019747D /* LargeProductCardViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeProductCardViewCell.swift; sourceTree = "<group>"; };
 		6216E0842848ED4D0019747D /* SmallProductCardViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallProductCardViewCell.xib; sourceTree = "<group>"; };
 		626A1D1328465BE500B2DA8A /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
-		626A1D15284660A100B2DA8A /* LargeProductCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeProductCardViewCell.swift; sourceTree = "<group>"; };
-		626A1D16284660A100B2DA8A /* LargeProductCardViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LargeProductCardViewCell.xib; sourceTree = "<group>"; };
-		62BECBDA2845BDAC00E5E374 /* SmallProductCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallProductCardViewCell.swift; sourceTree = "<group>"; };
-		62BECBDB2845BDAC00E5E374 /* SmallProductCardViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SmallProductCardViewCell.xib; sourceTree = "<group>"; };
+		62759B7F284A52AD00622184 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		62759B80284A52AD00622184 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		62A33F03284B5E0500D030F8 /* CustomSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		62CA2D302847989200389230 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		62CA2D322847AEA200389230 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		62CA2D332847AEA200389230 /* ViewController2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController2.xib; sourceTree = "<group>"; };
@@ -152,6 +150,7 @@
 		6216E07F2848ED2A0019747D /* Reusables */ = {
 			isa = PBXGroup;
 			children = (
+				62A33F02284B5DC400D030F8 /* SearchBar */,
 				6216E0802848ED300019747D /* ProductCard */,
 			);
 			path = Reusables;
@@ -166,6 +165,23 @@
 				6216E0842848ED4D0019747D /* SmallProductCardViewCell.xib */,
 			);
 			path = ProductCard;
+			sourceTree = "<group>";
+		};
+		62759B7E284A523300622184 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				62759B7F284A52AD00622184 /* SearchViewController.swift */,
+				62759B80284A52AD00622184 /* SearchViewController.xib */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		62A33F02284B5DC400D030F8 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				62A33F03284B5E0500D030F8 /* CustomSearchBar.swift */,
+			);
+			path = SearchBar;
 			sourceTree = "<group>";
 		};
 		62CFEE14283E574600E909AA = {
@@ -251,6 +267,7 @@
 		62FCC0F1283E616100BF79E2 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				62759B7E284A523300622184 /* Search */,
 				6216E07F2848ED2A0019747D /* Reusables */,
 				62FCC0F2283E616B00BF79E2 /* Example */,
 			);
@@ -437,6 +454,7 @@
 				62CFEE2A283E574A00E909AA /* Assets.xcassets in Resources */,
 				62CA2D352847AEA200389230 /* ViewController2.xib in Resources */,
 				5370DFCD2848FE6500FD1ED5 /* Inter-Light.ttf in Resources */,
+				62759B82284A52AD00622184 /* SearchViewController.xib in Resources */,
 				5370DFC82848FE6500FD1ED5 /* Inter-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,9 +518,11 @@
 				626A1D1428465BE500B2DA8A /* UIView+Ext.swift in Sources */,
 				62FCC0F0283E5BFA00BF79E2 /* ApiClient.swift in Sources */,
 				62FCC105283E668000BF79E2 /* ExampleUseCase.swift in Sources */,
+				62759B81284A52AD00622184 /* SearchViewController.swift in Sources */,
 				62FCC0DB283E5AE600BF79E2 /* ExampleViewModel.swift in Sources */,
 				62FCC109283E66DE00BF79E2 /* ExampleRepositoryInterface.swift in Sources */,
 				62FCC103283E666200BF79E2 /* ExampleResponse.swift in Sources */,
+				62A33F04284B5E0500D030F8 /* CustomSearchBar.swift in Sources */,
 				62CA2D342847AEA200389230 /* ViewController2.swift in Sources */,
 				6216E07A2848EC780019747D /* Font+Ext.swift in Sources */,
 				62FCC0FF283E660500BF79E2 /* MainCoordinator.swift in Sources */,
