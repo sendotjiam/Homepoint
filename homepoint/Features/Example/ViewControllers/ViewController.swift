@@ -20,7 +20,9 @@ final class ViewController: UIViewController {
     }
     
     @IBAction func tap(_ sender: UIButton) {
-        navigationController?.pushViewController(ViewController2(), animated: true)
-        
+        navigationController?.pushViewController(
+            ViewController2(),
+            animated: true
+        )
     }
 }

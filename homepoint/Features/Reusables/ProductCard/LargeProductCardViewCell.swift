@@ -9,8 +9,11 @@ import UIKit
 
 final class LargeProductCardViewCell: UICollectionViewCell {
 
+    static let identifier = "LargeProductCardViewCell"
+    
     // MARK: - Outlets
     @IBOutlet weak var containerView : UIView!
+    @IBOutlet weak var bottomView : UIView!
     @IBOutlet weak var imageView : UIImageView!
     @IBOutlet weak var nameLabel : UILabel!
     @IBOutlet weak var priceLabel : UILabel!
@@ -31,9 +34,10 @@ final class LargeProductCardViewCell: UICollectionViewCell {
 
 extension LargeProductCardViewCell {
     private func setupUI() {
+        containerView.clipsToBounds = true
         containerView.addBorder(
             width: 1,
-            color: .black
+            color: ColorCollection.ligthTextColor.value
         )
         containerView.roundedCorner(with: 8)
         containerView.dropShadow(
@@ -45,6 +49,10 @@ extension LargeProductCardViewCell {
     
     private func configureCell() {
         
+    }
+    
+    class func nib() -> UINib {
+        UINib(nibName: "LargeProductCardViewCell", bundle: nil)
     }
 }
 
