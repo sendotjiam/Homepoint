@@ -8,27 +8,39 @@
 import UIKit
 
 class WeeksItemViewCell: UICollectionViewCell {
+    
+    static let identifier = "WeeksItemViewCell"
+    
+    // MARK: - Outlets
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var uiView: UIView!
+    @IBOutlet weak var overlayView: UIView!
     
     var menu: WeeksMenuData? {
         didSet {
-            if let menu = menu {
-                setupItem(menu: menu)
-            }
+            configureCell()
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+}
 
-    func setupItem(menu: WeeksMenuData) {
+extension WeeksItemViewCell {
+    private func setupUI() {
+        setupOverlay()
+    }
+    
+    private func configureCell() {
+        guard let menu = menu else { return }
         imageView.image = menu.image
         imageView.layer.cornerRadius = 8
         label.text = menu.title
-        
+    }
+    
+    #warning("Ini ada masalah di overlaynya, klo di aktivin, dia nutupin border bottom")
+    private func setupOverlay() {
         let gradientLayer = CAGradientLayer()
 
         gradientLayer.colors = [
@@ -42,12 +54,11 @@ class WeeksItemViewCell: UICollectionViewCell {
         gradientLayer.startPoint = CGPoint(x: 0.25, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: 0.75, y: 0.5)
         gradientLayer.transform = CATransform3DMakeAffineTransform(CGAffineTransform(a: 0, b: 1, c: -1, d: 0, tx: 1, ty: 0))
-        gradientLayer.bounds = uiView.bounds.insetBy(dx: -0.5*uiView.bounds.size.width, dy: -0.5*uiView.bounds.size.height)
-        gradientLayer.position = uiView.center
-        gradientLayer.frame = CGRect(x: 0, y: 0, width: uiView.bounds.width, height: uiView.bounds.height)
-        uiView.layer.addSublayer(gradientLayer)
-        uiView.layer.cornerRadius = 8
+        gradientLayer.bounds = overlayView.bounds.insetBy(dx: -0.5*overlayView.bounds.size.width, dy: -0.5*overlayView.bounds.size.height)
+        gradientLayer.position = overlayView.center
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: overlayView.bounds.width, height: overlayView.bounds.height)
+        overlayView.layer.addSublayer(gradientLayer)
+        overlayView.layer.cornerRadius = 8
     }
-    
     class func nib() -> UINib { UINib(nibName: "WeeksItemViewCell", bundle: nil) }
 }

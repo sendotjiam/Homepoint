@@ -22,42 +22,70 @@ var dataWeeks: WeekMenuList = WeekMenuList([
 ])
 
 class WeeksViewCell: UITableViewCell {
+    
+    static let identifier = "WeeksViewCell"
+    
+    // MARK: - Outlets
     @IBOutlet weak var weeksCollectionView: UICollectionView!
+    
+    // MARK: - Data
     var weekMenus = dataWeeks
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupView()
+        setupUI()
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
-    func setupView() {
-        weeksCollectionView.delegate = self
-        weeksCollectionView.dataSource = self
-        
-        weeksCollectionView.register(WeeksItemViewCell.nib(), forCellWithReuseIdentifier: "WeeksItemViewCell")
-    }
-    
-    class func nib() -> UINib { UINib(nibName: "WeeksViewCell", bundle: nil) }
 }
 
-extension WeeksViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (collectionView.frame.size.width - 24) / 2
-        let height = 102 / 176 * width
+extension WeeksViewCell {
+    private func setupUI() {
+        selectionStyle = .none
+        weeksCollectionView.delegate = self
+        weeksCollectionView.dataSource = self
+        weeksCollectionView.register(
+            WeeksItemViewCell.nib(),
+            forCellWithReuseIdentifier: WeeksItemViewCell.identifier
+        )
+    }
+    
+    class func nib() -> UINib {
+        UINib(nibName: "WeeksViewCell", bundle: nil)
+    }
+}
+
+// MARK: - CollectionView
+extension WeeksViewCell:
+    UICollectionViewDelegate,
+    UICollectionViewDataSource,
+    UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        let width = (collectionView.frame.size.width - 60) / 2
+        let height = 82 / 156 * width
+        print(height)
         return CGSize(width: width, height: height)
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
         weekMenus.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: WeeksItemViewCell =  collectionView.dequeueReusableCell(withReuseIdentifier: "WeeksItemViewCell", for: indexPath) as! WeeksItemViewCell
-        cell.menu = weekMenus[indexPath.row]
-        return cell
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: WeeksItemViewCell.identifier,
+            for: indexPath
+        ) as? WeeksItemViewCell
+        cell?.menu = weekMenus[indexPath.row]
+        return cell ?? UICollectionViewCell()
     }
 }

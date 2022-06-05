@@ -10,17 +10,23 @@ import UIKit
 class HomeViewController: UIViewController {
     @IBOutlet weak var homeTableView: UITableView!
     
-    private enum section {
+    private enum SectionType {
         case menu, banner, weeks, bestOffer, recommendation
     }
     
-    private var sections: [section] = [.menu, .banner, .weeks,. bestOffer, .recommendation]
+    private var sections: [SectionType] = [
+        .menu,
+        .banner,
+        .weeks,
+        .bestOffer,
+        .recommendation
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
-
+    
     func setupView() {
         homeTableView.delegate = self
         homeTableView.dataSource = self
@@ -85,18 +91,22 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch sections[indexPath.section] {
+#warning("Ini jangan di pakein force cast !, pake ? aja")
+#warning("Kalo pake ! bahaya, bisa force close")
+#warning("Caranya kaya yg di case weeks")
         case .menu:
             let cell: MenuViewCell = tableView.dequeueReusableCell(withIdentifier: "MenuViewCell", for: indexPath) as! MenuViewCell
             cell.selectionStyle = .none
             return cell
+            
+            #warning("cell.selectionstyle jangan di set di view controller, setnya di viewcellnya aja. Untuk ngebikin UI viewcell itu bukan kerjaannya view controller")
         case .banner:
             let cell: MenuViewCell = tableView.dequeueReusableCell(withIdentifier: "MenuViewCell", for: indexPath) as! MenuViewCell
             cell.selectionStyle = .none
             return cell
         case .weeks:
-            let cell: WeeksViewCell = tableView.dequeueReusableCell(withIdentifier: "WeeksViewCell", for: indexPath) as! WeeksViewCell
-            cell.selectionStyle = .none
-            return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: WeeksViewCell.identifier, for: indexPath) as? WeeksViewCell
+            return cell ?? UITableViewCell()
         case .bestOffer:
             let cell: MenuViewCell = tableView.dequeueReusableCell(withIdentifier: "MenuViewCell", for: indexPath) as! MenuViewCell
             cell.selectionStyle = .none
