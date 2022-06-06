@@ -23,7 +23,7 @@ class CustomTabBarController: UITabBarController {
         let navVC = UINavigationController(rootViewController: vc)
         let navEx3 = UINavigationController(rootViewController: ex3)
         let navEx4 = UINavigationController(rootViewController: ex4)
-    
+        
         let titles = [
             "Beranda",
             "Wishlist",
@@ -63,8 +63,8 @@ extension CustomTabBarController {
     ) {
         tabBar.isTranslucent = false
         tabBar.backgroundColor = .white
-        tabBar.tintColor = .red
-        tabBar.barTintColor = .black
+        tabBar.tintColor = ColorCollection.primaryColor.value
+        tabBar.barTintColor = ColorCollection.primaryColor.value
         tabBar.layer.shadowColor = UIColor.black.cgColor
         tabBar.layer.shadowOpacity = 0.2
         tabBar.layer.shadowRadius = 4
@@ -82,7 +82,7 @@ extension CustomTabBarController {
             navControllers,
             animated: false
         )
-        self.selectedIndex = 2
+        self.selectedIndex = 0
         hidesBottomBarWhenPushed = true
     }
 }
@@ -91,6 +91,7 @@ class A : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        setNavigationBar(type: .defaultNav)
     }
 }
 
