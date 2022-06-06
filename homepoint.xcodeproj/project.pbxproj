@@ -29,12 +29,8 @@
 		62CA2D312847989200389230 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CA2D302847989200389230 /* UIViewController+Ext.swift */; };
 		62CA2D342847AEA200389230 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CA2D322847AEA200389230 /* ViewController2.swift */; };
 		62CA2D352847AEA200389230 /* ViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62CA2D332847AEA200389230 /* ViewController2.xib */; };
+		0CCF3771BED121A006E5D51E /* Pods_homepoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0E8809F628FAD52737A563 /* Pods_homepoint.framework */; };
 		62BECBE12845C47C00E5E374 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BECBE02845C47C00E5E374 /* CustomTabBarController.swift */; };
-		62BECBE52845C51B00E5E374 /* ExViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BECBE32845C51B00E5E374 /* ExViewController2.swift */; };
-		62BECBE62845C51B00E5E374 /* ExViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62BECBE42845C51B00E5E374 /* ExViewController2.xib */; };
-		62BECBEA2845C53100E5E374 /* ExViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BECBE82845C53100E5E374 /* ExViewController1.swift */; };
-		62BECBEB2845C53100E5E374 /* ExViewController1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62BECBE92845C53100E5E374 /* ExViewController1.xib */; };
-		62BECBED2845EE7D00E5E374 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BECBEC2845EE7D00E5E374 /* CustomTabBar.swift */; };
 		62CFEE21283E574600E909AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CFEE20283E574600E909AA /* AppDelegate.swift */; };
 		62CFEE2A283E574A00E909AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CFEE29283E574A00E909AA /* Assets.xcassets */; };
 		62CFEE2D283E574A00E909AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62CFEE2B283E574A00E909AA /* LaunchScreen.storyboard */; };
@@ -51,7 +47,6 @@
 		62FCC105283E668000BF79E2 /* ExampleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC104283E668000BF79E2 /* ExampleUseCase.swift */; };
 		62FCC109283E66DE00BF79E2 /* ExampleRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC108283E66DE00BF79E2 /* ExampleRepositoryInterface.swift */; };
 		62FCC10C283E6B2C00BF79E2 /* ExampleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC10B283E6B2C00BF79E2 /* ExampleRepository.swift */; };
-		8BAB4B4F966DD6349029E2F1 /* Pods_homepoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917D9AE6C7ECA095AA9F8E72 /* Pods_homepoint.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,11 +74,6 @@
 		62CA2D322847AEA200389230 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		62CA2D332847AEA200389230 /* ViewController2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController2.xib; sourceTree = "<group>"; };
 		62BECBE02845C47C00E5E374 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
-		62BECBE32845C51B00E5E374 /* ExViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExViewController2.swift; sourceTree = "<group>"; };
-		62BECBE42845C51B00E5E374 /* ExViewController2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExViewController2.xib; sourceTree = "<group>"; };
-		62BECBE82845C53100E5E374 /* ExViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExViewController1.swift; sourceTree = "<group>"; };
-		62BECBE92845C53100E5E374 /* ExViewController1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExViewController1.xib; sourceTree = "<group>"; };
-		62BECBEC2845EE7D00E5E374 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		62CFEE1D283E574600E909AA /* homepoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = homepoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62CFEE20283E574600E909AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62CFEE29283E574A00E909AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,8 +92,9 @@
 		62FCC104283E668000BF79E2 /* ExampleUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUseCase.swift; sourceTree = "<group>"; };
 		62FCC108283E66DE00BF79E2 /* ExampleRepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleRepositoryInterface.swift; sourceTree = "<group>"; };
 		62FCC10B283E6B2C00BF79E2 /* ExampleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleRepository.swift; sourceTree = "<group>"; };
-		71B8233A6E5C61E2779F9BAE /* Pods-homepoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homepoint.debug.xcconfig"; path = "Target Support Files/Pods-homepoint/Pods-homepoint.debug.xcconfig"; sourceTree = "<group>"; };
-		917D9AE6C7ECA095AA9F8E72 /* Pods_homepoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_homepoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		83389AE632A5ADCFCF3E3FFB /* Pods-homepoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homepoint.debug.xcconfig"; path = "Target Support Files/Pods-homepoint/Pods-homepoint.debug.xcconfig"; sourceTree = "<group>"; };
+		B3ADEAACF3313B02500F1B9F /* Pods-homepoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homepoint.release.xcconfig"; path = "Target Support Files/Pods-homepoint/Pods-homepoint.release.xcconfig"; sourceTree = "<group>"; };
+		CB0E8809F628FAD52737A563 /* Pods_homepoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_homepoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BAB4B4F966DD6349029E2F1 /* Pods_homepoint.framework in Frameworks */,
+				0CCF3771BED121A006E5D51E /* Pods_homepoint.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,8 +112,8 @@
 		00E7DDD7BD0E49B5DB94BBD5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				71B8233A6E5C61E2779F9BAE /* Pods-homepoint.debug.xcconfig */,
-				34D91DF7C9A9C7D91F2D44A3 /* Pods-homepoint.release.xcconfig */,
+				83389AE632A5ADCFCF3E3FFB /* Pods-homepoint.debug.xcconfig */,
+				B3ADEAACF3313B02500F1B9F /* Pods-homepoint.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -201,7 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				62BECBE02845C47C00E5E374 /* CustomTabBarController.swift */,
-				62BECBEC2845EE7D00E5E374 /* CustomTabBar.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -212,7 +202,7 @@
 				62CFEE1F283E574600E909AA /* homepoint */,
 				62CFEE1E283E574600E909AA /* Products */,
 				00E7DDD7BD0E49B5DB94BBD5 /* Pods */,
-				454110867A4929A210407661 /* Frameworks */,
+				73F6C806D3CF069601BCD557 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -405,6 +395,14 @@
 			path = Repositories;
 			sourceTree = "<group>";
 		};
+		73F6C806D3CF069601BCD557 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CB0E8809F628FAD52737A563 /* Pods_homepoint.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -412,11 +410,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 62CFEE31283E574A00E909AA /* Build configuration list for PBXNativeTarget "homepoint" */;
 			buildPhases = (
-				98595184C14FD31E77476CC5 /* [CP] Check Pods Manifest.lock */,
+				415AEE02A3BF253D781BAD86 /* [CP] Check Pods Manifest.lock */,
 				62CFEE19283E574600E909AA /* Sources */,
 				62CFEE1A283E574600E909AA /* Frameworks */,
 				62CFEE1B283E574600E909AA /* Resources */,
-				EE466B700E376FEE6880941A /* [CP] Embed Pods Frameworks */,
+				BC61DF2CFF1ABF8650E5542F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -477,8 +475,6 @@
 				6216E0882848ED4D0019747D /* SmallProductCardViewCell.xib in Resources */,
 				5370DFC92848FE6500FD1ED5 /* Inter-Medium.ttf in Resources */,
 				62FCC0D7283E59CA00BF79E2 /* ViewController.xib in Resources */,
-				62BECBEB2845C53100E5E374 /* ExViewController1.xib in Resources */,
-				62BECBE62845C51B00E5E374 /* ExViewController2.xib in Resources */,
 				62CFEE2A283E574A00E909AA /* Assets.xcassets in Resources */,
 				62CA2D352847AEA200389230 /* ViewController2.xib in Resources */,
 				5370DFCD2848FE6500FD1ED5 /* Inter-Light.ttf in Resources */,
@@ -490,7 +486,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		98595184C14FD31E77476CC5 /* [CP] Check Pods Manifest.lock */ = {
+		415AEE02A3BF253D781BAD86 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -512,7 +508,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EE466B700E376FEE6880941A /* [CP] Embed Pods Frameworks */ = {
+		BC61DF2CFF1ABF8650E5542F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -556,7 +552,6 @@
 				6216E07A2848EC780019747D /* Font+Ext.swift in Sources */,
 				62BECBEA2845C53100E5E374 /* ExViewController1.swift in Sources */,
 				62FCC109283E66DE00BF79E2 /* ExampleRepositoryInterface.swift in Sources */,
-				62BECBE52845C51B00E5E374 /* ExViewController2.swift in Sources */,
 				62FCC103283E666200BF79E2 /* ExampleResponse.swift in Sources */,
 				62BECBE12845C47C00E5E374 /* CustomTabBarController.swift in Sources */,
 				62FCC0FF283E660500BF79E2 /* MainCoordinator.swift in Sources */,
@@ -698,7 +693,7 @@
 		};
 		62CFEE32283E574A00E909AA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 71B8233A6E5C61E2779F9BAE /* Pods-homepoint.debug.xcconfig */;
+			baseConfigurationReference = 83389AE632A5ADCFCF3E3FFB /* Pods-homepoint.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -727,7 +722,7 @@
 		};
 		62CFEE33283E574A00E909AA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 34D91DF7C9A9C7D91F2D44A3 /* Pods-homepoint.release.xcconfig */;
+			baseConfigurationReference = B3ADEAACF3313B02500F1B9F /* Pods-homepoint.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
