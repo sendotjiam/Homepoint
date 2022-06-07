@@ -16,29 +16,29 @@ final class OrderFilterViewCell: UITableViewCell {
     
     var data : [OrderFilterItemCellModel] = [
         OrderFilterItemCellModel(
-            "Pembayaran",
-            "ic_wallet",
-            true
+            title: "Bayar",
+            imageUrl: "ic_wallet",
+            isSelected: true
         ),
         OrderFilterItemCellModel(
-            "Dikemas",
-            "ic_packed",
-            false
+            title: "Dikemas",
+            imageUrl: "ic_packed",
+            isSelected: false
         ),
         OrderFilterItemCellModel(
-            "Dikirim",
-            "ic_deliver",
-            false
+            title: "Dikirim",
+            imageUrl: "ic_deliver",
+            isSelected: false
         ),
         OrderFilterItemCellModel(
-            "Sampai",
-            "ic_arrived",
-            false
+            title: "Sampai",
+            imageUrl: "ic_arrived",
+            isSelected: false
         ),
         OrderFilterItemCellModel(
-            "Penilaian",
-            "ic_rating",
-            false
+            title: "Penilaian",
+            imageUrl: "ic_rating",
+            isSelected: false
         ),
     ]
     

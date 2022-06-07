@@ -22,7 +22,17 @@ class HistoryViewController: UIViewController {
     }
     
     // MARK: - Data
-    
+    /// Mock Data
+    private let orderListData = [
+        OrderListItemCellModel(title: "Barang Mantap", imageUrl: "", date: "20 Januari 2022", status: .finished, amount: 3, price: 90000),
+        OrderListItemCellModel(title: "Barang Mantap", imageUrl: "", date: "20 Januari 2022", status: .failed, amount: 3, price: 90000),
+        OrderListItemCellModel(title: "Barang Mantap", imageUrl: "", date: "20 Januari 2022", status: .unconfirm, amount: 3, price: 90000),
+        OrderListItemCellModel(title: "Barang Mantap", imageUrl: "", date: "20 Januari 2022", status: .unpaid, amount: 3, price: 90000),
+        OrderListItemCellModel(title: "Barang Mantap", imageUrl: "", date: "20 Januari 2022", status: .rated, amount: 3, price: 90000),
+        OrderListItemCellModel(title: "Barang Mantap", imageUrl: "", date: "20 Januari 2022", status: .sent, amount: 3, price: 90000),
+        OrderListItemCellModel(title: "Barang Mantap", imageUrl: "", date: "20 Januari 2022", status: .packed, amount: 3, price: 90000),
+        OrderListItemCellModel(title: "Barang Mantap", imageUrl: "", date: "20 Januari 2022", status: .arrived, amount: 3, price: 90000)
+    ]
     
     // MARK: - Variable
     private enum SegmentedType {
@@ -79,7 +89,7 @@ extension HistoryViewController :
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        10
+        orderListData.count
     }
     
     func tableView(
@@ -90,6 +100,7 @@ extension HistoryViewController :
             withIdentifier: OrderListViewCell.identifier,
             for: indexPath
         ) as? OrderListViewCell
+        cell?.data = orderListData[indexPath.row]
         return cell ?? UITableViewCell()
     }
 }

@@ -22,15 +22,21 @@ final class OrderListViewCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     
     // MARK: - Data
-    var data : [String: Any] = [:] {
+    var data : OrderListItemCellModel? {
         didSet { configureCell() }
     }
     
+    private typealias GenerateStatus = (
+        status: String,
+        textColor: UIColor,
+        viewColor: UIColor
+    )
+    
+    // MARK: - Life Cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
     }
-
 }
 
 extension OrderListViewCell {
@@ -52,7 +58,79 @@ extension OrderListViewCell {
     }
     
     private func configureCell() {
-        
+//        productImageView.image = UIImage(named: "")
+        guard let data = data else { return }
+        setupStatusView()
+        dateLabel.text = data.date
+        productNameLabel.text = data.title
+        productAmountLabel.text = "\(data.amount) Produk"
+        priceLabel.text = "Rp \(data.price)"
+    }
+    
+    private func setupStatusView() {
+        var status : GenerateStatus = ("", .white, .white)
+        switch data?.status {
+        case .finished:
+            status = generateStatus(
+                "Selesai",
+                ColorCollection.greenColor.value,
+                ColorCollection.lightGreenColor.value
+            )
+        case .failed:
+            status = generateStatus(
+                "Gagal",
+                ColorCollection.redColor.value,
+                ColorCollection.lightRedColor.value
+            )
+        case .unpaid:
+            status = generateStatus(
+                "Belum Dibayar",
+                ColorCollection.darkYellowColor.value,
+                ColorCollection.creamColor.value
+            )
+        case .packed:
+            status = generateStatus(
+                "Dikemas",
+                ColorCollection.maroonColor.value,
+                ColorCollection.pinkColor.value
+            )
+        case .sent:
+            status = generateStatus(
+                "Dikirim",
+                ColorCollection.darkGreenColor.value,
+                ColorCollection.cyanColor.value
+            )
+        case .arrived:
+            status = generateStatus(
+                "Barang Sampai",
+                ColorCollection.yellowColor.value,
+                ColorCollection.lightYellowColor.value
+            )
+        case .rated:
+            status = generateStatus(
+                "Beri Penilaian",
+                ColorCollection.purpleColor.value,
+                ColorCollection.lightPurpleColor.value
+            )
+        case .unconfirm:
+            status = generateStatus(
+                "Menunggu Konfirmasi",
+                ColorCollection.blueColor.value,
+                ColorCollection.ligthTextColor.value
+            )
+        default: break
+        }
+        statusLabel.text = status.status
+        statusLabel.textColor = status.textColor
+        statusView.backgroundColor = status.viewColor
+    }
+    
+    private func generateStatus(
+        _ status : String,
+        _ textColor : UIColor,
+        _ viewColor : UIColor
+    ) -> GenerateStatus {
+        return (status, textColor, viewColor)
     }
     
     class func nib() -> UINib {

@@ -12,14 +12,26 @@ class OrderListViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     
+    // MARK: - Data
     private enum SectionType {
         case orderFilter, orderList
     }
-    
     private let sections : [SectionType] = [
         .orderFilter, .orderList
     ]
+    /// Mock Data
+    private let orderListData = [
+        OrderListItemCellModel(title: "Barang Mantap", imageUrl: "", date: "20 Januari 2022", status: .finished, amount: 3, price: 90000),
+        OrderListItemCellModel(title: "Barang Mantap", imageUrl: "", date: "20 Januari 2022", status: .failed, amount: 3, price: 90000),
+        OrderListItemCellModel(title: "Barang Mantap", imageUrl: "", date: "20 Januari 2022", status: .unconfirm, amount: 3, price: 90000),
+        OrderListItemCellModel(title: "Barang Mantap", imageUrl: "", date: "20 Januari 2022", status: .unpaid, amount: 3, price: 90000),
+        OrderListItemCellModel(title: "Barang Mantap", imageUrl: "", date: "20 Januari 2022", status: .rated, amount: 3, price: 90000),
+        OrderListItemCellModel(title: "Barang Mantap", imageUrl: "", date: "20 Januari 2022", status: .sent, amount: 3, price: 90000),
+        OrderListItemCellModel(title: "Barang Mantap", imageUrl: "", date: "20 Januari 2022", status: .packed, amount: 3, price: 90000),
+        OrderListItemCellModel(title: "Barang Mantap", imageUrl: "", date: "20 Januari 2022", status: .arrived, amount: 3, price: 90000)
+    ]
     
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -68,12 +80,7 @@ extension OrderListViewController :
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        switch sections[section] {
-        case .orderFilter:
-            return 1
-        case .orderList:
-            return 10
-        }
+        return sections[section] == .orderFilter ? 1 : orderListData.count
     }
     
     func tableView(
@@ -93,6 +100,7 @@ extension OrderListViewController :
                 withIdentifier: OrderListViewCell.identifier,
                 for: indexPath
             ) as? OrderListViewCell
+            cellList?.data = orderListData[indexPath.row]
             cell = cellList ?? UITableViewCell()
         }
         return cell

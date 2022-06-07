@@ -7,21 +7,6 @@
 
 import UIKit
 
-final class OrderFilterItemCellModel {
-    let title : String
-    let imageUrl : String
-    var isSelected : Bool
-    
-    init(_ title: String,
-         _ imageUrl : String,
-         _ isSelected: Bool
-    ) {
-        self.title = title
-        self.imageUrl = imageUrl
-        self.isSelected = isSelected
-    }
-}
-
 final class OrderFilterItemViewCell: UICollectionViewCell {
 
     static let identifier = "OrderFilterItemViewCell"

@@ -21,7 +21,15 @@ enum ColorCollection {
     case grayTextColor
     case ligthTextColor
     case ligthestTextColor
-    case redColor
+    case redColor, lightRedColor
+    case greenColor, lightGreenColor
+    case purpleColor, lightPurpleColor
+    case yellowColor, lightYellowColor
+    case darkGreenColor
+    case maroonColor
+    case pinkColor
+    case darkYellowColor
+    case creamColor
 }
 
 extension ColorCollection {
@@ -54,6 +62,30 @@ extension ColorCollection {
                 return UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             case .redColor:
                 return UIColor(red: 0.938, green: 0.037, blue: 0.037, alpha: 1)
+            case .lightRedColor:
+                return UIColor(red: 0.988, green: 0.894, blue: 0.894, alpha: 1)
+            case .greenColor:
+                return UIColor(red: 0.078, green: 0.717, blue: 0.019, alpha: 1)
+            case .lightGreenColor:
+                return UIColor(red: 0.815, green: 1, blue: 0.749, alpha: 1)
+            case .purpleColor:
+                return UIColor(red: 0.015, green: 0.047, blue: 0.368, alpha: 1)
+            case .lightPurpleColor:
+                return UIColor(red: 0.768, green: 0.784, blue: 0.952, alpha: 1)
+            case .yellowColor:
+                return UIColor(red: 1, green: 0.768, blue: 0, alpha: 1)
+            case .lightYellowColor:
+                return UIColor(red: 0.992, green: 0.98, blue: 0.717, alpha: 1)
+            case .darkGreenColor:
+                return UIColor(red: 0, green: 0.486, blue: 0.427, alpha: 1)
+            case .maroonColor:
+                return UIColor(red: 0.588, green: 0.004, blue: 0.458, alpha: 1)
+            case .pinkColor:
+                return UIColor(red: 0.988, green: 0.894, blue: 0.968, alpha: 1)
+            case .darkYellowColor:
+                return UIColor(red: 0.839, green: 0.604, blue: 0.047, alpha: 1)
+            case .creamColor:
+                return UIColor(red: 1, green: 0.945, blue: 0.815, alpha: 1)
             }
         }
     }
