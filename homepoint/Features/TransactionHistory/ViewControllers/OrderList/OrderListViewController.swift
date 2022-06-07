@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HistoryViewController: UIViewController {
+class OrderListViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -27,12 +27,12 @@ class HistoryViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setNavigationBar(type: .backAndSearch)
+        setNavigationBar(type: .backSearchAndHistory)
     }
 
 }
 
-extension HistoryViewController {
+extension OrderListViewController {
     private func setupUI() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -48,7 +48,15 @@ extension HistoryViewController {
     }
 }
 
-extension HistoryViewController :
+// MARK: - NavigationBar
+extension OrderListViewController {
+    override func historyTapped(sender: UIBarButtonItem) {
+        navigationController?.pushViewController(HistoryViewController(), animated: true)
+    }
+}
+
+// MARK: - TableView
+extension OrderListViewController :
     UITableViewDelegate,
     UITableViewDataSource {
     
@@ -56,7 +64,10 @@ extension HistoryViewController :
         sections.count
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
         switch sections[section] {
         case .orderFilter:
             return 1
@@ -65,11 +76,13 @@ extension HistoryViewController :
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
         var cell : UITableViewCell = UITableViewCell()
         switch sections[indexPath.section] {
         case .orderFilter:
-            print("test")
             let cellFilter = tableView.dequeueReusableCell(
                 withIdentifier: OrderFilterViewCell.identifier,
                 for: indexPath

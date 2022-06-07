@@ -14,12 +14,14 @@ enum NavigationBarType {
     case backSearchAndCart
     case backAndTitle(title: String?)
     case backTitleAndLike(title: String?, isFavorite: Bool = false)
+    case backSearchAndHistory
 }
 
 enum NavigationBarRightItemType {
     case cart
     case notification
     case like
+    case history
 }
 
 protocol NavigationItemHandler {
@@ -27,6 +29,7 @@ protocol NavigationItemHandler {
     func notificationTapped(sender: UIBarButtonItem)
     func likeTapped(sender: UIBarButtonItem)
     func backTapped(sender: UIBarButtonItem)
+    func historyTapped(sender: UIBarButtonItem)
 }
 
 extension UIViewController  {
@@ -86,6 +89,9 @@ extension UIViewController  {
             case .like:
                 image = UIImage(named: "ic_cart")
                 action = #selector(cartTapped(sender:))
+            case .history:
+                image = UIImage(named: "ic_history")
+                action = #selector(historyTapped(sender:))
             }
             guard let action = action else {return}
             let btn = UIButton(type: .custom)
@@ -135,52 +141,51 @@ extension UIViewController  {
     }
     
     func setNavigationBar(type: NavigationBarType) {
+        addStatusBar(ColorCollection.blueColor.value)
         setDefaultNavigationBar()
         switch type {
         case .hidden:
             navigationController?.setNavigationBarHidden(true, animated: false)
         case .backAndTitle(let title):
-            addStatusBar(.blue)
             addBackButton()
             addTitle(title ?? "")
         case .backTitleAndLike(let title, let isFavorite):
-            addStatusBar(ColorCollection.blueColor.value)
             addLikeButton(isFavorite)
             addBackButton()
             addSearchBar()
             addTitle(title ?? "")
         case .backSearchAndCart:
-            addStatusBar(ColorCollection.blueColor.value)
             addBackButton()
             addSearchBar()
             addRightBarButtonItems([.cart])
         case .backAndSearch:
-            addStatusBar(ColorCollection.blueColor.value)
             addBackButton()
             addSearchBar()
+        case .backSearchAndHistory:
+            addBackButton()
+            addSearchBar()
+            addRightBarButtonItems([.history])
         default:
-            addStatusBar(ColorCollection.blueColor.value)
             addSearchBar()
             addRightBarButtonItems([.cart, .notification])
         }
     }
 }
 
+
+// MARK: - NavigationItem
 extension UIViewController : NavigationItemHandler {
-    @objc func cartTapped(sender: UIBarButtonItem) {
-        print("CART")
-    }
-    @objc func notificationTapped(sender: UIBarButtonItem) {
-        print("NOTIF")
-    }
-    @objc func likeTapped(sender: UIBarButtonItem) {
-        print("LIKED")
-    }
+    @objc func cartTapped(sender: UIBarButtonItem) {}
+    @objc func notificationTapped(sender: UIBarButtonItem) {}
+    @objc func likeTapped(sender: UIBarButtonItem) {}
+    @objc func historyTapped(sender: UIBarButtonItem) {}
     @objc func backTapped(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }
 }
 
+
+// MARK: - SearchBar
 extension UIViewController : UISearchBarDelegate{
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let query = searchBar.text else { return }
