@@ -17,7 +17,6 @@
 		5370DFCE2848FE6500FD1ED5 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFC52848FE6500FD1ED5 /* Inter-Bold.ttf */; };
 		5370DFCF2848FE6500FD1ED5 /* Inter-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFC62848FE6500FD1ED5 /* Inter-ExtraBold.ttf */; };
 		5370DFD02848FE6500FD1ED5 /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFC72848FE6500FD1ED5 /* Inter-Thin.ttf */; };
-		620F3EB92850784100C79F99 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620F3EB82850784000C79F99 /* CustomNavigationBar.swift */; };
 		6216E07A2848EC780019747D /* Font+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216E0782848EC780019747D /* Font+Ext.swift */; };
 		6216E07B2848EC780019747D /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216E0792848EC780019747D /* Color+Ext.swift */; };
 		6216E0852848ED4D0019747D /* SmallProductCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216E0812848ED4D0019747D /* SmallProductCardViewCell.swift */; };
@@ -74,7 +73,6 @@
 		5370DFC52848FE6500FD1ED5 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
 		5370DFC62848FE6500FD1ED5 /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
 		5370DFC72848FE6500FD1ED5 /* Inter-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Thin.ttf"; sourceTree = "<group>"; };
-		620F3EB82850784000C79F99 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		6216E0782848EC780019747D /* Font+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Font+Ext.swift"; sourceTree = "<group>"; };
 		6216E0792848EC780019747D /* Color+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 		6216E0812848ED4D0019747D /* SmallProductCardViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallProductCardViewCell.swift; sourceTree = "<group>"; };
@@ -169,14 +167,6 @@
 				5370DFC72848FE6500FD1ED5 /* Inter-Thin.ttf */,
 			);
 			path = Font;
-			sourceTree = "<group>";
-		};
-		620F3EB72850783100C79F99 /* NavigationBar */ = {
-			isa = PBXGroup;
-			children = (
-				620F3EB82850784000C79F99 /* CustomNavigationBar.swift */,
-			);
-			path = NavigationBar;
 			sourceTree = "<group>";
 		};
 		6216E07F2848ED2A0019747D /* Reusables */ = {
@@ -672,7 +662,6 @@
 				62CBAA6D284F4FFC00BD5EAC /* Utils.swift in Sources */,
 				62FCC0E3283E5B6C00BF79E2 /* String+Ext.swift in Sources */,
 				62FCC0E1283E5B5400BF79E2 /* Constants.swift in Sources */,
-				620F3EB92850784100C79F99 /* CustomNavigationBar.swift in Sources */,
 				62FCC10C283E6B2C00BF79E2 /* ExampleRepository.swift in Sources */,
 				62CBAA6A284F437C00BD5EAC /* HistoryViewController.swift in Sources */,
 				627A3901284CCE3B002ADC6B /* OrderListViewController.swift in Sources */,
