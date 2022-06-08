@@ -20,9 +20,11 @@ final class ViewController: UIViewController {
     }
     
     @IBAction func tap(_ sender: UIButton) {
+        self.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(
             ViewController2(),
             animated: true
         )
+        self.hidesBottomBarWhenPushed = false
     }
 }

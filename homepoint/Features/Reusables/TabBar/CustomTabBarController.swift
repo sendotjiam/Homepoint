@@ -12,7 +12,7 @@ class CustomTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let ex1 = A()
+        let ex1 = ViewController()
         let ex2 = B()
         let vc = C()
         let ex3 = D()
@@ -45,6 +45,7 @@ class CustomTabBarController: UITabBarController {
             UIImage(named: "ic_notes.selected"),
             UIImage(named: "ic_profile.selected")
         ]
+        
         setupTabBar(
             [navEx1, navEx3, navVC, navEx4, navEx2],
             titles,
@@ -83,22 +84,20 @@ extension CustomTabBarController {
             animated: false
         )
         self.selectedIndex = 0
-        hidesBottomBarWhenPushed = true
     }
 }
 
 class A : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        setNavigationBar(type: .defaultNav)
+        view.backgroundColor = .blue
     }
 }
 
 class B : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .red
     }
 }
 

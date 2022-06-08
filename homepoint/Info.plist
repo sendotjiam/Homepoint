@@ -14,5 +14,7 @@
 		<string>Inter-SemiBold.ttf</string>
 		<string>Inter-Thin.ttf</string>
 	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleDefault</string>
 </dict>
 </plist>

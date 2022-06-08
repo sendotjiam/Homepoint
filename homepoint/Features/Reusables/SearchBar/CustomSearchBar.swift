@@ -29,7 +29,6 @@ protocol NavigationItemHandler {
     func backTapped(sender: UIBarButtonItem)
 }
 
-
 extension UIViewController  {
     private func setDefaultNavigationBar() {
         navigationController?.setNavigationBarHidden(false, animated: true)
@@ -190,10 +189,12 @@ extension UIViewController : UISearchBarDelegate{
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let query = searchBar.text else { return }
         let searchVC = SearchViewController(query)
+        self.hidesBottomBarWhenPushed = true
         self.navigationController?
             .pushViewController(
                 searchVC, animated: false
             )
+        self.hidesBottomBarWhenPushed = false
     }
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {}
     public func cancelSearch() {
