@@ -31,9 +31,7 @@ protocol NavigationItemHandler {
 
 extension UIViewController  {
     private func setDefaultNavigationBar() {
-        navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
-        navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.backgroundColor = ColorCollection.blueColor.value
         navigationController?.navigationBar.tintColor = ColorCollection.whiteColor.value
@@ -55,7 +53,6 @@ extension UIViewController  {
     private func addSearchBar() {
         let searchBar = UISearchBar()
         searchBar.delegate = self
-        searchBar.sizeToFit()
         searchBar.placeholder = "Search"
         if let searchField = searchBar
             .value(forKey: "searchField") as? UITextField {
@@ -141,8 +138,7 @@ extension UIViewController  {
         setDefaultNavigationBar()
         switch type {
         case .hidden:
-            navigationController?
-                .setNavigationBarHidden(true, animated: false)
+            navigationController?.setNavigationBarHidden(true, animated: false)
         case .backAndTitle(let title):
             addStatusBar(.blue)
             addBackButton()
