@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CCF3771BED121A006E5D51E /* Pods_homepoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0E8809F628FAD52737A563 /* Pods_homepoint.framework */; };
 		5370DFC82848FE6500FD1ED5 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFBF2848FE6500FD1ED5 /* Inter-Regular.ttf */; };
 		5370DFC92848FE6500FD1ED5 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFC02848FE6500FD1ED5 /* Inter-Medium.ttf */; };
 		5370DFCA2848FE6500FD1ED5 /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFC12848FE6500FD1ED5 /* Inter-Black.ttf */; };
@@ -23,15 +24,13 @@
 		6216E0872848ED4D0019747D /* LargeProductCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216E0832848ED4D0019747D /* LargeProductCardViewCell.swift */; };
 		6216E0882848ED4D0019747D /* SmallProductCardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6216E0842848ED4D0019747D /* SmallProductCardViewCell.xib */; };
 		626A1D1428465BE500B2DA8A /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626A1D1328465BE500B2DA8A /* UIView+Ext.swift */; };
+		626F283A2850DC9600677122 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626F28392850DC9600677122 /* CustomTabBarController.swift */; };
 		62759B81284A52AD00622184 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62759B7F284A52AD00622184 /* SearchViewController.swift */; };
 		62759B82284A52AD00622184 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62759B80284A52AD00622184 /* SearchViewController.xib */; };
-		62802742284E3D9C005E5442 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62802741284E3D9C005E5442 /* CustomTabBarController.swift */; };
 		62A33F04284B5E0500D030F8 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A33F03284B5E0500D030F8 /* CustomNavigationBar.swift */; };
 		62CA2D312847989200389230 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CA2D302847989200389230 /* UIViewController+Ext.swift */; };
 		62CA2D342847AEA200389230 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CA2D322847AEA200389230 /* ViewController2.swift */; };
 		62CA2D352847AEA200389230 /* ViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62CA2D332847AEA200389230 /* ViewController2.xib */; };
-		0CCF3771BED121A006E5D51E /* Pods_homepoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0E8809F628FAD52737A563 /* Pods_homepoint.framework */; };
-		62BECBE12845C47C00E5E374 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BECBE02845C47C00E5E374 /* CustomTabBarController.swift */; };
 		62CFEE21283E574600E909AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CFEE20283E574600E909AA /* AppDelegate.swift */; };
 		62CFEE2A283E574A00E909AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CFEE29283E574A00E909AA /* Assets.xcassets */; };
 		62CFEE2D283E574A00E909AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62CFEE2B283E574A00E909AA /* LaunchScreen.storyboard */; };
@@ -67,14 +66,13 @@
 		6216E0832848ED4D0019747D /* LargeProductCardViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeProductCardViewCell.swift; sourceTree = "<group>"; };
 		6216E0842848ED4D0019747D /* SmallProductCardViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallProductCardViewCell.xib; sourceTree = "<group>"; };
 		626A1D1328465BE500B2DA8A /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		626F28392850DC9600677122 /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		62759B7F284A52AD00622184 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		62759B80284A52AD00622184 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
-		62802741284E3D9C005E5442 /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		62A33F03284B5E0500D030F8 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		62CA2D302847989200389230 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		62CA2D322847AEA200389230 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		62CA2D332847AEA200389230 /* ViewController2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController2.xib; sourceTree = "<group>"; };
-		62BECBE02845C47C00E5E374 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		62CFEE1D283E574600E909AA /* homepoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = homepoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62CFEE20283E574600E909AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62CFEE29283E574A00E909AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -149,7 +147,6 @@
 				62802740284E3D86005E5442 /* TabBar */,
 				62A33F02284B5DC400D030F8 /* NavigationBar */,
 				6216E0802848ED300019747D /* ProductCard */,
-				62BECBDF2845C45000E5E374 /* TabBar */,
 			);
 			path = Reusables;
 			sourceTree = "<group>";
@@ -184,7 +181,7 @@
 		62802740284E3D86005E5442 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				62802741284E3D9C005E5442 /* CustomTabBarController.swift */,
+				626F28392850DC9600677122 /* CustomTabBarController.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -195,14 +192,6 @@
 				62A33F03284B5E0500D030F8 /* CustomNavigationBar.swift */,
 			);
 			path = NavigationBar;
-			sourceTree = "<group>";
-		};
-		62BECBDF2845C45000E5E374 /* TabBar */ = {
-			isa = PBXGroup;
-			children = (
-				62BECBE02845C47C00E5E374 /* CustomTabBarController.swift */,
-			);
-			path = TabBar;
 			sourceTree = "<group>";
 		};
 		62CFEE14283E574600E909AA = {
@@ -321,10 +310,6 @@
 				62FCC0D5283E59CA00BF79E2 /* ViewController.xib */,
 				62CA2D322847AEA200389230 /* ViewController2.swift */,
 				62CA2D332847AEA200389230 /* ViewController2.xib */,
-				62BECBE32845C51B00E5E374 /* ExViewController2.swift */,
-				62BECBE42845C51B00E5E374 /* ExViewController2.xib */,
-				62BECBE82845C53100E5E374 /* ExViewController1.swift */,
-				62BECBE92845C53100E5E374 /* ExViewController1.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -544,13 +529,13 @@
 			files = (
 				6216E0872848ED4D0019747D /* LargeProductCardViewCell.swift in Sources */,
 				6216E0852848ED4D0019747D /* SmallProductCardViewCell.swift in Sources */,
+				626F283A2850DC9600677122 /* CustomTabBarController.swift in Sources */,
 				62FCC0E3283E5B6C00BF79E2 /* String+Ext.swift in Sources */,
 				62FCC0E1283E5B5400BF79E2 /* Constants.swift in Sources */,
 				62FCC10C283E6B2C00BF79E2 /* ExampleRepository.swift in Sources */,
 				6216E07B2848EC780019747D /* Color+Ext.swift in Sources */,
 				62FCC0D6283E59CA00BF79E2 /* ViewController.swift in Sources */,
 				626A1D1428465BE500B2DA8A /* UIView+Ext.swift in Sources */,
-				62BECBED2845EE7D00E5E374 /* CustomTabBar.swift in Sources */,
 				62FCC0F0283E5BFA00BF79E2 /* ApiClient.swift in Sources */,
 				62FCC105283E668000BF79E2 /* ExampleUseCase.swift in Sources */,
 				62759B81284A52AD00622184 /* SearchViewController.swift in Sources */,
@@ -559,12 +544,9 @@
 				62FCC103283E666200BF79E2 /* ExampleResponse.swift in Sources */,
 				62A33F04284B5E0500D030F8 /* CustomNavigationBar.swift in Sources */,
 				62CA2D342847AEA200389230 /* ViewController2.swift in Sources */,
-				62802742284E3D9C005E5442 /* CustomTabBarController.swift in Sources */,
 				6216E07A2848EC780019747D /* Font+Ext.swift in Sources */,
-				62BECBEA2845C53100E5E374 /* ExViewController1.swift in Sources */,
 				62FCC109283E66DE00BF79E2 /* ExampleRepositoryInterface.swift in Sources */,
 				62FCC103283E666200BF79E2 /* ExampleResponse.swift in Sources */,
-				62BECBE12845C47C00E5E374 /* CustomTabBarController.swift in Sources */,
 				62FCC0FF283E660500BF79E2 /* MainCoordinator.swift in Sources */,
 				62FCC0E8283E5BA500BF79E2 /* ExampleTableViewCell.swift in Sources */,
 				62CA2D312847989200389230 /* UIViewController+Ext.swift in Sources */,
