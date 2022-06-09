@@ -83,6 +83,10 @@ extension DetailViewController {
             forCellReuseIdentifier: DetailHeaderViewCell.identifier
         )
         tableView.register(
+            DetailDescriptionViewCell.nib(),
+            forCellReuseIdentifier: DetailDescriptionViewCell.identifier
+        )
+        tableView.register(
             ShippingOptionsViewCell.nib(),
             forCellReuseIdentifier: ShippingOptionsViewCell.identifier
         )
@@ -115,6 +119,8 @@ extension DetailViewController :
         switch sections[indexPath.section] {
         case .header:
             cell = generateCell(DetailHeaderViewCell.identifier, indexPath)
+        case .description:
+            cell = generateCell(DetailDescriptionViewCell.identifier, indexPath)
         case .shipping:
             cell = generateCell(ShippingOptionsViewCell.identifier, indexPath)
         default: return UITableViewCell()
@@ -135,9 +141,16 @@ extension DetailViewController :
             guard let cellHeader = cell as? DetailHeaderViewCell
             else { return nil }
             cellHeader.didTapCompareButton = { [weak self] in
-                print("TEST")
+                print("HEADER")
             }
             return cellHeader as? T
+        case .description:
+            guard let cellDescription = cell as? DetailDescriptionViewCell
+            else { return nil }
+            cellDescription.didTapSeeMoreButton = { [weak self] in
+                print("DESCRIPTION")
+            }
+            return cellDescription as? T
         default: return cell
         }
     }

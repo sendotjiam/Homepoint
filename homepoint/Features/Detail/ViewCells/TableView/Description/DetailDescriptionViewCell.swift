@@ -9,15 +9,29 @@ import UIKit
 
 class DetailDescriptionViewCell: UITableViewCell {
 
+    static let identifier = "DetailDescriptionViewCell"
+    
+    // MARK: - Outlets
+    @IBOutlet weak var contentLabel: UILabel!
+    
+    var didTapSeeMoreButton : (() -> ())? = nil
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        setupUI()
     }
     
+    @IBAction func seeMoreButtonTapped(_ sender: Any) {
+        didTapSeeMoreButton?()
+    }
+}
+
+extension DetailDescriptionViewCell {
+    private func setupUI() {
+        selectionStyle = .none
+    }
+    
+    class func nib() -> UINib {
+        UINib(nibName: "DetailDescriptionViewCell", bundle: nil)
+    }
 }
