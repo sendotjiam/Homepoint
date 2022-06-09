@@ -32,25 +32,17 @@ class CustomTabBarController: UITabBarController {
             "Profil",
         ]
         let images = [
-            UIImage(named: "ic_home.selected"),
-            UIImage(named: "ic_heart"),
+            UIImage(named: "ic_home"),
+            UIImage(named: "ic_wishlist"),
             UIImage(named: "ic_scan"),
             UIImage(named: "ic_notes"),
             UIImage(named: "ic_profile")
-        ]
-        let selectedImages = [
-            UIImage(named: "ic_home.selected"),
-            UIImage(named: "ic_heart.selected"),
-            UIImage(named: "ic_scan.selected"),
-            UIImage(named: "ic_notes.selected"),
-            UIImage(named: "ic_profile.selected")
         ]
         
         setupTabBar(
             [navEx1, navEx3, navVC, navEx4, navEx2],
             titles,
-            images,
-            selectedImages
+            images
         )
     }
 }
@@ -59,8 +51,7 @@ extension CustomTabBarController {
     private func setupTabBar(
         _ navControllers : [UINavigationController],
         _ titles: [String],
-        _ images: [UIImage?],
-        _ selectedImages : [UIImage?]
+        _ images: [UIImage?]
     ) {
         tabBar.isTranslucent = false
         tabBar.backgroundColor = .white
@@ -75,7 +66,7 @@ extension CustomTabBarController {
             nav.tabBarItem = UITabBarItem(
                 title: titles[idx],
                 image: images[idx],
-                selectedImage: selectedImages[idx]
+                tag: 1
             )
             idx += 1
         }

@@ -208,29 +208,6 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		6280273C284E3C61005E5442 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
-		62802740284E3D86005E5442 /* TabBar */ = {
-			isa = PBXGroup;
-			children = (
-				626F28392850DC9600677122 /* CustomTabBarController.swift */,
-			);
-			path = TabBar;
-			sourceTree = "<group>";
-		};
-		62A33F02284B5DC400D030F8 /* NavigationBar */ = {
-			isa = PBXGroup;
-			children = (
-				62A33F03284B5E0500D030F8 /* CustomNavigationBar.swift */,
-			);
-			path = NavigationBar;
-			sourceTree = "<group>";
-		};
 		627A38FD284CCE13002ADC6B /* TransactionHistory */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +254,21 @@
 				627A390F284CD892002ADC6B /* OrderFilterItemViewCell.xib */,
 			);
 			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		6280273C284E3C61005E5442 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		62802740284E3D86005E5442 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				626F28392850DC9600677122 /* CustomTabBarController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		62A33F02284B5DC400D030F8 /* NavigationBar */ = {
@@ -851,7 +843,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sendo.homepoint;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = homepoint;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -881,7 +873,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.sendo.homepoint;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = homepoint;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
