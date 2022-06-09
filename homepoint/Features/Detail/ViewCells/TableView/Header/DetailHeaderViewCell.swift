@@ -20,6 +20,12 @@ class DetailHeaderViewCell: UITableViewCell {
     @IBOutlet weak var brandContainerView: UIView!
     @IBOutlet weak var brandLabel: UILabel!
     @IBOutlet weak var compareButtonView: UIStackView!
+    @IBOutlet weak var colorListCollectionView: UICollectionView!
+    
+    // MARK: - Data
+    var colors = [String]() {
+        didSet { configureCell() }
+    }
     
     var didTapCompareButton : (() -> ())? = nil
     
@@ -39,9 +45,44 @@ extension DetailHeaderViewCell {
         compareButtonView.roundedCorner(with: 8)
         brandContainerView.roundedCorner(with: 8)
         selectionStyle = .none
+        colorListCollectionView.delegate = self
+        colorListCollectionView.dataSource = self
+        colorListCollectionView.register(
+            ColorListViewCell.nib(),
+            forCellWithReuseIdentifier: ColorListViewCell.identifier
+        )
+    }
+    
+    private func configureCell() {
+        DispatchQueue.main.async { [weak self] in
+            self?.colorListCollectionView.reloadData()
+        }
     }
     
     class func nib() -> UINib {
         UINib(nibName: "DetailHeaderViewCell", bundle: nil)
+    }
+}
+
+extension DetailHeaderViewCell :
+    UICollectionViewDelegate,
+    UICollectionViewDataSource {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        colors.count
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: ColorListViewCell.identifier,
+            for: indexPath
+        ) as? ColorListViewCell
+        cell?.hexColor = colors[indexPath.row]
+        return cell ?? UICollectionViewCell()
     }
 }

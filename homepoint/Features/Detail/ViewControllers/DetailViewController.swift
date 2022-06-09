@@ -111,6 +111,7 @@ extension DetailViewController :
         default: return 1
         }
     }
+    
     func tableView(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
@@ -140,6 +141,7 @@ extension DetailViewController :
         case .header:
             guard let cellHeader = cell as? DetailHeaderViewCell
             else { return nil }
+            cellHeader.colors = ["#F1C6B9", "#f1f1f1"]
             cellHeader.didTapCompareButton = { [weak self] in
                 print("HEADER")
             }

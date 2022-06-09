@@ -45,6 +45,8 @@
 		621040052851DA6B00A413F6 /* DetailDescriptionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 621040032851DA6B00A413F6 /* DetailDescriptionViewCell.xib */; };
 		6210400B2851ECDD00A413F6 /* ShippingOptionsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621040092851ECDD00A413F6 /* ShippingOptionsViewCell.swift */; };
 		6210400C2851ECDD00A413F6 /* ShippingOptionsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6210400A2851ECDD00A413F6 /* ShippingOptionsViewCell.xib */; };
+		6210400F285237A000A413F6 /* ColorListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6210400D285237A000A413F6 /* ColorListViewCell.swift */; };
+		62104010285237A000A413F6 /* ColorListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6210400E285237A000A413F6 /* ColorListViewCell.xib */; };
 		6216E07A2848EC780019747D /* Font+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216E0782848EC780019747D /* Font+Ext.swift */; };
 		6216E07B2848EC780019747D /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216E0792848EC780019747D /* Color+Ext.swift */; };
 		6216E0852848ED4D0019747D /* SmallProductCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216E0812848ED4D0019747D /* SmallProductCardViewCell.swift */; };
@@ -159,6 +161,8 @@
 		621040032851DA6B00A413F6 /* DetailDescriptionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailDescriptionViewCell.xib; sourceTree = "<group>"; };
 		621040092851ECDD00A413F6 /* ShippingOptionsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingOptionsViewCell.swift; sourceTree = "<group>"; };
 		6210400A2851ECDD00A413F6 /* ShippingOptionsViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShippingOptionsViewCell.xib; sourceTree = "<group>"; };
+		6210400D285237A000A413F6 /* ColorListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListViewCell.swift; sourceTree = "<group>"; };
+		6210400E285237A000A413F6 /* ColorListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorListViewCell.xib; sourceTree = "<group>"; };
 		6216E0782848EC780019747D /* Font+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Font+Ext.swift"; sourceTree = "<group>"; };
 		6216E0792848EC780019747D /* Color+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Ext.swift"; sourceTree = "<group>"; };
 		6216E0812848ED4D0019747D /* SmallProductCardViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SmallProductCardViewCell.swift; sourceTree = "<group>"; };
@@ -375,9 +379,9 @@
 		62103FFB2851DA2200A413F6 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				621040082851EC9E00A413F6 /* ShippingOptions */,
 				621040062851EC8D00A413F6 /* Header */,
 				621040072851EC9500A413F6 /* Description */,
+				621040082851EC9E00A413F6 /* ShippingOptions */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -398,6 +402,8 @@
 		62103FFC2851DA2800A413F6 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				6210400D285237A000A413F6 /* ColorListViewCell.swift */,
+				6210400E285237A000A413F6 /* ColorListViewCell.xib */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -1024,6 +1030,7 @@
 				53D773032849FC87008F2912 /* BannerViewCell.xib in Resources */,
 				53D7730B2849FCEE008F2912 /* BestOfferViewCell.xib in Resources */,
 				53D7732E284A41B9008F2912 /* MenuItemViewCell.xib in Resources */,
+				62104010285237A000A413F6 /* ColorListViewCell.xib in Resources */,
 				5370DFCF2848FE6500FD1ED5 /* Inter-ExtraBold.ttf in Resources */,
 				5370DFCE2848FE6500FD1ED5 /* Inter-Bold.ttf in Resources */,
 				621040052851DA6B00A413F6 /* DetailDescriptionViewCell.xib in Resources */,
@@ -1189,6 +1196,7 @@
 				6216E07B2848EC780019747D /* Color+Ext.swift in Sources */,
 				62CBAA70284F57A900BD5EAC /* OrderListItemCellModel.swift in Sources */,
 				6275AF9028587CDC00D3857D /* UserRepository.swift in Sources */,
+				6210400F285237A000A413F6 /* ColorListViewCell.swift in Sources */,
 				62FCC0D6283E59CA00BF79E2 /* ViewController.swift in Sources */,
 				533AFACF284F9B2A00684B1E /* ViewMoreProductViewCell.swift in Sources */,
 				626A1D1428465BE500B2DA8A /* UIView+Ext.swift in Sources */,
