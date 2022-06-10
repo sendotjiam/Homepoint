@@ -21,7 +21,7 @@ class DetailHeaderViewCell: UITableViewCell {
     @IBOutlet weak var brandLabel: UILabel!
     @IBOutlet weak var compareButtonView: UIStackView!
     @IBOutlet weak var colorListCollectionView: UICollectionView!
-    
+
     // MARK: - Data
     var colors = [String]() {
         didSet { configureCell() }

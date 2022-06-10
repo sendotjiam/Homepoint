@@ -90,6 +90,14 @@ extension DetailViewController {
             ShippingOptionsViewCell.nib(),
             forCellReuseIdentifier: ShippingOptionsViewCell.identifier
         )
+        tableView.register(
+            ReviewHeaderViewCell.nib(),
+            forCellReuseIdentifier: ReviewHeaderViewCell.identifier
+        )
+        tableView.register(
+            ReviewListViewCell.nib(),
+            forCellReuseIdentifier: ReviewListViewCell.identifier
+        )
     }
 }
 
@@ -108,6 +116,7 @@ extension DetailViewController :
         switch sections[section] {
         case .header: return 1
         case .shipping: return 1
+        case .review: return 11 /// item.count + 1
         default: return 1
         }
     }
@@ -124,6 +133,13 @@ extension DetailViewController :
             cell = generateCell(DetailDescriptionViewCell.identifier, indexPath)
         case .shipping:
             cell = generateCell(ShippingOptionsViewCell.identifier, indexPath)
+        case .review:
+            switch indexPath.row {
+            case 0:
+                cell = generateCell(ReviewHeaderViewCell.identifier, indexPath)
+            default:
+                cell = generateCell(ReviewListViewCell.identifier, indexPath)
+            }
         default: return UITableViewCell()
         }
         return cell ?? UITableViewCell()
@@ -153,6 +169,10 @@ extension DetailViewController :
                 print("DESCRIPTION")
             }
             return cellDescription as? T
+//        case .review:
+//            guard let cellReview = cell as? ReviewViewCell
+//            else { return nil }
+//            return cellReview as? T
         default: return cell
         }
     }
