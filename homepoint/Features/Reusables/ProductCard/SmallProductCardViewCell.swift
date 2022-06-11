@@ -33,7 +33,7 @@ extension SmallProductCardViewCell {
     private func setupUI() {
         containerView.addBorder(
             width: 1,
-            color: .black
+            color: ColorCollection.ligthTextColor.value
         )
         containerView.roundedCorner(with: 8)
         containerView.dropShadow(
@@ -41,9 +41,12 @@ extension SmallProductCardViewCell {
             radius: 2,
             offset: CGSize(width: 0, height: 1)
         )
+        containerView.clipsToBounds = true
     }
     
     private func configureCell() {
         
     }
+    
+    class func nib() -> UINib { UINib(nibName: "SmallProductCardViewCell", bundle: nil) }
 }

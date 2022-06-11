@@ -23,6 +23,7 @@ var dataMenu: MenuList = MenuList([
 
 class MenuViewCell: UITableViewCell {
     @IBOutlet weak var menuCollectionView: UICollectionView!
+    static let identifier = "MenuViewCell"
     var menus = dataMenu
     
     override func awakeFromNib() {

@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0CCF3771BED121A006E5D51E /* Pods_homepoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB0E8809F628FAD52737A563 /* Pods_homepoint.framework */; };
+		0EDFA530B3F0D31E175B5A21 /* Pods_homepoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B954D9EAB2856BCEA8E4EF3 /* Pods_homepoint.framework */; };
+		533AFACF284F9B2A00684B1E /* ViewMoreProductViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533AFACD284F9B2A00684B1E /* ViewMoreProductViewCell.swift */; };
+		533AFAD0284F9B2A00684B1E /* ViewMoreProductViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 533AFACE284F9B2A00684B1E /* ViewMoreProductViewCell.xib */; };
+		533AFAD3284FB76800684B1E /* BannerItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533AFAD1284FB76800684B1E /* BannerItemViewCell.swift */; };
+		533AFAD4284FB76800684B1E /* BannerItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 533AFAD2284FB76800684B1E /* BannerItemViewCell.xib */; };
 		5370DFC82848FE6500FD1ED5 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFBF2848FE6500FD1ED5 /* Inter-Regular.ttf */; };
 		5370DFC92848FE6500FD1ED5 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFC02848FE6500FD1ED5 /* Inter-Medium.ttf */; };
 		5370DFCA2848FE6500FD1ED5 /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFC12848FE6500FD1ED5 /* Inter-Black.ttf */; };
@@ -31,10 +35,6 @@
 		53D7732E284A41B9008F2912 /* MenuItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53D7732C284A41B9008F2912 /* MenuItemViewCell.xib */; };
 		53D77331284A41CC008F2912 /* WeeksItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D7732F284A41CC008F2912 /* WeeksItemViewCell.swift */; };
 		53D77332284A41CC008F2912 /* WeeksItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53D77330284A41CC008F2912 /* WeeksItemViewCell.xib */; };
-		53D77335284A41DD008F2912 /* BestOfferItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D77333284A41DD008F2912 /* BestOfferItemViewCell.swift */; };
-		53D77336284A41DD008F2912 /* BestOfferItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53D77334284A41DD008F2912 /* BestOfferItemViewCell.xib */; };
-		53D77339284A4225008F2912 /* RecommendationItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D77337284A4225008F2912 /* RecommendationItemViewCell.swift */; };
-		53D7733A284A4225008F2912 /* RecommendationItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53D77338284A4225008F2912 /* RecommendationItemViewCell.xib */; };
 		53D7733D284A423D008F2912 /* RecommendationViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D7733B284A423D008F2912 /* RecommendationViewCell.swift */; };
 		53D7733E284A423D008F2912 /* RecommendationViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53D7733C284A423D008F2912 /* RecommendationViewCell.xib */; };
 		6216E07A2848EC780019747D /* Font+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216E0782848EC780019747D /* Font+Ext.swift */; };
@@ -93,6 +93,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E68CEE35E63A5A52896A1B3 /* Pods-homepoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homepoint.release.xcconfig"; path = "Target Support Files/Pods-homepoint/Pods-homepoint.release.xcconfig"; sourceTree = "<group>"; };
+		533AFACD284F9B2A00684B1E /* ViewMoreProductViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMoreProductViewCell.swift; sourceTree = "<group>"; };
+		533AFACE284F9B2A00684B1E /* ViewMoreProductViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewMoreProductViewCell.xib; sourceTree = "<group>"; };
+		533AFAD1284FB76800684B1E /* BannerItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerItemViewCell.swift; sourceTree = "<group>"; };
+		533AFAD2284FB76800684B1E /* BannerItemViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerItemViewCell.xib; sourceTree = "<group>"; };
 		5370DFBF2848FE6500FD1ED5 /* Inter-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.ttf"; sourceTree = "<group>"; };
 		5370DFC02848FE6500FD1ED5 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
 		5370DFC12848FE6500FD1ED5 /* Inter-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Black.ttf"; sourceTree = "<group>"; };
@@ -116,10 +121,6 @@
 		53D7732C284A41B9008F2912 /* MenuItemViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuItemViewCell.xib; sourceTree = "<group>"; };
 		53D7732F284A41CC008F2912 /* WeeksItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeksItemViewCell.swift; sourceTree = "<group>"; };
 		53D77330284A41CC008F2912 /* WeeksItemViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeeksItemViewCell.xib; sourceTree = "<group>"; };
-		53D77333284A41DD008F2912 /* BestOfferItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestOfferItemViewCell.swift; sourceTree = "<group>"; };
-		53D77334284A41DD008F2912 /* BestOfferItemViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BestOfferItemViewCell.xib; sourceTree = "<group>"; };
-		53D77337284A4225008F2912 /* RecommendationItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationItemViewCell.swift; sourceTree = "<group>"; };
-		53D77338284A4225008F2912 /* RecommendationItemViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendationItemViewCell.xib; sourceTree = "<group>"; };
 		53D7733B284A423D008F2912 /* RecommendationViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationViewCell.swift; sourceTree = "<group>"; };
 		53D7733C284A423D008F2912 /* RecommendationViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendationViewCell.xib; sourceTree = "<group>"; };
 		58C97AFC902D1C59ADC25D5E /* Pods-homepoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homepoint.debug.xcconfig"; path = "Target Support Files/Pods-homepoint/Pods-homepoint.debug.xcconfig"; sourceTree = "<group>"; };
@@ -284,12 +285,10 @@
 			children = (
 				53D7732B284A41B9008F2912 /* MenuItemViewCell.swift */,
 				53D7732C284A41B9008F2912 /* MenuItemViewCell.xib */,
+				533AFAD1284FB76800684B1E /* BannerItemViewCell.swift */,
+				533AFAD2284FB76800684B1E /* BannerItemViewCell.xib */,
 				53D7732F284A41CC008F2912 /* WeeksItemViewCell.swift */,
 				53D77330284A41CC008F2912 /* WeeksItemViewCell.xib */,
-				53D77333284A41DD008F2912 /* BestOfferItemViewCell.swift */,
-				53D77334284A41DD008F2912 /* BestOfferItemViewCell.xib */,
-				53D77337284A4225008F2912 /* RecommendationItemViewCell.swift */,
-				53D77338284A4225008F2912 /* RecommendationItemViewCell.xib */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -312,6 +311,8 @@
 				6216E0822848ED4D0019747D /* LargeProductCardViewCell.xib */,
 				6216E0812848ED4D0019747D /* SmallProductCardViewCell.swift */,
 				6216E0842848ED4D0019747D /* SmallProductCardViewCell.xib */,
+				533AFACD284F9B2A00684B1E /* ViewMoreProductViewCell.swift */,
+				533AFACE284F9B2A00684B1E /* ViewMoreProductViewCell.xib */,
 			);
 			path = ProductCard;
 			sourceTree = "<group>";
@@ -786,8 +787,12 @@
 				6216E0862848ED4D0019747D /* LargeProductCardViewCell.xib in Resources */,
 				62CFEE2D283E574A00E909AA /* LaunchScreen.storyboard in Resources */,
 				627A3911284CD892002ADC6B /* OrderFilterItemViewCell.xib in Resources */,
+				533AFAD4284FB76800684B1E /* BannerItemViewCell.xib in Resources */,
+				5370DFCC2848FE6500FD1ED5 /* Inter-SemiBold.ttf in Resources */,
+				6216E0862848ED4D0019747D /* LargeProductCardViewCell.xib in Resources */,
+				62CFEE2D283E574A00E909AA /* LaunchScreen.storyboard in Resources */,
+				533AFAD0284F9B2A00684B1E /* ViewMoreProductViewCell.xib in Resources */,
 				53D7733E284A423D008F2912 /* RecommendationViewCell.xib in Resources */,
-				53D77336284A41DD008F2912 /* BestOfferItemViewCell.xib in Resources */,
 				5370DFD02848FE6500FD1ED5 /* Inter-Thin.ttf in Resources */,
 				6216E0882848ED4D0019747D /* SmallProductCardViewCell.xib in Resources */,
 				53D7732A284A419E008F2912 /* WeeksViewCell.xib in Resources */,
@@ -806,7 +811,6 @@
 				62759B82284A52AD00622184 /* SearchViewController.xib in Resources */,
 				5370DFC82848FE6500FD1ED5 /* Inter-Regular.ttf in Resources */,
 				5370DFD828490EC800FD1ED5 /* HomeViewController.xib in Resources */,
-				53D7733A284A4225008F2912 /* RecommendationItemViewCell.xib in Resources */,
 				53D77332284A41CC008F2912 /* WeeksItemViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -875,6 +879,7 @@
 				6216E0852848ED4D0019747D /* SmallProductCardViewCell.swift in Sources */,
 				53D7733D284A423D008F2912 /* RecommendationViewCell.swift in Sources */,
 				62FCC0E3283E5B6C00BF79E2 /* String+Ext.swift in Sources */,
+				533AFAD3284FB76800684B1E /* BannerItemViewCell.swift in Sources */,
 				62FCC0E1283E5B5400BF79E2 /* Constants.swift in Sources */,
 				62FCC10C283E6B2C00BF79E2 /* ExampleRepository.swift in Sources */,
 				53D772FA2849FBF2008F2912 /* MenuViewCell.swift in Sources */,
@@ -883,6 +888,7 @@
 				6216E07B2848EC780019747D /* Color+Ext.swift in Sources */,
 				62CBAA70284F57A900BD5EAC /* OrderListItemCellModel.swift in Sources */,
 				62FCC0D6283E59CA00BF79E2 /* ViewController.swift in Sources */,
+				533AFACF284F9B2A00684B1E /* ViewMoreProductViewCell.swift in Sources */,
 				626A1D1428465BE500B2DA8A /* UIView+Ext.swift in Sources */,
 				627A3910284CD892002ADC6B /* OrderFilterItemViewCell.swift in Sources */,
 				D10CB4EF284F9DB500F675B2 /* LoginViewController.swift in Sources */,
@@ -898,7 +904,6 @@
 				53D77335284A41DD008F2912 /* BestOfferItemViewCell.swift in Sources */,
 				53D773022849FC87008F2912 /* BannerViewCell.swift in Sources */,
 				53D77329284A419E008F2912 /* WeeksViewCell.swift in Sources */,
-				53D77339284A4225008F2912 /* RecommendationItemViewCell.swift in Sources */,
 				62FCC0DB283E5AE600BF79E2 /* ExampleViewModel.swift in Sources */,
 				62FCC109283E66DE00BF79E2 /* ExampleRepositoryInterface.swift in Sources */,
 				62FCC103283E666200BF79E2 /* ExampleResponse.swift in Sources */,

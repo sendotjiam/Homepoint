@@ -32,7 +32,10 @@ class HomeViewController: UIViewController {
         homeTableView.dataSource = self
         
         homeTableView.register(MenuViewCell.nib(), forCellReuseIdentifier: "MenuViewCell")
+        homeTableView.register(BannerViewCell.nib(), forCellReuseIdentifier: "BannerViewCell")
         homeTableView.register(WeeksViewCell.nib(), forCellReuseIdentifier: "WeeksViewCell")
+        homeTableView.register(BestOfferViewCell.nib(), forCellReuseIdentifier: "BestOfferViewCell")
+        homeTableView.register(RecommendationViewCell.nib(), forCellReuseIdentifier: "RecommendationViewCell")
     }
 }
 
@@ -67,18 +70,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch sections[section] {
         case .weeks:
-            return 20
+            return 30
         case .bestOffer:
-            return 20
+            return 30
         case .recommendation:
-            return 20
+            return 30
         default:
             return 0.0001
         }
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        0.0001
+        20
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -91,30 +94,21 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch sections[indexPath.section] {
-#warning("Ini jangan di pakein force cast !, pake ? aja")
-#warning("Kalo pake ! bahaya, bisa force close")
-#warning("Caranya kaya yg di case weeks")
         case .menu:
-            let cell: MenuViewCell = tableView.dequeueReusableCell(withIdentifier: "MenuViewCell", for: indexPath) as! MenuViewCell
-            cell.selectionStyle = .none
-            return cell
-            
-            #warning("cell.selectionstyle jangan di set di view controller, setnya di viewcellnya aja. Untuk ngebikin UI viewcell itu bukan kerjaannya view controller")
+            let cell = tableView.dequeueReusableCell(withIdentifier: MenuViewCell.identifier, for: indexPath) as? MenuViewCell
+            return cell ?? UITableViewCell()
         case .banner:
-            let cell: MenuViewCell = tableView.dequeueReusableCell(withIdentifier: "MenuViewCell", for: indexPath) as! MenuViewCell
-            cell.selectionStyle = .none
-            return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: BannerViewCell.identifier, for: indexPath) as? BannerViewCell
+            return cell ?? UITableViewCell()
         case .weeks:
             let cell = tableView.dequeueReusableCell(withIdentifier: WeeksViewCell.identifier, for: indexPath) as? WeeksViewCell
             return cell ?? UITableViewCell()
         case .bestOffer:
-            let cell: MenuViewCell = tableView.dequeueReusableCell(withIdentifier: "MenuViewCell", for: indexPath) as! MenuViewCell
-            cell.selectionStyle = .none
-            return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: BestOfferViewCell.identifier, for: indexPath) as? BestOfferViewCell
+            return cell ?? UITableViewCell()
         case .recommendation:
-            let cell: MenuViewCell = tableView.dequeueReusableCell(withIdentifier: "MenuViewCell", for: indexPath) as! MenuViewCell
-            cell.selectionStyle = .none
-            return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: RecommendationViewCell.identifier, for: indexPath) as? RecommendationViewCell
+            return cell ?? UITableViewCell()
         }
     }
 }
