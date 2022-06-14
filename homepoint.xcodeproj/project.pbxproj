@@ -61,6 +61,15 @@
 		62FCC105283E668000BF79E2 /* ExampleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC104283E668000BF79E2 /* ExampleUseCase.swift */; };
 		62FCC109283E66DE00BF79E2 /* ExampleRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC108283E66DE00BF79E2 /* ExampleRepositoryInterface.swift */; };
 		62FCC10C283E6B2C00BF79E2 /* ExampleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC10B283E6B2C00BF79E2 /* ExampleRepository.swift */; };
+		8BAB4B4F966DD6349029E2F1 /* Pods_homepoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917D9AE6C7ECA095AA9F8E72 /* Pods_homepoint.framework */; };
+		D10CB4EB284F9D5F00F675B2 /* ForgetPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10CB4E9284F9D5F00F675B2 /* ForgetPassViewController.swift */; };
+		D10CB4EC284F9D5F00F675B2 /* ForgetPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D10CB4EA284F9D5F00F675B2 /* ForgetPassViewController.xib */; };
+		D10CB4EF284F9DB500F675B2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10CB4ED284F9DB500F675B2 /* LoginViewController.swift */; };
+		D10CB4F0284F9DB500F675B2 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D10CB4EE284F9DB500F675B2 /* LoginViewController.xib */; };
+		D11876ED285792BE001351B4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11876EB285792BE001351B4 /* RegisterViewController.swift */; };
+		D11876EE285792BE001351B4 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D11876EC285792BE001351B4 /* RegisterViewController.xib */; };
+		D1F1ED572858D26300A556EB /* LastForgetPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F1ED552858D26300A556EB /* LastForgetPassViewController.swift */; };
+		D1F1ED582858D26300A556EB /* LastForgetPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F1ED562858D26300A556EB /* LastForgetPassViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +131,14 @@
 		83389AE632A5ADCFCF3E3FFB /* Pods-homepoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homepoint.debug.xcconfig"; path = "Target Support Files/Pods-homepoint/Pods-homepoint.debug.xcconfig"; sourceTree = "<group>"; };
 		B3ADEAACF3313B02500F1B9F /* Pods-homepoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homepoint.release.xcconfig"; path = "Target Support Files/Pods-homepoint/Pods-homepoint.release.xcconfig"; sourceTree = "<group>"; };
 		CB0E8809F628FAD52737A563 /* Pods_homepoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_homepoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D10CB4E9284F9D5F00F675B2 /* ForgetPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPassViewController.swift; sourceTree = "<group>"; };
+		D10CB4EA284F9D5F00F675B2 /* ForgetPassViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgetPassViewController.xib; sourceTree = "<group>"; };
+		D10CB4ED284F9DB500F675B2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D10CB4EE284F9DB500F675B2 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		D11876EB285792BE001351B4 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		D11876EC285792BE001351B4 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		D1F1ED552858D26300A556EB /* LastForgetPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastForgetPassViewController.swift; sourceTree = "<group>"; };
+		D1F1ED562858D26300A556EB /* LastForgetPassViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LastForgetPassViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -402,6 +419,9 @@
 				6216E07F2848ED2A0019747D /* Reusables */,
 				627A38FD284CCE13002ADC6B /* TransactionHistory */,
 				62759B7E284A523300622184 /* Search */,
+				D10CB4DF284F8B1900F675B2 /* Login */,
+				D1CBD64028488F1400A9B01A /* Register */,
+				D10CB4E6284F9D3300F675B2 /* ForgetPass */,
 				62FCC0F2283E616B00BF79E2 /* Example */,
 			);
 			path = Features;
@@ -520,6 +540,67 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D10CB4DF284F8B1900F675B2 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D10CB4E0284F8B2100F675B2 /* ViewControllers */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D10CB4E0284F8B2100F675B2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D10CB4ED284F9DB500F675B2 /* LoginViewController.swift */,
+				D10CB4EE284F9DB500F675B2 /* LoginViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D10CB4E6284F9D3300F675B2 /* ForgetPass */ = {
+			isa = PBXGroup;
+			children = (
+				D10CB4E9284F9D5F00F675B2 /* ForgetPassViewController.swift */,
+				D10CB4EA284F9D5F00F675B2 /* ForgetPassViewController.xib */,
+				D1F1ED552858D26300A556EB /* LastForgetPassViewController.swift */,
+				D1F1ED562858D26300A556EB /* LastForgetPassViewController.xib */,
+			);
+			path = ForgetPass;
+			sourceTree = "<group>";
+		};
+		D1CBD64028488F1400A9B01A /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				D1CBD64128488F1C00A9B01A /* ViewControllers */,
+				D1CBD64228488F3800A9B01A /* ViewCells */,
+				D1CBD64328488F4100A9B01A /* ViewModel */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		D1CBD64128488F1C00A9B01A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D11876EB285792BE001351B4 /* RegisterViewController.swift */,
+				D11876EC285792BE001351B4 /* RegisterViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D1CBD64228488F3800A9B01A /* ViewCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewCells;
+			sourceTree = "<group>";
+		};
+		D1CBD64328488F4100A9B01A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -580,6 +661,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D10CB4EC284F9D5F00F675B2 /* ForgetPassViewController.xib in Resources */,
 				62FCC0E9283E5BA500BF79E2 /* ExampleTableViewCell.xib in Resources */,
 				5370DFCB2848FE6500FD1ED5 /* Inter-ExtraLight.ttf in Resources */,
 				5370DFCA2848FE6500FD1ED5 /* Inter-Black.ttf in Resources */,
@@ -596,6 +678,11 @@
 				5370DFC92848FE6500FD1ED5 /* Inter-Medium.ttf in Resources */,
 				62FCC0D7283E59CA00BF79E2 /* ViewController.xib in Resources */,
 				627A390C284CD028002ADC6B /* OrderFilterViewCell.xib in Resources */,
+				D11876EE285792BE001351B4 /* RegisterViewController.xib in Resources */,
+				62CFEE2D283E574A00E909AA /* LaunchScreen.storyboard in Resources */,
+				D1F1ED582858D26300A556EB /* LastForgetPassViewController.xib in Resources */,
+				62FCC0D7283E59CA00BF79E2 /* ViewController.xib in Resources */,
+				D10CB4F0284F9DB500F675B2 /* LoginViewController.xib in Resources */,
 				62CFEE2A283E574A00E909AA /* Assets.xcassets in Resources */,
 				627A3908284CCFE8002ADC6B /* OrderListViewCell.xib in Resources */,
 				62CA2D352847AEA200389230 /* ViewController2.xib in Resources */,
@@ -670,6 +757,11 @@
 				62FCC0D6283E59CA00BF79E2 /* ViewController.swift in Sources */,
 				626A1D1428465BE500B2DA8A /* UIView+Ext.swift in Sources */,
 				627A3910284CD892002ADC6B /* OrderFilterItemViewCell.swift in Sources */,
+				D10CB4EF284F9DB500F675B2 /* LoginViewController.swift in Sources */,
+				D10CB4EB284F9D5F00F675B2 /* ForgetPassViewController.swift in Sources */,
+				62FCC0D6283E59CA00BF79E2 /* ViewController.swift in Sources */,
+				D1F1ED572858D26300A556EB /* LastForgetPassViewController.swift in Sources */,
+				D11876ED285792BE001351B4 /* RegisterViewController.swift in Sources */,
 				62FCC0F0283E5BFA00BF79E2 /* ApiClient.swift in Sources */,
 				627A3907284CCFE8002ADC6B /* OrderListViewCell.swift in Sources */,
 				62FCC105283E668000BF79E2 /* ExampleUseCase.swift in Sources */,
