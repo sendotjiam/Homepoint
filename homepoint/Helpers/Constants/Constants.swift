@@ -8,5 +8,5 @@
 import Foundation
 
 struct Constants {
-    
+    static let BaseUrl = "https://homepoint-server-staging.herokuapp.com/"
 }

@@ -28,16 +28,16 @@ final class AFApiClient : ApiClient {
         _ path: String,
         _ method : HTTPMethod,
         _ parameters: Parameters?,
-        _ headers: HTTPHeaders?,
+        _ headers: HTTPHeaders? = nil,
         completion: @escaping (_ response: URLResponse?, _ data: Data?, _ error: Error?) -> Void
     ) {
-        guard let url = URL(string: "\(path)") else { return }
+        guard let url = URL(string: "\(Constants.BaseUrl)\(path)") else { return }
         AF.request(
             url,
             method: method,
             parameters: parameters ?? nil,
             encoding: JSONEncoding.default,
-            headers: headers ?? nil,
+            headers: headers,
             interceptor: nil,
             requestModifier: nil
         ).response { response in

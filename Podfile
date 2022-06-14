@@ -10,5 +10,6 @@ target 'homepoint' do
   pod 'Alamofire'
   pod 'RxSwift', '5.0.0'
   pod 'RxCocoa', '5.0.0'
+  pod 'SwiftyJSON', '~> 4.0'
 
 end
