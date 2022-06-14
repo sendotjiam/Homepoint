@@ -10,6 +10,7 @@ import UIKit
 class BannerViewCell: UITableViewCell {
     @IBOutlet weak var sliderView: UICollectionView!
     @IBOutlet weak var pageView: UIPageControl!
+    @IBOutlet weak var heightCollectionView: NSLayoutConstraint!
     
     static let identifier = "BannerViewCell"
     var imgArr = [  UIImage(named:"img-banner1"),
@@ -33,7 +34,7 @@ class BannerViewCell: UITableViewCell {
         pageView.currentPage = 0
         sliderView.delegate = self
         sliderView.dataSource = self
-        
+        sliderView.contentInset = UIEdgeInsets.zero
         sliderView.register(
             BannerItemViewCell.nib(),
             forCellWithReuseIdentifier: "BannerItemViewCell"
@@ -42,6 +43,10 @@ class BannerViewCell: UITableViewCell {
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
         }
+        
+//        let width = (collectionView.frame.size.width - 40)
+//        let height = 145 / 335 * width
+        heightCollectionView.constant = (UIScreen.main.bounds.width - 40) * 145/335
     }
     
     @objc func changeImage() {
@@ -77,22 +82,26 @@ extension BannerViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
 extension BannerViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        40
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 //        let size = sliderView.frame.size
 //        return CGSize(width: size.width, height: size.height)
-        let width = (collectionView.frame.size.width - 20)
+        let width = (collectionView.frame.size.width - 40)
         let height = 145 / 335 * width
         return CGSize(width: width, height: height)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        0.0
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        0.0
+//    }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        0.0
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        0.0
+//    }
 }
