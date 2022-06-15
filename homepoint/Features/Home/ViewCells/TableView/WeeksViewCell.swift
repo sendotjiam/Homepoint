@@ -27,6 +27,8 @@ class WeeksViewCell: UITableViewCell {
     
     // MARK: - Outlets
     @IBOutlet weak var weeksCollectionView: UICollectionView!
+    @IBOutlet weak var heightCollectionView: NSLayoutConstraint!
+    
     
     // MARK: - Data
     var weekMenus = dataWeeks
@@ -66,7 +68,7 @@ extension WeeksViewCell:
     ) -> CGSize {
         let width = (collectionView.frame.size.width - 60) / 2
         let height = 82 / 156 * width
-        print(height)
+        heightCollectionView.constant = 20 + (height*2)
         return CGSize(width: width, height: height)
     }
     

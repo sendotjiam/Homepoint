@@ -24,28 +24,16 @@ class WeeksItemViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupUI()
     }
 }
 
 extension WeeksItemViewCell {
-    private func setupUI() {
-        setupOverlay()
-    }
     
     private func configureCell() {
         guard let menu = menu else { return }
         imageView.image = menu.image
         imageView.layer.cornerRadius = 8
         label.text = menu.title
-    }
-    
-    #warning("Ini ada masalah di overlaynya, klo di aktivin, dia nutupin border bottom")
-    private func setupOverlay() {
-        overlayView.addGradientOverlay()
-        overlayView.layer.cornerRadius = 8
-        overlayView.clipsToBounds = true
-        overlayView.translatesAutoresizingMaskIntoConstraints = true
     }
     
     class func nib() -> UINib { UINib(nibName: "WeeksItemViewCell", bundle: nil) }

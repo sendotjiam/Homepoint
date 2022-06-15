@@ -18,7 +18,7 @@ class BannerViewCell: UITableViewCell {
                     UIImage(named:"img-banner3") ]
     
     var timer = Timer()
-    var counter = 0
+    var counter = 1
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -44,8 +44,6 @@ class BannerViewCell: UITableViewCell {
             self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
         }
         
-//        let width = (collectionView.frame.size.width - 40)
-//        let height = 145 / 335 * width
         heightCollectionView.constant = (UIScreen.main.bounds.width - 40) * 145/335
     }
     
@@ -82,7 +80,7 @@ extension BannerViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
 extension BannerViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 20)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -90,8 +88,6 @@ extension BannerViewCell: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let size = sliderView.frame.size
-//        return CGSize(width: size.width, height: size.height)
         let width = (collectionView.frame.size.width - 40)
         let height = 145 / 335 * width
         return CGSize(width: width, height: height)

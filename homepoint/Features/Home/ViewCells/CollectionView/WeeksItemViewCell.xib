@@ -28,10 +28,9 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ntx-he-j0n">
                                 <rect key="frame" x="0.0" y="0.0" width="176" height="102"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="maY-rn-yj5">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-bg.overlay" translatesAutoresizingMaskIntoConstraints="NO" id="7c5-Lp-o7f" userLabel="Overlay View">
                                 <rect key="frame" x="0.0" y="0.0" width="176" height="102"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnK-VX-Awz">
                                 <rect key="frame" x="0.0" y="74" width="176" height="21"/>
                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="17"/>
@@ -42,15 +41,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Ntx-he-j0n" secondAttribute="bottom" id="8u2-M7-ePE"/>
-                            <constraint firstItem="maY-rn-yj5" firstAttribute="top" secondItem="Hxg-OZ-4bK" secondAttribute="top" id="AvV-MW-lQO"/>
-                            <constraint firstAttribute="trailing" secondItem="maY-rn-yj5" secondAttribute="trailing" id="K1O-KL-kQ9"/>
+                            <constraint firstItem="7c5-Lp-o7f" firstAttribute="leading" secondItem="Ntx-he-j0n" secondAttribute="leading" id="I39-b5-ORo"/>
                             <constraint firstItem="Ntx-he-j0n" firstAttribute="top" secondItem="Hxg-OZ-4bK" secondAttribute="top" id="MMs-W2-H2b"/>
+                            <constraint firstItem="Ntx-he-j0n" firstAttribute="trailing" secondItem="7c5-Lp-o7f" secondAttribute="trailing" id="OSR-BB-dfu"/>
+                            <constraint firstItem="7c5-Lp-o7f" firstAttribute="top" secondItem="Ntx-he-j0n" secondAttribute="top" id="SdE-aC-8DY"/>
                             <constraint firstItem="Ntx-he-j0n" firstAttribute="leading" secondItem="Hxg-OZ-4bK" secondAttribute="leading" id="TBG-xK-km4"/>
                             <constraint firstItem="cnK-VX-Awz" firstAttribute="leading" secondItem="Hxg-OZ-4bK" secondAttribute="leading" id="asA-Fj-CZw"/>
-                            <constraint firstAttribute="bottom" secondItem="maY-rn-yj5" secondAttribute="bottom" id="fIf-1z-GIj"/>
                             <constraint firstAttribute="bottom" secondItem="cnK-VX-Awz" secondAttribute="bottom" constant="7" id="ta8-hU-FCo"/>
                             <constraint firstAttribute="trailing" secondItem="Ntx-he-j0n" secondAttribute="trailing" id="tuT-6r-cKZ"/>
-                            <constraint firstItem="maY-rn-yj5" firstAttribute="leading" secondItem="Hxg-OZ-4bK" secondAttribute="leading" id="u0g-xo-GAF"/>
+                            <constraint firstItem="Ntx-he-j0n" firstAttribute="bottom" secondItem="7c5-Lp-o7f" secondAttribute="bottom" id="veb-qq-2S2"/>
                             <constraint firstAttribute="trailing" secondItem="cnK-VX-Awz" secondAttribute="trailing" id="wPk-K2-mHS"/>
                         </constraints>
                     </view>
@@ -66,12 +65,12 @@
             <connections>
                 <outlet property="imageView" destination="Ntx-he-j0n" id="4Ye-90-G7m"/>
                 <outlet property="label" destination="cnK-VX-Awz" id="yzP-5S-PwC"/>
-                <outlet property="overlayView" destination="maY-rn-yj5" id="Yg5-Mb-1Up"/>
             </connections>
             <point key="canvasLocation" x="223.18840579710147" y="105.13392857142857"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="img-bg.overlay" width="208" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

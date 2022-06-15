@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,7 +22,6 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="YOq-vE-hB3">
                                 <rect key="frame" x="0.0" y="0.0" width="360" height="145"/>
-                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="145" id="47a-oQ-eZG"/>
                                 </constraints>
@@ -38,11 +36,11 @@
                                 <rect key="frame" x="4" y="115" width="116" height="26"/>
                             </pageControl>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBrownColor"/>
                         <constraints>
-                            <constraint firstItem="YOq-vE-hB3" firstAttribute="leading" secondItem="uf8-xb-t4u" secondAttribute="leading" id="LhK-XL-HZI"/>
+                            <constraint firstItem="z9A-R4-Rcg" firstAttribute="leading" secondItem="uf8-xb-t4u" secondAttribute="leading" constant="4" id="6Li-Xw-I3h"/>
                             <constraint firstAttribute="trailing" secondItem="YOq-vE-hB3" secondAttribute="trailing" id="MEU-5E-AKG"/>
-                            <constraint firstItem="z9A-R4-Rcg" firstAttribute="leading" secondItem="uf8-xb-t4u" secondAttribute="leading" constant="4" id="f0d-aS-e7t"/>
+                            <constraint firstItem="YOq-vE-hB3" firstAttribute="leading" secondItem="uf8-xb-t4u" secondAttribute="leading" id="MIn-jY-1Ai"/>
+                            <constraint firstItem="YOq-vE-hB3" firstAttribute="top" secondItem="uf8-xb-t4u" secondAttribute="top" id="QFB-f6-3yt"/>
                             <constraint firstAttribute="bottom" secondItem="YOq-vE-hB3" secondAttribute="bottom" id="kuA-sZ-fX8"/>
                             <constraint firstAttribute="bottom" secondItem="z9A-R4-Rcg" secondAttribute="bottom" constant="4" id="nG0-TF-4kF"/>
                             <constraint firstItem="YOq-vE-hB3" firstAttribute="top" secondItem="uf8-xb-t4u" secondAttribute="top" id="q63-ep-riQ"/>
@@ -50,10 +48,10 @@
                     </view>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="uf8-xb-t4u" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="8JI-8R-LtS"/>
                     <constraint firstItem="uf8-xb-t4u" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="BVb-81-JIe"/>
                     <constraint firstAttribute="bottom" secondItem="uf8-xb-t4u" secondAttribute="bottom" id="HYJ-0J-Yqz"/>
                     <constraint firstAttribute="trailing" secondItem="uf8-xb-t4u" secondAttribute="trailing" id="gmx-Dt-dBF"/>
-                    <constraint firstItem="uf8-xb-t4u" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="wDm-XZ-a5U"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -65,12 +63,4 @@
             <point key="canvasLocation" x="160.86956521739131" y="109.48660714285714"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <systemColor name="systemBrownColor">
-            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>
