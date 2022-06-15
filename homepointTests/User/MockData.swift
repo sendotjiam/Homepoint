@@ -10,61 +10,43 @@ import SwiftyJSON
 @testable import homepoint
 
 struct MockUserData {
-    static func generateLoginData() -> LoginResponseModel {
+    static func generateLoginData() -> Data? {
+        "{ \"message\": \"Token for Login\", \"status\": \"200\", \"success\": true, \"data\": { \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZW5kbzFAbWFpbC5jb20iLCJleHAiOjE2NTUyMjA3OTMsImlhdCI6MTY1NTIxNDc5M30.-k4BDV5qHvYI-IaItSoVyL6LPxp_9MclkuwDhacH2NA\"} }".data(using: .utf8)
+    }
+    
+    static func generateLoginResponseModel() -> LoginResponseModel {
         LoginResponseModel(object: JSON([
             "message": "Token for Login",
             "status": "200",
             "success": true,
-            "data": LoginDataModel(object: JSON([
-                "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZW5kbzFAbWFpbC5jb20iLCJleHAiOjE2NTUyMjA3OTMsImlhdCI6MTY1NTIxNDc5M30.-k4BDV5qHvYI-IaItSoVyL6LPxp_9MclkuwDhacH2NA"
-            ]))
+            "data": ""
         ]))
     }
     
-    static func generateRegisterData() -> RegisterResponseModel {
+    static func generateLoginDataModel() -> LoginDataModel {
+        LoginDataModel(object: JSON([
+            "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZW5kbzFAbWFpbC5jb20iLCJleHAiOjE2NTUyMjA3OTMsImlhdCI6MTY1NTIxNDc5M30.-k4BDV5qHvYI-IaItSoVyL6LPxp_9MclkuwDhacH2NA"
+        ]))
+    }
+    
+    static func generateRegisterData() -> Data? {
+        "{ \"message\": \"Success For Register\", \"status\": \"200\", \"success\": true, \"data\": { \"name\": \"sendo\", \"email\": \"sendo@mail.com\", \"password\": \"12345\" } }".data(using: .utf8)
+    }
+    
+    static func generateRegisterResponseModel() -> RegisterResponseModel {
         RegisterResponseModel(object: JSON([
-            "message": "Token for Login",
-            "status": "200",
             "success": true,
-            "data": RegisterDataModel(object: JSON([
-                "email": "sendo@mail.com",
-                "name": "sendo",
-                "password": "12345"
-            ]))
+            "status": "200",
+            "message": "Success For Register",
+            "data": ""
         ]))
     }
-}
-
-struct MockPositiveUserRepository : UserRepositoryInterface {
     
-    func login(
-        params: [String : Any],
-        completion: @escaping ((LoginResponseModel?, Error?) -> Void)
-    ) {
-        completion(MockUserData.generateLoginData(), nil)
+    static func generateRegisterDataModel() -> RegisterDataModel {
+        RegisterDataModel(object: JSON([
+            "email": "sendo@mail.com",
+            "name": "sendo",
+            "password": "12345"
+        ]))
     }
-    
-    func register(
-        params: [String : Any],
-        completion: @escaping ((RegisterResponseModel?, Error?) -> Void)
-    ) {
-        completion(MockUserData.generateRegisterData(), nil)
-    }
-}
-
-struct MockNegativeUserRepository : UserRepositoryInterface {
-    func login(
-        params: [String : Any],
-        completion: @escaping ((LoginResponseModel?, Error?) -> Void)
-    ) {
-        completion(nil, AuthError.FailedLogin)
-    }
-    
-    func register(
-        params: [String : Any],
-        completion: @escaping ((RegisterResponseModel?, Error?) -> Void)
-    ) {
-        completion(nil, AuthError.FailedRegister)
-    }
-    
 }

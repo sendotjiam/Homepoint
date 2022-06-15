@@ -9,6 +9,7 @@ import Foundation
 
 enum NetworkError : Error {
     case ApiError
+    case EmptyDataError
 }
 
 enum AuthError : Error {

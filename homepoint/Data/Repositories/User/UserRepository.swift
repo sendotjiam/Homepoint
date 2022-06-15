@@ -10,7 +10,12 @@ import SwiftyJSON
 
 final class UserRepository {
     private let urlString = "api/v1/users/"
-    init() {}
+    
+    let apiClient : ApiClient
+    
+    init(_ apiClient : ApiClient = AFApiClient()) {
+        self.apiClient = apiClient
+    }
 }
 
 extension UserRepository : UserRepositoryInterface {
@@ -18,10 +23,11 @@ extension UserRepository : UserRepositoryInterface {
         params: [String : Any],
         completion: @escaping ((LoginResponseModel?, Error?) -> Void)
     ) {
-        AFApiClient.shared.request(
+        apiClient.request(
             urlString + "login",
             .post,
-            params
+            params,
+            nil
         ) { response, data, error in
             if let data = data {
                 do {
@@ -29,10 +35,10 @@ extension UserRepository : UserRepositoryInterface {
                     let model = LoginResponseModel(object: json)
                     completion(model, nil)
                 } catch {
-                    completion(nil, error)
+                    completion(nil, NetworkError.EmptyDataError)
                 }
             } else {
-                completion(nil, error!)
+                completion(nil, NetworkError.ApiError)
             }
         }
     }
@@ -41,10 +47,11 @@ extension UserRepository : UserRepositoryInterface {
         params: [String : Any],
         completion: @escaping ((RegisterResponseModel?, Error?) -> Void)
     ) {
-        AFApiClient.shared.request(
+        apiClient.request(
             urlString + "register",
             .post,
-            params
+            params,
+            nil
         ) { response, data, error in
             if let data = data {
                 do {
@@ -52,10 +59,10 @@ extension UserRepository : UserRepositoryInterface {
                     let model = RegisterResponseModel(object: json)
                     completion(model, error)
                 } catch {
-                    completion(nil, error)
+                    completion(nil, NetworkError.EmptyDataError)
                 }
             } else {
-                completion(nil, error!)
+                completion(nil, NetworkError.ApiError)
             }
         }
     }

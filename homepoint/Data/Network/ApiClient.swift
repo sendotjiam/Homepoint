@@ -20,15 +20,11 @@ protocol ApiClient {
 
 final class AFApiClient : ApiClient {
     
-    private init() {}
-    
-    static let shared = AFApiClient()
-    
     func request(
         _ path: String,
         _ method : HTTPMethod,
         _ parameters: Parameters?,
-        _ headers: HTTPHeaders? = nil,
+        _ headers: HTTPHeaders?,
         completion: @escaping (_ response: URLResponse?, _ data: Data?, _ error: Error?) -> Void
     ) {
         guard let url = URL(string: "\(Constants.BaseUrl)\(path)") else { return }
