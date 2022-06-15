@@ -10,6 +10,7 @@ import UIKit
 enum NavigationBarType {
     case defaultNav
     case hidden
+    case back
     case backAndSearch
     case backSearchAndCart
     case backAndTitle(title: String?)
@@ -44,13 +45,19 @@ extension UIViewController  {
         navigationController?.navigationBar.topItem?.backButtonTitle = ""
     }
     
-    private func addStatusBar(_ color: UIColor) {
+    private func setStatusBar(_ color: UIColor) {
         if #available(iOS 13, *) {
             let statusBar = UIView()
             statusBar.frame = UIApplication.shared.statusBarFrame
             statusBar.backgroundColor = color
             UIApplication.shared.keyWindow?.addSubview(statusBar)
         }
+    }
+    
+    private func resetNavbarBackground() {
+        navigationController?.navigationBar.backgroundColor = .clear
+        navigationController?.navigationBar.tintColor = ColorCollection.blueDarkColor.value
+        navigationController?.navigationBar.barTintColor = .clear
     }
     
     private func addSearchBar() {
@@ -141,7 +148,7 @@ extension UIViewController  {
     }
     
     func setNavigationBar(type: NavigationBarType) {
-        addStatusBar(ColorCollection.blueColor.value)
+//        addStatusBar(ColorCollection.blueColor.value)
         setDefaultNavigationBar()
         switch type {
         case .hidden:
@@ -165,6 +172,9 @@ extension UIViewController  {
             addBackButton()
             addSearchBar()
             addRightBarButtonItems([.history])
+        case .back:
+            addBackButton()
+            resetNavbarBackground()
         default:
             addSearchBar()
             addRightBarButtonItems([.cart, .notification])

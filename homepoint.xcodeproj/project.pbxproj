@@ -49,6 +49,9 @@
 		626A1D1428465BE500B2DA8A /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626A1D1328465BE500B2DA8A /* UIView+Ext.swift */; };
 		626E84872859B6D1003403DE /* UserUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E84862859B6D1003403DE /* UserUseCaseTest.swift */; };
 		626E84892859C692003403DE /* UserViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E84882859C692003403DE /* UserViewModelTest.swift */; };
+		626E848C2859C9BF003403DE /* UIScrollView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E848B2859C9BF003403DE /* UIScrollView+Ext.swift */; };
+		626E848F2859D615003403DE /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E848E2859D615003403DE /* LoginViewModel.swift */; };
+		626E84922859D797003403DE /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E84912859D797003403DE /* RegisterViewModel.swift */; };
 		626F283A2850DC9600677122 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626F28392850DC9600677122 /* CustomTabBarController.swift */; };
 		6270A0442858C65B003796AA /* homepointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6270A0432858C65B003796AA /* homepointTests.swift */; };
 		6270A04C2858CBB2003796AA /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6270A04B2858CBB2003796AA /* MockData.swift */; };
@@ -91,11 +94,7 @@
 		62FCC0E9283E5BA500BF79E2 /* ExampleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62FCC0E7283E5BA500BF79E2 /* ExampleTableViewCell.xib */; };
 		62FCC0F0283E5BFA00BF79E2 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC0EF283E5BFA00BF79E2 /* ApiClient.swift */; };
 		62FCC0FF283E660500BF79E2 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC0FE283E660500BF79E2 /* MainCoordinator.swift */; };
-		62FCC103283E666200BF79E2 /* ExampleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC102283E666200BF79E2 /* ExampleResponse.swift */; };
-		62FCC105283E668000BF79E2 /* ExampleUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC104283E668000BF79E2 /* ExampleUseCase.swift */; };
-		62FCC109283E66DE00BF79E2 /* ExampleRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC108283E66DE00BF79E2 /* ExampleRepositoryInterface.swift */; };
-		62FCC10C283E6B2C00BF79E2 /* ExampleRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC10B283E6B2C00BF79E2 /* ExampleRepository.swift */; };
-		8BAB4B4F966DD6349029E2F1 /* Pods_homepoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917D9AE6C7ECA095AA9F8E72 /* Pods_homepoint.framework */; };
+		6BC319791135F916C617312A /* Pods_homepoint_homepointTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E608E2CF0CF8146FB8714C3B /* Pods_homepoint_homepointTests.framework */; };
 		D10CB4EB284F9D5F00F675B2 /* ForgetPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10CB4E9284F9D5F00F675B2 /* ForgetPassViewController.swift */; };
 		D10CB4EC284F9D5F00F675B2 /* ForgetPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D10CB4EA284F9D5F00F675B2 /* ForgetPassViewController.xib */; };
 		D10CB4EF284F9DB500F675B2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10CB4ED284F9DB500F675B2 /* LoginViewController.swift */; };
@@ -104,7 +103,6 @@
 		D11876EE285792BE001351B4 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D11876EC285792BE001351B4 /* RegisterViewController.xib */; };
 		D1F1ED572858D26300A556EB /* LastForgetPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F1ED552858D26300A556EB /* LastForgetPassViewController.swift */; };
 		D1F1ED582858D26300A556EB /* LastForgetPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F1ED562858D26300A556EB /* LastForgetPassViewController.xib */; };
-		6BC319791135F916C617312A /* Pods_homepoint_homepointTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E608E2CF0CF8146FB8714C3B /* Pods_homepoint_homepointTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -158,6 +156,9 @@
 		626A1D1328465BE500B2DA8A /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		626E84862859B6D1003403DE /* UserUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUseCaseTest.swift; sourceTree = "<group>"; };
 		626E84882859C692003403DE /* UserViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModelTest.swift; sourceTree = "<group>"; };
+		626E848B2859C9BF003403DE /* UIScrollView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Ext.swift"; sourceTree = "<group>"; };
+		626E848E2859D615003403DE /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		626E84912859D797003403DE /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		626F28392850DC9600677122 /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		6270A0412858C65B003796AA /* homepointTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = homepointTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6270A0432858C65B003796AA /* homepointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homepointTests.swift; sourceTree = "<group>"; };
@@ -203,13 +204,8 @@
 		62FCC0E7283E5BA500BF79E2 /* ExampleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExampleTableViewCell.xib; sourceTree = "<group>"; };
 		62FCC0EF283E5BFA00BF79E2 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		62FCC0FE283E660500BF79E2 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
-		62FCC102283E666200BF79E2 /* ExampleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleResponse.swift; sourceTree = "<group>"; };
-		62FCC104283E668000BF79E2 /* ExampleUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUseCase.swift; sourceTree = "<group>"; };
-		62FCC108283E66DE00BF79E2 /* ExampleRepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleRepositoryInterface.swift; sourceTree = "<group>"; };
-		62FCC10B283E6B2C00BF79E2 /* ExampleRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleRepository.swift; sourceTree = "<group>"; };
-		83389AE632A5ADCFCF3E3FFB /* Pods-homepoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homepoint.debug.xcconfig"; path = "Target Support Files/Pods-homepoint/Pods-homepoint.debug.xcconfig"; sourceTree = "<group>"; };
-		B3ADEAACF3313B02500F1B9F /* Pods-homepoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homepoint.release.xcconfig"; path = "Target Support Files/Pods-homepoint/Pods-homepoint.release.xcconfig"; sourceTree = "<group>"; };
-		CB0E8809F628FAD52737A563 /* Pods_homepoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_homepoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7178DDF11D532FFB2CB9D137 /* Pods-homepoint-homepointTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homepoint-homepointTests.debug.xcconfig"; path = "Target Support Files/Pods-homepoint-homepointTests/Pods-homepoint-homepointTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9337626E3CB20005EE00D2D4 /* Pods-homepoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homepoint.release.xcconfig"; path = "Target Support Files/Pods-homepoint/Pods-homepoint.release.xcconfig"; sourceTree = "<group>"; };
 		D10CB4E9284F9D5F00F675B2 /* ForgetPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPassViewController.swift; sourceTree = "<group>"; };
 		D10CB4EA284F9D5F00F675B2 /* ForgetPassViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgetPassViewController.xib; sourceTree = "<group>"; };
 		D10CB4ED284F9DB500F675B2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -218,10 +214,6 @@
 		D11876EC285792BE001351B4 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		D1F1ED552858D26300A556EB /* LastForgetPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastForgetPassViewController.swift; sourceTree = "<group>"; };
 		D1F1ED562858D26300A556EB /* LastForgetPassViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LastForgetPassViewController.xib; sourceTree = "<group>"; };
-		D4CD5C9F1E50B7DB8A788D37 /* Pods_homepoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_homepoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F83BD386171E19F3E36E5B29 /* Pods-homepoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homepoint.release.xcconfig"; path = "Target Support Files/Pods-homepoint/Pods-homepoint.release.xcconfig"; sourceTree = "<group>"; };
-		7178DDF11D532FFB2CB9D137 /* Pods-homepoint-homepointTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homepoint-homepointTests.debug.xcconfig"; path = "Target Support Files/Pods-homepoint-homepointTests/Pods-homepoint-homepointTests.debug.xcconfig"; sourceTree = "<group>"; };
-		9337626E3CB20005EE00D2D4 /* Pods-homepoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homepoint.release.xcconfig"; path = "Target Support Files/Pods-homepoint/Pods-homepoint.release.xcconfig"; sourceTree = "<group>"; };
 		D3A0F060C8796ED37B440ED8 /* Pods_homepoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_homepoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7C560FACCEE51C4F6A9B1D /* Pods-homepoint-homepointTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homepoint-homepointTests.release.xcconfig"; path = "Target Support Files/Pods-homepoint-homepointTests/Pods-homepoint-homepointTests.release.xcconfig"; sourceTree = "<group>"; };
 		E608E2CF0CF8146FB8714C3B /* Pods_homepoint_homepointTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_homepoint_homepointTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -369,6 +361,32 @@
 				533AFACE284F9B2A00684B1E /* ViewMoreProductViewCell.xib */,
 			);
 			path = ProductCard;
+			sourceTree = "<group>";
+		};
+		626E848A2859C932003403DE /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				D10CB4DF284F8B1900F675B2 /* Login */,
+				D1CBD64028488F1400A9B01A /* Register */,
+				D10CB4E6284F9D3300F675B2 /* ForgetPass */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		626E848D2859D608003403DE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				626E848E2859D615003403DE /* LoginViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		626E84902859D78B003403DE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				626E84912859D797003403DE /* RegisterViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		6270A0422858C65B003796AA /* homepointTests */ = {
@@ -627,6 +645,7 @@
 				62FCC0E2283E5B6C00BF79E2 /* String+Ext.swift */,
 				626A1D1328465BE500B2DA8A /* UIView+Ext.swift */,
 				62CA2D302847989200389230 /* UIViewController+Ext.swift */,
+				626E848B2859C9BF003403DE /* UIScrollView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -644,11 +663,9 @@
 			children = (
 				5370DFD128490D6A00FD1ED5 /* Home */,
 				6216E07F2848ED2A0019747D /* Reusables */,
+				626E848A2859C932003403DE /* Auth */,
 				627A38FD284CCE13002ADC6B /* TransactionHistory */,
 				62759B7E284A523300622184 /* Search */,
-				D10CB4DF284F8B1900F675B2 /* Login */,
-				D1CBD64028488F1400A9B01A /* Register */,
-				D10CB4E6284F9D3300F675B2 /* ForgetPass */,
 				62FCC0F2283E616B00BF79E2 /* Example */,
 			);
 			path = Features;
@@ -772,6 +789,7 @@
 		D10CB4DF284F8B1900F675B2 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				626E848D2859D608003403DE /* ViewModels */,
 				D10CB4E0284F8B2100F675B2 /* ViewControllers */,
 			);
 			path = Login;
@@ -800,9 +818,8 @@
 		D1CBD64028488F1400A9B01A /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				626E84902859D78B003403DE /* ViewModels */,
 				D1CBD64128488F1C00A9B01A /* ViewControllers */,
-				D1CBD64228488F3800A9B01A /* ViewCells */,
-				D1CBD64328488F4100A9B01A /* ViewModel */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -814,20 +831,6 @@
 				D11876EC285792BE001351B4 /* RegisterViewController.xib */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		D1CBD64228488F3800A9B01A /* ViewCells */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewCells;
-			sourceTree = "<group>";
-		};
-		D1CBD64328488F4100A9B01A /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1096,6 +1099,7 @@
 				62FCC0D6283E59CA00BF79E2 /* ViewController.swift in Sources */,
 				533AFACF284F9B2A00684B1E /* ViewMoreProductViewCell.swift in Sources */,
 				626A1D1428465BE500B2DA8A /* UIView+Ext.swift in Sources */,
+				626E84922859D797003403DE /* RegisterViewModel.swift in Sources */,
 				627A3910284CD892002ADC6B /* OrderFilterItemViewCell.swift in Sources */,
 				D10CB4EF284F9DB500F675B2 /* LoginViewController.swift in Sources */,
 				D10CB4EB284F9D5F00F675B2 /* ForgetPassViewController.swift in Sources */,
@@ -1112,6 +1116,7 @@
 				53D773022849FC87008F2912 /* BannerViewCell.swift in Sources */,
 				53D77329284A419E008F2912 /* WeeksViewCell.swift in Sources */,
 				62FCC0DB283E5AE600BF79E2 /* ExampleViewModel.swift in Sources */,
+				626E848F2859D615003403DE /* LoginViewModel.swift in Sources */,
 				62A33F04284B5E0500D030F8 /* CustomNavigationBar.swift in Sources */,
 				62CA2D342847AEA200389230 /* ViewController2.swift in Sources */,
 				6275AF972858833000D3857D /* RegisterModel.swift in Sources */,
@@ -1119,6 +1124,7 @@
 				62CBAA64284F405300BD5EAC /* CustomSegmentedControl.swift in Sources */,
 				62FCC0FF283E660500BF79E2 /* MainCoordinator.swift in Sources */,
 				62FCC0E8283E5BA500BF79E2 /* ExampleTableViewCell.swift in Sources */,
+				626E848C2859C9BF003403DE /* UIScrollView+Ext.swift in Sources */,
 				62CA2D312847989200389230 /* UIViewController+Ext.swift in Sources */,
 				62CFEE21283E574600E909AA /* AppDelegate.swift in Sources */,
 				6275AF8D28587BC200D3857D /* UserUseCase.swift in Sources */,
