@@ -10,10 +10,10 @@ import Foundation
 protocol UserRepositoryInterface {
     func login(
         params: [String: Any],
-        completion: @escaping ((Result<LoginResponseModel, Error>) -> Void)
+        completion: @escaping ((LoginResponseModel?, Error?) -> Void)
     )
     func register(
         params: [String: Any],
-        completion: @escaping ((Result<RegisterResponseModel, Error>) -> Void)
+        completion: @escaping ((RegisterResponseModel?, Error?) -> Void)
     )
 }

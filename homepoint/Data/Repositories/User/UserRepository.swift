@@ -16,7 +16,7 @@ final class UserRepository {
 extension UserRepository : UserRepositoryInterface {
     func login(
         params: [String : Any],
-        completion: @escaping ((Result<LoginResponseModel, Error>) -> Void)
+        completion: @escaping ((LoginResponseModel?, Error?) -> Void)
     ) {
         AFApiClient.shared.request(
             urlString + "login",
@@ -27,19 +27,19 @@ extension UserRepository : UserRepositoryInterface {
                 do {
                     let json = try JSON(data: data)
                     let model = LoginResponseModel(object: json)
-                    completion(.success(model))
+                    completion(model, nil)
                 } catch {
-                    completion(.failure(error))
+                    completion(nil, error)
                 }
             } else {
-                completion(.failure(error!))
+                completion(nil, error!)
             }
         }
     }
     
     func register(
         params: [String : Any],
-        completion: @escaping ((Result<RegisterResponseModel, Error>) -> Void)
+        completion: @escaping ((RegisterResponseModel?, Error?) -> Void)
     ) {
         AFApiClient.shared.request(
             urlString + "register",
@@ -50,12 +50,12 @@ extension UserRepository : UserRepositoryInterface {
                 do {
                     let json = try JSON(data: data)
                     let model = RegisterResponseModel(object: json)
-                    completion(.success(model))
+                    completion(model, error)
                 } catch {
-                    completion(.failure(error))
+                    completion(nil, error)
                 }
             } else {
-                completion(.failure(error as! Error))
+                completion(nil, error!)
             }
         }
     }

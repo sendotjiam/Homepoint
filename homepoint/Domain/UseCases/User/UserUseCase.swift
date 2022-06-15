@@ -18,25 +18,22 @@ protocol UserUseCaseProvider {
     )
 }
 
-final class UserUseCase : UserUseCaseProvider {
+final class UserUseCase {
 
-    private let repository : UserRepository
+    private let repository : UserRepositoryInterface
     
-    init(_ repository : UserRepository) {
+    init(_ repository : UserRepositoryInterface) {
         self.repository = repository
     }
-    
+}
+
+extension UserUseCase : UserUseCaseProvider {
     func login(
         request: LoginRequestModel,
         completion: @escaping ((LoginResponseModel?, Error?) -> ())
     ) {
-        repository.login(params: request.toDictionary()) { result in
-            switch result {
-            case .success(let data):
-                completion(data, nil)
-            case .failure(let error):
-                completion(nil, error)
-            }
+        repository.login(params: request.toDictionary()) { (result, error) in
+            completion(result, error)
         }
     }
     
@@ -44,13 +41,8 @@ final class UserUseCase : UserUseCaseProvider {
         request: RegisterRequestModel,
         completion: @escaping ((RegisterResponseModel?, Error?) -> ())
     ) {
-        repository.register(params: request.toDictionary()) { result in
-            switch result {
-            case .success(let data):
-                completion(data, nil)
-            case .failure(let error):
-                completion(nil, error)
-            }
+        repository.register(params: request.toDictionary()) { (result, error) in
+            completion(result, error)
         }
     }
 

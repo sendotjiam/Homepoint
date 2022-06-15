@@ -20,7 +20,8 @@ struct LoginRequestModel {
     }
 }
 
-struct LoginResponseModel {
+struct LoginResponseModel : Equatable {
+    
     var message: String
     var status : String
     var success: Bool
@@ -32,9 +33,16 @@ struct LoginResponseModel {
         self.success = object["success"].boolValue
         self.data = LoginDataModel(object: object["data"])
     }
+    
+    static func == (lhs: LoginResponseModel, rhs: LoginResponseModel) -> Bool {
+        (lhs.message == rhs.message) &&
+        (lhs.status == rhs.status) &&
+        (lhs.success == rhs.success) &&
+        (lhs.data == rhs.data)
+    }
 }
 
-struct LoginDataModel {
+struct LoginDataModel : Equatable {
     var token: String
     
     init(object: JSON) {

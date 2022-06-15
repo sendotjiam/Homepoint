@@ -22,7 +22,7 @@ struct RegisterRequestModel {
     }
 }
 
-struct RegisterResponseModel {
+struct RegisterResponseModel : Equatable {
     var message: String
     var status : String
     var success: Bool
@@ -34,9 +34,16 @@ struct RegisterResponseModel {
         self.success = object["success"].boolValue
         self.data = RegisterDataModel(object: object["data"])
     }
+    
+    static func == (lhs: RegisterResponseModel, rhs: RegisterResponseModel) -> Bool {
+        (lhs.message == rhs.message) &&
+        (lhs.status == rhs.status) &&
+        (lhs.success == rhs.success) &&
+        (lhs.data == rhs.data)
+    }
 }
 
-struct RegisterDataModel {
+struct RegisterDataModel : Equatable {
     var email: String
     var name: String
     var password : String
@@ -46,4 +53,5 @@ struct RegisterDataModel {
         self.name = object["name"].stringValue
         self.password = object["password"].stringValue
     }
+    
 }
