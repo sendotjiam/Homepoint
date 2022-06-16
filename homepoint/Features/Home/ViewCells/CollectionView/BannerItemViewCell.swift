@@ -8,22 +8,31 @@
 import UIKit
 
 class BannerItemViewCell: UICollectionViewCell {
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var heightImageView: NSLayoutConstraint!
     static let identifier = "BannerItemViewCell"
     
+    // MARK: - Outlets
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var heightImageView: NSLayoutConstraint!
+    
     var img: UIImage? {
-        didSet {
-            if let img = img {
-                imageView.image = img
-            }
-        }
+        didSet { configureCell() }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupUI()
+    }
+}
+
+extension BannerItemViewCell {
+    private func setupUI() {
         heightImageView.constant = (UIScreen.main.bounds.width - 40) * 145/335
     }
-
+    
+    private func configureCell() {
+        guard let img = img else { return }
+        imageView.image = img
+    }
+    
     class func nib() -> UINib { UINib(nibName: "BannerItemViewCell", bundle: nil) }
 }

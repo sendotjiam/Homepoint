@@ -39,13 +39,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sellernya ganteng ramah, fast respon. Sellernya ganteng ramah, fast respon Sellernya ganteng ramah, fast respon" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g2X-xo-uDS">
-                                <rect key="frame" x="20" y="47" width="303" height="91"/>
+                                <rect key="frame" x="20" y="47" width="303" height="79"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="aiJ-Ka-91V">
-                                <rect key="frame" x="20" y="146" width="303" height="62"/>
+                                <rect key="frame" x="20" y="134" width="303" height="62"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="4yd-MA-G5z"/>
@@ -63,7 +63,7 @@
                             <constraint firstItem="0T5-O7-OF6" firstAttribute="leading" secondItem="ysd-Yv-GiW" secondAttribute="leading" constant="20" id="Egw-j2-08Y"/>
                             <constraint firstItem="aiJ-Ka-91V" firstAttribute="top" secondItem="g2X-xo-uDS" secondAttribute="bottom" constant="8" id="VKt-G7-pWw"/>
                             <constraint firstAttribute="trailing" secondItem="0T5-O7-OF6" secondAttribute="trailing" constant="20" id="WQj-Yt-yNQ"/>
-                            <constraint firstAttribute="bottom" secondItem="aiJ-Ka-91V" secondAttribute="bottom" constant="8" id="bJ0-CH-7hE"/>
+                            <constraint firstAttribute="bottom" secondItem="aiJ-Ka-91V" secondAttribute="bottom" constant="20" id="bJ0-CH-7hE"/>
                             <constraint firstItem="0T5-O7-OF6" firstAttribute="top" secondItem="ysd-Yv-GiW" secondAttribute="top" constant="20" id="dha-N7-2XK"/>
                             <constraint firstAttribute="trailing" secondItem="aiJ-Ka-91V" secondAttribute="trailing" constant="20" id="f7B-5R-QO2"/>
                             <constraint firstItem="aiJ-Ka-91V" firstAttribute="leading" secondItem="ysd-Yv-GiW" secondAttribute="leading" constant="20" id="mkA-nn-B2V"/>

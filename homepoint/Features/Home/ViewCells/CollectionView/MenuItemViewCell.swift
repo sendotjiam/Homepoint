@@ -8,31 +8,34 @@
 import UIKit
 
 class MenuItemViewCell: UICollectionViewCell {
+    
+    static let identifier = "MenuItemViewCell"
+    
+    // MARK: - Outlets
     @IBOutlet weak var uiView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var labelView: UILabel!
     
     var menu: MenuData? {
-        didSet {
-            if let menu = menu {
-                setupItem(menu: menu)
-            }
-        }
+        didSet { configureCell() }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupView()
+        setupUI()
     }
-    
-    func setupView() {
+}
+
+extension MenuItemViewCell {
+    private func setupUI() {
         uiView.backgroundColor = ColorCollection.blueColor.value
     }
     
-    func setupItem(menu: MenuData) {
+    private func configureCell() {
+        guard let menu = menu else { return }
         imageView.image = menu.image
         labelView.text = menu.title
     }
-
+    
     class func nib() -> UINib { UINib(nibName: "MenuItemViewCell", bundle: nil) }
 }

@@ -17,9 +17,7 @@ class WeeksItemViewCell: UICollectionViewCell {
     @IBOutlet weak var overlayView: UIView!
     
     var menu: WeeksMenuData? {
-        didSet {
-            configureCell()
-        }
+        didSet { configureCell() }
     }
     
     override func awakeFromNib() {

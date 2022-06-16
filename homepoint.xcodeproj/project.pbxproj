@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0EDFA530B3F0D31E175B5A21 /* Pods_homepoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B954D9EAB2856BCEA8E4EF3 /* Pods_homepoint.framework */; };
 		533AFACF284F9B2A00684B1E /* ViewMoreProductViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533AFACD284F9B2A00684B1E /* ViewMoreProductViewCell.swift */; };
 		533AFAD0284F9B2A00684B1E /* ViewMoreProductViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 533AFACE284F9B2A00684B1E /* ViewMoreProductViewCell.xib */; };
 		533AFAD3284FB76800684B1E /* BannerItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533AFAD1284FB76800684B1E /* BannerItemViewCell.swift */; };
@@ -83,6 +82,8 @@
 		62A33F04284B5E0500D030F8 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A33F03284B5E0500D030F8 /* CustomNavigationBar.swift */; };
 		62BBB35A285B109C00E984C6 /* ReviewSeeMoreViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BBB358285B109C00E984C6 /* ReviewSeeMoreViewCell.swift */; };
 		62BBB35B285B109C00E984C6 /* ReviewSeeMoreViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62BBB359285B109C00E984C6 /* ReviewSeeMoreViewCell.xib */; };
+		62BBB35F285B191400E984C6 /* OtherViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BBB35D285B191400E984C6 /* OtherViewCell.swift */; };
+		62BBB360285B191400E984C6 /* OtherViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62BBB35E285B191400E984C6 /* OtherViewCell.xib */; };
 		62CA2D312847989200389230 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CA2D302847989200389230 /* UIViewController+Ext.swift */; };
 		62CA2D342847AEA200389230 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CA2D322847AEA200389230 /* ViewController2.swift */; };
 		62CA2D352847AEA200389230 /* ViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62CA2D332847AEA200389230 /* ViewController2.xib */; };
@@ -117,6 +118,7 @@
 		D11876EE285792BE001351B4 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D11876EC285792BE001351B4 /* RegisterViewController.xib */; };
 		D1F1ED572858D26300A556EB /* LastForgetPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F1ED552858D26300A556EB /* LastForgetPassViewController.swift */; };
 		D1F1ED582858D26300A556EB /* LastForgetPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F1ED562858D26300A556EB /* LastForgetPassViewController.xib */; };
+		FE867CD0EAFA7DDBF3A88365 /* Pods_homepoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3A0F060C8796ED37B440ED8 /* Pods_homepoint.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,7 +132,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0E68CEE35E63A5A52896A1B3 /* Pods-homepoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homepoint.release.xcconfig"; path = "Target Support Files/Pods-homepoint/Pods-homepoint.release.xcconfig"; sourceTree = "<group>"; };
+		248D3A07009C09EFCA519446 /* Pods-homepoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homepoint.debug.xcconfig"; path = "Target Support Files/Pods-homepoint/Pods-homepoint.debug.xcconfig"; sourceTree = "<group>"; };
 		533AFACD284F9B2A00684B1E /* ViewMoreProductViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMoreProductViewCell.swift; sourceTree = "<group>"; };
 		533AFACE284F9B2A00684B1E /* ViewMoreProductViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewMoreProductViewCell.xib; sourceTree = "<group>"; };
 		533AFAD1284FB76800684B1E /* BannerItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerItemViewCell.swift; sourceTree = "<group>"; };
@@ -160,7 +162,6 @@
 		53D77330284A41CC008F2912 /* WeeksItemViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeeksItemViewCell.xib; sourceTree = "<group>"; };
 		53D7733B284A423D008F2912 /* RecommendationViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationViewCell.swift; sourceTree = "<group>"; };
 		53D7733C284A423D008F2912 /* RecommendationViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecommendationViewCell.xib; sourceTree = "<group>"; };
-		58C97AFC902D1C59ADC25D5E /* Pods-homepoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-homepoint.debug.xcconfig"; path = "Target Support Files/Pods-homepoint/Pods-homepoint.debug.xcconfig"; sourceTree = "<group>"; };
 		62103FF72851D01C00A413F6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		62103FF82851D01C00A413F6 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		62103FFD2851DA5900A413F6 /* DetailHeaderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderViewCell.swift; sourceTree = "<group>"; };
@@ -208,6 +209,8 @@
 		62A33F03284B5E0500D030F8 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		62BBB358285B109C00E984C6 /* ReviewSeeMoreViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSeeMoreViewCell.swift; sourceTree = "<group>"; };
 		62BBB359285B109C00E984C6 /* ReviewSeeMoreViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewSeeMoreViewCell.xib; sourceTree = "<group>"; };
+		62BBB35D285B191400E984C6 /* OtherViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewCell.swift; sourceTree = "<group>"; };
+		62BBB35E285B191400E984C6 /* OtherViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherViewCell.xib; sourceTree = "<group>"; };
 		62CA2D302847989200389230 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		62CA2D322847AEA200389230 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		62CA2D332847AEA200389230 /* ViewController2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController2.xib; sourceTree = "<group>"; };
@@ -263,7 +266,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C04119F4336120BE8EE3788 /* Pods_homepoint.framework in Frameworks */,
+				FE867CD0EAFA7DDBF3A88365 /* Pods_homepoint.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,10 +276,10 @@
 		00E7DDD7BD0E49B5DB94BBD5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5AF17FBDFE4C96C3C73D9534 /* Pods-homepoint.debug.xcconfig */,
 				9337626E3CB20005EE00D2D4 /* Pods-homepoint.release.xcconfig */,
 				7178DDF11D532FFB2CB9D137 /* Pods-homepoint-homepointTests.debug.xcconfig */,
 				DA7C560FACCEE51C4F6A9B1D /* Pods-homepoint-homepointTests.release.xcconfig */,
+				248D3A07009C09EFCA519446 /* Pods-homepoint.debug.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -320,25 +323,6 @@
 			children = (
 				5370DFD528490EC800FD1ED5 /* HomeViewController.swift */,
 				5370DFD628490EC800FD1ED5 /* HomeViewController.xib */,
-				);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		62103FEE2851CFC900A413F6 /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-				62103FF62851D00900A413F6 /* ViewCells */,
-				62103FF52851D00400A413F6 /* ViewModels */,
-				62103FF42851CFFF00A413F6 /* ViewControllers */,
-			);
-			path = Detail;
-			sourceTree = "<group>";
-		};
-		62103FF42851CFFF00A413F6 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				62103FF72851D01C00A413F6 /* DetailViewController.swift */,
-				62103FF82851D01C00A413F6 /* DetailViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -372,8 +356,40 @@
 				53D773092849FCEE008F2912 /* BestOfferViewCell.xib */,
 				53D7733B284A423D008F2912 /* RecommendationViewCell.swift */,
 				53D7733C284A423D008F2912 /* RecommendationViewCell.xib */,
-				);
+			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		53D773112849FE0F008F2912 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				53D7732B284A41B9008F2912 /* MenuItemViewCell.swift */,
+				53D7732C284A41B9008F2912 /* MenuItemViewCell.xib */,
+				533AFAD1284FB76800684B1E /* BannerItemViewCell.swift */,
+				533AFAD2284FB76800684B1E /* BannerItemViewCell.xib */,
+				53D7732F284A41CC008F2912 /* WeeksItemViewCell.swift */,
+				53D77330284A41CC008F2912 /* WeeksItemViewCell.xib */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		62103FEE2851CFC900A413F6 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				62103FF62851D00900A413F6 /* ViewCells */,
+				62103FF52851D00400A413F6 /* ViewModels */,
+				62103FF42851CFFF00A413F6 /* ViewControllers */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		62103FF42851CFFF00A413F6 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				62103FF72851D01C00A413F6 /* DetailViewController.swift */,
+				62103FF82851D01C00A413F6 /* DetailViewController.xib */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		62103FF52851D00400A413F6 /* ViewModels */ = {
@@ -395,25 +411,13 @@
 		62103FFB2851DA2200A413F6 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				62BBB35C285B190100E984C6 /* Others */,
 				62DC6AAB28532ED80093DB64 /* Review */,
 				621040062851EC8D00A413F6 /* Header */,
 				621040072851EC9500A413F6 /* Description */,
 				621040082851EC9E00A413F6 /* ShippingOptions */,
 			);
 			path = TableView;
-			sourceTree = "<group>";
-		};
-		53D773112849FE0F008F2912 /* CollectionView */ = {
-			isa = PBXGroup;
-			children = (
-				53D7732B284A41B9008F2912 /* MenuItemViewCell.swift */,
-				53D7732C284A41B9008F2912 /* MenuItemViewCell.xib */,
-				533AFAD1284FB76800684B1E /* BannerItemViewCell.swift */,
-				533AFAD2284FB76800684B1E /* BannerItemViewCell.xib */,
-				53D7732F284A41CC008F2912 /* WeeksItemViewCell.swift */,
-				53D77330284A41CC008F2912 /* WeeksItemViewCell.xib */,
-				);
-			path = CollectionView;
 			sourceTree = "<group>";
 		};
 		62103FFC2851DA2800A413F6 /* CollectionView */ = {
@@ -648,6 +652,15 @@
 				62A33F03284B5E0500D030F8 /* CustomNavigationBar.swift */,
 			);
 			path = NavigationBar;
+			sourceTree = "<group>";
+		};
+		62BBB35C285B190100E984C6 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				62BBB35D285B191400E984C6 /* OtherViewCell.swift */,
+				62BBB35E285B191400E984C6 /* OtherViewCell.xib */,
+			);
+			path = Others;
 			sourceTree = "<group>";
 		};
 		62CBAA65284F40CE00BD5EAC /* SegmentedControl */ = {
@@ -1090,6 +1103,7 @@
 				5370DFCC2848FE6500FD1ED5 /* Inter-SemiBold.ttf in Resources */,
 				6216E0862848ED4D0019747D /* LargeProductCardViewCell.xib in Resources */,
 				62103FFA2851D01C00A413F6 /* DetailViewController.xib in Resources */,
+				62BBB360285B191400E984C6 /* OtherViewCell.xib in Resources */,
 				62CFEE2D283E574A00E909AA /* LaunchScreen.storyboard in Resources */,
 				627A3911284CD892002ADC6B /* OrderFilterItemViewCell.xib in Resources */,
 				533AFAD4284FB76800684B1E /* BannerItemViewCell.xib in Resources */,
@@ -1232,6 +1246,7 @@
 				62CBAA6D284F4FFC00BD5EAC /* Utils.swift in Sources */,
 				62FCC0E3283E5B6C00BF79E2 /* String+Ext.swift in Sources */,
 				62FCC0E1283E5B5400BF79E2 /* Constants.swift in Sources */,
+				62BBB35F285B191400E984C6 /* OtherViewCell.swift in Sources */,
 				6275AF8A28587B9E00D3857D /* UserRepositoryInterface.swift in Sources */,
 				62CBAA6A284F437C00BD5EAC /* HistoryViewController.swift in Sources */,
 				62D8290428538345003EA34F /* ReviewHeaderViewCell.swift in Sources */,
@@ -1242,7 +1257,6 @@
 				62FCC0E3283E5B6C00BF79E2 /* String+Ext.swift in Sources */,
 				533AFAD3284FB76800684B1E /* BannerItemViewCell.swift in Sources */,
 				62FCC0E1283E5B5400BF79E2 /* Constants.swift in Sources */,
-				62FCC10C283E6B2C00BF79E2 /* ExampleRepository.swift in Sources */,
 				53D772FA2849FBF2008F2912 /* MenuViewCell.swift in Sources */,
 				5370DFD728490EC800FD1ED5 /* HomeViewController.swift in Sources */,
 				53D7732D284A41B9008F2912 /* MenuItemViewCell.swift in Sources */,
@@ -1266,15 +1280,11 @@
 				6275AF8728587B6B00D3857D /* Error.swift in Sources */,
 				627A3907284CCFE8002ADC6B /* OrderListViewCell.swift in Sources */,
 				62103FFF2851DA5900A413F6 /* DetailHeaderViewCell.swift in Sources */,
-				62FCC105283E668000BF79E2 /* ExampleUseCase.swift in Sources */,
 				62759B81284A52AD00622184 /* SearchViewController.swift in Sources */,
-				53D77335284A41DD008F2912 /* BestOfferItemViewCell.swift in Sources */,
 				53D773022849FC87008F2912 /* BannerViewCell.swift in Sources */,
 				53D77329284A419E008F2912 /* WeeksViewCell.swift in Sources */,
 				62FCC0DB283E5AE600BF79E2 /* ExampleViewModel.swift in Sources */,
 				626E848F2859D615003403DE /* LoginViewModel.swift in Sources */,
-				62FCC109283E66DE00BF79E2 /* ExampleRepositoryInterface.swift in Sources */,
-				62FCC103283E666200BF79E2 /* ExampleResponse.swift in Sources */,
 				62BBB35A285B109C00E984C6 /* ReviewSeeMoreViewCell.swift in Sources */,
 				629B41DA285345760051EB23 /* ReviewListViewCell.swift in Sources */,
 				62A33F04284B5E0500D030F8 /* CustomNavigationBar.swift in Sources */,
@@ -1482,7 +1492,7 @@
 		};
 		62CFEE32283E574A00E909AA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5AF17FBDFE4C96C3C73D9534 /* Pods-homepoint.debug.xcconfig */;
+			baseConfigurationReference = 248D3A07009C09EFCA519446 /* Pods-homepoint.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

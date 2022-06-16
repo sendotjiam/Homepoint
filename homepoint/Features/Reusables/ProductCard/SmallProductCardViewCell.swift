@@ -9,6 +9,8 @@ import UIKit
 
 final class SmallProductCardViewCell: UICollectionViewCell {
 
+    static let identifier = "SmallProductCardViewCell"
+    
     // MARK: - Outlets
     @IBOutlet weak var containerView : UIView!
     @IBOutlet weak var imageView : UIImageView!

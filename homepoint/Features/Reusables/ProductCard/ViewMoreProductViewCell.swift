@@ -8,8 +8,10 @@
 import UIKit
 
 class ViewMoreProductViewCell: UICollectionViewCell {
-    @IBOutlet weak var containerView: UIView!
     static let identifier = "ViewMoreProductViewCell"
+    
+    // MARK: - Outlets
+    @IBOutlet weak var containerView: UIView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
