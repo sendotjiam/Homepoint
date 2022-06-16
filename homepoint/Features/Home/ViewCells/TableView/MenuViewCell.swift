@@ -79,7 +79,7 @@ extension MenuViewCell:
             withReuseIdentifier: MenuItemViewCell.identifier,
             for: indexPath
         ) as? MenuItemViewCell
-        cell.menu = menus[indexPath.row]
-        return cell
+        cell?.menu = menus[indexPath.row]
+        return cell ?? UICollectionViewCell()
     }
 }

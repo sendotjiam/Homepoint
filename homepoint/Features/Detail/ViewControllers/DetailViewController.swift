@@ -23,7 +23,7 @@ class DetailViewController: UIViewController {
         case header, description, review, discussion, others, shipping
     }
     private let sections : [SectionType] = [
-        .header, .description, .shipping, .review, .discussion, .others
+        .header, .description, .shipping, .review, .others, .discussion
     ]
     private var reviewList : Int = 10
     
@@ -103,6 +103,10 @@ extension DetailViewController {
             ReviewSeeMoreViewCell.nib(),
             forCellReuseIdentifier: ReviewSeeMoreViewCell.identifier
         )
+        tableView.register(
+            OtherViewCell.nib(),
+            forCellReuseIdentifier: OtherViewCell.identifier
+        )
     }
 }
 
@@ -119,8 +123,6 @@ extension DetailViewController :
         numberOfRowsInSection section: Int
     ) -> Int {
         switch sections[section] {
-        case .header: return 1
-        case .shipping: return 1
         case .review: return reviewList + 2
         default: return 1
         }
@@ -147,6 +149,8 @@ extension DetailViewController :
             default:
                 cell = generateCell(ReviewListViewCell.identifier, indexPath)
             }
+        case .others:
+            cell = generateCell(OtherViewCell.identifier, indexPath)
         default: return UITableViewCell()
         }
         return cell ?? UITableViewCell()

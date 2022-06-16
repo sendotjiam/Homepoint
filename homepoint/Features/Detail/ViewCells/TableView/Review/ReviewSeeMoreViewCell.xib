@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQv-J8-X2X">
-                        <rect key="frame" x="92" y="12" width="136" height="20"/>
+                        <rect key="frame" x="92" y="4" width="136" height="36"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                         <color key="tintColor" name="DarkBlue"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -30,8 +30,8 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="OQv-J8-X2X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="m5d-ug-e47"/>
-                    <constraint firstAttribute="bottom" secondItem="OQv-J8-X2X" secondAttribute="bottom" constant="12" id="pds-22-4aC"/>
+                    <constraint firstItem="OQv-J8-X2X" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="m5d-ug-e47"/>
+                    <constraint firstAttribute="bottom" secondItem="OQv-J8-X2X" secondAttribute="bottom" constant="4" id="pds-22-4aC"/>
                     <constraint firstItem="OQv-J8-X2X" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="yjC-wD-hZl"/>
                 </constraints>
             </tableViewCellContentView>

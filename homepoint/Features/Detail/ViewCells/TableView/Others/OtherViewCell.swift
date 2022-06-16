@@ -9,6 +9,8 @@ import UIKit
 
 class OtherViewCell: UITableViewCell {
 
+    static let identifier = "OtherViewCell"
+    
     // MARK: - Outles
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -27,6 +29,11 @@ extension OtherViewCell {
             SmallProductCardViewCell.nib(),
             forCellWithReuseIdentifier: SmallProductCardViewCell.identifier
         )
+        selectionStyle = .none
+    }
+    
+    class func nib() -> UINib {
+        UINib(nibName: "OtherViewCell", bundle: nil)
     }
 }
 

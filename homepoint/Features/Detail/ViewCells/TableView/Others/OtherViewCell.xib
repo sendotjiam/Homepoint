@@ -19,19 +19,22 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deskripsi Produk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eey-a6-CWr">
-                        <rect key="frame" x="20" y="12" width="438" height="17"/>
+                        <rect key="frame" x="20" y="12" width="438" height="20"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="a0R-AE-g9I">
-                        <rect key="frame" x="0.0" y="33" width="478" height="181"/>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="a0R-AE-g9I">
+                        <rect key="frame" x="0.0" y="44" width="478" height="170"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="170" id="2b8-1X-WSw"/>
+                        </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tvN-8Z-Z3W">
-                            <size key="itemSize" width="128" height="128"/>
+                            <size key="itemSize" width="112" height="167"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
                 </subviews>
@@ -39,7 +42,7 @@
                     <constraint firstItem="a0R-AE-g9I" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5mY-HT-zln"/>
                     <constraint firstAttribute="bottom" secondItem="a0R-AE-g9I" secondAttribute="bottom" constant="12" id="7Ny-7Z-WyY"/>
                     <constraint firstAttribute="trailing" secondItem="a0R-AE-g9I" secondAttribute="trailing" id="IO5-yn-LSh"/>
-                    <constraint firstItem="a0R-AE-g9I" firstAttribute="top" secondItem="eey-a6-CWr" secondAttribute="bottom" constant="4" id="U9f-cE-IAN"/>
+                    <constraint firstItem="a0R-AE-g9I" firstAttribute="top" secondItem="eey-a6-CWr" secondAttribute="bottom" constant="12" id="U9f-cE-IAN"/>
                     <constraint firstAttribute="trailing" secondItem="eey-a6-CWr" secondAttribute="trailing" constant="20" id="X5x-ZS-QXY"/>
                     <constraint firstItem="eey-a6-CWr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="d1T-ku-fA8"/>
                     <constraint firstItem="eey-a6-CWr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="kFB-10-g2Q"/>
