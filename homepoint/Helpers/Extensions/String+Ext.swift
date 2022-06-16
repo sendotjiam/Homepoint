@@ -8,6 +8,15 @@
 import UIKit
 
 extension String {
+    func strikethroughText(range: NSRange) -> NSMutableAttributedString {
+        let attributed = NSMutableAttributedString(string: self)
+        attributed.addAttributes([
+            NSAttributedString.Key.strikethroughStyle: 1,
+            NSAttributedString.Key.foregroundColor: UIColor.gray,
+        ], range: range)
+        return attributed
+    }
+    
     func hexStringToUIColor() -> UIColor {
         var cString:String = self
             .trimmingCharacters(in: .whitespacesAndNewlines)

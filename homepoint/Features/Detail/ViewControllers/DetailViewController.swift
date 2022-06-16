@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var addToCartButton: UIButton!
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var minusButton: UIButton!
+    @IBOutlet weak var discountedPriceLabel: UILabel!
     
     // MARK: - Section
     private enum SectionType {
@@ -26,10 +27,12 @@ class DetailViewController: UIViewController {
         .header, .description, .shipping, .review, .others, .discussion
     ]
     private var reviewList : Int = 10
+    private var singlePrice = 100000
+    private var discount = 50000
     
     // MARK: - Variable
-    var qty = 0
-    var price = 1
+    var qty = 1
+    var price = 0
     var total = 0
     
     // MARK: - Life Cycle
@@ -38,20 +41,21 @@ class DetailViewController: UIViewController {
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNavigationBar(type: .backSearchAndCart(isTransparent: true))
+    }
+    
     // MARK: - Actions
     @IBAction func plusButtonTapped(_ sender: Any) {
         qty += 1
-        total = price * qty
-        qtyLabel.text = "\(qty)"
-        priceLabel.text = "Rp\(total)"
+        countTotalPrice()
     }
     
     @IBAction func minusButtonTapped(_ sender: Any) {
-        if qty == 0 { return }
+        if qty <= 1 { return }
         qty -= 1
-        total = price * qty
-        qtyLabel.text = "\(qty)"
-        priceLabel.text = "Rp\(total)"
+        countTotalPrice()
     }
     
     @IBAction func addToCartButtonTapped(_ sender: Any) {
@@ -61,6 +65,8 @@ class DetailViewController: UIViewController {
 
 extension DetailViewController {
     private func setupUI() {
+        countTotalPrice()
+        
         bottomContainerView.dropShadow(
             with: 0.1,
             radius: 4,
@@ -74,6 +80,26 @@ extension DetailViewController {
         if #available(iOS 11.0, *) {
              tableView.contentInsetAdjustmentBehavior = .never
         }
+    }
+    
+    private func countTotalPrice() {
+        price = singlePrice * qty
+        total = price - discount
+        qtyLabel.text = "\(qty)"
+        let priceStr = price.separateInt(with: ".")
+        let totalStr = total.separateInt(with: ".")
+        let attributedPrice = "Rp\(priceStr)"
+        discountedPriceLabel.attributedText = attributedPrice
+            .strikethroughText(
+                range: NSRange(
+                    location: 0,
+                    length: priceStr.count + 2
+                )
+            )
+        priceLabel.text = "Rp\(totalStr)"
+    }
+    
+    private func setPriceLabel() {
     }
     
     private func setupTableView() {

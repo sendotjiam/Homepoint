@@ -24,7 +24,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="62" id="clz-XY-b9P"/>
                         </constraints>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mEV-pS-fVB">
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mEV-pS-fVB">
                             <size key="itemSize" width="62" height="62"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>

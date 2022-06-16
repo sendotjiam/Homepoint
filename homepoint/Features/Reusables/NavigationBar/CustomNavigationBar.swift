@@ -7,12 +7,14 @@
 
 import UIKit
 
+var isNavbarTransparent = false
+
 enum NavigationBarType {
     case defaultNav
     case hidden
     case back
     case backAndSearch
-    case backSearchAndCart
+    case backSearchAndCart(isTransparent: Bool = false)
     case backAndTitle(title: String?)
     case backTitleAndLike(title: String?, isFavorite: Bool = false)
     case backSearchAndHistory
@@ -23,6 +25,7 @@ enum NavigationBarRightItemType {
     case notification
     case like
     case history
+    case search
 }
 
 protocol NavigationItemHandler {
@@ -31,6 +34,7 @@ protocol NavigationItemHandler {
     func likeTapped(sender: UIBarButtonItem)
     func backTapped(sender: UIBarButtonItem)
     func historyTapped(sender: UIBarButtonItem)
+    func searchTapped(sender: UIBarButtonItem)
 }
 
 extension UIViewController  {
@@ -45,7 +49,11 @@ extension UIViewController  {
         navigationController?.navigationBar.topItem?.backButtonTitle = ""
     }
     
-    private func setStatusBar(_ color: UIColor) {
+    private func setStatusBar(
+        _ color: UIColor = ColorCollection.blueColor.value,
+        _ isTransparent : Bool = false
+    ) {
+        if isTransparent { return }
         if #available(iOS 13, *) {
             let statusBar = UIView()
             statusBar.frame = UIApplication.shared.statusBarFrame
@@ -81,31 +89,38 @@ extension UIViewController  {
         navigationItem.titleView = label
     }
     
-    private func addRightBarButtonItems(_ types: [NavigationBarRightItemType]) {
+    private func addRightBarButtonItems(
+        _ types: [NavigationBarRightItemType],
+        _ isTransparent : Bool = false
+    ) {
         var buttons = [UIButton]()
         types.forEach { type in
             var image : UIImage?
             var action : Selector?
+            let extendedImageName = isTransparent ? ".transparent" : ""
             switch type {
             case .cart:
-                image = UIImage(named: "ic_cart")
+                image = UIImage(named: "ic_cart" + extendedImageName)
                 action = #selector(cartTapped(sender:))
             case .notification:
-                image = UIImage(named: "ic_notification")
+                image = UIImage(named: "ic_notification" + extendedImageName)
                 action = #selector(notificationTapped(sender:))
             case .like:
-                image = UIImage(named: "ic_cart")
+                image = UIImage(named: "ic_cart" + extendedImageName)
                 action = #selector(cartTapped(sender:))
             case .history:
-                image = UIImage(named: "ic_history")
+                image = UIImage(named: "ic_history" + extendedImageName)
                 action = #selector(historyTapped(sender:))
+            case .search:
+                image = UIImage(named: "ic_search" + extendedImageName)
+                action = #selector(searchTapped(sender:))
             }
             guard let action = action else {return}
             let btn = UIButton(type: .custom)
             btn.setImage(image, for: .normal)
             btn.addTarget(self, action: action, for: .touchUpInside)
-            btn.widthAnchor.constraint(equalToConstant: 22).isActive = true
-            btn.heightAnchor.constraint(equalToConstant: 22).isActive = true
+            btn.widthAnchor.constraint(equalToConstant: isTransparent ? 32 : 22).isActive = true
+            btn.heightAnchor.constraint(equalToConstant: isTransparent ? 32 : 22).isActive = true
             buttons.append(btn)
         }
         let stack = UIStackView(arrangedSubviews: buttons)
@@ -137,45 +152,61 @@ extension UIViewController  {
         navigationItem.setRightBarButton(item, animated: false)
     }
     
-    private func addBackButton() {
+    private func addBackButton(_ isTransparent : Bool = false) {
         let btn = UIButton(type: .custom)
-        btn.setImage(UIImage(named: "ic_left.arrow"), for: .normal)
+        let extendedImageName = isTransparent ? ".transparent" : ""
+        let size : CGFloat = isTransparent ? 32 : 22
+        btn.setImage(UIImage(named: "ic_left.arrow" + extendedImageName), for: .normal)
         btn.addTarget(self, action: #selector(backTapped(sender:)), for: .touchUpInside)
-        btn.widthAnchor.constraint(equalToConstant: 22).isActive = true
-        btn.heightAnchor.constraint(equalToConstant: 18).isActive = true
+        btn.widthAnchor.constraint(equalToConstant: size).isActive = true
+        btn.heightAnchor.constraint(equalToConstant: size).isActive = true
         let item = UIBarButtonItem(customView: btn)
         navigationItem.setLeftBarButton(item, animated: false)
     }
     
     func setNavigationBar(type: NavigationBarType) {
-//        addStatusBar(ColorCollection.blueColor.value)
         setDefaultNavigationBar()
         switch type {
         case .hidden:
-            navigationController?.setNavigationBarHidden(true, animated: false)
+            setStatusBar(.clear, true)
+            navigationController?
+                .setNavigationBarHidden(true, animated: false)
         case .backAndTitle(let title):
+            setStatusBar()
             addBackButton()
             addTitle(title ?? "")
         case .backTitleAndLike(let title, let isFavorite):
+            setStatusBar()
             addLikeButton(isFavorite)
             addBackButton()
             addSearchBar()
             addTitle(title ?? "")
-        case .backSearchAndCart:
-            addBackButton()
-            addSearchBar()
-            addRightBarButtonItems([.cart])
+        case .backSearchAndCart(let isTransparent):
+            addBackButton(isTransparent)
+            if isTransparent {
+                setStatusBar(.clear, true)
+                resetNavbarBackground()
+                addRightBarButtonItems([.search, .cart], isTransparent)
+            } else {
+                setStatusBar()
+                addSearchBar()
+                addRightBarButtonItems([.cart])
+            }
         case .backAndSearch:
+            setStatusBar()
             addBackButton()
             addSearchBar()
         case .backSearchAndHistory:
+            setStatusBar()
             addBackButton()
             addSearchBar()
             addRightBarButtonItems([.history])
         case .back:
+            setStatusBar()
             addBackButton()
             resetNavbarBackground()
         default:
+            setStatusBar()
             addSearchBar()
             addRightBarButtonItems([.cart, .notification])
         }
@@ -189,6 +220,7 @@ extension UIViewController : NavigationItemHandler {
     @objc func notificationTapped(sender: UIBarButtonItem) {}
     @objc func likeTapped(sender: UIBarButtonItem) {}
     @objc func historyTapped(sender: UIBarButtonItem) {}
+    @objc func searchTapped(sender: UIBarButtonItem) {}
     @objc func backTapped(sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }

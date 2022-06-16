@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="addToCartButton" destination="zrv-n0-umG" id="fHZ-cO-xy2"/>
                 <outlet property="bottomContainerView" destination="mBJ-gv-Dos" id="Z3f-0H-tg5"/>
+                <outlet property="discountedPriceLabel" destination="xDB-Ji-Too" id="S1P-v4-rc1"/>
                 <outlet property="minusButton" destination="8Fk-mB-b9d" id="gT0-5O-tEI"/>
                 <outlet property="plusButton" destination="h9A-Jn-zay" id="uQj-Vs-HAe"/>
                 <outlet property="priceLabel" destination="mcH-TX-D5n" id="x9Q-bk-LzF"/>

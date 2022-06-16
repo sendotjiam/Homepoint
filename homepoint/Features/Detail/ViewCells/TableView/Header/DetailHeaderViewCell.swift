@@ -26,6 +26,8 @@ class DetailHeaderViewCell: UITableViewCell {
     var colors = [String]() {
         didSet { configureCell() }
     }
+    var price = 100000
+    var discountedPrice = 50000
     
     var didTapCompareButton : (() -> ())? = nil
     
@@ -51,6 +53,13 @@ extension DetailHeaderViewCell {
             ColorListViewCell.nib(),
             forCellWithReuseIdentifier: ColorListViewCell.identifier
         )
+        let priceStr = price.separateInt(with: ".")
+        let discountedPriceStr = discountedPrice.separateInt(with: ".")
+        print(priceStr, discountedPriceStr)
+        let attributedPrice = "Rp\(priceStr) Rp\(discountedPriceStr)"
+        priceLabel.attributedText = attributedPrice.strikethroughText(range: NSRange(
+            location: 0, length: priceStr.count + 2
+        ))
     }
     
     private func configureCell() {
