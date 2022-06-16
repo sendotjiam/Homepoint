@@ -25,6 +25,7 @@ class DetailViewController: UIViewController {
     private let sections : [SectionType] = [
         .header, .description, .shipping, .review, .discussion, .others
     ]
+    private var reviewList : Int = 10
     
     // MARK: - Variable
     var qty = 0
@@ -98,6 +99,10 @@ extension DetailViewController {
             ReviewListViewCell.nib(),
             forCellReuseIdentifier: ReviewListViewCell.identifier
         )
+        tableView.register(
+            ReviewSeeMoreViewCell.nib(),
+            forCellReuseIdentifier: ReviewSeeMoreViewCell.identifier
+        )
     }
 }
 
@@ -116,7 +121,7 @@ extension DetailViewController :
         switch sections[section] {
         case .header: return 1
         case .shipping: return 1
-        case .review: return 11 /// item.count + 1
+        case .review: return reviewList + 2
         default: return 1
         }
     }
@@ -137,6 +142,8 @@ extension DetailViewController :
             switch indexPath.row {
             case 0:
                 cell = generateCell(ReviewHeaderViewCell.identifier, indexPath)
+            case reviewList + 1:
+                cell = generateCell(ReviewSeeMoreViewCell.identifier, indexPath)
             default:
                 cell = generateCell(ReviewListViewCell.identifier, indexPath)
             }
@@ -157,7 +164,7 @@ extension DetailViewController :
         case .header:
             guard let cellHeader = cell as? DetailHeaderViewCell
             else { return nil }
-            cellHeader.colors = ["#F1C6B9", "#f1f1f1"]
+            cellHeader.colors = ["#F1C6B9", "#f1f1f1", "#000000"]
             cellHeader.didTapCompareButton = { [weak self] in
                 print("HEADER")
             }
@@ -169,10 +176,24 @@ extension DetailViewController :
                 print("DESCRIPTION")
             }
             return cellDescription as? T
-//        case .review:
-//            guard let cellReview = cell as? ReviewViewCell
-//            else { return nil }
-//            return cellReview as? T
+        case .review:
+            switch indexPath.row {
+            case 0:
+                guard let cellHeader = cell as? ReviewHeaderViewCell
+                else { return nil }
+                return cellHeader as? T
+            case reviewList + 1:
+                guard let cellSeeMore = cell as? ReviewSeeMoreViewCell
+                else { return nil }
+                cellSeeMore.didTapSeeMoreButton = { [weak self] in
+                    print("SEE MORE")
+                }
+                return cellSeeMore as? T
+            default:
+                guard let cellList = cell as? ReviewListViewCell
+                else { return nil }
+                return cellList as? T
+            }
         default: return cell
         }
     }

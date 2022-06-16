@@ -81,6 +81,8 @@
 		629B41DA285345760051EB23 /* ReviewListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629B41D8285345760051EB23 /* ReviewListViewCell.swift */; };
 		629B41DB285345760051EB23 /* ReviewListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 629B41D9285345760051EB23 /* ReviewListViewCell.xib */; };
 		62A33F04284B5E0500D030F8 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A33F03284B5E0500D030F8 /* CustomNavigationBar.swift */; };
+		62BBB35A285B109C00E984C6 /* ReviewSeeMoreViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BBB358285B109C00E984C6 /* ReviewSeeMoreViewCell.swift */; };
+		62BBB35B285B109C00E984C6 /* ReviewSeeMoreViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62BBB359285B109C00E984C6 /* ReviewSeeMoreViewCell.xib */; };
 		62CA2D312847989200389230 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CA2D302847989200389230 /* UIViewController+Ext.swift */; };
 		62CA2D342847AEA200389230 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CA2D322847AEA200389230 /* ViewController2.swift */; };
 		62CA2D352847AEA200389230 /* ViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62CA2D332847AEA200389230 /* ViewController2.xib */; };
@@ -204,6 +206,8 @@
 		629B41D8285345760051EB23 /* ReviewListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListViewCell.swift; sourceTree = "<group>"; };
 		629B41D9285345760051EB23 /* ReviewListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewListViewCell.xib; sourceTree = "<group>"; };
 		62A33F03284B5E0500D030F8 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
+		62BBB358285B109C00E984C6 /* ReviewSeeMoreViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSeeMoreViewCell.swift; sourceTree = "<group>"; };
+		62BBB359285B109C00E984C6 /* ReviewSeeMoreViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewSeeMoreViewCell.xib; sourceTree = "<group>"; };
 		62CA2D302847989200389230 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		62CA2D322847AEA200389230 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		62CA2D332847AEA200389230 /* ViewController2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController2.xib; sourceTree = "<group>"; };
@@ -391,7 +395,6 @@
 		62103FFB2851DA2200A413F6 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				629B41D72853453E0051EB23 /* ReviewList */,
 				62DC6AAB28532ED80093DB64 /* Review */,
 				621040062851EC8D00A413F6 /* Header */,
 				621040072851EC9500A413F6 /* Description */,
@@ -639,15 +642,6 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
-		629B41D72853453E0051EB23 /* ReviewList */ = {
-			isa = PBXGroup;
-			children = (
-				629B41D8285345760051EB23 /* ReviewListViewCell.swift */,
-				629B41D9285345760051EB23 /* ReviewListViewCell.xib */,
-			);
-			path = ReviewList;
-			sourceTree = "<group>";
-		};
 		62A33F02284B5DC400D030F8 /* NavigationBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -730,8 +724,12 @@
 		62DC6AAB28532ED80093DB64 /* Review */ = {
 			isa = PBXGroup;
 			children = (
+				629B41D8285345760051EB23 /* ReviewListViewCell.swift */,
+				629B41D9285345760051EB23 /* ReviewListViewCell.xib */,
 				62D8290228538345003EA34F /* ReviewHeaderViewCell.swift */,
 				62D8290328538345003EA34F /* ReviewHeaderViewCell.xib */,
+				62BBB358285B109C00E984C6 /* ReviewSeeMoreViewCell.swift */,
+				62BBB359285B109C00E984C6 /* ReviewSeeMoreViewCell.xib */,
 			);
 			path = Review;
 			sourceTree = "<group>";
@@ -1100,6 +1098,7 @@
 				62CFEE2D283E574A00E909AA /* LaunchScreen.storyboard in Resources */,
 				533AFAD0284F9B2A00684B1E /* ViewMoreProductViewCell.xib in Resources */,
 				53D7733E284A423D008F2912 /* RecommendationViewCell.xib in Resources */,
+				62BBB35B285B109C00E984C6 /* ReviewSeeMoreViewCell.xib in Resources */,
 				5370DFD02848FE6500FD1ED5 /* Inter-Thin.ttf in Resources */,
 				6216E0882848ED4D0019747D /* SmallProductCardViewCell.xib in Resources */,
 				53D7732A284A419E008F2912 /* WeeksViewCell.xib in Resources */,
@@ -1276,6 +1275,7 @@
 				626E848F2859D615003403DE /* LoginViewModel.swift in Sources */,
 				62FCC109283E66DE00BF79E2 /* ExampleRepositoryInterface.swift in Sources */,
 				62FCC103283E666200BF79E2 /* ExampleResponse.swift in Sources */,
+				62BBB35A285B109C00E984C6 /* ReviewSeeMoreViewCell.swift in Sources */,
 				629B41DA285345760051EB23 /* ReviewListViewCell.swift in Sources */,
 				62A33F04284B5E0500D030F8 /* CustomNavigationBar.swift in Sources */,
 				62CA2D342847AEA200389230 /* ViewController2.swift in Sources */,

@@ -28,14 +28,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3qc-Bo-s5s">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="689"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="690"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mBJ-gv-Dos">
-                    <rect key="frame" x="0.0" y="705" width="414" height="157"/>
+                    <rect key="frame" x="0.0" y="706" width="414" height="156"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zrv-n0-umG">
-                            <rect key="frame" x="20" y="103" width="374" height="40"/>
+                            <rect key="frame" x="20" y="102" width="374" height="40"/>
                             <color key="backgroundColor" name="Yellow"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="Nx1-Tc-fGa"/>
@@ -56,39 +56,39 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="ybc-07-20L">
-                            <rect key="frame" x="20" y="39" width="374" height="31"/>
+                            <rect key="frame" x="20" y="39" width="374" height="30"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp180.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcH-TX-D5n">
-                                    <rect key="frame" x="0.0" y="9.5" width="92.5" height="21.5"/>
+                                    <rect key="frame" x="0.0" y="8.5" width="92.5" height="21.5"/>
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="BqB-Ne-FVG">
-                                    <rect key="frame" x="243" y="0.0" width="131" height="31"/>
+                                    <rect key="frame" x="252" y="0.0" width="122" height="30"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Fk-mB-b9d">
-                                            <rect key="frame" x="0.0" y="0.0" width="33" height="31"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="tintColor" name="DarkBlue"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" title="-"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="-"/>
                                             <connections>
                                                 <action selector="minusButtonTapped:" destination="-1" eventType="touchUpInside" id="fae-NT-0DS"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4X-2p-cLc">
-                                            <rect key="frame" x="49" y="0.0" width="33" height="31"/>
+                                            <rect key="frame" x="46" y="0.0" width="30" height="30"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9A-Jn-zay">
-                                            <rect key="frame" x="98" y="0.0" width="33" height="31"/>
+                                            <rect key="frame" x="92" y="0.0" width="30" height="30"/>
                                             <color key="backgroundColor" name="DarkBlue"/>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" title="+"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="+"/>
                                             <connections>
                                                 <action selector="plusButtonTapped:" destination="-1" eventType="touchUpInside" id="DCv-Nn-IyJ"/>
                                             </connections>
@@ -98,7 +98,7 @@
                             </subviews>
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eG3-gA-XSp">
-                            <rect key="frame" x="0.0" y="88" width="414" height="1"/>
+                            <rect key="frame" x="0.0" y="87" width="414" height="1"/>
                             <color key="backgroundColor" name="LightGray"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="1" id="vW2-1c-qbF"/>
