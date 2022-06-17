@@ -28,7 +28,7 @@ class MenuItemViewCell: UICollectionViewCell {
 
 extension MenuItemViewCell {
     private func setupUI() {
-        uiView.backgroundColor = ColorCollection.blueColor.value
+        
     }
     
     private func configureCell() {

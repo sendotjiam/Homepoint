@@ -27,15 +27,24 @@ class HomeViewController: UIViewController {
         setupView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNavigationBar(type: .defaultNav)
+    }
+    
     func setupView() {
+//        homeTableView.roundedCorner(with: 8)
+        homeTableView.layer.cornerRadius = 10
+        homeTableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
         homeTableView.delegate = self
         homeTableView.dataSource = self
         
-        homeTableView.register(MenuViewCell.nib(), forCellReuseIdentifier: "MenuViewCell")
-        homeTableView.register(BannerViewCell.nib(), forCellReuseIdentifier: "BannerViewCell")
-        homeTableView.register(WeeksViewCell.nib(), forCellReuseIdentifier: "WeeksViewCell")
-        homeTableView.register(BestOfferViewCell.nib(), forCellReuseIdentifier: "BestOfferViewCell")
-        homeTableView.register(RecommendationViewCell.nib(), forCellReuseIdentifier: "RecommendationViewCell")
+        homeTableView.register(MenuViewCell.nib(), forCellReuseIdentifier: MenuViewCell.identifier)
+        homeTableView.register(BannerViewCell.nib(), forCellReuseIdentifier: BannerViewCell.identifier)
+        homeTableView.register(WeeksViewCell.nib(), forCellReuseIdentifier: WeeksViewCell.identifier)
+        homeTableView.register(BestOfferViewCell.nib(), forCellReuseIdentifier: BestOfferViewCell.identifier)
+        homeTableView.register(RecommendationViewCell.nib(), forCellReuseIdentifier: RecommendationViewCell.identifier)
     }
 }
 

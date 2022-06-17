@@ -12,13 +12,13 @@ class CustomTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let ex1 = ViewController()
+        let homeVC = HomeViewController()
         let ex2 = B()
         let vc = C()
         let ex3 = D()
         let ex4 = E()
         
-        let navEx1 = UINavigationController(rootViewController: ex1)
+        let navHome = UINavigationController(rootViewController: homeVC)
         let navEx2 = UINavigationController(rootViewController: ex2)
         let navVC = UINavigationController(rootViewController: vc)
         let navEx3 = UINavigationController(rootViewController: ex3)
@@ -40,7 +40,7 @@ class CustomTabBarController: UITabBarController {
         ]
         
         setupTabBar(
-            [navEx1, navEx3, navVC, navEx4, navEx2],
+            [navHome, navEx3, navVC, navEx4, navEx2],
             titles,
             images
         )
@@ -56,7 +56,8 @@ extension CustomTabBarController {
         tabBar.isTranslucent = false
         tabBar.backgroundColor = .white
         tabBar.tintColor = ColorCollection.primaryColor.value
-        tabBar.barTintColor = ColorCollection.primaryColor.value
+//        tabBar.barTintColor = ColorCollection.primaryColor.value
+        tabBar.backgroundColor = .white
         tabBar.layer.shadowColor = UIColor.black.cgColor
         tabBar.layer.shadowOpacity = 0.2
         tabBar.layer.shadowRadius = 4
@@ -75,13 +76,6 @@ extension CustomTabBarController {
             animated: false
         )
         self.selectedIndex = 0
-    }
-}
-
-class A : UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .blue
     }
 }
 
