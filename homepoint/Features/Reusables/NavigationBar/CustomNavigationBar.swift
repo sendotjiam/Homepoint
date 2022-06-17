@@ -49,7 +49,7 @@ extension UIViewController  {
         navigationController?.navigationBar.topItem?.backButtonTitle = ""
     }
     
-    private func setStatusBar(
+    func setStatusBar(
         _ color: UIColor = ColorCollection.blueColor.value,
         _ isTransparent : Bool = false
     ) {
@@ -168,15 +168,12 @@ extension UIViewController  {
         setDefaultNavigationBar()
         switch type {
         case .hidden:
-            setStatusBar(.clear, true)
             navigationController?
                 .setNavigationBarHidden(true, animated: false)
         case .backAndTitle(let title):
-            setStatusBar()
             addBackButton()
             addTitle(title ?? "")
         case .backTitleAndLike(let title, let isFavorite):
-            setStatusBar()
             addLikeButton(isFavorite)
             addBackButton()
             addSearchBar()
@@ -184,29 +181,23 @@ extension UIViewController  {
         case .backSearchAndCart(let isTransparent):
             addBackButton(isTransparent)
             if isTransparent {
-                setStatusBar(.clear, true)
                 resetNavbarBackground()
                 addRightBarButtonItems([.search, .cart], isTransparent)
             } else {
-                setStatusBar()
                 addSearchBar()
                 addRightBarButtonItems([.cart])
             }
         case .backAndSearch:
-            setStatusBar()
             addBackButton()
             addSearchBar()
         case .backSearchAndHistory:
-            setStatusBar()
             addBackButton()
             addSearchBar()
             addRightBarButtonItems([.history])
         case .back:
-            setStatusBar()
             addBackButton()
             resetNavbarBackground()
         default:
-            setStatusBar()
             addSearchBar()
             addRightBarButtonItems([.cart, .notification])
         }

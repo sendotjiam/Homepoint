@@ -15,6 +15,7 @@ final class ReviewSeeMoreViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
     }
     
     @IBAction func seeMoreTapped(_ sender: Any) {

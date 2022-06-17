@@ -27,12 +27,12 @@ final class SearchViewController: UIViewController {
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBar(type: .backSearchAndCart())
         setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setNavigationBar(type: .backSearchAndCart())
     }
     
     override func viewWillDisappear(_ animated: Bool) {

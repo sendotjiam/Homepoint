@@ -24,7 +24,7 @@ class DetailViewController: UIViewController {
         case header, description, review, discussion, others, shipping
     }
     private let sections : [SectionType] = [
-        .header, .description, .shipping, .review, .others, .discussion
+        .header, .description, .shipping, .review, .discussion, .others
     ]
     private var reviewList : Int = 10
     private var singlePrice = 100000
@@ -105,34 +105,48 @@ extension DetailViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(
+        registerTableViewCell([
             DetailHeaderViewCell.nib(),
-            forCellReuseIdentifier: DetailHeaderViewCell.identifier
-        )
-        tableView.register(
             DetailDescriptionViewCell.nib(),
-            forCellReuseIdentifier: DetailDescriptionViewCell.identifier
-        )
-        tableView.register(
             ShippingOptionsViewCell.nib(),
-            forCellReuseIdentifier: ShippingOptionsViewCell.identifier
-        )
-        tableView.register(
             ReviewHeaderViewCell.nib(),
-            forCellReuseIdentifier: ReviewHeaderViewCell.identifier
-        )
-        tableView.register(
             ReviewListViewCell.nib(),
-            forCellReuseIdentifier: ReviewListViewCell.identifier
-        )
-        tableView.register(
             ReviewSeeMoreViewCell.nib(),
-            forCellReuseIdentifier: ReviewSeeMoreViewCell.identifier
-        )
-        tableView.register(
-            OtherViewCell.nib(),
-            forCellReuseIdentifier: OtherViewCell.identifier
-        )
+            DiscussHeaderViewCell.nib(),
+            DiscussListViewCell.nib(),
+            OtherViewCell.nib()
+        ], [
+            DetailHeaderViewCell.identifier,
+            DetailDescriptionViewCell.identifier,
+            ShippingOptionsViewCell.identifier,
+            ReviewHeaderViewCell.identifier,
+            ReviewListViewCell.identifier,
+            ReviewSeeMoreViewCell.identifier,
+            DiscussHeaderViewCell.identifier,
+            DiscussListViewCell.identifier,
+            OtherViewCell.identifier
+        ])
+    }
+    
+    private func registerTableViewCell(
+        _ nibs : [UINib],
+        _ identifiers : [String]
+    ) {
+        print(nibs.count)
+        for idx in 0..<nibs.count{
+            tableView.register(
+                nibs[idx],
+                forCellReuseIdentifier: identifiers[idx]
+            )
+        }
+    }
+}
+
+// MARK: - Navigation Bar
+extension DetailViewController {
+    override func searchTapped(sender: UIBarButtonItem) {
+        let vc = SearchViewController("")
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -150,6 +164,7 @@ extension DetailViewController :
     ) -> Int {
         switch sections[section] {
         case .review: return reviewList + 2
+        case .discussion: return 3 + 1
         default: return 1
         }
     }
@@ -174,6 +189,13 @@ extension DetailViewController :
                 cell = generateCell(ReviewSeeMoreViewCell.identifier, indexPath)
             default:
                 cell = generateCell(ReviewListViewCell.identifier, indexPath)
+            }
+        case .discussion:
+            switch indexPath.row {
+            case 0:
+                cell = generateCell(DiscussHeaderViewCell.identifier, indexPath)
+            default:
+                cell = generateCell(DiscussListViewCell.identifier, indexPath)
             }
         case .others:
             cell = generateCell(OtherViewCell.identifier, indexPath)
@@ -221,6 +243,18 @@ extension DetailViewController :
                 return cellSeeMore as? T
             default:
                 guard let cellList = cell as? ReviewListViewCell
+                else { return nil }
+                return cellList as? T
+            }
+        case .discussion:
+            switch indexPath.row {
+            case 0:
+                guard let cellHeader = cell as? DiscussHeaderViewCell
+                else { return nil }
+                
+                return cellHeader as? T
+            default:
+                guard let cellList = cell as? DiscussListViewCell
                 else { return nil }
                 return cellList as? T
             }

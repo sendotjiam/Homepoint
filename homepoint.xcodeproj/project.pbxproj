@@ -85,6 +85,10 @@
 		62BBB35F285B191400E984C6 /* OtherViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BBB35D285B191400E984C6 /* OtherViewCell.swift */; };
 		62BBB360285B191400E984C6 /* OtherViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62BBB35E285B191400E984C6 /* OtherViewCell.xib */; };
 		62BBB362285B2F3400E984C6 /* Int+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BBB361285B2F3400E984C6 /* Int+Ext.swift */; };
+		62C0B139285C59B500EACE59 /* DiscussHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C0B137285C59B500EACE59 /* DiscussHeaderViewCell.swift */; };
+		62C0B13A285C59B600EACE59 /* DiscussHeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62C0B138285C59B500EACE59 /* DiscussHeaderViewCell.xib */; };
+		62C0B13D285C5BEB00EACE59 /* DiscussListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C0B13B285C5BEB00EACE59 /* DiscussListViewCell.swift */; };
+		62C0B13E285C5BEC00EACE59 /* DiscussListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62C0B13C285C5BEB00EACE59 /* DiscussListViewCell.xib */; };
 		62CA2D312847989200389230 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CA2D302847989200389230 /* UIViewController+Ext.swift */; };
 		62CA2D342847AEA200389230 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CA2D322847AEA200389230 /* ViewController2.swift */; };
 		62CA2D352847AEA200389230 /* ViewController2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62CA2D332847AEA200389230 /* ViewController2.xib */; };
@@ -213,6 +217,10 @@
 		62BBB35D285B191400E984C6 /* OtherViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewCell.swift; sourceTree = "<group>"; };
 		62BBB35E285B191400E984C6 /* OtherViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherViewCell.xib; sourceTree = "<group>"; };
 		62BBB361285B2F3400E984C6 /* Int+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Ext.swift"; sourceTree = "<group>"; };
+		62C0B137285C59B500EACE59 /* DiscussHeaderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussHeaderViewCell.swift; sourceTree = "<group>"; };
+		62C0B138285C59B500EACE59 /* DiscussHeaderViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscussHeaderViewCell.xib; sourceTree = "<group>"; };
+		62C0B13B285C5BEB00EACE59 /* DiscussListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussListViewCell.swift; sourceTree = "<group>"; };
+		62C0B13C285C5BEB00EACE59 /* DiscussListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscussListViewCell.xib; sourceTree = "<group>"; };
 		62CA2D302847989200389230 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		62CA2D322847AEA200389230 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		62CA2D332847AEA200389230 /* ViewController2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController2.xib; sourceTree = "<group>"; };
@@ -413,6 +421,7 @@
 		62103FFB2851DA2200A413F6 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
+				62C0B136285C546500EACE59 /* Discuss */,
 				62BBB35C285B190100E984C6 /* Others */,
 				62DC6AAB28532ED80093DB64 /* Review */,
 				621040062851EC8D00A413F6 /* Header */,
@@ -663,6 +672,17 @@
 				62BBB35E285B191400E984C6 /* OtherViewCell.xib */,
 			);
 			path = Others;
+			sourceTree = "<group>";
+		};
+		62C0B136285C546500EACE59 /* Discuss */ = {
+			isa = PBXGroup;
+			children = (
+				62C0B137285C59B500EACE59 /* DiscussHeaderViewCell.swift */,
+				62C0B138285C59B500EACE59 /* DiscussHeaderViewCell.xib */,
+				62C0B13B285C5BEB00EACE59 /* DiscussListViewCell.swift */,
+				62C0B13C285C5BEB00EACE59 /* DiscussListViewCell.xib */,
+			);
+			path = Discuss;
 			sourceTree = "<group>";
 		};
 		62CBAA65284F40CE00BD5EAC /* SegmentedControl */ = {
@@ -1086,6 +1106,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D10CB4EC284F9D5F00F675B2 /* ForgetPassViewController.xib in Resources */,
+				62C0B13A285C59B600EACE59 /* DiscussHeaderViewCell.xib in Resources */,
 				62D8290528538345003EA34F /* ReviewHeaderViewCell.xib in Resources */,
 				621040002851DA5900A413F6 /* DetailHeaderViewCell.xib in Resources */,
 				62DC6ABB285336280093DB64 /* ReviewPhotoListViewCell.xib in Resources */,
@@ -1123,6 +1144,7 @@
 				62FCC0D7283E59CA00BF79E2 /* ViewController.xib in Resources */,
 				627A390C284CD028002ADC6B /* OrderFilterViewCell.xib in Resources */,
 				D11876EE285792BE001351B4 /* RegisterViewController.xib in Resources */,
+				62C0B13E285C5BEC00EACE59 /* DiscussListViewCell.xib in Resources */,
 				62CFEE2D283E574A00E909AA /* LaunchScreen.storyboard in Resources */,
 				D1F1ED582858D26300A556EB /* LastForgetPassViewController.xib in Resources */,
 				62FCC0D7283E59CA00BF79E2 /* ViewController.xib in Resources */,
@@ -1264,6 +1286,7 @@
 				5370DFD728490EC800FD1ED5 /* HomeViewController.swift in Sources */,
 				53D7732D284A41B9008F2912 /* MenuItemViewCell.swift in Sources */,
 				6216E07B2848EC780019747D /* Color+Ext.swift in Sources */,
+				62C0B13D285C5BEB00EACE59 /* DiscussListViewCell.swift in Sources */,
 				62CBAA70284F57A900BD5EAC /* OrderListItemCellModel.swift in Sources */,
 				6275AF9028587CDC00D3857D /* UserRepository.swift in Sources */,
 				6210400F285237A000A413F6 /* ColorListViewCell.swift in Sources */,
@@ -1271,6 +1294,7 @@
 				533AFACF284F9B2A00684B1E /* ViewMoreProductViewCell.swift in Sources */,
 				626A1D1428465BE500B2DA8A /* UIView+Ext.swift in Sources */,
 				626E84922859D797003403DE /* RegisterViewModel.swift in Sources */,
+				62C0B139285C59B500EACE59 /* DiscussHeaderViewCell.swift in Sources */,
 				627A3910284CD892002ADC6B /* OrderFilterItemViewCell.swift in Sources */,
 				D10CB4EF284F9DB500F675B2 /* LoginViewController.swift in Sources */,
 				62BBB362285B2F3400E984C6 /* Int+Ext.swift in Sources */,
