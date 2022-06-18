@@ -17,7 +17,7 @@ enum NavigationBarType {
     case backSearchAndCart(isTransparent: Bool = false)
     case backAndTitle(title: String?)
     case backTitleAndLike(title: String?, isFavorite: Bool = false)
-    case backSearchAndHistory
+    case searchAndHistory
 }
 
 enum NavigationBarRightItemType {
@@ -190,8 +190,7 @@ extension UIViewController  {
         case .backAndSearch:
             addBackButton()
             addSearchBar()
-        case .backSearchAndHistory:
-            addBackButton()
+        case .searchAndHistory:
             addSearchBar()
             addRightBarButtonItems([.history])
         case .back:

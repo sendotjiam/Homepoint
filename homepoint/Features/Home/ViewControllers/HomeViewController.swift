@@ -8,12 +8,14 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    
+    // MARK: - Outlets
     @IBOutlet weak var homeTableView: UITableView!
     
+    // MARK: - Variables
     private enum SectionType {
         case menu, banner, weeks, bestOffer, recommendation
     }
-    
     private var sections: [SectionType] = [
         .menu,
         .banner,
@@ -21,6 +23,15 @@ class HomeViewController: UIViewController {
         .bestOffer,
         .recommendation
     ]
+    
+    // MARK: - Life Cycle
+    init() {
+        super.init(nibName: Constants.HomeVC, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +42,10 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         setNavigationBar(type: .defaultNav)
     }
-    
+}
+
+
+extension HomeViewController {
     func setupView() {
         homeTableView.layer.cornerRadius = 14
         homeTableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -62,7 +76,9 @@ class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+extension HomeViewController:
+    UITableViewDelegate,
+    UITableViewDataSource {
     func tableView(
         _ tableView: UITableView,
         viewForHeaderInSection section: Int
@@ -131,37 +147,48 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
+        var cell : UITableViewCell?
         switch sections[indexPath.section] {
         case .menu:
-            let cell = tableView.dequeueReusableCell(
-                withIdentifier: MenuViewCell.identifier,
-                for: indexPath
-            ) as? MenuViewCell
-            return cell ?? UITableViewCell()
+            cell = generateCell(MenuViewCell.identifier, indexPath)
         case .banner:
-            let cell = tableView.dequeueReusableCell(
-                withIdentifier: BannerViewCell.identifier,
-                for: indexPath
-            ) as? BannerViewCell
-            return cell ?? UITableViewCell()
+            cell = generateCell(BannerViewCell.identifier, indexPath)
         case .weeks:
-            let cell = tableView.dequeueReusableCell(
-                withIdentifier: WeeksViewCell.identifier,
-                for: indexPath
-            ) as? WeeksViewCell
-            return cell ?? UITableViewCell()
+            cell = generateCell(WeeksViewCell.identifier, indexPath)
         case .bestOffer:
-            let cell = tableView.dequeueReusableCell(
-                withIdentifier: BestOfferViewCell.identifier,
-                for: indexPath
-            ) as? BestOfferViewCell
-            return cell ?? UITableViewCell()
+            cell = generateCell(BestOfferViewCell.identifier, indexPath)
         case .recommendation:
-            let cell = tableView.dequeueReusableCell(
-                withIdentifier: RecommendationViewCell.identifier,
-                for: indexPath
-            ) as? RecommendationViewCell
-            return cell ?? UITableViewCell()
+            cell = generateCell(RecommendationViewCell.identifier, indexPath)
+        }
+        return cell ?? UITableViewCell()
+    }
+    
+    private func generateCell<T : UITableViewCell>(
+        _ id: String,
+        _ indexPath: IndexPath
+    ) -> T? {
+        let cell = homeTableView.dequeueReusableCell(
+            withIdentifier: id,
+            for: indexPath
+        ) as? T
+        switch sections[indexPath.section] {
+        case .recommendation:
+            guard let cellRecommendation = cell as? RecommendationViewCell
+            else { return nil }
+            cellRecommendation.didSelectItem = { [weak self] id in
+                let vc = DetailViewController()
+                self?.navigationController?.pushViewController(vc, animated: true)
+            }
+            return cellRecommendation as? T
+        case .bestOffer:
+            guard let cellOffer = cell as? BestOfferViewCell
+            else { return nil }
+            cellOffer.didSelectItem = { [weak self] id in
+                let vc = DetailViewController()
+                self?.navigationController?.pushViewController(vc, animated: true)
+            }
+            return cellOffer as? T
+        default: return cell
         }
     }
 }

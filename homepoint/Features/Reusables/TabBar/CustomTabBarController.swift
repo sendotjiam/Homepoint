@@ -14,33 +14,33 @@ class CustomTabBarController: UITabBarController {
         
         let homeVC = HomeViewController()
         let ex2 = B()
-        let vc = C()
-        let ex3 = D()
+        let ex3 = C()
+        let orderVC = OrderListViewController()
         let ex4 = E()
         
         let navHome = UINavigationController(rootViewController: homeVC)
         let navEx2 = UINavigationController(rootViewController: ex2)
-        let navVC = UINavigationController(rootViewController: vc)
         let navEx3 = UINavigationController(rootViewController: ex3)
+        let navOrder = UINavigationController(rootViewController: orderVC)
         let navEx4 = UINavigationController(rootViewController: ex4)
         
         let titles = [
-            "Beranda",
-            "Wishlist",
-            "Scan",
-            "Pesanan",
-            "Profil",
+            Constants.Home,
+            Constants.Wishlist,
+            Constants.Scan,
+            Constants.Order,
+            Constants.Profile,
         ]
         let images = [
-            UIImage(named: "ic_home"),
-            UIImage(named: "ic_wishlist"),
-            UIImage(named: "ic_scan"),
-            UIImage(named: "ic_notes"),
-            UIImage(named: "ic_profile")
+            UIImage(named: Constants.HomeIcon),
+            UIImage(named: Constants.WishlistIcon),
+            UIImage(named: Constants.ScanIcon),
+            UIImage(named: Constants.OrderIcon),
+            UIImage(named: Constants.ProfileIcon)
         ]
         
         setupTabBar(
-            [navHome, navEx3, navVC, navEx4, navEx2],
+            [navHome, navEx2, navEx3, navOrder, navEx4],
             titles,
             images
         )
@@ -86,13 +86,6 @@ class B : UIViewController {
 }
 
 class C : UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-    }
-}
-
-class D : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white

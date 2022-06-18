@@ -10,12 +10,6 @@ import UIKit
 var globalLoadingIndicator : UIView?
 
 extension UIViewController  {
-    
-    func hideTabBar(shouldHide : Bool) {
-//        self.tabBarController?.tabBar.isHidden = shouldHide
-//        self.tabBarController?.hidesBottomBarWhenPushed = shouldHide
-    }
-    
     /// Alert with only one action
     func createSimpleAlert(
         _ title : String,

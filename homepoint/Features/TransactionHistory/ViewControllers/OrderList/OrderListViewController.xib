@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Fx7-Tj-HzO">
-                    <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                    <rect key="frame" x="0.0" y="88" width="414" height="788"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daftar Pesanan Aktif" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lX9-XG-wpe">
@@ -37,7 +37,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Fx7-Tj-HzO" secondAttribute="bottom" id="5XC-bt-RPZ"/>
+                <constraint firstAttribute="bottom" secondItem="Fx7-Tj-HzO" secondAttribute="bottom" constant="20" id="5XC-bt-RPZ"/>
                 <constraint firstItem="Fx7-Tj-HzO" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="EV5-1a-qnQ"/>
                 <constraint firstItem="lX9-XG-wpe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="RhI-Ku-YPL"/>
                 <constraint firstItem="Fx7-Tj-HzO" firstAttribute="top" secondItem="lX9-XG-wpe" secondAttribute="bottom" constant="8" id="gJv-GJ-rci"/>

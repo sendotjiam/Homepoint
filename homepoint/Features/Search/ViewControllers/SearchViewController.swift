@@ -14,7 +14,8 @@ final class SearchViewController: UIViewController {
     
     init(_ query : String) {
         self.query = query
-        super.init(nibName: "SearchViewController", bundle: nil)
+        super.init(nibName: Constants.SearchVC, bundle: nil)
+        self.hidesBottomBarWhenPushed = true
     }
     
     required init?(coder: NSCoder) {
@@ -32,13 +33,11 @@ final class SearchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        hideTabBar(shouldHide: true)
         setNavigationBar(type: .backSearchAndCart())
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        hideTabBar(shouldHide: false)
         view.layoutIfNeeded()
         viewDidLayoutSubviews()
     }
@@ -70,6 +69,7 @@ extension SearchViewController :
     ) -> Int {
         10
     }
+    
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
@@ -94,6 +94,7 @@ extension SearchViewController :
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        navigationController?.pushViewController(DetailViewController(), animated: true)
+        let vc = DetailViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -14,6 +14,8 @@ class RecommendationViewCell: UITableViewCell {
     // MARK: - Outlets
     @IBOutlet weak var recommendationCollectionView: UICollectionView!
     
+    var didSelectItem : ((_ id: Int) -> ())? = nil
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
@@ -67,5 +69,13 @@ extension RecommendationViewCell:
             ) as? SmallProductCardViewCell
             return cell ?? UICollectionViewCell()
         }
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+        /// supposed to be product id
+        self.didSelectItem?(indexPath.row)
     }
 }

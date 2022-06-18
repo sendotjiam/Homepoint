@@ -94,7 +94,7 @@ extension OrderFilterViewCell :
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
         let width = (collectionView.frame.size.width - 40) / 6
-        let height = 59 / 57 * width
+        let height = 57 / 59 * width
         return CGSize(width: width, height: height)
     }
     

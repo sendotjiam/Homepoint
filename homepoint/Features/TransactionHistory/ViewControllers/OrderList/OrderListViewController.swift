@@ -39,7 +39,7 @@ class OrderListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setNavigationBar(type: .backSearchAndHistory)
+        setNavigationBar(type: .searchAndHistory)
     }
 
 }
@@ -63,7 +63,11 @@ extension OrderListViewController {
 // MARK: - NavigationBar
 extension OrderListViewController {
     override func historyTapped(sender: UIBarButtonItem) {
-        navigationController?.pushViewController(HistoryViewController(), animated: true)
+        navigationController?
+            .pushViewController(
+                HistoryViewController(),
+                animated: true
+            )
     }
 }
 

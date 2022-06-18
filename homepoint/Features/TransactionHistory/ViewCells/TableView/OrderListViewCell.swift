@@ -54,6 +54,7 @@ extension OrderListViewCell {
         productImageView.clipsToBounds = true
         productImageView.roundedCorner(with: 4)
         statusView.roundedCorner(with: 4)
+        
         selectionStyle = .none
     }
     
@@ -64,7 +65,7 @@ extension OrderListViewCell {
         dateLabel.text = data.date
         productNameLabel.text = data.title
         productAmountLabel.text = "\(data.amount) Produk"
-        priceLabel.text = "Rp \(data.price)"
+        priceLabel.text = "Rp\(data.price.separateInt(with: "."))"
     }
     
     private func setupStatusView() {
