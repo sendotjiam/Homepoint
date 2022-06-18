@@ -56,7 +56,6 @@ extension CustomTabBarController {
         tabBar.isTranslucent = false
         tabBar.backgroundColor = .white
         tabBar.tintColor = ColorCollection.primaryColor.value
-//        tabBar.barTintColor = ColorCollection.primaryColor.value
         tabBar.backgroundColor = .white
         tabBar.layer.shadowColor = UIColor.black.cgColor
         tabBar.layer.shadowOpacity = 0.2

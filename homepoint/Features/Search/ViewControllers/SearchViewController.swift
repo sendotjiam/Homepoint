@@ -32,15 +32,16 @@ final class SearchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        hideTabBar(shouldHide: true)
         setNavigationBar(type: .backSearchAndCart())
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        hideTabBar(shouldHide: false)
         view.layoutIfNeeded()
         viewDidLayoutSubviews()
     }
-    
 }
 
 extension SearchViewController {
@@ -93,6 +94,6 @@ extension SearchViewController :
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        navigationController?.pushViewController(ViewController2(), animated: true)
+        navigationController?.pushViewController(DetailViewController(), animated: true)
     }
 }

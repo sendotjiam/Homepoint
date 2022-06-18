@@ -43,7 +43,13 @@ class DetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        hideTabBar(shouldHide: true)
         setNavigationBar(type: .backSearchAndCart(isTransparent: true))
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        hideTabBar(shouldHide: false)
     }
     
     // MARK: - Actions
