@@ -26,6 +26,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="198" id="HqP-gL-BCI"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="hgH-K5-Pnv">
                                 <rect key="frame" x="0.0" y="0.0" width="366" height="198"/>
@@ -39,6 +42,9 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -55,6 +61,9 @@
                             <constraint firstAttribute="trailing" secondItem="hgH-K5-Pnv" secondAttribute="trailing" id="xyG-zx-TYc"/>
                             <constraint firstAttribute="bottom" secondItem="rwC-hm-cK5" secondAttribute="bottom" id="ydZ-hV-GNI"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>
@@ -63,8 +72,14 @@
                     <constraint firstAttribute="trailing" secondItem="WRT-Zk-gZP" secondAttribute="trailing" id="ZHY-iD-9va"/>
                     <constraint firstItem="WRT-Zk-gZP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="i1M-37-2mN"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="recommendationCollectionView" destination="hgH-K5-Pnv" id="HyY-g9-aBw"/>
             </connections>

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class SmallProductCardViewCell: UICollectionViewCell {
 
@@ -20,7 +21,7 @@ final class SmallProductCardViewCell: UICollectionViewCell {
     @IBOutlet weak var soldNumberLabel : UILabel!
     
     // MARK: - Data
-    var data : [String: Any] = [:] {
+    var data : ProductDataModel? {
         didSet { configureCell() }
     }
     
@@ -47,7 +48,13 @@ extension SmallProductCardViewCell {
     }
     
     private func configureCell() {
-        
+        guard let data = data else { return }
+        let imageUrl = URL(string: data.productImages[0].image)
+        imageView.sd_setImage(with: imageUrl, completed: nil)
+        nameLabel.text = data.name
+        priceLabel.text = "Rp\(data.price)"
+        ratingLabel.text = "\(data.ratingAverage)"
+        soldNumberLabel.text = "Terjual \(data.amountSold)"
     }
     
     class func nib() -> UINib { UINib(nibName: "SmallProductCardViewCell", bundle: nil) }

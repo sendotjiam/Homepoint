@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class OrderListViewController: UIViewController {
 
@@ -41,7 +42,6 @@ class OrderListViewController: UIViewController {
         super.viewWillAppear(animated)
         setNavigationBar(type: .searchAndHistory)
     }
-
 }
 
 extension OrderListViewController {

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import SkeletonView
 
 class HomeViewController: UIViewController {
     
@@ -23,6 +25,11 @@ class HomeViewController: UIViewController {
         .bestOffer,
         .recommendation
     ]
+    private let vm : HomeViewModel = HomeViewModel()
+    private let bag = DisposeBag()
+    
+    private var latestProducts = [ProductDataModel]()
+    private var discountProducts = [ProductDataModel]()
     
     // MARK: - Life Cycle
     init() {
@@ -36,6 +43,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        bindViewModel()
+        vm.getProducts()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,6 +82,50 @@ extension HomeViewController {
             RecommendationViewCell.nib(),
             forCellReuseIdentifier: RecommendationViewCell.identifier
         )
+        
+    }
+    
+    private func bindViewModel() {
+        vm.successAllProducts.subscribe {
+            self.handleSucccessAllProducts($0.element)
+        }.disposed(by: bag)
+        vm.successDiscountProducts.subscribe {
+            self.handleSucccessDiscountProducts($0.element)
+        }.disposed(by: bag)
+        vm.successLatestProducts.subscribe {
+            self.handleSucccessLatestProducts($0.element)
+        }.disposed(by: bag)
+        vm.isLoading.subscribe { print($0.element!) }.disposed(by: bag)
+        vm.error.subscribe { print($0.element!) }.disposed(by: bag)
+    }
+    
+    private func handleSucccessDiscountProducts(
+        _ products : [ProductDataModel]?
+    ) {
+        guard let products = products else { return }
+        discountProducts = products
+        reloadTableView()
+    }
+    
+    private func handleSucccessLatestProducts(
+        _ products : [ProductDataModel]?
+    ) {
+        guard let products = products else { return }
+        latestProducts = products
+        reloadTableView()
+    }
+    
+    private func handleSucccessAllProducts(
+        _ products : [ProductDataModel]?
+    ) {
+    }
+    
+    private func handleError() {
+        
+    }
+    
+    private func handleLoading() {
+        
     }
 }
 
@@ -175,6 +228,7 @@ extension HomeViewController:
         case .recommendation:
             guard let cellRecommendation = cell as? RecommendationViewCell
             else { return nil }
+            cellRecommendation.dataList = latestProducts
             cellRecommendation.didSelectItem = { [weak self] id in
                 let vc = DetailViewController()
                 self?.navigationController?.pushViewController(vc, animated: true)
@@ -183,12 +237,19 @@ extension HomeViewController:
         case .bestOffer:
             guard let cellOffer = cell as? BestOfferViewCell
             else { return nil }
+            cellOffer.dataList = discountProducts
             cellOffer.didSelectItem = { [weak self] id in
                 let vc = DetailViewController()
                 self?.navigationController?.pushViewController(vc, animated: true)
             }
             return cellOffer as? T
         default: return cell
+        }
+    }
+    
+    func reloadTableView() {
+        DispatchQueue.main.async { [weak self] in
+            self?.homeTableView.reloadData()
         }
     }
 }

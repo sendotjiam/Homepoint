@@ -26,6 +26,9 @@
                                     <constraint firstAttribute="width" secondItem="jn6-bd-oyI" secondAttribute="height" multiplier="71:29" id="53b-6R-S3t"/>
                                     <constraint firstAttribute="height" constant="145" id="a8B-cg-gvH"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                         </subviews>
                         <constraints>
@@ -34,6 +37,9 @@
                             <constraint firstAttribute="trailing" secondItem="jn6-bd-oyI" secondAttribute="trailing" id="hZx-Sc-P69"/>
                             <constraint firstItem="jn6-bd-oyI" firstAttribute="top" secondItem="amx-gL-Fau" secondAttribute="top" id="jf2-MS-niL"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
@@ -45,6 +51,9 @@
                 <constraint firstItem="amx-gL-Fau" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="zn9-Ob-ESq"/>
             </constraints>
             <size key="customSize" width="355" height="145"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="heightImageView" destination="a8B-cg-gvH" id="iBQ-pe-jyM"/>
                 <outlet property="imageView" destination="jn6-bd-oyI" id="jFm-bc-v8m"/>

@@ -14,6 +14,11 @@ class RecommendationViewCell: UITableViewCell {
     // MARK: - Outlets
     @IBOutlet weak var recommendationCollectionView: UICollectionView!
     
+    var dataList = [ProductDataModel]() {
+        didSet {
+            configureCell()
+        }
+    }
     var didSelectItem : ((_ id: Int) -> ())? = nil
     
     override func awakeFromNib() {
@@ -38,6 +43,12 @@ extension RecommendationViewCell {
             forCellWithReuseIdentifier: ViewMoreProductViewCell.identifier
         )
     }
+    
+    func configureCell() {
+        DispatchQueue.main.async { [weak self] in
+            self?.recommendationCollectionView.reloadData()
+        }
+    }
 }
 
 // MARK: - Collection View
@@ -48,7 +59,7 @@ extension RecommendationViewCell:
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        7
+        dataList.count + 1
     }
     
     func collectionView(
@@ -56,7 +67,7 @@ extension RecommendationViewCell:
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         switch indexPath.row {
-        case 6:
+        case dataList.count:
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: ViewMoreProductViewCell.identifier,
                 for: indexPath
@@ -67,6 +78,7 @@ extension RecommendationViewCell:
                 withReuseIdentifier: SmallProductCardViewCell.identifier,
                 for: indexPath
             ) as? SmallProductCardViewCell
+            cell?.data = dataList[indexPath.row]
             return cell ?? UICollectionViewCell()
         }
     }

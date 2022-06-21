@@ -28,6 +28,9 @@
                         <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="11"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f43-dA-00H">
                         <rect key="frame" x="5" y="0.0" width="68" height="56"/>
@@ -38,6 +41,9 @@
                                     <constraint firstAttribute="width" constant="40" id="5QO-ki-lGB"/>
                                     <constraint firstAttribute="height" constant="40" id="QAJ-Xx-vy8"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" name="LightBlue-4"/>
@@ -51,6 +57,7 @@
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <integer key="value" value="4"/>
                             </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
@@ -66,6 +73,9 @@
                 <constraint firstAttribute="trailing" secondItem="f43-dA-00H" secondAttribute="trailing" constant="5" id="yNF-rA-IEc"/>
             </constraints>
             <size key="customSize" width="78" height="85"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="imageView" destination="bls-wI-Dsv" id="XQ7-mf-Fcm"/>
                 <outlet property="labelView" destination="cCc-r9-y4T" id="ytR-59-utT"/>
@@ -76,7 +86,7 @@
     </objects>
     <resources>
         <namedColor name="LightBlue-4">
-            <color red="0.81960784313725488" green="0.88235294117647056" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81999999284744263" green="0.88200002908706665" blue="0.92199999094009399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

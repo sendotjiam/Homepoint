@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (5.6.1)
+  - NVActivityIndicatorView (5.1.1):
+    - NVActivityIndicatorView/Base (= 5.1.1)
+  - NVActivityIndicatorView/Base (5.1.1)
   - RxCocoa (5.0.0):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -9,32 +12,39 @@ PODS:
   - SDWebImage (5.12.6):
     - SDWebImage/Core (= 5.12.6)
   - SDWebImage/Core (5.12.6)
+  - SkeletonView (1.29.2)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - Alamofire
+  - NVActivityIndicatorView
   - RxCocoa (= 5.0.0)
   - RxSwift (= 5.0.0)
   - SDWebImage
+  - SkeletonView
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - NVActivityIndicatorView
     - RxCocoa
     - RxRelay
     - RxSwift
     - SDWebImage
+    - SkeletonView
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
+  NVActivityIndicatorView: 1f6c5687f1171810aa27a3296814dc2d7dec3667
   RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
   RxRelay: 5a18c2eb2d68326ebaf0112f80d837ae41b92b97
   RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
   SDWebImage: a47aea9e3d8816015db4e523daff50cfd294499d
+  SkeletonView: 915a80ecc2b6421ab7ac0f0212321c0cc1406472
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 70f3c8c6b34c2222993ff1ad1164ded9175b9600
+PODFILE CHECKSUM: 36fe971c6691d48fa59a004a5806671fd5cd7e65
 
 COCOAPODS: 1.11.2

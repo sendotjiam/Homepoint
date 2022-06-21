@@ -31,6 +31,9 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </collectionView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="z9A-R4-Rcg">
                                 <rect key="frame" x="4" y="115" width="155.5" height="26"/>
@@ -45,6 +48,9 @@
                             <constraint firstAttribute="bottom" secondItem="z9A-R4-Rcg" secondAttribute="bottom" constant="4" id="nG0-TF-4kF"/>
                             <constraint firstItem="YOq-vE-hB3" firstAttribute="top" secondItem="uf8-xb-t4u" secondAttribute="top" id="q63-ep-riQ"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>
@@ -53,8 +59,14 @@
                     <constraint firstAttribute="bottom" secondItem="uf8-xb-t4u" secondAttribute="bottom" id="HYJ-0J-Yqz"/>
                     <constraint firstAttribute="trailing" secondItem="uf8-xb-t4u" secondAttribute="trailing" id="gmx-Dt-dBF"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="heightCollectionView" destination="47a-oQ-eZG" id="KkZ-MC-7Pv"/>
                 <outlet property="pageView" destination="z9A-R4-Rcg" id="eLO-PX-R3G"/>

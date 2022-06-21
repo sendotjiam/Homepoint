@@ -7,12 +7,17 @@
 
 import UIKit
 
-class BestOfferViewCell: UITableViewCell {
+final class BestOfferViewCell: UITableViewCell {
     static let identifier = "BestOfferViewCell"
     
     // MARK: - Outlets
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var dataList = [ProductDataModel]() {
+        didSet {
+            configureCell()
+        }
+    }
     var didSelectItem : ((_ id: Int) -> ())? = nil
     
     override func awakeFromNib() {
@@ -23,7 +28,7 @@ class BestOfferViewCell: UITableViewCell {
 }
 
 extension BestOfferViewCell {
-    func setupUI() {
+    private func setupUI() {
         collectionView.delegate =  self
         collectionView.dataSource = self
         collectionView.register(
@@ -36,6 +41,13 @@ extension BestOfferViewCell {
         )
     }
     
+    func configureCell() {
+        DispatchQueue.main.async { [weak self] in
+            self?.collectionView.reloadData()
+        }
+    }
+
+    
     class func nib() -> UINib { UINib(nibName: "BestOfferViewCell", bundle: nil) }
 }
 
@@ -47,7 +59,7 @@ extension BestOfferViewCell:
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        7
+        dataList.count + 1
     }
     
     func collectionView(
@@ -55,7 +67,7 @@ extension BestOfferViewCell:
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
         switch indexPath.row {
-        case 6:
+        case dataList.count:
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: ViewMoreProductViewCell.identifier,
                 for: indexPath
@@ -66,6 +78,7 @@ extension BestOfferViewCell:
                 withReuseIdentifier: "SmallProductCardViewCell",
                 for: indexPath
             ) as? SmallProductCardViewCell
+            cell?.data = dataList[indexPath.row]
             return cell ?? UICollectionViewCell()
         }
     }

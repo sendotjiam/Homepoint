@@ -27,15 +27,24 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ntx-he-j0n">
                                 <rect key="frame" x="0.0" y="0.0" width="176" height="102"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-bg.overlay" translatesAutoresizingMaskIntoConstraints="NO" id="7c5-Lp-o7f" userLabel="Overlay View">
                                 <rect key="frame" x="0.0" y="0.0" width="176" height="102"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cnK-VX-Awz">
                                 <rect key="frame" x="0.0" y="81" width="176" height="14"/>
                                 <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="12"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -52,6 +61,9 @@
                             <constraint firstItem="Ntx-he-j0n" firstAttribute="bottom" secondItem="7c5-Lp-o7f" secondAttribute="bottom" id="veb-qq-2S2"/>
                             <constraint firstAttribute="trailing" secondItem="cnK-VX-Awz" secondAttribute="trailing" id="wPk-K2-mHS"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
@@ -62,6 +74,9 @@
                 <constraint firstItem="Hxg-OZ-4bK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Mz0-o0-hXy"/>
             </constraints>
             <size key="customSize" width="176" height="102"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="imageView" destination="Ntx-he-j0n" id="4Ye-90-G7m"/>
                 <outlet property="label" destination="cnK-VX-Awz" id="yzP-5S-PwC"/>

@@ -23,6 +23,9 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-bg.best.offer" translatesAutoresizingMaskIntoConstraints="NO" id="dRb-2P-gMt">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="198"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="v7U-ea-lqF">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="198"/>
@@ -33,6 +36,9 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="130" minY="0.0" maxX="10" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -47,6 +53,9 @@
                             <constraint firstItem="v7U-ea-lqF" firstAttribute="leading" secondItem="Gtb-Ct-V43" secondAttribute="leading" id="sev-qd-pYM"/>
                             <constraint firstAttribute="height" constant="198" id="vRm-Eq-539"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>
@@ -55,8 +64,14 @@
                     <constraint firstAttribute="bottom" secondItem="Gtb-Ct-V43" secondAttribute="bottom" id="Hfe-hE-ayq"/>
                     <constraint firstItem="Gtb-Ct-V43" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="vQw-sn-ivZ"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="collectionView" destination="v7U-ea-lqF" id="09a-DE-Eo3"/>
             </connections>
