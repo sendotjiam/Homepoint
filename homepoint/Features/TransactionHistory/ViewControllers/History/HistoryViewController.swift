@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import SkeletonView
 
-class HistoryViewController: UIViewController {
+final class HistoryViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
@@ -55,12 +56,18 @@ class HistoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.showShimmer()
         setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setNavigationBar(type: .backAndTitle(title: "Riwayat Pesanan"))
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.view.showShimmer()
     }
 
 }
@@ -91,6 +98,24 @@ extension HistoryViewController :
     }
 }
 
+// MARK: - Skeleton
+extension HistoryViewController : SkeletonTableViewDataSource {
+    func collectionSkeletonView(
+        _ skeletonView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
+        6
+    }
+    
+    func collectionSkeletonView(
+        _ skeletonView: UITableView,
+        cellIdentifierForRowAt indexPath: IndexPath
+    ) -> ReusableCellIdentifier {
+        return OrderListViewCell.identifier
+    }
+}
+
+// MARK: - Table View
 extension HistoryViewController :
     UITableViewDelegate,
     UITableViewDataSource {

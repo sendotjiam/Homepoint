@@ -27,4 +27,5 @@ struct Constants {
     static let DetailVC = "DetailViewController"
     static let SearchVC = "SearchViewController"
     static let HistoryVC = "HistoryViewController"
+    static let OrderListVC = "OrderListViewController"
 }

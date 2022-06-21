@@ -54,7 +54,6 @@ extension OrderListViewCell {
         productImageView.clipsToBounds = true
         productImageView.roundedCorner(with: 4)
         statusView.roundedCorner(with: 4)
-        
         selectionStyle = .none
     }
     

@@ -143,9 +143,6 @@ extension DetailViewController {
         _ products : [ProductDataModel]?
     ) {
         otherProducts = products ?? []
-        DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
-        }
     }
     
     private func countTotalPrice() {

@@ -48,12 +48,18 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20.5" id="26g-RL-dv2"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apakah terdapat garansi? Jika ya berapa lama garansinya?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6g-WH-0aA">
                                 <rect key="frame" x="20" y="50.5" width="265" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="INv-fb-G2w">
                                 <rect key="frame" x="0.0" y="92" width="305" height="1"/>
@@ -61,6 +67,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="WfS-YA-CML"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C3T-Gd-MzX">
                                 <rect key="frame" x="30" y="117" width="10" height="10"/>
@@ -106,6 +115,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0R9-7e-nq3">
                                 <rect key="frame" x="34.5" y="127" width="1" height="159"/>
@@ -123,16 +135,25 @@
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tambahkan komentar" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7jE-Cq-J9N">
                                         <rect key="frame" x="0.0" y="96" width="225" height="39"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="7jE-Cq-J9N" secondAttribute="trailing" id="3vY-Qd-crU"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -158,6 +179,9 @@
                             <constraint firstItem="dSn-UD-bn3" firstAttribute="top" secondItem="GBi-vh-HhB" secondAttribute="bottom" constant="20" id="oLX-aK-eeb"/>
                             <constraint firstItem="INv-fb-G2w" firstAttribute="leading" secondItem="bcE-N1-OCK" secondAttribute="leading" id="sXN-zn-Iyb"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>
@@ -166,8 +190,14 @@
                     <constraint firstAttribute="bottom" secondItem="bcE-N1-OCK" secondAttribute="bottom" constant="12" id="Wkq-nd-pxh"/>
                     <constraint firstItem="bcE-N1-OCK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="kFG-eI-Zad"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="commentField" destination="7jE-Cq-J9N" id="R5p-FS-UQB"/>
                 <outlet property="containerView" destination="bcE-N1-OCK" id="ooa-2T-WWj"/>

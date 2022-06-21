@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 final class OrderFilterViewCell: UITableViewCell {
     
@@ -61,6 +62,22 @@ extension OrderFilterViewCell {
     
     class func nib() -> UINib {
         UINib(nibName: "OrderFilterViewCell", bundle: nil)
+    }
+}
+
+extension OrderFilterViewCell : SkeletonCollectionViewDataSource {
+    func collectionSkeletonView(
+        _ skeletonView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        5
+    }
+    
+    func collectionSkeletonView(
+        _ skeletonView: UICollectionView,
+        cellIdentifierForItemAt indexPath: IndexPath
+    ) -> ReusableCellIdentifier {
+        OrderFilterItemViewCell.identifier
     }
 }
 

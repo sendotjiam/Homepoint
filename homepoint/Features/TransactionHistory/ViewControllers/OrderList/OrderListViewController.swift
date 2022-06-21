@@ -33,10 +33,18 @@ class OrderListViewController: UIViewController {
     ]
     
     // MARK: - Life Cycle
+    init() {
+        super.init(nibName: Constants.OrderListVC, bundle: nil)
+        self.view.showShimmer()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        self.view.showSkeleton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,6 +77,31 @@ extension OrderListViewController {
                 HistoryViewController(),
                 animated: true
             )
+    }
+}
+
+extension OrderListViewController : SkeletonTableViewDelegate, SkeletonTableViewDataSource {
+    func numSections(in collectionSkeletonView: UITableView) -> Int {
+        sections.count
+    }
+    
+    func collectionSkeletonView(
+        _ skeletonView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
+        return sections[section] == .orderFilter ? 1 : 6
+    }
+    
+    func collectionSkeletonView(
+        _ skeletonView: UITableView,
+        cellIdentifierForRowAt indexPath: IndexPath
+    ) -> ReusableCellIdentifier {
+        switch sections[indexPath.section] {
+        case .orderFilter:
+            return OrderFilterViewCell.identifier
+        case .orderList:
+            return OrderListViewCell.identifier
+        }
     }
 }
 

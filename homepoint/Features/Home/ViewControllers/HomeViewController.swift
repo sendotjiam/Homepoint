@@ -83,7 +83,9 @@ extension HomeViewController {
             RecommendationViewCell.nib(),
             forCellReuseIdentifier: RecommendationViewCell.identifier
         )
-//        view.showShimmer()
+        
+        homeTableView.sectionHeaderHeight = 0.00001
+        homeTableView.sectionFooterHeight = 0.00001
     }
     
     private func bindViewModel() {
@@ -160,59 +162,6 @@ extension HomeViewController : SkeletonTableViewDataSource {
 extension HomeViewController:
     UITableViewDelegate,
     UITableViewDataSource {
-    func tableView(
-        _ tableView: UITableView,
-        viewForHeaderInSection section: Int
-    ) -> UIView? {
-        let view = UIView()
-        let label = UILabel(
-            frame: CGRect(
-                x: 16, y: 0,
-                width: tableView.frame.width - 32,
-                height: 20
-            )
-        )
-        label.font = .systemFont(ofSize: 14, weight: .bold)
-        
-        switch sections[section] {
-        case .weeks:
-            label.text = "Kitchenware Weeks"
-        case .bestOffer:
-            label.text = "Best Offer By One Get One"
-        case .recommendation:
-            label.text = "Rekomendasi untukmu"
-        default:
-            label.text = ""
-        }
-        
-        view.addSubview(label)
-        view.backgroundColor = .white
-        return view
-    }
-    
-    func tableView(
-        _ tableView: UITableView,
-        heightForHeaderInSection section: Int
-    ) -> CGFloat {
-        switch sections[section] {
-        case .weeks:
-            return 30
-        case .bestOffer:
-            return 30
-        case .recommendation:
-            return 30
-        default:
-            return 0.0001
-        }
-    }
-    
-    func tableView(
-        _ tableView: UITableView,
-        heightForFooterInSection section: Int
-    ) -> CGFloat {
-        20
-    }
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         sections.count
     }

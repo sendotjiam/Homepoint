@@ -85,7 +85,7 @@ extension WeeksViewCell:
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        let width = (collectionView.frame.size.width - 60) / 2
+        let width = (collectionView.frame.size.width - 50) / 2
         let height = 82 / 156 * width
         heightCollectionView.constant = 20 + (height*2)
         return CGSize(width: width, height: height)
