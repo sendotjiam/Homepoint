@@ -7,13 +7,19 @@
 
 import UIKit
 
-class OtherViewCell: UITableViewCell {
+final class OtherViewCell: UITableViewCell {
 
     static let identifier = "OtherViewCell"
     
     // MARK: - Outles
     @IBOutlet weak var collectionView: UICollectionView!
     
+    // MARK: - Data
+    var products = [ProductDataModel]() {
+        didSet { configureCell() }
+    }
+    var didSelectItem : ((_ id: String) -> ())? = nil
+
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
@@ -32,6 +38,12 @@ extension OtherViewCell {
         selectionStyle = .none
     }
     
+    private func configureCell() {
+        DispatchQueue.main.async { [weak self] in
+            self?.collectionView.reloadData()
+        }
+    }
+    
     class func nib() -> UINib {
         UINib(nibName: "OtherViewCell", bundle: nil)
     }
@@ -42,7 +54,7 @@ extension OtherViewCell : UICollectionViewDelegate, UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        10
+        products.count
     }
     
     func collectionView(
@@ -53,6 +65,14 @@ extension OtherViewCell : UICollectionViewDelegate, UICollectionViewDataSource {
             withReuseIdentifier: SmallProductCardViewCell.identifier,
             for: indexPath
         ) as? SmallProductCardViewCell
+        cell?.data = products[indexPath.row]
         return cell ?? UICollectionViewCell()
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+        didSelectItem?(products[indexPath.row].id)
     }
 }

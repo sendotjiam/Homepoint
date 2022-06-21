@@ -7,13 +7,18 @@
 
 import UIKit
 
-class DetailDescriptionViewCell: UITableViewCell {
+final class DetailDescriptionViewCell: UITableViewCell {
 
     static let identifier = "DetailDescriptionViewCell"
     
     // MARK: - Outlets
     @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var seeMoreButton: UIButton!
     
+    // MARK: - Data
+    var content : String? {
+        didSet { configureCell() }
+    }
     var didTapSeeMoreButton : (() -> ())? = nil
     
     override func awakeFromNib() {
@@ -29,6 +34,12 @@ class DetailDescriptionViewCell: UITableViewCell {
 extension DetailDescriptionViewCell {
     private func setupUI() {
         selectionStyle = .none
+    }
+    
+    private func configureCell() {
+        contentLabel.text = content ?? ""
+        print(contentLabel.numberOfLines)
+        seeMoreButton.isHidden = contentLabel.numberOfLines < 14 ? true : false
     }
     
     class func nib() -> UINib {

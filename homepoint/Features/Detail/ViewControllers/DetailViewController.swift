@@ -6,18 +6,21 @@
 //
 
 import UIKit
+import RxSwift
+import NVActivityIndicatorView
 
 class DetailViewController: UIViewController {
     
     // MARK: - Outlets
+    @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bottomContainerView: UIView!
-    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var discountedPriceLabel: UILabel!
     @IBOutlet weak var qtyLabel: UILabel!
     @IBOutlet weak var addToCartButton: UIButton!
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var minusButton: UIButton!
-    @IBOutlet weak var discountedPriceLabel: UILabel!
+    @IBOutlet weak var realPriceLabel: UILabel!
     
     // MARK: - Section
     private enum SectionType {
@@ -27,18 +30,32 @@ class DetailViewController: UIViewController {
         .header, .description, .shipping, .review, .discussion, .others
     ]
     private var reviewList : Int = 10
-    private var singlePrice = 100000
-    private var discount = 50000
     
     // MARK: - Variable
-    var qty = 1
-    var price = 0
-    var total = 0
+    private var qty = 1.0
+    private var price = 0.0
+    private var total = 0.0
+    private var discount : Double = 0.0
+    private var discountedPrice = 0.0
+    private var originalPrice = 0.0
+    private var productData : ProductDataModel?
+    private var otherProducts = [ProductDataModel]()
+    
+    private let vm = DetailViewModel()
+    private let bag = DisposeBag()
+    
+    private let loader = NVActivityIndicatorView(
+        frame: .zero,
+        type: .circleStrokeSpin,
+        color: ColorCollection.primaryColor.value,
+        padding: 0
+    )
     
     // MARK: - Life Cycle
-    init() {
+    init(_ id: String) {
         super.init(nibName: Constants.DetailVC, bundle: nil)
         self.hidesBottomBarWhenPushed = true
+        vm.getProductAndOtherProducts(id: id)
     }
     
     required init?(coder: NSCoder) {
@@ -48,6 +65,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        bindViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,7 +93,6 @@ class DetailViewController: UIViewController {
 extension DetailViewController {
     private func setupUI() {
         countTotalPrice()
-        
         bottomContainerView.dropShadow(
             with: 0.1,
             radius: 4,
@@ -91,24 +108,61 @@ extension DetailViewController {
         }
     }
     
+    private func bindViewModel() {
+        vm.error.subscribe { print($0.element) }.disposed(by: bag)
+        vm.isLoading.subscribe { [weak self] in
+            guard let self = self,
+                  let show = $0.element
+            else { return }
+            self.showLoader(self.loader, show)
+            self.overlayView.isHidden = show ? false : true
+        }.disposed(by: bag)
+        vm.successGetProduct.subscribe { [weak self] in
+            self?.handleSuccessGetProduct($0.element)
+        }.disposed(by: bag)
+        vm.successGetOthersProducts.subscribe { [weak self] in
+            self?.handleSuccessGetOtherProducts($0.element)
+        }
+    }
+    
+    private func handleSuccessGetProduct(
+        _ product : ProductDataModel?
+    ) {
+        guard let data = product else { return }
+        originalPrice = data.price
+        discount = data.discount
+        discountedPrice = originalPrice - discount
+        countTotalPrice()
+        self.productData = data
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
+    }
+    
+    private func handleSuccessGetOtherProducts(
+        _ products : [ProductDataModel]?
+    ) {
+        otherProducts = products ?? []
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
+    }
+    
     private func countTotalPrice() {
-        price = singlePrice * qty
-        total = price - discount
-        qtyLabel.text = "\(qty)"
-        let priceStr = price.separateInt(with: ".")
-        let totalStr = total.separateInt(with: ".")
-        let attributedPrice = "Rp\(priceStr)"
-        discountedPriceLabel.attributedText = attributedPrice
+        price = originalPrice * qty
+        discountedPrice = originalPrice - discount
+        let priceStr = price.convertToCurrency()
+        let discountedStr = discountedPrice.convertToCurrency()
+        let attributedPrice = "\(priceStr)"
+        realPriceLabel.attributedText = attributedPrice
             .strikethroughText(
                 range: NSRange(
                     location: 0,
-                    length: priceStr.count + 2
+                    length: priceStr.count
                 )
             )
-        priceLabel.text = "Rp\(totalStr)"
-    }
-    
-    private func setPriceLabel() {
+        qtyLabel.text = "\(Int(qty))"
+        discountedPriceLabel.text = "\(discountedStr)"
     }
     
     private func setupTableView() {
@@ -171,9 +225,11 @@ extension DetailViewController :
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
+        if otherProducts.isEmpty { }
         switch sections[section] {
         case .review: return reviewList + 2
         case .discussion: return 3 + 1
+        case .others : return otherProducts.isEmpty ? 0 : 1
         default: return 1
         }
     }
@@ -225,15 +281,17 @@ extension DetailViewController :
         case .header:
             guard let cellHeader = cell as? DetailHeaderViewCell
             else { return nil }
+            cellHeader.data = productData
             cellHeader.colors = ["#F1C6B9", "#f1f1f1", "#000000"]
-            cellHeader.didTapCompareButton = { [weak self] in
+            cellHeader.didTapCompareButton = {
                 print("HEADER")
             }
             return cellHeader as? T
         case .description:
             guard let cellDescription = cell as? DetailDescriptionViewCell
             else { return nil }
-            cellDescription.didTapSeeMoreButton = { [weak self] in
+            cellDescription.content = productData?.description
+            cellDescription.didTapSeeMoreButton = {
                 print("DESCRIPTION")
             }
             return cellDescription as? T
@@ -246,7 +304,7 @@ extension DetailViewController :
             case reviewList + 1:
                 guard let cellSeeMore = cell as? ReviewSeeMoreViewCell
                 else { return nil }
-                cellSeeMore.didTapSeeMoreButton = { [weak self] in
+                cellSeeMore.didTapSeeMoreButton = {
                     print("SEE MORE")
                 }
                 return cellSeeMore as? T
@@ -267,6 +325,11 @@ extension DetailViewController :
                 else { return nil }
                 return cellList as? T
             }
+        case .others:
+            guard let cell = cell as? OtherViewCell
+            else { return nil }
+            cell.products = otherProducts
+            return cell as? T
         default: return cell
         }
     }

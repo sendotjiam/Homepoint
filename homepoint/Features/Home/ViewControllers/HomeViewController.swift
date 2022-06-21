@@ -34,6 +34,8 @@ class HomeViewController: UIViewController {
     // MARK: - Life Cycle
     init() {
         super.init(nibName: Constants.HomeVC, bundle: nil)
+        vm.getProducts()
+        view.showShimmer()
     }
     
     required init?(coder: NSCoder) {
@@ -44,7 +46,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         bindViewModel()
-        vm.getProducts()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,7 +83,7 @@ extension HomeViewController {
             RecommendationViewCell.nib(),
             forCellReuseIdentifier: RecommendationViewCell.identifier
         )
-        
+//        view.showShimmer()
     }
     
     private func bindViewModel() {
@@ -95,7 +96,7 @@ extension HomeViewController {
         vm.successLatestProducts.subscribe {
             self.handleSucccessLatestProducts($0.element)
         }.disposed(by: bag)
-        vm.isLoading.subscribe { print($0.element!) }.disposed(by: bag)
+        vm.isLoading.subscribe { self.handleLoading($0.element) }.disposed(by: bag)
         vm.error.subscribe { print($0.element!) }.disposed(by: bag)
     }
     
@@ -124,8 +125,35 @@ extension HomeViewController {
         
     }
     
-    private func handleLoading() {
-        
+    private func handleLoading(_ isLoading: Bool?) {
+        guard let isLoading = isLoading else {
+            return
+        }
+    }
+}
+
+extension HomeViewController : SkeletonTableViewDataSource {
+    func numSections(in collectionSkeletonView: UITableView) -> Int {
+        sections.count
+    }
+
+    func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        1
+    }
+
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        switch sections[indexPath.section] {
+        case .menu:
+            return MenuViewCell.identifier
+        case .banner:
+            return BannerViewCell.identifier
+        case .weeks:
+            return WeeksViewCell.identifier
+        case .bestOffer:
+            return BestOfferViewCell.identifier
+        case .recommendation:
+            return RecommendationViewCell.identifier
+        }
     }
 }
 
@@ -229,8 +257,8 @@ extension HomeViewController:
             guard let cellRecommendation = cell as? RecommendationViewCell
             else { return nil }
             cellRecommendation.dataList = latestProducts
-            cellRecommendation.didSelectItem = { [weak self] id in
-                let vc = DetailViewController()
+            cellRecommendation.didSelectItem = { [weak self] in
+                let vc = DetailViewController($0)
                 self?.navigationController?.pushViewController(vc, animated: true)
             }
             return cellRecommendation as? T
@@ -238,8 +266,8 @@ extension HomeViewController:
             guard let cellOffer = cell as? BestOfferViewCell
             else { return nil }
             cellOffer.dataList = discountProducts
-            cellOffer.didSelectItem = { [weak self] id in
-                let vc = DetailViewController()
+            cellOffer.didSelectItem = { [weak self] in
+                let vc = DetailViewController($0)
                 self?.navigationController?.pushViewController(vc, animated: true)
             }
             return cellOffer as? T

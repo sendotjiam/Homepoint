@@ -42,7 +42,7 @@
                                     <constraint firstAttribute="height" constant="40" id="QAJ-Xx-vy8"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                         </subviews>

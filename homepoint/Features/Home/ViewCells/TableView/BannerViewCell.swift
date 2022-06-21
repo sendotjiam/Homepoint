@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class BannerViewCell: UITableViewCell {
     
@@ -79,6 +80,23 @@ extension BannerViewCell {
      }
     
     class func nib() -> UINib { UINib(nibName: "BannerViewCell", bundle: nil) }
+}
+
+// MARK: - Skeleton
+extension BannerViewCell : SkeletonCollectionViewDataSource {
+    func collectionSkeletonView(
+        _ skeletonView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        3
+    }
+
+    func collectionSkeletonView(
+        _ skeletonView: UICollectionView,
+        cellIdentifierForItemAt indexPath: IndexPath
+    ) -> ReusableCellIdentifier {
+        return BannerItemViewCell.identifier
+    }
 }
 
 // MARK: - Collection View

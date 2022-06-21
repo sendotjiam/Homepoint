@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 extension UIView {
     func dropShadow(
@@ -47,5 +48,13 @@ extension UIView {
         self.layer.insertSublayer(gradientLayer, at: 1)
         
         return gradientLayer
+    }
+    
+    func showShimmer() {
+        self.showAnimatedSkeleton()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.stopSkeletonAnimation()
+            self.hideSkeleton()
+        }
     }
 }

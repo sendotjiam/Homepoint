@@ -9,7 +9,7 @@ import UIKit
 import SkeletonView
 
 class OrderListViewController: UIViewController {
-
+    
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     
@@ -36,6 +36,7 @@ class OrderListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        self.view.showSkeleton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -109,5 +110,4 @@ extension OrderListViewController :
         }
         return cell
     }
-
 }

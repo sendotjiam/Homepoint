@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 var globalLoadingIndicator : UIView?
 
@@ -59,6 +60,22 @@ extension UIViewController  {
                 globalLoadingIndicator?.removeFromSuperview()
                 globalLoadingIndicator = nil
             }
+        }
+    }
+    
+    func showLoader(_ loader: NVActivityIndicatorView, _ show : Bool) {
+        if show {
+            loader.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(loader)
+            NSLayoutConstraint.activate([
+                loader.widthAnchor.constraint(equalToConstant: 40),
+                loader.heightAnchor.constraint(equalToConstant: 40),
+                loader.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                loader.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            ])
+            loader.startAnimating()
+        } else {
+            loader.stopAnimating()
         }
     }
     

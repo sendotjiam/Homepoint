@@ -95,6 +95,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UUe-Ze-zvV">
                                 <rect key="frame" x="8" y="105" width="270" height="17"/>
@@ -128,8 +131,14 @@
                                             <constraint firstAttribute="trailing" secondItem="mUf-Om-iUG" secondAttribute="trailing" constant="8" id="gh3-0L-R0d"/>
                                             <constraint firstItem="mUf-Om-iUG" firstAttribute="leading" secondItem="XD9-0O-ErK" secondAttribute="leading" constant="8" id="srm-kV-V6X"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -147,6 +156,9 @@
                             <constraint firstItem="jK8-Y2-Xxt" firstAttribute="top" secondItem="3xE-tV-fZr" secondAttribute="bottom" constant="16" id="uoK-ml-pSJ"/>
                             <constraint firstAttribute="trailing" secondItem="jK8-Y2-Xxt" secondAttribute="trailing" constant="8" id="yEM-3e-PBj"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>
@@ -160,6 +172,9 @@
                 </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="containerView" destination="kil-st-p5D" id="I8a-Mf-rU3"/>
                 <outlet property="dateLabel" destination="3xE-tV-fZr" id="HTh-bc-dnS"/>

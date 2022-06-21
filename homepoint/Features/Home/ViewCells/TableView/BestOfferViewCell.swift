@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 final class BestOfferViewCell: UITableViewCell {
     static let identifier = "BestOfferViewCell"
@@ -18,7 +19,7 @@ final class BestOfferViewCell: UITableViewCell {
             configureCell()
         }
     }
-    var didSelectItem : ((_ id: Int) -> ())? = nil
+    var didSelectItem : ((_ id: String) -> ())? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,10 +52,27 @@ extension BestOfferViewCell {
     class func nib() -> UINib { UINib(nibName: "BestOfferViewCell", bundle: nil) }
 }
 
+// MARK: - Skeleton
+extension BestOfferViewCell : SkeletonCollectionViewDataSource {
+    func collectionSkeletonView(
+        _ skeletonView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        6
+    }
+    
+    func collectionSkeletonView(
+        _ skeletonView: UICollectionView,
+        cellIdentifierForItemAt indexPath: IndexPath
+    ) -> ReusableCellIdentifier {
+        return SmallProductCardViewCell.identifier
+    }
+}
+
 // MARK: - Collection View
 extension BestOfferViewCell:
     UICollectionViewDelegate,
-        UICollectionViewDataSource {
+    UICollectionViewDataSource {
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
@@ -75,7 +93,7 @@ extension BestOfferViewCell:
             return cell ?? UICollectionViewCell()
         default:
             let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: "SmallProductCardViewCell",
+                withReuseIdentifier: SmallProductCardViewCell.identifier,
                 for: indexPath
             ) as? SmallProductCardViewCell
             cell?.data = dataList[indexPath.row]
@@ -88,6 +106,6 @@ extension BestOfferViewCell:
         didSelectItemAt indexPath: IndexPath
     ) {
         /// supposed to be product id
-        self.didSelectItem?(indexPath.row)
+        self.didSelectItem?(dataList[indexPath.row].id)
     }
 }

@@ -12,4 +12,9 @@ protocol ProductsRepositoryInterface {
         type: FetchProductType,
         completion: @escaping ((ProductsResponseModel?, Error?) -> Void)
     )
+    
+    func getProduct(
+        by id: String,
+        completion: @escaping ((ProductsResponseModel?, Error?) -> Void)
+    )
 }

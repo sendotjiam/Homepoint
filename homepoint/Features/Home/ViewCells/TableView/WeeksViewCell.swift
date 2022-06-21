@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 struct WeeksMenuData {
     var title: String
@@ -48,10 +49,28 @@ extension WeeksViewCell {
             WeeksItemViewCell.nib(),
             forCellWithReuseIdentifier: WeeksItemViewCell.identifier
         )
+        showShimmer()
     }
     
     class func nib() -> UINib {
         UINib(nibName: "WeeksViewCell", bundle: nil)
+    }
+}
+
+// MARK: - Skeleton
+extension WeeksViewCell : SkeletonCollectionViewDataSource {
+    func collectionSkeletonView(
+        _ skeletonView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        weekMenus.count
+    }
+    
+    func collectionSkeletonView(
+        _ skeletonView: UICollectionView,
+        cellIdentifierForItemAt indexPath: IndexPath
+    ) -> ReusableCellIdentifier {
+        return WeeksItemViewCell.identifier
     }
 }
 

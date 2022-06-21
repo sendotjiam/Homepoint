@@ -14,11 +14,12 @@
             <connections>
                 <outlet property="addToCartButton" destination="zrv-n0-umG" id="fHZ-cO-xy2"/>
                 <outlet property="bottomContainerView" destination="mBJ-gv-Dos" id="Z3f-0H-tg5"/>
-                <outlet property="discountedPriceLabel" destination="xDB-Ji-Too" id="S1P-v4-rc1"/>
+                <outlet property="discountedPriceLabel" destination="mcH-TX-D5n" id="x9Q-bk-LzF"/>
                 <outlet property="minusButton" destination="8Fk-mB-b9d" id="gT0-5O-tEI"/>
+                <outlet property="overlayView" destination="QRd-j0-Xgy" id="BHi-Ke-mu2"/>
                 <outlet property="plusButton" destination="h9A-Jn-zay" id="uQj-Vs-HAe"/>
-                <outlet property="priceLabel" destination="mcH-TX-D5n" id="x9Q-bk-LzF"/>
                 <outlet property="qtyLabel" destination="J4X-2p-cLc" id="zOt-vj-YFW"/>
+                <outlet property="realPriceLabel" destination="xDB-Ji-Too" id="S1P-v4-rc1"/>
                 <outlet property="tableView" destination="3qc-Bo-s5s" id="vYb-50-uUK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -123,15 +124,23 @@
                         <constraint firstItem="zrv-n0-umG" firstAttribute="top" secondItem="eG3-gA-XSp" secondAttribute="bottom" constant="14" id="wwe-tG-2Bn"/>
                     </constraints>
                 </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QRd-j0-Xgy">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="mBJ-gv-Dos" firstAttribute="top" secondItem="3qc-Bo-s5s" secondAttribute="bottom" constant="16" id="AKJ-KO-87Z"/>
                 <constraint firstItem="mBJ-gv-Dos" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="F6r-nv-uvU"/>
+                <constraint firstAttribute="bottom" secondItem="QRd-j0-Xgy" secondAttribute="bottom" id="VDw-Wg-dKI"/>
                 <constraint firstItem="mBJ-gv-Dos" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="aG6-A3-xz7"/>
+                <constraint firstItem="QRd-j0-Xgy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="eg6-Bz-FKD"/>
                 <constraint firstItem="mBJ-gv-Dos" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="g7H-wx-WCZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="QRd-j0-Xgy" secondAttribute="trailing" id="nlD-bl-gQs"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3qc-Bo-s5s" secondAttribute="trailing" id="quy-sr-hVs"/>
+                <constraint firstItem="QRd-j0-Xgy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="sDC-WA-IAJ"/>
                 <constraint firstItem="3qc-Bo-s5s" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="tvR-F5-hnD"/>
                 <constraint firstItem="3qc-Bo-s5s" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="yLD-gP-OZc"/>
             </constraints>

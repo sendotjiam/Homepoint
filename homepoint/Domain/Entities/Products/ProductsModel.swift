@@ -21,10 +21,14 @@ struct ProductsResponseModel : Equatable {
         self.message = object["message"].stringValue
         
         var products = [ProductDataModel]()
-        object["data"].arrayValue.forEach { obj in
-            products.append(ProductDataModel(object: obj))
+        if !object["data"].arrayValue.isEmpty {
+            object["data"].arrayValue.forEach { obj in
+                products.append(ProductDataModel(object: obj))
+            }
+            self.data = products
+        } else {
+            self.data = [ProductDataModel(object: object["data"])]
         }
-        self.data = products
     }
     
     static func == (lhs: ProductsResponseModel, rhs: ProductsResponseModel) -> Bool {
@@ -35,7 +39,7 @@ struct ProductsResponseModel : Equatable {
     }
 }
 
-// MARK: - Datum
+// MARK: - Product Data
 struct ProductDataModel : Equatable {
     
     var id: String

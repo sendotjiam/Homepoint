@@ -16,6 +16,11 @@ protocol ProductsUseCaseProvider {
         type: FetchProductType,
         completion: @escaping ((ProductsResponseModel?, Error?) -> ())
     )
+    
+    func getProduct(
+        by id: String,
+        completion: @escaping ((ProductsResponseModel?, Error?) -> ())
+    )
 }
 
 final class ProductsUseCase {
@@ -32,6 +37,15 @@ extension ProductsUseCase : ProductsUseCaseProvider {
         completion: @escaping ((ProductsResponseModel?, Error?) -> ())
     ) {
         repository.fetchProducts(type: type) { result, error in
+            completion(result, error)
+        }
+    }
+    
+    func getProduct(
+        by id: String,
+        completion: @escaping ((ProductsResponseModel?, Error?) -> ())
+    ) {
+        repository.getProduct(by: id) { result, error in
             completion(result, error)
         }
     }

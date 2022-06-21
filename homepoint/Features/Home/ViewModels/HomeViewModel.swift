@@ -92,5 +92,9 @@ final class HomeViewModel : HomeViewModelInput, HomeViewModelOutput {
             }
             group.leave()
         }
+        
+        group.notify(queue: .global()) {
+            print("Finish Fetching Home")
+        }
     }
 }

@@ -52,7 +52,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lX9-XG-wpe" secondAttribute="trailing" constant="20" id="zn8-NN-HBa"/>
             </constraints>
             <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="NO"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
             </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="137.68115942028987" y="61.607142857142854"/>
         </view>

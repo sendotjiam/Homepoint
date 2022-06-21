@@ -52,7 +52,7 @@ extension SmallProductCardViewCell {
         let imageUrl = URL(string: data.productImages[0].image)
         imageView.sd_setImage(with: imageUrl, completed: nil)
         nameLabel.text = data.name
-        priceLabel.text = "Rp\(data.price)"
+        priceLabel.text = data.price.convertToCurrency()
         ratingLabel.text = "\(data.ratingAverage)"
         soldNumberLabel.text = "Terjual \(data.amountSold)"
     }

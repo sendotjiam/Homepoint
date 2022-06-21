@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
-class DetailHeaderViewCell: UITableViewCell {
+final class DetailHeaderViewCell: UITableViewCell {
 
     static let identifier = "DetailHeaderViewCell"
     
@@ -23,6 +24,9 @@ class DetailHeaderViewCell: UITableViewCell {
     @IBOutlet weak var colorListCollectionView: UICollectionView!
 
     // MARK: - Data
+    var data : ProductDataModel? {
+        didSet { configureCell() }
+    }
     var colors = [String]() {
         didSet { configureCell() }
     }
@@ -53,16 +57,22 @@ extension DetailHeaderViewCell {
             ColorListViewCell.nib(),
             forCellWithReuseIdentifier: ColorListViewCell.identifier
         )
-        let priceStr = price.separateInt(with: ".")
-        let discountedPriceStr = discountedPrice.separateInt(with: ".")
-        print(priceStr, discountedPriceStr)
-        let attributedPrice = "Rp\(priceStr) Rp\(discountedPriceStr)"
-        priceLabel.attributedText = attributedPrice.strikethroughText(range: NSRange(
-            location: 0, length: priceStr.count + 2
-        ))
     }
     
     private func configureCell() {
+        guard let data = data else { return }
+        let imageUrl = URL(string: data.productImages[0].image)
+        let priceStr = data.price.convertToCurrency()
+        let discountedStr = (data.price - data.discount).convertToCurrency()
+        let attributedPrice = "\(priceStr) \(discountedStr)"
+        priceLabel.attributedText = attributedPrice.strikethroughText(range: NSRange(
+            location: 0, length: priceStr.count
+        ))
+        productImageView?.sd_setImage(with: imageUrl, completed: nil)
+        productNameLabel.text = data.name
+        soldNumberLabel.text = "Terjual \(data.amountSold)"
+        ratingLabel.text = "\(data.ratingAverage)"
+        brandLabel.text = data.brand
         DispatchQueue.main.async { [weak self] in
             self?.colorListCollectionView.reloadData()
         }

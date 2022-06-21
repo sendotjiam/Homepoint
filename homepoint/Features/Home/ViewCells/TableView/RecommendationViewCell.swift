@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 class RecommendationViewCell: UITableViewCell {
     
@@ -19,7 +20,7 @@ class RecommendationViewCell: UITableViewCell {
             configureCell()
         }
     }
-    var didSelectItem : ((_ id: Int) -> ())? = nil
+    var didSelectItem : ((_ id: String) -> ())? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -48,6 +49,23 @@ extension RecommendationViewCell {
         DispatchQueue.main.async { [weak self] in
             self?.recommendationCollectionView.reloadData()
         }
+    }
+}
+
+// MARK: - Skeleton
+extension RecommendationViewCell : SkeletonCollectionViewDataSource {
+    func collectionSkeletonView(
+        _ skeletonView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        6
+    }
+    
+    func collectionSkeletonView(
+        _ skeletonView: UICollectionView,
+        cellIdentifierForItemAt indexPath: IndexPath
+    ) -> ReusableCellIdentifier {
+        return SmallProductCardViewCell.identifier
     }
 }
 
@@ -88,6 +106,6 @@ extension RecommendationViewCell:
         didSelectItemAt indexPath: IndexPath
     ) {
         /// supposed to be product id
-        self.didSelectItem?(indexPath.row)
+        self.didSelectItem?(dataList[indexPath.row].id)
     }
 }

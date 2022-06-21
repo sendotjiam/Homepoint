@@ -94,7 +94,7 @@ extension SearchViewController :
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        let vc = DetailViewController()
-        navigationController?.pushViewController(vc, animated: true)
+//        let vc = DetailViewController()
+//        navigationController?.pushViewController(vc, animated: true)
     }
 }

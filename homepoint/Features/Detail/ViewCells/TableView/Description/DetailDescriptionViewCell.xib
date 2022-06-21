@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="357"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="16" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAM-oX-a8G">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAM-oX-a8G">
                         <rect key="frame" x="20" y="41" width="280" height="251"/>
                         <string key="text">Kondisi: Baru
 Berat: 1.300 Gram
@@ -69,6 +69,7 @@ Diamond knife patent pertama di indonesia, tampilan cantik dan berfungsi memoton
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="contentLabel" destination="CAM-oX-a8G" id="XVG-cP-hxM"/>
+                <outlet property="seeMoreButton" destination="zdB-sh-qCU" id="hvs-Ev-Jc7"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="116.18303571428571"/>
         </tableViewCell>

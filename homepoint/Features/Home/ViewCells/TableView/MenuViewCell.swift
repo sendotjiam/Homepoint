@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SkeletonView
 
 struct MenuData {
     var title: String
@@ -50,6 +51,24 @@ extension MenuViewCell {
     class func nib() -> UINib { UINib(nibName: "MenuViewCell", bundle: nil) }
 }
 
+// MARK: - Skeleton
+extension MenuViewCell : SkeletonCollectionViewDataSource {
+    func collectionSkeletonView(
+        _ skeletonView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        4
+    }
+    
+    func collectionSkeletonView(
+        _ skeletonView: UICollectionView,
+        cellIdentifierForItemAt indexPath: IndexPath
+    ) -> ReusableCellIdentifier {
+        return MenuItemViewCell.identifier
+    }
+}
+
+// MARK: - Collection View
 extension MenuViewCell:
     UICollectionViewDelegate,
     UICollectionViewDataSource,
