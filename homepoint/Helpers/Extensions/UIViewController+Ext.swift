@@ -31,8 +31,8 @@ extension UIViewController  {
         return alert
     }
     
-    func handleError(msg: String) {
-        let alert = createSimpleAlert("Failed", msg, "Try Again")
+    func handleError(msg: String?) {
+        let alert = createSimpleAlert("Failed", msg ?? "Failed to get your products", "Try Again")
         present(alert, animated: true)
     }
     

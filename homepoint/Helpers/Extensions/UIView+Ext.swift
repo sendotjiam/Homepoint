@@ -55,7 +55,9 @@ extension UIView {
     }
     
     func stopShimmer() {
-        self.stopSkeletonAnimation()
-        self.hideSkeleton()
+        DispatchQueue.main.async {
+            self.stopSkeletonAnimation()
+            self.hideSkeleton()
+        }
     }
 }

@@ -21,7 +21,7 @@ final class ProductsRepository {
 extension ProductsRepository : ProductsRepositoryInterface {
     func fetchProducts(
         type: FetchProductType,
-        completion: @escaping ((ProductsResponseModel?, Error?) -> Void)
+        completion: @escaping FetchProducts
     ) {
         var url = urlString
         switch type {
@@ -49,9 +49,34 @@ extension ProductsRepository : ProductsRepositoryInterface {
         }
     }
     
+    func fetchProducts(
+        by name: String,
+        completion: @escaping FetchProductsByName
+    ) {
+        let query = "search?name=\(name)"
+        apiClient.request(
+            urlString + query,
+            .get,
+            nil,
+            nil
+        ) { response, data, error in
+            if let data = data {
+                do {
+                    let json = try JSON(data: data)
+                    let model = ProductsResponseModel(object: json)
+                    completion(model, nil)
+                } catch {
+                    completion(nil, NetworkError.EmptyDataError)
+                }
+            } else {
+                completion(nil, NetworkError.ApiError)
+            }
+        }
+    }
+    
     func getProduct(
         by id: String,
-        completion: @escaping ((ProductsResponseModel?, Error?) -> Void)
+        completion: @escaping GetProductById
     ) {
         apiClient.request(
             urlString + id,

@@ -12,14 +12,23 @@ enum FetchProductType {
 }
 
 protocol ProductsUseCaseProvider {
+    typealias FetchProducts = ((ProductsResponseModel?, Error?) -> Void)
+    typealias GetProductById = ((ProductsResponseModel?, Error?) -> Void)
+    typealias FetchProductsByName = ((ProductsResponseModel?, Error?) -> Void)
+    
     func getProducts(
         type: FetchProductType,
-        completion: @escaping ((ProductsResponseModel?, Error?) -> ())
+        completion: @escaping FetchProducts
+    )
+    
+    func getProducts(
+        by name : String,
+        completion: @escaping FetchProductsByName
     )
     
     func getProduct(
         by id: String,
-        completion: @escaping ((ProductsResponseModel?, Error?) -> ())
+        completion: @escaping GetProductById
     )
 }
 
@@ -34,7 +43,7 @@ final class ProductsUseCase {
 extension ProductsUseCase : ProductsUseCaseProvider {
     func getProducts(
         type: FetchProductType,
-        completion: @escaping ((ProductsResponseModel?, Error?) -> ())
+        completion: @escaping FetchProducts
     ) {
         repository.fetchProducts(type: type) { result, error in
             completion(result, error)
@@ -43,9 +52,18 @@ extension ProductsUseCase : ProductsUseCaseProvider {
     
     func getProduct(
         by id: String,
-        completion: @escaping ((ProductsResponseModel?, Error?) -> ())
+        completion: @escaping GetProductById
     ) {
         repository.getProduct(by: id) { result, error in
+            completion(result, error)
+        }
+    }
+    
+    func getProducts(
+        by name: String,
+        completion: @escaping FetchProductsByName
+    ) {
+        repository.fetchProducts(by: name) { result, error in
             completion(result, error)
         }
     }

@@ -80,7 +80,6 @@ final class HomeViewModel : HomeViewModelInput, HomeViewModelOutput {
             type: .all
         ) { [weak self] result, error in
             guard let self = self else { return }
-            self.isLoading.accept(false)
             if let result = result {
                 if result.success || result.status == "200" {
                     self.successAllProducts.onNext(result.data)
@@ -94,6 +93,7 @@ final class HomeViewModel : HomeViewModelInput, HomeViewModelOutput {
         }
         
         group.notify(queue: .global()) {
+            self.isLoading.accept(false)
             print("Finish Fetching Home")
         }
     }

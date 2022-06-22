@@ -8,13 +8,23 @@
 import Foundation
 
 protocol ProductsRepositoryInterface {
+    
+    typealias FetchProducts = ((ProductsResponseModel?, Error?) -> Void)
+    typealias GetProductById = ((ProductsResponseModel?, Error?) -> Void)
+    typealias FetchProductsByName = ((ProductsResponseModel?, Error?) -> Void)
+    
     func fetchProducts(
         type: FetchProductType,
-        completion: @escaping ((ProductsResponseModel?, Error?) -> Void)
+        completion: @escaping FetchProducts
     )
     
     func getProduct(
         by id: String,
-        completion: @escaping ((ProductsResponseModel?, Error?) -> Void)
+        completion: @escaping GetProductById
+    )
+    
+    func fetchProducts(
+        by name: String,
+        completion: @escaping FetchProductsByName
     )
 }

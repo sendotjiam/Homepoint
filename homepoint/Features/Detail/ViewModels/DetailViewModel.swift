@@ -67,11 +67,11 @@ final class DetailViewModel :
             } else {
                 self.error.onNext(error?.localizedDescription ?? "ERROR")
             }
-            self.isLoading.accept(false)
             group.leave()
         }
         
         group.notify(queue: .global()) {
+            self.isLoading.accept(false)
             print("Finish Fetching Detail")
         }
     }

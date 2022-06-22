@@ -21,7 +21,7 @@ final class LargeProductCardViewCell: UICollectionViewCell {
     @IBOutlet weak var soldNumberLabel : UILabel!
     
     // MARK: - Data
-    var data : [String: Any] = [:] {
+    var data : ProductDataModel? {
         didSet { configureCell() }
     }
     
@@ -48,7 +48,13 @@ extension LargeProductCardViewCell {
     }
     
     private func configureCell() {
-        
+        guard let data = data else { return }
+        let imageUrl = URL(string: data.productImages[0].image)
+        imageView.sd_setImage(with: imageUrl, completed: nil)
+        nameLabel.text = data.name
+        priceLabel.text = data.price.convertToCurrency()
+        ratingLabel.text = "\(data.ratingAverage)"
+        soldNumberLabel.text = "Terjual \(data.amountSold)"
     }
     
     class func nib() -> UINib {

@@ -114,8 +114,10 @@ extension DetailViewController {
             guard let self = self,
                   let show = $0.element
             else { return }
-            self.showLoader(self.loader, show)
-            self.overlayView.isHidden = show ? false : true
+            DispatchQueue.main.async {
+                self.showLoader(self.loader, show)
+                self.overlayView.isHidden = show ? false : true
+            }
         }.disposed(by: bag)
         vm.successGetProduct.subscribe { [weak self] in
             self?.handleSuccessGetProduct($0.element)

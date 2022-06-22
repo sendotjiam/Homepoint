@@ -23,6 +23,9 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_dummy" translatesAutoresizingMaskIntoConstraints="NO" id="j40-9f-zxS">
                                 <rect key="frame" x="0.0" y="0.0" width="160" height="138"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vUl-jk-9Em" userLabel="Bottom View">
                                 <rect key="frame" x="0.0" y="138" width="160" height="118"/>
@@ -35,17 +38,26 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Rp20.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWH-XF-oeW">
                                                 <rect key="frame" x="0.0" y="45" width="132" height="17"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="62" id="c09-y1-ZvM"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Z3P-ku-62p">
                                         <rect key="frame" x="14" y="92" width="132" height="12"/>
@@ -76,6 +88,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -88,6 +103,9 @@
                                     <constraint firstAttribute="bottom" secondItem="Z3P-ku-62p" secondAttribute="bottom" constant="14" id="qdv-hR-RQj"/>
                                     <constraint firstItem="Z3P-ku-62p" firstAttribute="top" secondItem="vWa-FD-ViL" secondAttribute="bottom" constant="16" id="znK-Vp-tBG"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -100,6 +118,9 @@
                             <constraint firstItem="j40-9f-zxS" firstAttribute="leading" secondItem="fQx-Hu-UMo" secondAttribute="leading" id="mAM-BO-Z4a"/>
                             <constraint firstAttribute="bottom" secondItem="vUl-jk-9Em" secondAttribute="bottom" id="odn-Zf-VJQ"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
@@ -111,6 +132,9 @@
                 <constraint firstAttribute="bottom" secondItem="fQx-Hu-UMo" secondAttribute="bottom" id="wui-mj-Bbj"/>
             </constraints>
             <size key="customSize" width="160" height="256"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="bottomView" destination="vUl-jk-9Em" id="UWg-gK-ulV"/>
                 <outlet property="containerView" destination="fQx-Hu-UMo" id="FBV-GI-SQe"/>
