@@ -136,9 +136,8 @@ extension HomeViewController {
     }
     
     private func handleLoading(_ isLoading: Bool?) {
-        guard let isLoading = isLoading else {
-            return
-        }
+        guard let isLoading = isLoading else { return }
+        if !isLoading { view.stopShimmer() }
     }
 }
 

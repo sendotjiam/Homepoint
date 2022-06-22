@@ -44,7 +44,7 @@ extension BannerViewCell {
             forCellWithReuseIdentifier: "BannerItemViewCell"
         )
         
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.timer = Timer.scheduledTimer(
                 timeInterval: 3.0,
                 target: self,
