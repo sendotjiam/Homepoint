@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,44 +21,45 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Fx7-Tj-HzO">
-                    <rect key="frame" x="0.0" y="88" width="414" height="788"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                </tableView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daftar Pesanan Aktif" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lX9-XG-wpe">
-                    <rect key="frame" x="20" y="60" width="374" height="20"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T9v-lB-hm5">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Fx7-Tj-HzO">
+                            <rect key="frame" x="0.0" y="8" width="414" height="844"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="20" id="YCF-rv-VPW"/>
+                        <constraint firstAttribute="bottom" secondItem="Fx7-Tj-HzO" secondAttribute="bottom" id="DVJ-co-V8B"/>
+                        <constraint firstAttribute="trailing" secondItem="Fx7-Tj-HzO" secondAttribute="trailing" id="MAK-7C-0MY"/>
+                        <constraint firstItem="Fx7-Tj-HzO" firstAttribute="leading" secondItem="T9v-lB-hm5" secondAttribute="leading" id="ZLX-eF-rXc"/>
+                        <constraint firstAttribute="bottom" secondItem="Fx7-Tj-HzO" secondAttribute="bottom" id="cTu-Os-DIo"/>
+                        <constraint firstItem="Fx7-Tj-HzO" firstAttribute="top" secondItem="T9v-lB-hm5" secondAttribute="top" constant="8" id="x2N-qZ-RuW"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                </label>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="LightBlue-2"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Fx7-Tj-HzO" secondAttribute="bottom" constant="20" id="5XC-bt-RPZ"/>
-                <constraint firstItem="Fx7-Tj-HzO" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="EV5-1a-qnQ"/>
-                <constraint firstItem="lX9-XG-wpe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="RhI-Ku-YPL"/>
-                <constraint firstItem="Fx7-Tj-HzO" firstAttribute="top" secondItem="lX9-XG-wpe" secondAttribute="bottom" constant="8" id="gJv-GJ-rci"/>
-                <constraint firstItem="lX9-XG-wpe" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="wPa-J6-E2h"/>
-                <constraint firstItem="Fx7-Tj-HzO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="z7k-d1-85m"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lX9-XG-wpe" secondAttribute="trailing" constant="20" id="zn8-NN-HBa"/>
+                <constraint firstItem="T9v-lB-hm5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="3Zz-aC-KpG"/>
+                <constraint firstItem="T9v-lB-hm5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="AFV-Qg-ya2"/>
+                <constraint firstItem="T9v-lB-hm5" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="R6p-3O-FUo"/>
+                <constraint firstAttribute="bottom" secondItem="T9v-lB-hm5" secondAttribute="bottom" id="Tyd-yS-lpx"/>
             </constraints>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
             </userDefinedRuntimeAttributes>
-            <point key="canvasLocation" x="137.68115942028987" y="61.607142857142854"/>
+            <point key="canvasLocation" x="152" y="3"/>
         </view>
     </objects>
     <resources>
+        <namedColor name="LightBlue-2">
+            <color red="0.41200000047683716" green="0.60000002384185791" blue="0.72200000286102295" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

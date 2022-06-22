@@ -36,6 +36,7 @@ class OrderListViewController: UIViewController {
     init() {
         super.init(nibName: Constants.OrderListVC, bundle: nil)
         self.view.showShimmer()
+        self.view.stopShimmer()
     }
     
     required init?(coder: NSCoder) {

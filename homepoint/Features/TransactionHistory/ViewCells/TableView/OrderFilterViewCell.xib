@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,15 +12,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="132" id="KGk-i7-Jjw" customClass="OrderFilterViewCell" customModule="homepoint" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="132"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="212" id="KGk-i7-Jjw" customClass="OrderFilterViewCell" customModule="homepoint" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="212"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="132"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="212"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Cj6-29-7H4">
-                        <rect key="frame" x="0.0" y="8" width="320" height="116"/>
+                        <rect key="frame" x="0.0" y="44" width="320" height="148"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="Uw4-8T-Cup"/>
@@ -34,12 +35,37 @@
                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </collectionView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YaT-ku-Ysx">
+                        <rect key="frame" x="0.0" y="200" width="320" height="4"/>
+                        <color key="backgroundColor" name="LightBlue-4"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="4" id="1La-UJ-BtB"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daftar Pesanan Aktif" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLp-j4-VUh">
+                        <rect key="frame" x="20" y="8" width="280" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="azH-1J-hbA"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="Cj6-29-7H4" firstAttribute="top" secondItem="LLp-j4-VUh" secondAttribute="bottom" constant="16" id="0mB-iV-wvy"/>
+                    <constraint firstAttribute="trailing" secondItem="LLp-j4-VUh" secondAttribute="trailing" constant="20" id="6Oe-Jx-r74"/>
+                    <constraint firstItem="LLp-j4-VUh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="7tC-P4-F5z"/>
                     <constraint firstAttribute="trailing" secondItem="Cj6-29-7H4" secondAttribute="trailing" id="ItV-Kg-x9i"/>
+                    <constraint firstAttribute="trailing" secondItem="YaT-ku-Ysx" secondAttribute="trailing" id="KED-cA-owJ"/>
                     <constraint firstItem="Cj6-29-7H4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="MIp-LV-vcU"/>
-                    <constraint firstItem="Cj6-29-7H4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="RJK-Lt-NUt"/>
-                    <constraint firstAttribute="bottom" secondItem="Cj6-29-7H4" secondAttribute="bottom" constant="8" id="sIV-qj-Hil"/>
+                    <constraint firstItem="LLp-j4-VUh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="UzU-jv-nSQ"/>
+                    <constraint firstItem="YaT-ku-Ysx" firstAttribute="top" secondItem="Cj6-29-7H4" secondAttribute="bottom" constant="8" id="YR7-Ld-Cga"/>
+                    <constraint firstItem="YaT-ku-Ysx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="fcc-gT-aZj"/>
+                    <constraint firstAttribute="bottom" secondItem="YaT-ku-Ysx" secondAttribute="bottom" constant="8" id="gyG-G4-gQP"/>
                 </constraints>
                 <userDefinedRuntimeAttributes>
                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
@@ -49,10 +75,13 @@
             <connections>
                 <outlet property="collectionView" destination="Cj6-29-7H4" id="oH5-ea-KKg"/>
             </connections>
-            <point key="canvasLocation" x="137.68115942028987" y="139.28571428571428"/>
+            <point key="canvasLocation" x="137.68115942028987" y="143.30357142857142"/>
         </tableViewCell>
     </objects>
     <resources>
+        <namedColor name="LightBlue-4">
+            <color red="0.81999999284744263" green="0.88200002908706665" blue="0.92199999094009399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
