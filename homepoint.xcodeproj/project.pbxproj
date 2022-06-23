@@ -131,6 +131,7 @@
 		D10CB4F0284F9DB500F675B2 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D10CB4EE284F9DB500F675B2 /* LoginViewController.xib */; };
 		D11876ED285792BE001351B4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11876EB285792BE001351B4 /* RegisterViewController.swift */; };
 		D11876EE285792BE001351B4 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D11876EC285792BE001351B4 /* RegisterViewController.xib */; };
+		D1B171A5285D7930002511F8 /* UITapGestureRecognizer+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B171A4285D7930002511F8 /* UITapGestureRecognizer+Ext.swift */; };
 		D1F1ED572858D26300A556EB /* LastForgetPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F1ED552858D26300A556EB /* LastForgetPassViewController.swift */; };
 		D1F1ED582858D26300A556EB /* LastForgetPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1F1ED562858D26300A556EB /* LastForgetPassViewController.xib */; };
 		FE867CD0EAFA7DDBF3A88365 /* Pods_homepoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3A0F060C8796ED37B440ED8 /* Pods_homepoint.framework */; };
@@ -276,6 +277,7 @@
 		D10CB4EE284F9DB500F675B2 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		D11876EB285792BE001351B4 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		D11876EC285792BE001351B4 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		D1B171A4285D7930002511F8 /* UITapGestureRecognizer+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+Ext.swift"; sourceTree = "<group>"; };
 		D1F1ED552858D26300A556EB /* LastForgetPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastForgetPassViewController.swift; sourceTree = "<group>"; };
 		D1F1ED562858D26300A556EB /* LastForgetPassViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LastForgetPassViewController.xib; sourceTree = "<group>"; };
 		D3A0F060C8796ED37B440ED8 /* Pods_homepoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_homepoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -907,6 +909,7 @@
 				626E848B2859C9BF003403DE /* UIScrollView+Ext.swift */,
 				62BBB361285B2F3400E984C6 /* Int+Ext.swift */,
 				6214C7422861B79D0060CAD4 /* Double+Ext.swift */,
+				D1B171A4285D7930002511F8 /* UITapGestureRecognizer+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1399,6 +1402,7 @@
 				627A3910284CD892002ADC6B /* OrderFilterItemViewCell.swift in Sources */,
 				D10CB4EF284F9DB500F675B2 /* LoginViewController.swift in Sources */,
 				62BBB362285B2F3400E984C6 /* Int+Ext.swift in Sources */,
+				D1B171A5285D7930002511F8 /* UITapGestureRecognizer+Ext.swift in Sources */,
 				D10CB4EB284F9D5F00F675B2 /* ForgetPassViewController.swift in Sources */,
 				62FCC0D6283E59CA00BF79E2 /* ViewController.swift in Sources */,
 				D1F1ED572858D26300A556EB /* LastForgetPassViewController.swift in Sources */,
