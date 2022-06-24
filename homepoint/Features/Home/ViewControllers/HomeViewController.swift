@@ -13,7 +13,8 @@ class HomeViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var homeTableView: UITableView!
-    
+    @IBOutlet weak var floatingView: UIView!
+
     // MARK: - Variables
     private enum SectionType {
         case menu, banner, weeks, bestOffer, recommendation
@@ -86,6 +87,13 @@ extension HomeViewController {
         
         homeTableView.sectionHeaderHeight = 0.00001
         homeTableView.sectionFooterHeight = 0.00001
+
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapView))
+        floatingView.addGestureRecognizer(gesture)
+        floatingView.layer.shadowOffset = CGSize(width: 1,
+                                          height: 1)
+        floatingView.layer.shadowRadius = 5
+        floatingView.layer.shadowOpacity = 0.5
     }
     
     private func bindViewModel() {
@@ -157,6 +165,12 @@ extension HomeViewController : SkeletonTableViewDataSource {
             return RecommendationViewCell.identifier
         }
     }
+
+    @objc private func didTapView() {
+        if let url = URL(string: "https://api.whatsapp.com/send?phone=6282114742197&text=Halo%20Homepoint%F0%9F%99%8C%F0%9F%8F%BB%0AAda%20yang%20ingin%20Saya%20tanyakan%2C%20nih!%0A%0A(Tuliskan%20pertanyaanmu%20disini%20ya!)") {
+              UIApplication.shared.open(url)
+           }
+       }
 }
 
 extension HomeViewController:
