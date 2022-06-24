@@ -66,7 +66,6 @@ final class SearchViewController: UIViewController {
     }
     
     @IBAction func filterButtonTapped(_ sender: Any) {
-        print("FILTER")
     }
     
     @IBAction func sortButtonTapped(_ sender: Any) {

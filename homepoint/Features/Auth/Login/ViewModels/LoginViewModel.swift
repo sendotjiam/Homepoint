@@ -52,7 +52,6 @@ final class LoginViewModel : LoginViewModelInput, LoginViewModelOutput {
     }
     
     private func saveToken(token: String) {
-        print("PREV TOKEN", UserDefaults.standard.string(forKey: "user_token"))
         UserDefaults.standard.setValue(token, forKey: "user_token")
     }
 }

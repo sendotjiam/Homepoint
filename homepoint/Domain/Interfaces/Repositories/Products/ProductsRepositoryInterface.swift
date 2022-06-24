@@ -24,7 +24,7 @@ protocol ProductsRepositoryInterface {
     )
     
     func fetchProducts(
-        params: [String: Any],
+        queryParam: String,
         completion: @escaping SearchProducts
     )
 }

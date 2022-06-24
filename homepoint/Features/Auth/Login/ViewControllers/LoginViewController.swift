@@ -148,7 +148,6 @@ extension LoginViewController {
     private func handleSuccessLogin(_ response: LoginResponseModel) {
         navigationController?.pushViewController(HomeViewController(), animated: true)
         // Navigation move to home page
-        print(response)
     }
     
     private func togglePassword() {

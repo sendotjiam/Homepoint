@@ -38,7 +38,6 @@ extension DetailDescriptionViewCell {
     
     private func configureCell() {
         contentLabel.text = content ?? ""
-        print(contentLabel.numberOfLines)
         seeMoreButton.isHidden = contentLabel.numberOfLines < 14 ? true : false
     }
     

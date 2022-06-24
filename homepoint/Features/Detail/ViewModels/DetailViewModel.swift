@@ -43,7 +43,6 @@ final class DetailViewModel :
         useCase.getProduct(by: id) { [weak self] result, error in
             guard let self = self else { return }
             if let result = result {
-                print(result)
                 if result.success || result.status == "200 OK" {
                     self.successGetProduct.onNext(result.data[0])
                 } else {

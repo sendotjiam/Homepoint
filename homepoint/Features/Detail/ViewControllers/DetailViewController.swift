@@ -86,7 +86,6 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func addToCartButtonTapped(_ sender: Any) {
-        print("ADD TO CART")
     }
 }
 
@@ -194,7 +193,6 @@ extension DetailViewController {
         _ nibs : [UINib],
         _ identifiers : [String]
     ) {
-        print(nibs.count)
         for idx in 0..<nibs.count{
             tableView.register(
                 nibs[idx],

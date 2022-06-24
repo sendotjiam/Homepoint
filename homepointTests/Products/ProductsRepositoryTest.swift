@@ -166,7 +166,6 @@ class ProductsRepositoryTest: XCTestCase {
         sut.getProduct(by: id) { response, error in
             guard let error = error else { return }
             /// Then
-            print(error, "ERROR")
             XCTAssertEqual(error as! NetworkError, NetworkError.EmptyDataError)
             expected.fulfill()
         }

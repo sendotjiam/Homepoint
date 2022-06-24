@@ -49,33 +49,10 @@ extension ProductsRepository : ProductsRepositoryInterface {
     }
     
     func fetchProducts(
-        params : [String : Any] = [:],
+        queryParam: String,
         completion: @escaping SearchProducts
     ) {
-        var query = "?"
-        params.forEach { key, value in
-            var tempKey = key
-            var tempValue = value
-            if tempKey == "sort" {
-                switch tempValue as! String {
-                case "Produk Terlaris":
-                    tempKey = "Sort by best seller"
-                case "Produk Terbaru":
-                    tempKey = "Sort by latest"
-                case "Harga Termurah":
-                    tempKey = "Sort by price asc"
-                case "Harga Termahal":
-                    tempKey = "Sort by price desc"
-                default: break
-                }
-                tempValue = true
-            }
-            let splitStr = tempKey.split(separator: " ")
-            query += "\(splitStr.joined(separator: "%20"))=\(tempValue)&"
-        }
-        query.removeLast()
-        let url = urlString + query
-        print(url, "URL")
+        let url = urlString + queryParam
         apiClient.request(
             url,
             .get,
@@ -86,7 +63,6 @@ extension ProductsRepository : ProductsRepositoryInterface {
                 do {
                     let json = try JSON(data: data)
                     let model = AllProductsResponseModel(object: json)
-                    print(json, model)
                     completion(model, nil)
                 } catch {
                     completion(nil, NetworkError.EmptyDataError)

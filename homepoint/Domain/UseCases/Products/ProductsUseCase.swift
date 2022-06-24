@@ -63,8 +63,41 @@ extension ProductsUseCase : ProductsUseCaseProvider {
         params: [String : Any],
         completion: @escaping SearchProducts
     ) {
-        repository.fetchProducts(params: params) { result, error in
+        var query = "?"
+        params.forEach { key, value in
+            var tempKey = key
+            var tempValue = value
+            if tempKey == "sort" {
+                checkSort(tempValue as! String)
+                tempValue = true
+            } else if tempKey == "filter" {
+                checkFilter()
+                tempValue = true
+            }
+            let splitStr = tempKey.split(separator: " ")
+            query += "\(splitStr.joined(separator: "%20"))=\(tempValue)&"
+        }
+        query.removeLast()
+        repository.fetchProducts(queryParam: query) { result, error in
             completion(result, error)
         }
+    }
+    
+    private func checkSort(_ value : String) -> String {
+        switch value {
+        case "Produk Terlaris":
+            return "Sort by best seller"
+        case "Produk Terbaru":
+            return "Sort by latest"
+        case "Harga Termurah":
+            return "Sort by price asc"
+        case "Harga Termahal":
+            return "Sort by price desc"
+        default: return ""
+        }
+    }
+    
+    private func checkFilter() {
+        
     }
 }
