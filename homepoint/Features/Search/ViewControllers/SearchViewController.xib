@@ -12,6 +12,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="homepoint" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="bDa-5j-YaC" id="Hjb-BX-i0H"/>
+                <outlet property="filterButton" destination="rLS-SS-aWO" id="qcl-VE-MAa"/>
+                <outlet property="sortButton" destination="hpB-zT-nwR" id="fyg-qS-BhN"/>
+                <outlet property="sortFilterView" destination="2c2-Z8-fHB" id="LNL-W9-pXU"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -33,11 +36,71 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2c2-Z8-fHB">
+                    <rect key="frame" x="118.5" y="772" width="177" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLS-SS-aWO">
+                            <rect key="frame" x="0.0" y="0.0" width="84" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="84" id="eOc-DI-ASV"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Filter" image="ic_sort">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="filterButtonTapped:" destination="-1" eventType="touchUpInside" id="hsq-pn-EOX"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NbE-C1-kBT">
+                            <rect key="frame" x="88" y="6" width="1" height="28"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="aOS-Pt-hMt"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hpB-zT-nwR">
+                            <rect key="frame" x="93" y="0.0" width="84" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="84" id="zcJ-zk-0nw"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" title="Urutkan" image="ic_sort">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="sortButtonTapped:" destination="-1" eventType="touchUpInside" id="rVO-yd-Dfe"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="NbE-C1-kBT" firstAttribute="top" secondItem="2c2-Z8-fHB" secondAttribute="top" constant="6" id="BZ6-k6-s1v"/>
+                        <constraint firstAttribute="trailing" secondItem="hpB-zT-nwR" secondAttribute="trailing" id="EWf-os-PnV"/>
+                        <constraint firstAttribute="bottom" secondItem="rLS-SS-aWO" secondAttribute="bottom" id="FjS-2K-ADQ"/>
+                        <constraint firstAttribute="bottom" secondItem="hpB-zT-nwR" secondAttribute="bottom" id="JIg-yk-rhS"/>
+                        <constraint firstItem="rLS-SS-aWO" firstAttribute="top" secondItem="2c2-Z8-fHB" secondAttribute="top" id="K5A-MT-kND"/>
+                        <constraint firstItem="hpB-zT-nwR" firstAttribute="top" secondItem="2c2-Z8-fHB" secondAttribute="top" id="ZL3-XM-FkJ"/>
+                        <constraint firstItem="rLS-SS-aWO" firstAttribute="leading" secondItem="2c2-Z8-fHB" secondAttribute="leading" id="b3f-P4-siI"/>
+                        <constraint firstAttribute="bottom" secondItem="NbE-C1-kBT" secondAttribute="bottom" constant="6" id="crx-aZ-C7t"/>
+                        <constraint firstItem="NbE-C1-kBT" firstAttribute="leading" secondItem="rLS-SS-aWO" secondAttribute="trailing" constant="4" id="jed-f7-JWZ"/>
+                        <constraint firstItem="hpB-zT-nwR" firstAttribute="leading" secondItem="NbE-C1-kBT" secondAttribute="trailing" constant="4" id="k1X-OJ-Xq6"/>
+                        <constraint firstAttribute="height" constant="40" id="pwV-bk-fMJ"/>
+                        <constraint firstAttribute="width" constant="177" id="yx9-cM-etj"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="LightBlue-2"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="bDa-5j-YaC" secondAttribute="bottom" id="IkT-Hl-tdC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="2c2-Z8-fHB" secondAttribute="bottom" constant="50" id="XxA-AY-Kha"/>
+                <constraint firstItem="2c2-Z8-fHB" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="jof-Gv-gWx"/>
                 <constraint firstItem="bDa-5j-YaC" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="sBH-Yc-J2k"/>
                 <constraint firstItem="bDa-5j-YaC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xYO-3Q-hOg"/>
                 <constraint firstItem="bDa-5j-YaC" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="zi3-pz-E0o"/>
@@ -49,6 +112,7 @@
         </view>
     </objects>
     <resources>
+        <image name="ic_sort" width="21" height="21"/>
         <namedColor name="LightBlue-2">
             <color red="0.41200000047683716" green="0.60000002384185791" blue="0.72200000286102295" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

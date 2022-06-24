@@ -10,13 +10,23 @@ import RxSwift
 import SkeletonView
 
 final class SearchViewController: UIViewController {
-
+    
+    // MARK: - Outlets
+    @IBOutlet weak var sortFilterView: UIView!
+    @IBOutlet weak var filterButton: UIButton!
+    @IBOutlet weak var sortButton: UIButton!
+    
     // MARK: - Initialize
     private var query : String
     
     init(_ query : String) {
         self.query = query
-        vm.search(query: query)
+        searchParams = [
+            "Page size": 16,
+            "Page number": pageNumber,
+            "Product name": query,
+        ]
+        vm.search(params: searchParams)
         super.init(nibName: Constants.SearchVC, bundle: nil)
         self.hidesBottomBarWhenPushed = true
         self.view.showShimmer()
@@ -34,6 +44,8 @@ final class SearchViewController: UIViewController {
     private var vm = SearchViewModel()
     private var bag = DisposeBag()
     private var products = [ProductDataModel]()
+    private var searchParams : [String : Any] = [:]
+    private var pageNumber = 0
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -52,6 +64,16 @@ final class SearchViewController: UIViewController {
         view.layoutIfNeeded()
         viewDidLayoutSubviews()
     }
+    
+    @IBAction func filterButtonTapped(_ sender: Any) {
+        print("FILTER")
+    }
+    
+    @IBAction func sortButtonTapped(_ sender: Any) {
+        let vc = SortViewController()
+        vc.delegate = self
+        self.present(vc, animated: true)
+    }
 }
 
 extension SearchViewController {
@@ -62,6 +84,11 @@ extension SearchViewController {
             LargeProductCardViewCell.nib(),
             forCellWithReuseIdentifier: LargeProductCardViewCell.identifier
         )
+        
+        sortFilterView.roundedCorner(with: 18)
+        sortFilterView.dropShadow(with: 0.1, radius: 10, offset: CGSize(width: 0, height: 4))
+        filterButton.imageView?.contentMode = .scaleAspectFit
+        sortButton.imageView?.contentMode = .scaleAspectFit
     }
     
     private func bindViewModel() {
@@ -70,15 +97,15 @@ extension SearchViewController {
         }.disposed(by: bag)
         vm.error.subscribe { [weak self] in
             self?.handleError(msg: $0.element)
-        }
+        }.disposed(by: bag)
         vm.isLoading.subscribe { [weak self] in
             self?.handleIsLoading($0.element)
         }.disposed(by: bag)
     }
     
-    private func handleSuccessSearch(_ products : [ProductDataModel]?) {
-        self.products = products ?? []
-        print(products)
+    private func handleSuccessSearch(_ products : AllProductsDataModel?) {
+        guard let products = products else { return }
+        self.products = products.products
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
@@ -90,8 +117,21 @@ extension SearchViewController {
     }
     
     override func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let query = searchBar.text else { return }
-        vm.search(query: query)
+        guard let nameQuery = searchBar.text else { return }
+        searchParams = [
+            "Page size": 16,
+            "Page number": pageNumber,
+            "Product name": nameQuery,
+        ]
+        vm.search(params: searchParams)
+        self.view.showShimmer()
+    }
+}
+
+extension SearchViewController : SortProductDelegate {
+    func sort(by sort: SortState) {
+        searchParams["sort"] = sort.rawValue
+        vm.search(params: searchParams)
         self.view.showShimmer()
     }
 }
@@ -118,6 +158,39 @@ extension SearchViewController :
     UICollectionViewDelegate,
     UICollectionViewDataSource,
     UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        at indexPath: IndexPath
+    ) -> UICollectionReusableView {
+        let headerView = collectionView.dequeueReusableSupplementaryView(
+            ofKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: "header",
+            for: indexPath
+        )
+        if products.isEmpty {
+            let titleLabel = UILabel()
+            let contentLabel = UILabel()
+            titleLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+            contentLabel.font = UIFont.systemFont(ofSize: 10, weight: .light)
+            titleLabel.text = "Maaf, Kami tidak dapat menemukan apa yang Kamu cari!"
+            contentLabel.text = "Berikut rekomendasi kami untuk produk yang mungkin Kamu suka, Ganti kata kunci untuk menemukan produk yang Kamu inginkan"
+            let stack = UIStackView(arrangedSubviews: [titleLabel, contentLabel])
+            stack.frame = CGRect(
+                x: 20,
+                y: 0,
+                width: collectionView.frame.width - 40,
+                height: 0
+            )
+            stack.axis = .vertical
+            headerView.addSubview(stack)
+        } else {
+            headerView.frame.size.height = 0.00001
+        }
+        return headerView
+    }
+    
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
@@ -136,6 +209,7 @@ extension SearchViewController :
         cell?.data = products[indexPath.row]
         return cell ?? UICollectionViewCell()
     }
+    
     func collectionView(
         _ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,

@@ -75,23 +75,6 @@ final class HomeViewModel : HomeViewModelInput, HomeViewModelOutput {
             group.leave()
         }
         
-        group.enter()
-        useCase.getProducts(
-            type: .all
-        ) { [weak self] result, error in
-            guard let self = self else { return }
-            if let result = result {
-                if result.success || result.status == "200" {
-                    self.successAllProducts.onNext(result.data)
-                } else {
-                    self.error.onNext(result.message)
-                }
-            } else {
-                self.error.onNext(error?.localizedDescription ?? "ERROR")
-            }
-            group.leave()
-        }
-        
         group.notify(queue: .global()) {
             self.isLoading.accept(false)
             print("Finish Fetching Home")

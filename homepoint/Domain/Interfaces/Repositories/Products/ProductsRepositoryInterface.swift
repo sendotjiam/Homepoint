@@ -11,7 +11,7 @@ protocol ProductsRepositoryInterface {
     
     typealias FetchProducts = ((ProductsResponseModel?, Error?) -> Void)
     typealias GetProductById = ((ProductsResponseModel?, Error?) -> Void)
-    typealias FetchProductsByName = ((ProductsResponseModel?, Error?) -> Void)
+    typealias SearchProducts = ((AllProductsResponseModel?, Error?) -> Void)
     
     func fetchProducts(
         type: FetchProductType,
@@ -24,7 +24,7 @@ protocol ProductsRepositoryInterface {
     )
     
     func fetchProducts(
-        by name: String,
-        completion: @escaping FetchProductsByName
+        params: [String: Any],
+        completion: @escaping SearchProducts
     )
 }

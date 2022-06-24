@@ -8,13 +8,13 @@
 import Foundation
 
 enum FetchProductType {
-    case latest, discount, all
+    case latest, discount
 }
 
 protocol ProductsUseCaseProvider {
     typealias FetchProducts = ((ProductsResponseModel?, Error?) -> Void)
     typealias GetProductById = ((ProductsResponseModel?, Error?) -> Void)
-    typealias FetchProductsByName = ((ProductsResponseModel?, Error?) -> Void)
+    typealias SearchProducts = ((AllProductsResponseModel?, Error?) -> Void)
     
     func getProducts(
         type: FetchProductType,
@@ -22,8 +22,8 @@ protocol ProductsUseCaseProvider {
     )
     
     func getProducts(
-        by name : String,
-        completion: @escaping FetchProductsByName
+        params: [String : Any],
+        completion: @escaping SearchProducts
     )
     
     func getProduct(
@@ -60,10 +60,10 @@ extension ProductsUseCase : ProductsUseCaseProvider {
     }
     
     func getProducts(
-        by name: String,
-        completion: @escaping FetchProductsByName
+        params: [String : Any],
+        completion: @escaping SearchProducts
     ) {
-        repository.fetchProducts(by: name) { result, error in
+        repository.fetchProducts(params: params) { result, error in
             completion(result, error)
         }
     }

@@ -49,8 +49,7 @@ class ProductsRepositoryTest: XCTestCase {
     internal func test_NegativeCase_FetchDiscountProducts_EmptyDataError() {
         /// Given
         let mock = MockApiClient()
-//        mock.data = "".data(using: .utf8)
-        mock.error = NetworkError.EmptyDataError
+        mock.data = "".data(using: .utf8)
         sut = ProductsRepository(mock)
         
         /// When
@@ -101,8 +100,7 @@ class ProductsRepositoryTest: XCTestCase {
     internal func test_NegativeCase_FetchLatestProducts_EmptyDataError() {
         /// Given
         let mock = MockApiClient()
-//        mock.data = "".data(using: .utf8)
-        mock.error = NetworkError.EmptyDataError
+        mock.data = "".data(using: .utf8)
         sut = ProductsRepository(mock)
         
         /// When
@@ -121,7 +119,7 @@ class ProductsRepositoryTest: XCTestCase {
         /// Given
         var expectedDataModel = MockProductsData.generateProductsDataModel()
         expectedDataModel[0].productImages = MockProductsData.generateProductImagesModel()
-        expectedDataModel[0].productCategories = MockProductsData.generateProductCategoriesModel()
+        expectedDataModel[0].productSubCategories = MockProductsData.generateProductSubCategoriesModel()
         let id = "bd694e4d-fefb-404f-905d-c91aef19595a"
         let mock = MockApiClient()
         mock.data = MockProductsData.generateProductsData()
@@ -160,7 +158,7 @@ class ProductsRepositoryTest: XCTestCase {
         /// Given
         let id = "bd694e4d-fefb-404f-905d-c91aef19595a"
         let mock = MockApiClient()
-        mock.error = NetworkError.EmptyDataError
+        mock.data = "".data(using: .utf8)
         sut = ProductsRepository(mock)
         
         /// When
@@ -178,18 +176,17 @@ class ProductsRepositoryTest: XCTestCase {
     // MARK: - Search By Name
     internal func test_PositiveCase_SearchProductByName() {
         /// Given
-        let name = "abc"
-        let expectedDataModel = MockProductsData.generateProducts()
+        let expectedModel = MockProductsData.generateAllProducts()
         let mock = MockApiClient()
-        mock.data = MockProductsData.generateProductsData()
+        mock.data = MockProductsData.generateAllProductsData()
         sut = ProductsRepository(mock)
 
         /// When
-        let expected = expectation(description: "Should return product - get by id")
-        sut.fetchProducts(by: name) { response, error in
+        let expected = expectation(description: "Should return product - get by name")
+        sut.fetchProducts(params: [:]) { response, error in
             guard let response = response else { return }
             /// Then
-            XCTAssertEqual(response, expectedDataModel)
+            XCTAssertEqual(response, expectedModel)
             expected.fulfill()
         }
         wait(for: [expected], timeout: 1)
@@ -197,14 +194,13 @@ class ProductsRepositoryTest: XCTestCase {
     
     internal func test_NegativeCase_SearchProductByName_ApiError() {
         /// Given
-        let name = "abc"
         let mock = MockApiClient()
         mock.error = NetworkError.ApiError
         sut = ProductsRepository(mock)
-        
+
         /// When
         let expected = expectation(description: "Should return error - Api Error")
-        sut.fetchProducts(by: name) { response, error in
+        sut.fetchProducts(params: [:]) { response, error in
             guard let error = error else { return }
             /// Then
             XCTAssertEqual(error as! NetworkError, NetworkError.ApiError)
@@ -212,16 +208,16 @@ class ProductsRepositoryTest: XCTestCase {
         }
         wait(for: [expected], timeout: 1)
     }
+    
     internal func test_NegativeCase_SearchProductByName_EmptyDataError() {
         /// Given
-        let name = "abc"
         let mock = MockApiClient()
-        mock.error = NetworkError.EmptyDataError
+        mock.data = "".data(using: .utf8)
         sut = ProductsRepository(mock)
-        
+
         /// When
         let expected = expectation(description: "Should return error - Empty Data Error")
-        sut.fetchProducts(by: name) { response, error in
+        sut.fetchProducts(params: [:]) { response, error in
             guard let error = error else { return }
             /// Then
             XCTAssertEqual(error as! NetworkError, NetworkError.EmptyDataError)

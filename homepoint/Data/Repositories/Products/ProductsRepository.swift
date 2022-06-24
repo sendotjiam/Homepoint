@@ -9,7 +9,7 @@ import Foundation
 import SwiftyJSON
 
 final class ProductsRepository {
-    private let urlString = "api/v1/products/"
+    private let urlString = "api/v1/products"
     
     let apiClient : ApiClient
     
@@ -25,9 +25,8 @@ extension ProductsRepository : ProductsRepositoryInterface {
     ) {
         var url = urlString
         switch type {
-        case .discount: url += "discount"
-        case .latest: url += "latest"
-        default : break
+        case .discount: url += "/discount"
+        case .latest: url += "/latest"
         }
         apiClient.request(
             url,
@@ -50,12 +49,35 @@ extension ProductsRepository : ProductsRepositoryInterface {
     }
     
     func fetchProducts(
-        by name: String,
-        completion: @escaping FetchProductsByName
+        params : [String : Any] = [:],
+        completion: @escaping SearchProducts
     ) {
-        let query = "search?name=\(name)"
+        var query = "?"
+        params.forEach { key, value in
+            var tempKey = key
+            var tempValue = value
+            if tempKey == "sort" {
+                switch tempValue as! String {
+                case "Produk Terlaris":
+                    tempKey = "Sort by best seller"
+                case "Produk Terbaru":
+                    tempKey = "Sort by latest"
+                case "Harga Termurah":
+                    tempKey = "Sort by price asc"
+                case "Harga Termahal":
+                    tempKey = "Sort by price desc"
+                default: break
+                }
+                tempValue = true
+            }
+            let splitStr = tempKey.split(separator: " ")
+            query += "\(splitStr.joined(separator: "%20"))=\(tempValue)&"
+        }
+        query.removeLast()
+        let url = urlString + query
+        print(url, "URL")
         apiClient.request(
-            urlString + query,
+            url,
             .get,
             nil,
             nil
@@ -63,7 +85,8 @@ extension ProductsRepository : ProductsRepositoryInterface {
             if let data = data {
                 do {
                     let json = try JSON(data: data)
-                    let model = ProductsResponseModel(object: json)
+                    let model = AllProductsResponseModel(object: json)
+                    print(json, model)
                     completion(model, nil)
                 } catch {
                     completion(nil, NetworkError.EmptyDataError)

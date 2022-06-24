@@ -11,11 +11,11 @@ import RxCocoa
 import RxRelay
 
 protocol SearchViewModelInput {
-    func search(query: String)
+    func search(params: [String : Any])
 }
 
 protocol SearchViewModelOutput {
-    var successSearch : PublishSubject<[ProductDataModel]> { get set }
+    var successSearch : PublishSubject<AllProductsDataModel> { get set }
     var error : PublishSubject<String> { get set } 
     var isLoading : BehaviorRelay<Bool> { get set }
 }
@@ -31,14 +31,14 @@ final class SearchViewModel :
     }
     
     // MARK: - Output
-    var successSearch = PublishSubject<[ProductDataModel]>()
+    var successSearch = PublishSubject<AllProductsDataModel>()
     var error = PublishSubject<String>()
     var isLoading = BehaviorRelay<Bool>(value: false)
     
     // MARK: - Input
-    func search(query: String) {
+    func search(params: [String : Any]) {
         isLoading.accept(true)
-        useCase.getProducts(by: query) { [weak self] result, error in
+        useCase.getProducts(params: params) { [weak self] result, error in
             guard let self = self else { return }
             self.isLoading.accept(false)
             if let result = result {

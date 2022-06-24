@@ -91,6 +91,12 @@
 		629B41DA285345760051EB23 /* ReviewListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629B41D8285345760051EB23 /* ReviewListViewCell.swift */; };
 		629B41DB285345760051EB23 /* ReviewListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 629B41D9285345760051EB23 /* ReviewListViewCell.xib */; };
 		62A33F04284B5E0500D030F8 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A33F03284B5E0500D030F8 /* CustomNavigationBar.swift */; };
+		62AA965F2864A69800C11AAF /* SortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AA965D2864A69800C11AAF /* SortViewController.swift */; };
+		62AA96602864A69800C11AAF /* SortViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62AA965E2864A69800C11AAF /* SortViewController.xib */; };
+		62AA96632864A6AC00C11AAF /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AA96612864A6AC00C11AAF /* FilterViewController.swift */; };
+		62AA96642864A6AC00C11AAF /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62AA96622864A6AC00C11AAF /* FilterViewController.xib */; };
+		62AA96682864A8DB00C11AAF /* SortItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AA96662864A8DB00C11AAF /* SortItemViewCell.swift */; };
+		62AA96692864A8DB00C11AAF /* SortItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62AA96672864A8DB00C11AAF /* SortItemViewCell.xib */; };
 		62BBB35A285B109C00E984C6 /* ReviewSeeMoreViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BBB358285B109C00E984C6 /* ReviewSeeMoreViewCell.swift */; };
 		62BBB35B285B109C00E984C6 /* ReviewSeeMoreViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62BBB359285B109C00E984C6 /* ReviewSeeMoreViewCell.xib */; };
 		62BBB35F285B191400E984C6 /* OtherViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BBB35D285B191400E984C6 /* OtherViewCell.swift */; };
@@ -235,6 +241,12 @@
 		629B41D8285345760051EB23 /* ReviewListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListViewCell.swift; sourceTree = "<group>"; };
 		629B41D9285345760051EB23 /* ReviewListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewListViewCell.xib; sourceTree = "<group>"; };
 		62A33F03284B5E0500D030F8 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
+		62AA965D2864A69800C11AAF /* SortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortViewController.swift; sourceTree = "<group>"; };
+		62AA965E2864A69800C11AAF /* SortViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SortViewController.xib; sourceTree = "<group>"; };
+		62AA96612864A6AC00C11AAF /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		62AA96622864A6AC00C11AAF /* FilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
+		62AA96662864A8DB00C11AAF /* SortItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortItemViewCell.swift; sourceTree = "<group>"; };
+		62AA96672864A8DB00C11AAF /* SortItemViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SortItemViewCell.xib; sourceTree = "<group>"; };
 		62BBB358285B109C00E984C6 /* ReviewSeeMoreViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSeeMoreViewCell.swift; sourceTree = "<group>"; };
 		62BBB359285B109C00E984C6 /* ReviewSeeMoreViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewSeeMoreViewCell.xib; sourceTree = "<group>"; };
 		62BBB35D285B191400E984C6 /* OtherViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherViewCell.swift; sourceTree = "<group>"; };
@@ -632,6 +644,7 @@
 		62759B7E284A523300622184 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				62AA96652864A8C500C11AAF /* ViewCells */,
 				6242118D2862D1AB00180D8A /* ViewModels */,
 				627A38FC284CCE0C002ADC6B /* ViewControllers */,
 			);
@@ -684,6 +697,10 @@
 			children = (
 				62759B7F284A52AD00622184 /* SearchViewController.swift */,
 				62759B80284A52AD00622184 /* SearchViewController.xib */,
+				62AA965D2864A69800C11AAF /* SortViewController.swift */,
+				62AA965E2864A69800C11AAF /* SortViewController.xib */,
+				62AA96612864A6AC00C11AAF /* FilterViewController.swift */,
+				62AA96622864A6AC00C11AAF /* FilterViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -757,6 +774,15 @@
 				62A33F03284B5E0500D030F8 /* CustomNavigationBar.swift */,
 			);
 			path = NavigationBar;
+			sourceTree = "<group>";
+		};
+		62AA96652864A8C500C11AAF /* ViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				62AA96662864A8DB00C11AAF /* SortItemViewCell.swift */,
+				62AA96672864A8DB00C11AAF /* SortItemViewCell.xib */,
+			);
+			path = ViewCells;
 			sourceTree = "<group>";
 		};
 		62BBB35C285B190100E984C6 /* Others */ = {
@@ -1221,6 +1247,7 @@
 				62FCC0E9283E5BA500BF79E2 /* ExampleTableViewCell.xib in Resources */,
 				5370DFCB2848FE6500FD1ED5 /* Inter-ExtraLight.ttf in Resources */,
 				5370DFCA2848FE6500FD1ED5 /* Inter-Black.ttf in Resources */,
+				62AA96602864A69800C11AAF /* SortViewController.xib in Resources */,
 				53D772FB2849FBF2008F2912 /* MenuViewCell.xib in Resources */,
 				53D773032849FC87008F2912 /* BannerViewCell.xib in Resources */,
 				53D7730B2849FCEE008F2912 /* BestOfferViewCell.xib in Resources */,
@@ -1243,6 +1270,7 @@
 				6216E0862848ED4D0019747D /* LargeProductCardViewCell.xib in Resources */,
 				62CFEE2D283E574A00E909AA /* LaunchScreen.storyboard in Resources */,
 				533AFAD0284F9B2A00684B1E /* ViewMoreProductViewCell.xib in Resources */,
+				62AA96692864A8DB00C11AAF /* SortItemViewCell.xib in Resources */,
 				53D7733E284A423D008F2912 /* RecommendationViewCell.xib in Resources */,
 				62BBB35B285B109C00E984C6 /* ReviewSeeMoreViewCell.xib in Resources */,
 				5370DFD02848FE6500FD1ED5 /* Inter-Thin.ttf in Resources */,
@@ -1262,6 +1290,7 @@
 				62CA2D352847AEA200389230 /* ViewController2.xib in Resources */,
 				5370DFCD2848FE6500FD1ED5 /* Inter-Light.ttf in Resources */,
 				62759B82284A52AD00622184 /* SearchViewController.xib in Resources */,
+				62AA96642864A6AC00C11AAF /* FilterViewController.xib in Resources */,
 				629B41DB285345760051EB23 /* ReviewListViewCell.xib in Resources */,
 				5370DFC82848FE6500FD1ED5 /* Inter-Regular.ttf in Resources */,
 				5370DFD828490EC800FD1ED5 /* HomeViewController.xib in Resources */,
@@ -1409,6 +1438,7 @@
 				533AFACF284F9B2A00684B1E /* ViewMoreProductViewCell.swift in Sources */,
 				626A1D1428465BE500B2DA8A /* UIView+Ext.swift in Sources */,
 				626E84922859D797003403DE /* RegisterViewModel.swift in Sources */,
+				62AA965F2864A69800C11AAF /* SortViewController.swift in Sources */,
 				62C0B139285C59B500EACE59 /* DiscussHeaderViewCell.swift in Sources */,
 				627A3910284CD892002ADC6B /* OrderFilterItemViewCell.swift in Sources */,
 				D10CB4EF284F9DB500F675B2 /* LoginViewController.swift in Sources */,
@@ -1442,8 +1472,10 @@
 				62FCC0FF283E660500BF79E2 /* MainCoordinator.swift in Sources */,
 				62DC6ABA285336280093DB64 /* ReviewPhotoListViewCell.swift in Sources */,
 				62FCC0E8283E5BA500BF79E2 /* ExampleTableViewCell.swift in Sources */,
+				62AA96632864A6AC00C11AAF /* FilterViewController.swift in Sources */,
 				626E848C2859C9BF003403DE /* UIScrollView+Ext.swift in Sources */,
 				62CA2D312847989200389230 /* UIViewController+Ext.swift in Sources */,
+				62AA96682864A8DB00C11AAF /* SortItemViewCell.swift in Sources */,
 				62CFEE21283E574600E909AA /* AppDelegate.swift in Sources */,
 				6275AF8D28587BC200D3857D /* UserUseCase.swift in Sources */,
 				6214C73D2861ABE60060CAD4 /* DetailViewModel.swift in Sources */,

@@ -8,6 +8,56 @@
 import Foundation
 import SwiftyJSON
 
+// MARK: - All Products
+struct AllProductsResponseModel : Equatable {
+    var success: Bool
+    var status, message: String
+    var data: AllProductsDataModel
+    
+    init(object: JSON) {
+        self.success = object["success"].boolValue
+        self.status = object["status"].stringValue
+        self.message = object["message"].stringValue
+        self.data = AllProductsDataModel(object: object["data"])
+    }
+    
+    static func == (lhs: AllProductsResponseModel, rhs: AllProductsResponseModel) -> Bool {
+        (lhs.success == rhs.success) &&
+        (lhs.status == rhs.status) &&
+        (lhs.message == rhs.message) &&
+        (lhs.data == rhs.data)
+    }
+}
+
+struct AllProductsDataModel : Equatable {
+    var totalPage : Int
+    var totalRecord : Int
+    var currentPage : Int
+    var pageSize: Int
+    var products : [ProductDataModel]
+    
+    init(object: JSON) {
+        self.totalPage = object["totalPage"].intValue
+        self.totalRecord = object["totalRecord"].intValue
+        self.currentPage = object["currentPage"].intValue
+        self.pageSize = object["pageSize"].intValue
+        var products = [ProductDataModel]()
+        object["products"].arrayValue.forEach { obj in
+            products.append(ProductDataModel(object: obj))
+        }
+        self.products = products
+    }
+    
+    static func == (lhs: AllProductsDataModel, rhs: AllProductsDataModel) -> Bool {
+        (lhs.totalPage == rhs.totalPage) &&
+        (lhs.totalRecord == rhs.totalRecord) &&
+        (lhs.pageSize == rhs.pageSize) &&
+        (lhs.currentPage == rhs.currentPage) &&
+        (lhs.products == rhs.products)
+    }
+}
+
+
 // MARK: - Product
 struct ProductsResponseModel : Equatable {
     
@@ -43,7 +93,7 @@ struct ProductsResponseModel : Equatable {
 struct ProductDataModel : Equatable {
     
     var id: String
-    var productCategories: ProductCategoryModel
+    var productSubCategories: ProductSubCategoryModel
     var productImages: [ProductImageModel]
     var name, description, brand: String
     var price, discount: Double
@@ -55,7 +105,7 @@ struct ProductDataModel : Equatable {
     
     init(object: JSON) {
         self.id = object["id"].stringValue
-        self.productCategories = ProductCategoryModel(object: object["productCategories"])
+        self.productSubCategories = ProductSubCategoryModel(object: object["productSubCategories"])
         var images = [ProductImageModel]()
         object["productImages"].arrayValue.forEach { obj in
             images.append(ProductImageModel(object: obj))
@@ -77,7 +127,7 @@ struct ProductDataModel : Equatable {
     
     static func == (lhs: ProductDataModel, rhs: ProductDataModel) -> Bool {
         (lhs.id == rhs.id) &&
-        (lhs.productCategories == rhs.productCategories) &&
+        (lhs.productSubCategories == rhs.productSubCategories) &&
         (lhs.productImages == rhs.productImages) &&
         (lhs.name == rhs.name) &&
         (lhs.description == rhs.description) &&
@@ -95,13 +145,14 @@ struct ProductDataModel : Equatable {
 }
 
 // MARK: - Product Category
-struct ProductCategoryModel: Equatable {
-    var id, name: String
+struct ProductSubCategoryModel: Equatable {
+    var id, name, icon: String
     var isDeleted: Bool
     
     init(object: JSON) {
         self.id = object["id"].stringValue
         self.name = object["name"].stringValue
+        self.icon = object["icon"].stringValue
         self.isDeleted = object["isDeleted"].boolValue
     }
 }
