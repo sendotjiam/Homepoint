@@ -31,12 +31,12 @@ extension UIView {
     
     func addGradientOverlay() -> CAGradientLayer {
         let gradientLayer = CAGradientLayer()
-
+        
         gradientLayer.colors = [
-          UIColor(red: 1, green: 1, blue: 1, alpha: 0).cgColor,
-          UIColor(red: 0.933, green: 0.9, blue: 0.9, alpha: 0).cgColor,
-          UIColor(red: 0.25, green: 0.241, blue: 0.241, alpha: 0.72).cgColor,
-          UIColor(red: 0, green: 0, blue: 0, alpha: 0.61).cgColor
+            UIColor(red: 1, green: 1, blue: 1, alpha: 0).cgColor,
+            UIColor(red: 0.933, green: 0.9, blue: 0.9, alpha: 0).cgColor,
+            UIColor(red: 0.25, green: 0.241, blue: 0.241, alpha: 0.72).cgColor,
+            UIColor(red: 0, green: 0, blue: 0, alpha: 0.61).cgColor
         ]
         
         gradientLayer.locations = [0.05, 0.18, 0.73, 0.93]
@@ -59,5 +59,34 @@ extension UIView {
             self.stopSkeletonAnimation()
             self.hideSkeleton()
         }
+    }
+    
+    func fadeTo(
+        _ alpha: CGFloat,
+        duration: TimeInterval = 0.3,
+        delay: TimeInterval = 0,
+        completion: (() -> Void)? = nil) {
+            
+            UIView.animate(
+                withDuration: duration,
+                delay: delay,
+                options: .curveEaseInOut,
+                animations: {
+                    self.alpha = alpha
+                },
+                completion: nil
+            )
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
+                completion?()
+            }
+        }
+    
+    func fadeIn(duration: TimeInterval = 0.3, delay: TimeInterval = 0, completion: (() -> Void)? = nil) {
+        fadeTo(1, duration: duration, delay: delay, completion: completion)
+    }
+    
+    func fadeOut(duration: TimeInterval = 0.3, delay: TimeInterval = 0, completion: (() -> Void)? = nil) {
+        fadeTo(0, duration: duration, delay: delay, completion: completion)
     }
 }

@@ -69,8 +69,9 @@ final class SearchViewController: UIViewController {
     }
     
     @IBAction func sortButtonTapped(_ sender: Any) {
-        let vc = SortViewController()
-        vc.delegate = self
+        let vc = SortFilterSheetViewController(type: .sort)
+        vc.sortDelegate = self
+        vc.modalPresentationStyle = .pageSheet
         self.present(vc, animated: true)
     }
 }
@@ -158,37 +159,37 @@ extension SearchViewController :
     UICollectionViewDataSource,
     UICollectionViewDelegateFlowLayout {
     
-    func collectionView(
-        _ collectionView: UICollectionView,
-        viewForSupplementaryElementOfKind kind: String,
-        at indexPath: IndexPath
-    ) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(
-            ofKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: "header",
-            for: indexPath
-        )
-        if products.isEmpty {
-            let titleLabel = UILabel()
-            let contentLabel = UILabel()
-            titleLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
-            contentLabel.font = UIFont.systemFont(ofSize: 10, weight: .light)
-            titleLabel.text = "Maaf, Kami tidak dapat menemukan apa yang Kamu cari!"
-            contentLabel.text = "Berikut rekomendasi kami untuk produk yang mungkin Kamu suka, Ganti kata kunci untuk menemukan produk yang Kamu inginkan"
-            let stack = UIStackView(arrangedSubviews: [titleLabel, contentLabel])
-            stack.frame = CGRect(
-                x: 20,
-                y: 0,
-                width: collectionView.frame.width - 40,
-                height: 0
-            )
-            stack.axis = .vertical
-            headerView.addSubview(stack)
-        } else {
-            headerView.frame.size.height = 0.00001
-        }
-        return headerView
-    }
+//    func collectionView(
+//        _ collectionView: UICollectionView,
+//        viewForSupplementaryElementOfKind kind: String,
+//        at indexPath: IndexPath
+//    ) -> UICollectionReusableView {
+//        let headerView = collectionView.dequeueReusableSupplementaryView(
+//            ofKind: UICollectionView.elementKindSectionHeader,
+//            withReuseIdentifier: "header",
+//            for: indexPath
+//        )
+//        if products.isEmpty {
+//            let titleLabel = UILabel()
+//            let contentLabel = UILabel()
+//            titleLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+//            contentLabel.font = UIFont.systemFont(ofSize: 10, weight: .light)
+//            titleLabel.text = "Maaf, Kami tidak dapat menemukan apa yang Kamu cari!"
+//            contentLabel.text = "Berikut rekomendasi kami untuk produk yang mungkin Kamu suka, Ganti kata kunci untuk menemukan produk yang Kamu inginkan"
+//            let stack = UIStackView(arrangedSubviews: [titleLabel, contentLabel])
+//            stack.frame = CGRect(
+//                x: 20,
+//                y: 0,
+//                width: collectionView.frame.width - 40,
+//                height: 0
+//            )
+//            stack.axis = .vertical
+//            headerView.addSubview(stack)
+//        } else {
+//            headerView.frame.size.height = 0.00001
+//        }
+//        return headerView
+//    }
     
     func collectionView(
         _ collectionView: UICollectionView,

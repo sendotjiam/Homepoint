@@ -29,9 +29,11 @@ final class SortItemViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         if selected {
             containerView.backgroundColor = ColorCollection.lightTealColor.value
+            titleLabel.textColor = .white
             titleLabel.font = .boldSystemFont(ofSize: 14)
         } else {
             containerView.backgroundColor = .white
+            titleLabel.textColor = .black
             titleLabel.font = .systemFont(ofSize: 14)
         }
     }
