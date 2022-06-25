@@ -68,7 +68,7 @@ extension ProductsUseCase : ProductsUseCaseProvider {
             var tempKey = key
             var tempValue = value
             if tempKey == "sort" {
-                checkSort(tempValue as! String)
+                tempKey = checkSort(tempValue as! String)
                 tempValue = true
             } else if tempKey == "filter" {
                 checkFilter()
@@ -93,6 +93,8 @@ extension ProductsUseCase : ProductsUseCaseProvider {
             return "Sort by price asc"
         case "Harga Termahal":
             return "Sort by price desc"
+        case "Diskon Terbesar":
+            return "Sort by discount"
         default: return ""
         }
     }

@@ -65,6 +65,7 @@
 		624B1226286069A70071D088 /* MockProductsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624B1225286069A70071D088 /* MockProductsData.swift */; };
 		624B1228286069EF0071D088 /* ProductsRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624B1227286069EF0071D088 /* ProductsRepositoryTest.swift */; };
 		625AA4FF2866CB8A00C285F0 /* SortHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625AA4FE2866CB8A00C285F0 /* SortHelper.swift */; };
+		625AA5022866E0E100C285F0 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625AA5012866E0E100C285F0 /* UILabel+Ext.swift */; };
 		626A1D1428465BE500B2DA8A /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626A1D1328465BE500B2DA8A /* UIView+Ext.swift */; };
 		626E848C2859C9BF003403DE /* UIScrollView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E848B2859C9BF003403DE /* UIScrollView+Ext.swift */; };
 		626E848F2859D615003403DE /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E848E2859D615003403DE /* LoginViewModel.swift */; };
@@ -215,6 +216,7 @@
 		624B1225286069A70071D088 /* MockProductsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProductsData.swift; sourceTree = "<group>"; };
 		624B1227286069EF0071D088 /* ProductsRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsRepositoryTest.swift; sourceTree = "<group>"; };
 		625AA4FE2866CB8A00C285F0 /* SortHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortHelper.swift; sourceTree = "<group>"; };
+		625AA5012866E0E100C285F0 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		626A1D1328465BE500B2DA8A /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		626E848B2859C9BF003403DE /* UIScrollView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Ext.swift"; sourceTree = "<group>"; };
 		626E848E2859D615003403DE /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -998,6 +1000,7 @@
 				62BBB361285B2F3400E984C6 /* Int+Ext.swift */,
 				6214C7422861B79D0060CAD4 /* Double+Ext.swift */,
 				D1B171A4285D7930002511F8 /* UITapGestureRecognizer+Ext.swift */,
+				625AA5012866E0E100C285F0 /* UILabel+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1524,6 +1527,7 @@
 				62FCC0FF283E660500BF79E2 /* MainCoordinator.swift in Sources */,
 				62DC6ABA285336280093DB64 /* ReviewPhotoListViewCell.swift in Sources */,
 				62FCC0E8283E5BA500BF79E2 /* ExampleTableViewCell.swift in Sources */,
+				625AA5022866E0E100C285F0 /* UILabel+Ext.swift in Sources */,
 				62AA96632864A6AC00C11AAF /* FilterViewController.swift in Sources */,
 				626E848C2859C9BF003403DE /* UIScrollView+Ext.swift in Sources */,
 				62CA2D312847989200389230 /* UIViewController+Ext.swift in Sources */,

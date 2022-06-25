@@ -8,6 +8,15 @@
 import UIKit
 
 extension String {
+    func htmlAttributedString() -> NSAttributedString? {
+        guard let data = self.data(using: String.Encoding.utf16, allowLossyConversion: false) else { return nil }
+        guard let html = try? NSMutableAttributedString(
+            data: data,
+            options: [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html],
+            documentAttributes: nil) else { return nil }
+        return html
+    }
+    
     func strikethroughText(range: NSRange) -> NSMutableAttributedString {
         let attributed = NSMutableAttributedString(string: self)
         attributed.addAttributes([
@@ -40,4 +49,6 @@ extension String {
             alpha: CGFloat(1.0)
         )
     }
+    
+    
 }

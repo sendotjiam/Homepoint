@@ -143,7 +143,10 @@ extension DetailViewController {
     private func handleSuccessGetOtherProducts(
         _ products : [ProductDataModel]?
     ) {
-        otherProducts = products ?? []
+        self.otherProducts = products ?? []
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
     
     private func countTotalPrice() {
@@ -222,8 +225,8 @@ extension DetailViewController :
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        if otherProducts.isEmpty { }
         switch sections[section] {
+        case .description : return productData?.description == "" ? 0 : 1
         case .review: return reviewList + 2
         case .discussion: return 3 + 1
         case .others : return otherProducts.isEmpty ? 0 : 1
@@ -261,7 +264,6 @@ extension DetailViewController :
             }
         case .others:
             cell = generateCell(OtherViewCell.identifier, indexPath)
-        default: return UITableViewCell()
         }
         return cell ?? UITableViewCell()
     }
@@ -326,6 +328,14 @@ extension DetailViewController :
             guard let cell = cell as? OtherViewCell
             else { return nil }
             cell.products = otherProducts
+            cell.didSelectItem = { [weak self] in
+                let vc = DetailViewController($0)
+                self?.navigationController?
+                    .pushViewController(
+                        vc,
+                        animated: true
+                    )
+            }
             return cell as? T
         default: return cell
         }

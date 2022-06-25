@@ -78,7 +78,7 @@ extension ProductsRepository : ProductsRepositoryInterface {
         completion: @escaping GetProductById
     ) {
         apiClient.request(
-            urlString + id,
+            urlString + "/" + id,
             .get,
             nil,
             nil
