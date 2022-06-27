@@ -17,8 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let vc = UINavigationController(rootViewController: CustomTabBarController())
-        vc.setNavigationBarHidden(true, animated: false)
+//        let vc = UINavigationController(rootViewController: CustomTabBarController())
+//        vc.setNavigationBarHidden(true, animated: false)
+        let vc = UINavigationController(rootViewController: SearchViewController(""))
         window?.rootViewController = vc
         window?.makeKeyAndVisible()
         

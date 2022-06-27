@@ -84,8 +84,8 @@ extension DetailHeaderViewCell {
 }
 
 extension DetailHeaderViewCell :
-    UICollectionViewDelegate,
-    UICollectionViewDataSource {
+    UICollectionViewDataSource,
+    UICollectionViewDelegateFlowLayout {
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
@@ -101,7 +101,17 @@ extension DetailHeaderViewCell :
             withReuseIdentifier: ColorListViewCell.identifier,
             for: indexPath
         ) as? ColorListViewCell
+        cell?.size = 18
         cell?.hexColor = colors[indexPath.row]
+        cell?.isUserInteractionEnabled = false
         return cell ?? UICollectionViewCell()
     }
+    
+//    func collectionView(
+//        _ collectionView: UICollectionView,
+//        layout collectionViewLayout: UICollectionViewLayout,
+//        sizeForItemAt indexPath: IndexPath
+//    ) -> CGSize {
+//        return CGSize(width: 18, height: 18)
+//    }
 }

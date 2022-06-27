@@ -15,6 +15,10 @@ enum SortState : String {
     case largestDiscount = "Diskon Terbesar"
 }
 
+enum FilterSection {
+    case price, brand, color, rating
+}
+
 protocol SortProductDelegate {
-    func sort(by sort: SortState)
+    func sort(by sort: SortState?)
 }

@@ -35,9 +35,16 @@ final class SortFilterSheetViewController: UIViewController {
     }
     
     // MARK: - Variables
-    private let sortStates : [SortState] = [.bestSeller, .latest, .cheapest, .expensive, .largestDiscount]
+    private let sortStates : [SortState] = [
+        .bestSeller, .latest, .cheapest, .expensive, .largestDiscount
+    ]
     private var selectedSort : SortState?
     var sortDelegate : SortProductDelegate?
+    
+    private let filterSections : [FilterSection] = [
+        .price, .rating, .brand, .color
+    ]
+    private let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +54,9 @@ final class SortFilterSheetViewController: UIViewController {
     @IBAction func applyButtonTapped(_ sender: Any) {
         switch type {
         case .sort:
-            guard let selectedSort = selectedSort else { return }
+            if selectedSort == nil {
+                dismiss(animated: true)
+            }
             sortDelegate?.sort(by: selectedSort)
         case .filter: break
         }
@@ -55,12 +64,20 @@ final class SortFilterSheetViewController: UIViewController {
     }
     
     @IBAction func resetButtonTapped(_ sender: Any) {
-        
+        switch type {
+        case .sort:
+            sortDelegate?.sort(by: nil)
+            resetSortData()
+        case .filter:
+            print("RESET")
+        }
+        dismiss(animated: true)
     }
 }
 
 extension SortFilterSheetViewController {
     private func setupUI() {
+        titleLabel.text = "Filter"
         backgroundView.alpha = 0
         applyButton.roundedCorner(with: 8)
         contentView.roundedCorner(with: 16)
@@ -68,17 +85,35 @@ extension SortFilterSheetViewController {
         tableView.dataSource = self
         switch type {
         case .sort:
+            titleLabel.text = "Urutkan"
             tableView.register(
                 SortItemViewCell.nib(),
                 forCellReuseIdentifier: SortItemViewCell.identifier
             )
             tableViewHeight.constant = 5 * 50
-        case .filter: break
-//            //        tableView.register(
-//            //            FilterItemViewCell.nib(),
-//            //            forCellReuseIdentifier: FilterItemViewCell.identifier
-//            //        )
+        case .filter:
+            titleLabel.text = "Filter"
+            tableView.register(
+                FilterPriceViewCell.nib(),
+                forCellReuseIdentifier: FilterPriceViewCell.identifier
+            )
+            tableView.register(
+                FilterRatingViewCell.nib(),
+                forCellReuseIdentifier: FilterRatingViewCell.identifier
+            )
+            tableView.register(
+                FilterBrandViewCell.nib(),
+                forCellReuseIdentifier: FilterBrandViewCell.identifier
+            )
+            tableView.register(
+                FilterColorViewCell.nib(),
+                forCellReuseIdentifier: FilterColorViewCell.identifier
+            )
         }
+    }
+
+    private func resetSortData() {
+        
     }
 }
 
@@ -86,6 +121,13 @@ extension SortFilterSheetViewController {
 extension SortFilterSheetViewController :
     UITableViewDelegate,
     UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        switch type {
+        case .sort: return 1
+        case .filter: return 4
+        }
+    }
     
     func tableView(
         _ tableView: UITableView,
@@ -95,7 +137,7 @@ extension SortFilterSheetViewController :
         case .sort:
             return sortStates.count
         case .filter:
-            return 4
+            return 1
         }
     }
     
@@ -112,7 +154,21 @@ extension SortFilterSheetViewController :
             cell?.state = sortStates[indexPath.row].rawValue
             return cell ?? UITableViewCell()
         case .filter:
-            return UITableViewCell()
+            var cell : 
+            UITableViewCell?
+            switch filterSections[indexPath.section] {
+            case .price:
+                cell = generateCell(FilterPriceViewCell.identifier, indexPath)
+            case .brand:
+                cell = generateCell(FilterBrandViewCell.identifier, indexPath)
+            case .color:
+                cell = generateCell(FilterColorViewCell.identifier, indexPath)
+            case .rating:
+                cell = generateCell(FilterRatingViewCell.identifier, indexPath)
+            default:
+                return UITableViewCell()
+            }
+            return cell ?? UITableViewCell()
         }
     }
     
@@ -124,9 +180,20 @@ extension SortFilterSheetViewController :
         case .sort:
             selectedSort = sortStates[indexPath.row]
         case .filter:
+            print(indexPath.row)
             break
         }
     }
-    
+ 
+    private func generateCell<T : UITableViewCell>(
+        _ id: String,
+        _ indexPath: IndexPath
+    ) -> T? {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: id,
+            for: indexPath
+        ) as? T
+        return cell
+    }
 }
 

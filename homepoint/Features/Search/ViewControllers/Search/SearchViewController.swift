@@ -66,6 +66,10 @@ final class SearchViewController: UIViewController {
     }
     
     @IBAction func filterButtonTapped(_ sender: Any) {
+        let vc = SortFilterSheetViewController(type: .filter)
+//        vc.sortDelegate = self
+        vc.modalPresentationStyle = .pageSheet
+        self.present(vc, animated: true)
     }
     
     @IBAction func sortButtonTapped(_ sender: Any) {
@@ -129,8 +133,9 @@ extension SearchViewController {
 }
 
 extension SearchViewController : SortProductDelegate {
-    func sort(by sort: SortState) {
-        searchParams["sort"] = sort.rawValue
+    func sort(by sort: SortState?) {
+        if sort == nil { return }
+        searchParams["sort"] = sort?.rawValue
         vm.search(params: searchParams)
         self.view.showShimmer()
     }

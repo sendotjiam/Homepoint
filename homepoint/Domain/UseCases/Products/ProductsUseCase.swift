@@ -68,6 +68,7 @@ extension ProductsUseCase : ProductsUseCaseProvider {
             var tempKey = key
             var tempValue = value
             if tempKey == "sort" {
+                if tempValue as! String == "" { return }
                 tempKey = checkSort(tempValue as! String)
                 tempValue = true
             } else if tempKey == "filter" {
