@@ -40,7 +40,7 @@ extension DetailDescriptionViewCell {
         guard let content = content else { return }
         contentLabel.attributedText = content.htmlAttributedString()
         contentLabel.font = .systemFont(ofSize: 14)
-        seeMoreButton.isHidden = contentLabel.calculateMaxLines() <= 10 ? true : false
+        seeMoreButton.isHidden = contentLabel.calculateMaxLines() <= 16 ? true : false
     }
     
     class func nib() -> UINib {

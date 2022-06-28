@@ -7,6 +7,16 @@
 
 import UIKit
 
+final class BrandCellModel {
+    let title: String
+    var isSelected : Bool
+    
+    init(_ title : String, _ isSelected: Bool = false) {
+        self.title = title
+        self.isSelected = isSelected
+    }
+}
+
 final class BrandItemViewCell: UITableViewCell {
 
     static let idenfier = "BrandItemViewCell"
@@ -14,6 +24,11 @@ final class BrandItemViewCell: UITableViewCell {
     // MARK: - Outlets
     @IBOutlet weak var checkbox: Checkbox!
     @IBOutlet weak var brandLabel: UILabel!
+    
+    // MARK: - Variables
+    var brand : BrandCellModel? {
+        didSet { configureCell() }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,7 +43,12 @@ final class BrandItemViewCell: UITableViewCell {
 
 extension BrandItemViewCell {
     private func setupUI() {
-        
+        selectionStyle = .none
+    }
+    
+    private func configureCell() {
+        guard let brand = brand else { return }
+        brandLabel.text = brand.title
     }
     
     class func nib() -> UINib {

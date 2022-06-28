@@ -11,15 +11,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="105" id="KGk-i7-Jjw" customClass="BrandItemViewCell" customModule="homepoint" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="105"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="47" id="KGk-i7-Jjw" customClass="BrandItemViewCell" customModule="homepoint" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="105"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="47"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rMR-5j-475">
-                        <rect key="frame" x="20" y="16" width="280" height="20"/>
+                        <rect key="frame" x="0.0" y="8" width="300" height="20"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="882-P9-sZ3" customClass="Checkbox" customModule="homepoint" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -30,7 +30,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vishal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DkI-yb-yfW">
-                                <rect key="frame" x="28" y="3" width="252" height="14.5"/>
+                                <rect key="frame" x="28" y="3" width="272" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -43,9 +43,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="rMR-5j-475" secondAttribute="trailing" constant="20" id="3yO-j7-Jg3"/>
-                    <constraint firstItem="rMR-5j-475" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="H3d-0x-fm8"/>
-                    <constraint firstAttribute="bottom" secondItem="rMR-5j-475" secondAttribute="bottom" constant="16" id="P6Z-1d-bTo"/>
-                    <constraint firstItem="rMR-5j-475" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="UlA-8B-5Oo"/>
+                    <constraint firstItem="rMR-5j-475" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="H3d-0x-fm8"/>
+                    <constraint firstAttribute="bottom" secondItem="rMR-5j-475" secondAttribute="bottom" constant="8" id="P6Z-1d-bTo"/>
+                    <constraint firstItem="rMR-5j-475" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="UlA-8B-5Oo"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -53,7 +53,7 @@
                 <outlet property="brandLabel" destination="DkI-yb-yfW" id="6YB-MD-9eh"/>
                 <outlet property="checkbox" destination="882-P9-sZ3" id="naw-LL-sJe"/>
             </connections>
-            <point key="canvasLocation" x="131.8840579710145" y="102.79017857142857"/>
+            <point key="canvasLocation" x="131.8840579710145" y="83.370535714285708"/>
         </tableViewCell>
     </objects>
     <resources>

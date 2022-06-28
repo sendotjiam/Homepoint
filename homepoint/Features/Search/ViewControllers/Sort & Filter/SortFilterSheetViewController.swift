@@ -45,6 +45,7 @@ final class SortFilterSheetViewController: UIViewController {
         .price, .rating, .brand, .color
     ]
     private let defaults = UserDefaults.standard
+    var brands = ["Vishal", "Jorong", "Maspon"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,8 +103,12 @@ extension SortFilterSheetViewController {
                 forCellReuseIdentifier: FilterRatingViewCell.identifier
             )
             tableView.register(
-                FilterBrandViewCell.nib(),
-                forCellReuseIdentifier: FilterBrandViewCell.identifier
+                FilterBrandHeaderViewCell.nib(),
+                forCellReuseIdentifier: FilterBrandHeaderViewCell.identifier
+            )
+            tableView.register(
+                FilterBrandListViewCell.nib(),
+                forCellReuseIdentifier: FilterBrandListViewCell.identifier
             )
             tableView.register(
                 FilterColorViewCell.nib(),
@@ -125,7 +130,7 @@ extension SortFilterSheetViewController :
     func numberOfSections(in tableView: UITableView) -> Int {
         switch type {
         case .sort: return 1
-        case .filter: return 4
+        case .filter: return filterSections.count
         }
     }
     
@@ -137,7 +142,7 @@ extension SortFilterSheetViewController :
         case .sort:
             return sortStates.count
         case .filter:
-            return 1
+            return filterSections[section] == .brand ? 2 : 1
         }
     }
     
@@ -160,7 +165,12 @@ extension SortFilterSheetViewController :
             case .price:
                 cell = generateCell(FilterPriceViewCell.identifier, indexPath)
             case .brand:
-                cell = generateCell(FilterBrandViewCell.identifier, indexPath)
+                switch indexPath.row {
+                case 0:
+                    cell = generateCell(FilterBrandHeaderViewCell.identifier, indexPath)
+                default:
+                    cell = generateCell(FilterBrandListViewCell.identifier, indexPath)
+                }
             case .color:
                 cell = generateCell(FilterColorViewCell.identifier, indexPath)
             case .rating:
@@ -193,6 +203,16 @@ extension SortFilterSheetViewController :
             withIdentifier: id,
             for: indexPath
         ) as? T
+        switch filterSections[indexPath.section] {
+        case .brand:
+            if indexPath.row != 0 {
+                guard let cell = cell as? FilterBrandListViewCell
+                else { return nil }
+                cell.brands = brands
+                return cell as? T
+            } else { return cell }
+        default: return cell
+        }
         return cell
     }
 }

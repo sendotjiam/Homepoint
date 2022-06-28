@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="298" id="KGk-i7-Jjw" customClass="FilterBrandListViewCell" customModule="homepoint" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="408" height="298"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="408" height="298"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XZg-1z-pj4">
+                        <rect key="frame" x="20" y="54.5" width="368" height="226.5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="7JT-k7-lbd"/>
+                        </constraints>
+                    </tableView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O09-SP-ETd">
+                        <rect key="frame" x="20" y="8" width="368" height="38.5"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TfW-Ck-aoq">
+                                <rect key="frame" x="342" y="10.5" width="18" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="18" id="8Se-sQ-bqb"/>
+                                    <constraint firstAttribute="height" constant="18" id="jwa-wH-hXE"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="ic_search"/>
+                                <connections>
+                                    <action selector="searchButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="G7A-An-6gv"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Input Text" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="06v-LZ-43T">
+                                <rect key="frame" x="8" y="10" width="318" height="18.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="06v-LZ-43T" firstAttribute="top" secondItem="O09-SP-ETd" secondAttribute="top" constant="10" id="6I1-oT-Wtx"/>
+                            <constraint firstItem="TfW-Ck-aoq" firstAttribute="centerY" secondItem="O09-SP-ETd" secondAttribute="centerY" id="A6k-2J-4nH"/>
+                            <constraint firstItem="TfW-Ck-aoq" firstAttribute="leading" secondItem="06v-LZ-43T" secondAttribute="trailing" constant="16" id="AUp-gc-ed6"/>
+                            <constraint firstItem="06v-LZ-43T" firstAttribute="leading" secondItem="O09-SP-ETd" secondAttribute="leading" constant="8" id="NVP-vt-4qc"/>
+                            <constraint firstAttribute="trailing" secondItem="TfW-Ck-aoq" secondAttribute="trailing" constant="8" id="VJd-pq-xJu"/>
+                            <constraint firstAttribute="bottom" secondItem="06v-LZ-43T" secondAttribute="bottom" constant="10" id="rPC-Sb-J4u"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ghH-qJ-BAU">
+                        <rect key="frame" x="0.0" y="297" width="408" height="1"/>
+                        <color key="backgroundColor" name="PrimaryBlue"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="ZWz-ao-mZv"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="O09-SP-ETd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="06U-ba-lPE"/>
+                    <constraint firstItem="XZg-1z-pj4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Eaj-jh-OBd"/>
+                    <constraint firstItem="ghH-qJ-BAU" firstAttribute="top" secondItem="XZg-1z-pj4" secondAttribute="bottom" constant="16" id="Luz-cn-gme"/>
+                    <constraint firstAttribute="bottom" secondItem="ghH-qJ-BAU" secondAttribute="bottom" id="Udc-v1-jdS"/>
+                    <constraint firstAttribute="trailing" secondItem="O09-SP-ETd" secondAttribute="trailing" constant="20" id="VXy-nl-wKK"/>
+                    <constraint firstItem="ghH-qJ-BAU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ZFm-1F-hRb"/>
+                    <constraint firstAttribute="trailing" secondItem="XZg-1z-pj4" secondAttribute="trailing" constant="20" id="ccs-5h-Y8y"/>
+                    <constraint firstAttribute="trailing" secondItem="ghH-qJ-BAU" secondAttribute="trailing" id="q5t-sX-Ppk"/>
+                    <constraint firstItem="XZg-1z-pj4" firstAttribute="top" secondItem="O09-SP-ETd" secondAttribute="bottom" constant="8" id="rmO-cz-wux"/>
+                    <constraint firstItem="O09-SP-ETd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="ycs-HG-OpO"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="searchField" destination="06v-LZ-43T" id="DsP-bx-zo5"/>
+                <outlet property="searchView" destination="O09-SP-ETd" id="eqw-Qi-dHq"/>
+                <outlet property="tableView" destination="XZg-1z-pj4" id="sgT-tg-hTk"/>
+            </connections>
+            <point key="canvasLocation" x="-321.73913043478262" y="166.74107142857142"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_search" width="26.5" height="26.5"/>
+        <namedColor name="PrimaryBlue">
+            <color red="0.19200000166893005" green="0.37599998712539673" blue="0.57599997520446777" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

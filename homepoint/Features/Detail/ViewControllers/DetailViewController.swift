@@ -56,6 +56,7 @@ class DetailViewController: UIViewController {
         super.init(nibName: Constants.DetailVC, bundle: nil)
         self.hidesBottomBarWhenPushed = true
         vm.getProductAndOtherProducts(id: id)
+        navigationController?.hidesBarsOnSwipe = false
     }
     
     required init?(coder: NSCoder) {

@@ -52,8 +52,8 @@
 		62139A0928685FD5003C34CB /* FilterRatingViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62139A0728685FD5003C34CB /* FilterRatingViewCell.xib */; };
 		62139A0C28685FE5003C34CB /* FilterColorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62139A0A28685FE5003C34CB /* FilterColorViewCell.swift */; };
 		62139A0D28685FE5003C34CB /* FilterColorViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62139A0B28685FE5003C34CB /* FilterColorViewCell.xib */; };
-		62139A1028685FF5003C34CB /* FilterBrandViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62139A0E28685FF5003C34CB /* FilterBrandViewCell.swift */; };
-		62139A1128685FF5003C34CB /* FilterBrandViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62139A0F28685FF5003C34CB /* FilterBrandViewCell.xib */; };
+		62139A1028685FF5003C34CB /* FilterBrandHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62139A0E28685FF5003C34CB /* FilterBrandHeaderViewCell.swift */; };
+		62139A1128685FF5003C34CB /* FilterBrandHeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62139A0F28685FF5003C34CB /* FilterBrandHeaderViewCell.xib */; };
 		62139A1428689129003C34CB /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62139A1328689129003C34CB /* Checkbox.swift */; };
 		62139A172868B712003C34CB /* BrandItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62139A152868B712003C34CB /* BrandItemViewCell.swift */; };
 		62139A182868B712003C34CB /* BrandItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62139A162868B712003C34CB /* BrandItemViewCell.xib */; };
@@ -75,6 +75,8 @@
 		624B122328605D2E0071D088 /* ProductsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624B122228605D2E0071D088 /* ProductsUseCase.swift */; };
 		624B1226286069A70071D088 /* MockProductsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624B1225286069A70071D088 /* MockProductsData.swift */; };
 		624B1228286069EF0071D088 /* ProductsRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624B1227286069EF0071D088 /* ProductsRepositoryTest.swift */; };
+		6256155A2869EB45006F0D62 /* FilterBrandListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625615582869EB45006F0D62 /* FilterBrandListViewCell.swift */; };
+		6256155B2869EB45006F0D62 /* FilterBrandListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 625615592869EB45006F0D62 /* FilterBrandListViewCell.xib */; };
 		625AA4FF2866CB8A00C285F0 /* SortFilterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625AA4FE2866CB8A00C285F0 /* SortFilterHelper.swift */; };
 		625AA5022866E0E100C285F0 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625AA5012866E0E100C285F0 /* UILabel+Ext.swift */; };
 		626A1D1428465BE500B2DA8A /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626A1D1328465BE500B2DA8A /* UIView+Ext.swift */; };
@@ -212,8 +214,8 @@
 		62139A0728685FD5003C34CB /* FilterRatingViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterRatingViewCell.xib; sourceTree = "<group>"; };
 		62139A0A28685FE5003C34CB /* FilterColorViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterColorViewCell.swift; sourceTree = "<group>"; };
 		62139A0B28685FE5003C34CB /* FilterColorViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterColorViewCell.xib; sourceTree = "<group>"; };
-		62139A0E28685FF5003C34CB /* FilterBrandViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBrandViewCell.swift; sourceTree = "<group>"; };
-		62139A0F28685FF5003C34CB /* FilterBrandViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterBrandViewCell.xib; sourceTree = "<group>"; };
+		62139A0E28685FF5003C34CB /* FilterBrandHeaderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBrandHeaderViewCell.swift; sourceTree = "<group>"; };
+		62139A0F28685FF5003C34CB /* FilterBrandHeaderViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterBrandHeaderViewCell.xib; sourceTree = "<group>"; };
 		62139A1328689129003C34CB /* Checkbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 		62139A152868B712003C34CB /* BrandItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandItemViewCell.swift; sourceTree = "<group>"; };
 		62139A162868B712003C34CB /* BrandItemViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrandItemViewCell.xib; sourceTree = "<group>"; };
@@ -235,6 +237,8 @@
 		624B122228605D2E0071D088 /* ProductsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsUseCase.swift; sourceTree = "<group>"; };
 		624B1225286069A70071D088 /* MockProductsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProductsData.swift; sourceTree = "<group>"; };
 		624B1227286069EF0071D088 /* ProductsRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsRepositoryTest.swift; sourceTree = "<group>"; };
+		625615582869EB45006F0D62 /* FilterBrandListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBrandListViewCell.swift; sourceTree = "<group>"; };
+		625615592869EB45006F0D62 /* FilterBrandListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterBrandListViewCell.xib; sourceTree = "<group>"; };
 		625AA4FE2866CB8A00C285F0 /* SortFilterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortFilterHelper.swift; sourceTree = "<group>"; };
 		625AA5012866E0E100C285F0 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		626A1D1328465BE500B2DA8A /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
@@ -627,19 +631,69 @@
 			path = Products;
 			sourceTree = "<group>";
 		};
-		625AA4F92866CB3A00C285F0 /* FilterItem */ = {
+		625615522869EAF7006F0D62 /* Price */ = {
 			isa = PBXGroup;
 			children = (
 				62139A0228685EBE003C34CB /* FilterPriceViewCell.swift */,
 				62139A0328685EBE003C34CB /* FilterPriceViewCell.xib */,
+			);
+			path = Price;
+			sourceTree = "<group>";
+		};
+		625615532869EB01006F0D62 /* Rating */ = {
+			isa = PBXGroup;
+			children = (
 				62139A0628685FD5003C34CB /* FilterRatingViewCell.swift */,
 				62139A0728685FD5003C34CB /* FilterRatingViewCell.xib */,
+			);
+			path = Rating;
+			sourceTree = "<group>";
+		};
+		625615542869EB0E006F0D62 /* Color */ = {
+			isa = PBXGroup;
+			children = (
 				62139A0A28685FE5003C34CB /* FilterColorViewCell.swift */,
 				62139A0B28685FE5003C34CB /* FilterColorViewCell.xib */,
-				62139A0E28685FF5003C34CB /* FilterBrandViewCell.swift */,
-				62139A0F28685FF5003C34CB /* FilterBrandViewCell.xib */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		625615552869EB17006F0D62 /* Brand */ = {
+			isa = PBXGroup;
+			children = (
+				625615572869EB27006F0D62 /* List */,
+				625615562869EB20006F0D62 /* Header */,
+			);
+			path = Brand;
+			sourceTree = "<group>";
+		};
+		625615562869EB20006F0D62 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				62139A0E28685FF5003C34CB /* FilterBrandHeaderViewCell.swift */,
+				62139A0F28685FF5003C34CB /* FilterBrandHeaderViewCell.xib */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		625615572869EB27006F0D62 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				625615582869EB45006F0D62 /* FilterBrandListViewCell.swift */,
+				625615592869EB45006F0D62 /* FilterBrandListViewCell.xib */,
 				62139A152868B712003C34CB /* BrandItemViewCell.swift */,
 				62139A162868B712003C34CB /* BrandItemViewCell.xib */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		625AA4F92866CB3A00C285F0 /* FilterItem */ = {
+			isa = PBXGroup;
+			children = (
+				625615522869EAF7006F0D62 /* Price */,
+				625615532869EB01006F0D62 /* Rating */,
+				625615542869EB0E006F0D62 /* Color */,
+				625615552869EB17006F0D62 /* Brand */,
 			);
 			path = FilterItem;
 			sourceTree = "<group>";
@@ -1338,7 +1392,7 @@
 				5370DFCE2848FE6500FD1ED5 /* Inter-Bold.ttf in Resources */,
 				621040052851DA6B00A413F6 /* DetailDescriptionViewCell.xib in Resources */,
 				62CBAA6B284F437C00BD5EAC /* HistoryViewController.xib in Resources */,
-				62139A1128685FF5003C34CB /* FilterBrandViewCell.xib in Resources */,
+				62139A1128685FF5003C34CB /* FilterBrandHeaderViewCell.xib in Resources */,
 				62139A0928685FD5003C34CB /* FilterRatingViewCell.xib in Resources */,
 				627A3902284CCE3B002ADC6B /* OrderListViewController.xib in Resources */,
 				6210400C2851ECDD00A413F6 /* ShippingOptionsViewCell.xib in Resources */,
@@ -1361,6 +1415,7 @@
 				6216E0882848ED4D0019747D /* SmallProductCardViewCell.xib in Resources */,
 				53D7732A284A419E008F2912 /* WeeksViewCell.xib in Resources */,
 				5370DFC92848FE6500FD1ED5 /* Inter-Medium.ttf in Resources */,
+				6256155B2869EB45006F0D62 /* FilterBrandListViewCell.xib in Resources */,
 				62FCC0D7283E59CA00BF79E2 /* ViewController.xib in Resources */,
 				627A390C284CD028002ADC6B /* OrderFilterViewCell.xib in Resources */,
 				D11876EE285792BE001351B4 /* RegisterViewController.xib in Resources */,
@@ -1528,7 +1583,7 @@
 				625AA4FF2866CB8A00C285F0 /* SortFilterHelper.swift in Sources */,
 				62C0B139285C59B500EACE59 /* DiscussHeaderViewCell.swift in Sources */,
 				627A3910284CD892002ADC6B /* OrderFilterItemViewCell.swift in Sources */,
-				62139A1028685FF5003C34CB /* FilterBrandViewCell.swift in Sources */,
+				62139A1028685FF5003C34CB /* FilterBrandHeaderViewCell.swift in Sources */,
 				D10CB4EF284F9DB500F675B2 /* LoginViewController.swift in Sources */,
 				6242118F2862D1C300180D8A /* SearchViewModel.swift in Sources */,
 				62BBB362285B2F3400E984C6 /* Int+Ext.swift in Sources */,
@@ -1571,6 +1626,7 @@
 				6275AF8D28587BC200D3857D /* UserUseCase.swift in Sources */,
 				6214C73D2861ABE60060CAD4 /* DetailViewModel.swift in Sources */,
 				62139A1428689129003C34CB /* Checkbox.swift in Sources */,
+				6256155A2869EB45006F0D62 /* FilterBrandListViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
