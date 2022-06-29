@@ -16,7 +16,7 @@ final class FilterColorViewCell: UITableViewCell {
     @IBOutlet weak var collectionViewHeight: NSLayoutConstraint!
     
     // MARK: - Variables
-    var colors = [String]() {
+    var colors = Set<String>() {
         didSet { configureCell() }
     }
     private var colorsModel = [ColorCellModel]()

@@ -49,16 +49,20 @@ extension ColorListViewCell {
             with: size/2
         )
         guard let colorModel = colorModel else { return }
-        if colorModel.hexColor == "#FFFFFF" {
-            containerView.addBorder(
-                width: 1,
-                color: ColorCollection.primaryColor.value
-            )
-        }
+        containerView.addBorder(
+            width: colorModel.hexColor == "#FFFFFF" ? 1 : 0,
+            color: ColorCollection.primaryColor.value
+        )
         containerView.backgroundColor = colorModel
             .hexColor
             .hexStringToUIColor()
         
+        if colorModel.isSelected {
+            checkImageView.isHidden = false
+            checkImageView.tintColor = colorModel.hexColor == "#FFFFFF" ? .black : .white
+        } else {
+            checkImageView.isHidden = true
+        }
         checkImageView.isHidden = colorModel.isSelected ? false : true
     }
     

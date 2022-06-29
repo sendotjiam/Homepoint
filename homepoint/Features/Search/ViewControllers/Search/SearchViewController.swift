@@ -125,7 +125,9 @@ extension SearchViewController {
     
     private func handleIsLoading(_ isLoading : Bool?) {
         guard let isLoading = isLoading else { return }
-        if !isLoading { self.view.stopShimmer() }
+        if !isLoading {
+            self.view.stopShimmer()
+        }
     }
     
     override func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

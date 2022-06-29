@@ -51,10 +51,12 @@ extension UIView {
     }
     
     func showShimmer() {
+        self.isUserInteractionEnabled = false
         self.showAnimatedSkeleton()
     }
     
     func stopShimmer() {
+        self.isUserInteractionEnabled = true
         DispatchQueue.main.async {
             self.stopSkeletonAnimation()
             self.hideSkeleton()

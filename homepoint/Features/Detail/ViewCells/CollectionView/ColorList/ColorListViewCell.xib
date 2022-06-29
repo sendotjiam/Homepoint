@@ -26,7 +26,8 @@
                         </constraints>
                     </view>
                     <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_check" translatesAutoresizingMaskIntoConstraints="NO" id="hhp-X8-YWd">
-                        <rect key="frame" x="2" y="5.5" width="20" height="14"/>
+                        <rect key="frame" x="1" y="4" width="20" height="14"/>
+                        <color key="tintColor" red="1" green="1" blue="0.4124009528" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="DIr-JI-t5b"/>
                             <constraint firstAttribute="width" constant="20" id="hcg-QA-Xfw"/>
@@ -44,11 +45,6 @@
                 <constraint firstItem="hhp-X8-YWd" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="xBX-M3-1hY"/>
             </constraints>
             <size key="customSize" width="24" height="25"/>
-            <variation key="default">
-                <mask key="subviews">
-                    <exclude reference="hhp-X8-YWd"/>
-                </mask>
-            </variation>
             <connections>
                 <outlet property="checkImageView" destination="hhp-X8-YWd" id="J00-M4-YUO"/>
                 <outlet property="containerView" destination="oAl-bN-2XL" id="eJd-nH-CZ9"/>
