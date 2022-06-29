@@ -15,6 +15,7 @@ final class FilterBrandListViewCell: UITableViewCell {
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchField: UITextField!
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
     // MARK: - Variables
     var brands = [String]() {
@@ -51,6 +52,7 @@ extension FilterBrandListViewCell {
     }
     
     private func configureCell() {
+        tableViewHeight.constant = CGFloat(brands.count) * 36.0
         brands.forEach { brand in
             filteredBrands.append(BrandCellModel(brand))
             selectedBrands[brand] = false
@@ -68,17 +70,6 @@ extension FilterBrandListViewCell {
 
 extension FilterBrandListViewCell: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
-//        guard let query = textField.text else { return }
-//        filteredBrands = filteredBrands.filter {
-//            $0.title.lowercased() == query.lowercased()
-//        }
-//        print(filteredBrands, "FILTERED")
-//        if filteredBrands.isEmpty {
-//            filteredBrands = temp
-//        }
-//        DispatchQueue.main.async { [weak self] in
-//            self?.tableView.reloadData()
-//        }
     }
 }
 

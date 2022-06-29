@@ -7,7 +7,17 @@
 
 import UIKit
 
-class ColorListViewCell: UICollectionViewCell {
+final class ColorCellModel {
+    let hexColor : String
+    var isSelected : Bool
+    
+    init(_ hexColor: String, _ isSelected: Bool) {
+        self.hexColor = hexColor
+        self.isSelected = isSelected
+    }
+}
+
+final class ColorListViewCell: UICollectionViewCell {
 
     static let identifier = "ColorListViewCell"
     
@@ -16,15 +26,11 @@ class ColorListViewCell: UICollectionViewCell {
     @IBOutlet weak var checkImageView: UIImageView!
     
     // MARK: - Data
-    var hexColor : String = "" {
+    var colorModel : ColorCellModel? {
         didSet { configureCell() }
     }
-    var size : CGFloat = 0
-    
-    override var isSelected: Bool {
-        didSet {
-            checkImageView.isHidden = isSelected ? false : true
-        }
+    var size : CGFloat = 0 {
+        didSet { configureCell() }
     }
     
     override func awakeFromNib() {
@@ -35,17 +41,25 @@ class ColorListViewCell: UICollectionViewCell {
 
 extension ColorListViewCell {
     private func setupUI() {
-//        NSLayoutConstraint.activate([
-//            containerView.widthAnchor.constraint(equalToConstant: size),
-//            containerView.heightAnchor.constraint(equalToConstant: size)
-//        ])
-        containerView.roundedCorner(
-            with: containerView.frame.width/2
-        )
+        
     }
     
     private func configureCell() {
-        containerView.backgroundColor = hexColor.hexStringToUIColor()
+        containerView.roundedCorner(
+            with: size/2
+        )
+        guard let colorModel = colorModel else { return }
+        if colorModel.hexColor == "#FFFFFF" {
+            containerView.addBorder(
+                width: 1,
+                color: ColorCollection.primaryColor.value
+            )
+        }
+        containerView.backgroundColor = colorModel
+            .hexColor
+            .hexStringToUIColor()
+        
+        checkImageView.isHidden = colorModel.isSelected ? false : true
     }
     
     private func showSelected() {

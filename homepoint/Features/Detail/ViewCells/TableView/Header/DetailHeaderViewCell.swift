@@ -30,6 +30,8 @@ final class DetailHeaderViewCell: UITableViewCell {
     var colors = [String]() {
         didSet { configureCell() }
     }
+    var colorsModel : ColorCellModel?
+    
     var price = 100000
     var discountedPrice = 50000
     
@@ -73,6 +75,8 @@ extension DetailHeaderViewCell {
         soldNumberLabel.text = "Terjual \(data.amountSold)"
         ratingLabel.text = "\(data.ratingAverage)"
         brandLabel.text = data.brand
+        
+        colorsModel = ColorCellModel(data.color, false)
         DispatchQueue.main.async { [weak self] in
             self?.colorListCollectionView.reloadData()
         }
@@ -90,7 +94,7 @@ extension DetailHeaderViewCell :
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        colors.count
+        return 1
     }
     
     func collectionView(
@@ -101,17 +105,9 @@ extension DetailHeaderViewCell :
             withReuseIdentifier: ColorListViewCell.identifier,
             for: indexPath
         ) as? ColorListViewCell
-        cell?.size = 18
-        cell?.hexColor = colors[indexPath.row]
+        cell?.size = 22
+        cell?.colorModel = colorsModel
         cell?.isUserInteractionEnabled = false
         return cell ?? UICollectionViewCell()
     }
-    
-//    func collectionView(
-//        _ collectionView: UICollectionView,
-//        layout collectionViewLayout: UICollectionViewLayout,
-//        sizeForItemAt indexPath: IndexPath
-//    ) -> CGSize {
-//        return CGSize(width: 18, height: 18)
-//    }
 }

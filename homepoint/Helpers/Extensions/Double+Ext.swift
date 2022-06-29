@@ -12,8 +12,9 @@ extension Double {
         let currencyFormatter = NumberFormatter()
         currencyFormatter.usesGroupingSeparator = true
         currencyFormatter.numberStyle = .currency
-        currencyFormatter.locale = Locale.current
+        currencyFormatter.locale = Locale(identifier: "id_ID")
         let priceString = currencyFormatter.string(from: NSNumber(value: self))!
+        print(priceString, "Prices STR")
         return priceString
     }
 }

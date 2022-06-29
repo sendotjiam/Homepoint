@@ -45,7 +45,8 @@ final class SortFilterSheetViewController: UIViewController {
         .price, .rating, .brand, .color
     ]
     private let defaults = UserDefaults.standard
-    var brands = ["Vishal", "Jorong", "Maspon"]
+    var brands = [String]()
+    var colors = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,7 +79,6 @@ final class SortFilterSheetViewController: UIViewController {
 
 extension SortFilterSheetViewController {
     private func setupUI() {
-        titleLabel.text = "Filter"
         backgroundView.alpha = 0
         applyButton.roundedCorner(with: 8)
         contentView.roundedCorner(with: 16)
@@ -211,6 +211,11 @@ extension SortFilterSheetViewController :
                 cell.brands = brands
                 return cell as? T
             } else { return cell }
+        case .color:
+            guard let cell = cell as? FilterColorViewCell
+            else { return nil }
+            cell.colors = colors
+            return cell as? T
         default: return cell
         }
         return cell

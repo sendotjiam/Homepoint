@@ -46,6 +46,8 @@ final class SearchViewController: UIViewController {
     private var products = [ProductDataModel]()
     private var searchParams : [String : Any] = [:]
     private var pageNumber = 0
+    private var brands = [String]()
+    private var colors = [String]()
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -67,8 +69,14 @@ final class SearchViewController: UIViewController {
     
     @IBAction func filterButtonTapped(_ sender: Any) {
         let vc = SortFilterSheetViewController(type: .filter)
-//        vc.sortDelegate = self
         vc.modalPresentationStyle = .pageSheet
+        products.forEach { [weak self] in
+            guard let self = self else { return }
+            self.brands.append($0.brand)
+            self.colors.append($0.color)
+        }
+        vc.brands = brands
+        vc.colors = colors
         self.present(vc, animated: true)
     }
     
