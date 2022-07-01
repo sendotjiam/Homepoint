@@ -13,13 +13,13 @@ class CustomTabBarController: UITabBarController {
         super.viewDidLoad()
         
         let homeVC = HomeViewController()
-        let ex2 = B()
+        let wishlistVC = WishlistViewController()
         let ex3 = C()
         let orderVC = OrderListViewController()
         let ex4 = E()
         
         let navHome = UINavigationController(rootViewController: homeVC)
-        let navEx2 = UINavigationController(rootViewController: ex2)
+        let navWishlist = UINavigationController(rootViewController: wishlistVC)
         let navEx3 = UINavigationController(rootViewController: ex3)
         let navOrder = UINavigationController(rootViewController: orderVC)
         let navEx4 = UINavigationController(rootViewController: ex4)
@@ -40,7 +40,7 @@ class CustomTabBarController: UITabBarController {
         ]
         
         setupTabBar(
-            [navHome, navEx2, navEx3, navOrder, navEx4],
+            [navHome, navWishlist, navEx3, navOrder, navEx4],
             titles,
             images
         )
@@ -75,13 +75,6 @@ extension CustomTabBarController {
             animated: false
         )
         self.selectedIndex = 0
-    }
-}
-
-class B : UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .red
     }
 }
 

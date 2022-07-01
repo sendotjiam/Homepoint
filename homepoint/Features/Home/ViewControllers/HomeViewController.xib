@@ -64,7 +64,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yzo-NL-VO9" secondAttribute="trailing" constant="20" id="Agc-ez-x8k"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="yzo-NL-VO9" secondAttribute="bottom" constant="20" id="B35-rJ-JmZ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="B0U-rh-1mE" secondAttribute="trailing" id="M9O-j6-4p4"/>
-                <constraint firstAttribute="bottom" secondItem="B0U-rh-1mE" secondAttribute="bottom" id="NtJ-FL-n0C"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="B0U-rh-1mE" secondAttribute="bottom" id="NtJ-FL-n0C"/>
                 <constraint firstItem="B0U-rh-1mE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="r49-g5-X1O"/>
             </constraints>
             <userDefinedRuntimeAttributes>

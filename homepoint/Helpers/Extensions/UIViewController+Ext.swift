@@ -74,6 +74,7 @@ extension UIViewController  {
                 loader.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             ])
             loader.startAnimating()
+            
         } else {
             loader.stopAnimating()
         }
