@@ -14,7 +14,6 @@ extension Double {
         currencyFormatter.numberStyle = .currency
         currencyFormatter.locale = Locale(identifier: "id_ID")
         let priceString = currencyFormatter.string(from: NSNumber(value: self))!
-        print(priceString, "Prices STR")
         return priceString
     }
 }

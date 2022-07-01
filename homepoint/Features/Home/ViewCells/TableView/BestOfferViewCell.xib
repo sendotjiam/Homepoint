@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,19 +19,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gtb-Ct-V43">
-                        <rect key="frame" x="0.0" y="64" width="320" height="198"/>
+                        <rect key="frame" x="0.0" y="42" width="320" height="220"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img-bg.best.offer" translatesAutoresizingMaskIntoConstraints="NO" id="dRb-2P-gMt">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="198"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="v7U-ea-lqF">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="198"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KkT-Fp-rZB">
-                                    <size key="itemSize" width="112" height="167"/>
+                                    <size key="itemSize" width="112" height="180"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="130" minY="0.0" maxX="20" maxY="0.0"/>
@@ -51,14 +51,14 @@
                             <constraint firstAttribute="trailing" secondItem="v7U-ea-lqF" secondAttribute="trailing" id="h9m-1T-Lf9"/>
                             <constraint firstAttribute="bottom" secondItem="dRb-2P-gMt" secondAttribute="bottom" id="nrp-AT-kcR"/>
                             <constraint firstItem="v7U-ea-lqF" firstAttribute="leading" secondItem="Gtb-Ct-V43" secondAttribute="leading" id="sev-qd-pYM"/>
-                            <constraint firstAttribute="height" constant="198" id="vRm-Eq-539"/>
+                            <constraint firstAttribute="height" constant="220" id="vRm-Eq-539"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                         </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best Offer By One Get One" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcN-MR-FnX">
-                        <rect key="frame" x="20" y="16" width="280" height="40"/>
+                        <rect key="frame" x="20" y="16" width="280" height="18"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>

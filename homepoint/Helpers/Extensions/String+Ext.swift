@@ -17,10 +17,11 @@ extension String {
         return html
     }
     
-    func strikethroughText(range: NSRange) -> NSMutableAttributedString {
+    func strikethroughText(color: UIColor = .gray, range: NSRange) -> NSMutableAttributedString {
         let attributed = NSMutableAttributedString(string: self)
         attributed.addAttributes([
             NSAttributedString.Key.strikethroughStyle: 1,
+            NSAttributedString.Key.strikethroughColor: color,
             NSAttributedString.Key.foregroundColor: UIColor.gray,
         ], range: range)
         return attributed
