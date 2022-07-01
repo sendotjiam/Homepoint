@@ -22,45 +22,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Fx7-Tj-HzO">
-                    <rect key="frame" x="0.0" y="104" width="414" height="792"/>
+                    <rect key="frame" x="0.0" y="60" width="414" height="836"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </tableView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K5e-XM-Jan">
-                    <rect key="frame" x="0.0" y="60" width="414" height="44"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daftar Pesanan Aktif" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lX9-XG-wpe">
-                            <rect key="frame" x="20" y="16" width="374" height="20"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="20" id="YCF-rv-VPW"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                            </userDefinedRuntimeAttributes>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstItem="lX9-XG-wpe" firstAttribute="top" secondItem="K5e-XM-Jan" secondAttribute="top" constant="16" id="67D-50-zoC"/>
-                        <constraint firstAttribute="bottom" secondItem="lX9-XG-wpe" secondAttribute="bottom" constant="8" id="bpw-3p-VvH"/>
-                        <constraint firstAttribute="trailing" secondItem="lX9-XG-wpe" secondAttribute="trailing" constant="20" id="oZL-au-J3V"/>
-                        <constraint firstItem="lX9-XG-wpe" firstAttribute="leading" secondItem="K5e-XM-Jan" secondAttribute="leading" constant="20" id="xhD-me-xhd"/>
-                    </constraints>
-                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="LightBlue-2"/>
             <constraints>
-                <constraint firstItem="K5e-XM-Jan" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="1lw-TX-Qyq"/>
-                <constraint firstItem="Fx7-Tj-HzO" firstAttribute="top" secondItem="K5e-XM-Jan" secondAttribute="bottom" id="AWR-ek-zi0"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="K5e-XM-Jan" secondAttribute="trailing" id="BgL-QK-23h"/>
+                <constraint firstItem="Fx7-Tj-HzO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="2gB-FJ-SRk"/>
                 <constraint firstItem="Fx7-Tj-HzO" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="EV5-1a-qnQ"/>
-                <constraint firstItem="K5e-XM-Jan" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Umt-on-FoK"/>
                 <constraint firstAttribute="bottom" secondItem="Fx7-Tj-HzO" secondAttribute="bottom" id="wU3-zm-2HA"/>
                 <constraint firstItem="Fx7-Tj-HzO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="z7k-d1-85m"/>
             </constraints>
