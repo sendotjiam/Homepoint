@@ -60,7 +60,7 @@ extension HomeViewController {
     func setupView() {
         homeTableView.layer.cornerRadius = 14
         homeTableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        
+        homeTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0)
         homeTableView.delegate = self
         homeTableView.dataSource = self
         

@@ -74,7 +74,7 @@
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SUA-AV-nqz">
                             <rect key="frame" x="0.0" y="0.0" width="98.5" height="20"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LZY-K1-3xk">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LZY-K1-3xk" customClass="Checkbox" customModule="homepoint" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>

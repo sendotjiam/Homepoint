@@ -20,11 +20,12 @@ final class WishlistItemViewCell: UITableViewCell {
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var productImageView: UIImageView!
-    @IBOutlet weak var checkBox: UIView!
+    @IBOutlet weak var checkbox: Checkbox!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var soldAmountLabel: UILabel!
     @IBOutlet weak var addToCartButton: UIButton!
     @IBOutlet weak var bottomStackView: UIStackView!
+    @IBOutlet weak var checkboxView: UIView!
     
     
     // MARK: - Variables
@@ -52,6 +53,7 @@ final class WishlistItemViewCell: UITableViewCell {
 
 extension WishlistItemViewCell {
     private func setupUI() {
+        selectionStyle = .none
         productImageView.clipsToBounds = true
         productImageView.roundedCorner(with: 8)
         addToCartButton.roundedCorner(with: 8)
@@ -70,11 +72,11 @@ extension WishlistItemViewCell {
     private func hideView() {
         switch state {
         case .normal:
-            checkBox.isHidden = true
-            bottomStackView.isHidden = false
+            self.checkboxView.isHidden = true
+            self.bottomStackView.isHidden = false
         case .edit:
-            checkBox.isHidden = false
-            bottomStackView.isHidden = true
+            self.checkboxView.isHidden = false
+            self.bottomStackView.isHidden = true
         case .none:
             break
         }

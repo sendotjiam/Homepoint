@@ -34,11 +34,23 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Uke-jN-aed">
                                         <rect key="frame" x="20" y="0.0" width="321" height="96"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjl-N8-5zy">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aZP-Ge-w7V">
                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="96"/>
-                                                <color key="backgroundColor" systemColor="systemBrownColor"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjl-N8-5zy" customClass="Checkbox" customModule="homepoint" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="38" width="20" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="5A7-Aj-QmE"/>
+                                                            <constraint firstAttribute="height" constant="20" id="J1y-r4-aM1"/>
+                                                            <constraint firstAttribute="width" constant="20" id="ziV-6A-KWK"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="20" id="ziV-6A-KWK"/>
+                                                    <constraint firstItem="yjl-N8-5zy" firstAttribute="centerY" secondItem="aZP-Ge-w7V" secondAttribute="centerY" id="4f1-cL-dfX"/>
+                                                    <constraint firstItem="yjl-N8-5zy" firstAttribute="centerX" secondItem="aZP-Ge-w7V" secondAttribute="centerX" id="Ltr-ty-ANJ"/>
+                                                    <constraint firstAttribute="width" constant="20" id="mS8-VU-rpq"/>
                                                 </constraints>
                                             </view>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_dummy" translatesAutoresizingMaskIntoConstraints="NO" id="VTd-Gq-0Sz">
@@ -165,7 +177,8 @@
             <connections>
                 <outlet property="addToCartButton" destination="Loz-MI-N6i" id="yB9-aU-Bgz"/>
                 <outlet property="bottomStackView" destination="LIH-jd-KES" id="Utc-6O-zW2"/>
-                <outlet property="checkBox" destination="yjl-N8-5zy" id="jVl-rV-LJN"/>
+                <outlet property="checkbox" destination="yjl-N8-5zy" id="ApA-Zs-5uI"/>
+                <outlet property="checkboxView" destination="aZP-Ge-w7V" id="tXp-gl-Id8"/>
                 <outlet property="priceLabel" destination="6rq-LD-jb1" id="BcE-IT-qe1"/>
                 <outlet property="productImageView" destination="VTd-Gq-0Sz" id="GdW-bw-dg4"/>
                 <outlet property="productNameLabel" destination="74o-lM-nIC" id="5Tm-6E-2gF"/>
@@ -190,9 +203,6 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBrownColor">
-            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
