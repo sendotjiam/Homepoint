@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BannerItemViewCell: UICollectionViewCell {
+final class BannerItemViewCell: UICollectionViewCell {
     static let identifier = "BannerItemViewCell"
     
     // MARK: - Outlets

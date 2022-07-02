@@ -7,16 +7,16 @@
 
 import UIKit
 
-class WeeksItemViewCell: UICollectionViewCell {
+final class WeeksItemViewCell: UICollectionViewCell {
     
     static let identifier = "WeeksItemViewCell"
     
     // MARK: - Outlets
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var overlayView: UIView!
     
-    var menu: WeeksMenuData? {
+    // MARK: - Variables
+    var data: WeeksMenuData? {
         didSet { configureCell() }
     }
     
@@ -28,10 +28,10 @@ class WeeksItemViewCell: UICollectionViewCell {
 extension WeeksItemViewCell {
     
     private func configureCell() {
-        guard let menu = menu else { return }
-        imageView.image = menu.image
+        guard let data = data else { return }
+        imageView.image = data.image
         imageView.layer.cornerRadius = 8
-        label.text = menu.title
+        label.text = data.title
     }
     
     class func nib() -> UINib { UINib(nibName: "WeeksItemViewCell", bundle: nil) }

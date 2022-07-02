@@ -33,6 +33,7 @@ final class WeeksViewCell: UITableViewCell {
     
     // MARK: - Data
     var weekMenus = dataWeeks
+    var didSelectItem : ((_ desc: String) -> ())? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -49,28 +50,10 @@ extension WeeksViewCell {
             WeeksItemViewCell.nib(),
             forCellWithReuseIdentifier: WeeksItemViewCell.identifier
         )
-        showShimmer()
     }
     
     class func nib() -> UINib {
         UINib(nibName: "WeeksViewCell", bundle: nil)
-    }
-}
-
-// MARK: - Skeleton
-extension WeeksViewCell : SkeletonCollectionViewDataSource {
-    func collectionSkeletonView(
-        _ skeletonView: UICollectionView,
-        numberOfItemsInSection section: Int
-    ) -> Int {
-        weekMenus.count
-    }
-    
-    func collectionSkeletonView(
-        _ skeletonView: UICollectionView,
-        cellIdentifierForItemAt indexPath: IndexPath
-    ) -> ReusableCellIdentifier {
-        return WeeksItemViewCell.identifier
     }
 }
 
@@ -106,7 +89,31 @@ extension WeeksViewCell:
             withReuseIdentifier: WeeksItemViewCell.identifier,
             for: indexPath
         ) as? WeeksItemViewCell
-        cell?.menu = weekMenus[indexPath.row]
+        cell?.data = weekMenus[indexPath.row]
         return cell ?? UICollectionViewCell()
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+        didSelectItem?(weekMenus[indexPath.row].title)
+    }
+}
+
+// MARK: - Skeleton
+extension WeeksViewCell : SkeletonCollectionViewDataSource {
+    func collectionSkeletonView(
+        _ skeletonView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        weekMenus.count
+    }
+    
+    func collectionSkeletonView(
+        _ skeletonView: UICollectionView,
+        cellIdentifierForItemAt indexPath: IndexPath
+    ) -> ReusableCellIdentifier {
+        return WeeksItemViewCell.identifier
     }
 }

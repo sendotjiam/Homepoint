@@ -222,9 +222,19 @@ extension HomeViewController:
             cellMenu.didSelectItem = { [weak self] in
                 let vc = SearchViewController("")
                 vc.searchParams["Product subcategory"] = $0
+                vc.search()
                 self?.navigationController?.pushViewController(vc, animated: true)
             }
             return cellMenu as? T
+        case .weeks:
+            guard let cellWeeks = cell as? WeeksViewCell else { return nil }
+            cellWeeks.didSelectItem = { [weak self] in
+                let vc = SearchViewController("")
+                vc.searchParams["Description"] = $0
+                vc.search()
+                self?.navigationController?.pushViewController(vc, animated: true)
+            }
+            return cellWeeks as? T
         case .recommendation:
             guard let cellRecommendation = cell as? RecommendationViewCell
             else { return nil }
