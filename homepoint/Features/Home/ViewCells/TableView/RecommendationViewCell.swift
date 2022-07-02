@@ -8,19 +8,21 @@
 import UIKit
 import SkeletonView
 
-class RecommendationViewCell: UITableViewCell {
+final class RecommendationViewCell: UITableViewCell {
     
     static let identifier = "RecommendationViewCell"
     
     // MARK: - Outlets
     @IBOutlet weak var recommendationCollectionView: UICollectionView!
     
+    // MARK: - Variables
     var dataList = [ProductDataModel]() {
         didSet {
             configureCell()
         }
     }
     var didSelectItem : ((_ id: String) -> ())? = nil
+    var didViewMore : (() -> ())? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -105,7 +107,10 @@ extension RecommendationViewCell:
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        /// supposed to be product id
-        self.didSelectItem?(dataList[indexPath.row].id)
+        if indexPath.row == dataList.count {
+            self.didViewMore?()
+        } else {
+            self.didSelectItem?(dataList[indexPath.row].id)
+        }
     }
 }

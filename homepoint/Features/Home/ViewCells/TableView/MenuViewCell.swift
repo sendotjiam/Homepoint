@@ -8,28 +8,17 @@
 import UIKit
 import SkeletonView
 
-struct MenuData {
-    var title: String
-    var image: UIImage
-}
-
-typealias MenuList = [MenuData]
-
-var dataMenu: MenuList = MenuList([
-    MenuData(title: "Peralatan Dapur", image: UIImage(named: "img-menu.dapur")!),
-    MenuData(title: "Peralatan Kebersihan", image: UIImage(named: "img-menu.kebersihan")!),
-    MenuData(title: "Interior/ Furniture", image: UIImage(named: "img-menu.interior")!),
-    MenuData(title: "Elektronik", image: UIImage(named: "img-menu.elektronik")!),
-])
-
-class MenuViewCell: UITableViewCell {
+final class MenuViewCell: UITableViewCell {
     static let identifier = "MenuViewCell"
     
     // MARK: - Outlets
     @IBOutlet weak var menuCollectionView: UICollectionView!
     
-    // MARK: - Data
-    var menus = dataMenu
+    // MARK: - Variables
+    var subCategories = [ProductSubCategoryModel]() {
+        didSet { configureCell() }
+    }
+    var didSelectItem : ((_ id: String) -> ())? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,7 +27,7 @@ class MenuViewCell: UITableViewCell {
 }
 
 extension MenuViewCell {
-    func setupUI() {
+    private func setupUI() {
         menuCollectionView.delegate = self
         menuCollectionView.dataSource = self
         
@@ -48,24 +37,11 @@ extension MenuViewCell {
         )
     }
     
-    class func nib() -> UINib { UINib(nibName: "MenuViewCell", bundle: nil) }
-}
-
-// MARK: - Skeleton
-extension MenuViewCell : SkeletonCollectionViewDataSource {
-    func collectionSkeletonView(
-        _ skeletonView: UICollectionView,
-        numberOfItemsInSection section: Int
-    ) -> Int {
-        4
+    private func configureCell() {
+        
     }
     
-    func collectionSkeletonView(
-        _ skeletonView: UICollectionView,
-        cellIdentifierForItemAt indexPath: IndexPath
-    ) -> ReusableCellIdentifier {
-        return MenuItemViewCell.identifier
-    }
+    class func nib() -> UINib { UINib(nibName: "MenuViewCell", bundle: nil) }
 }
 
 // MARK: - Collection View
@@ -73,21 +49,12 @@ extension MenuViewCell:
     UICollectionViewDelegate,
     UICollectionViewDataSource,
     UICollectionViewDelegateFlowLayout {
-    func collectionView(
-        _ collectionView: UICollectionView,
-        layout collectionViewLayout: UICollectionViewLayout,
-        sizeForItemAt indexPath: IndexPath
-    ) -> CGSize {
-        let width = (collectionView.frame.size.width - 34) / 4
-        let height = 92 / 68 * width
-        return CGSize(width: width, height: height)
-    }
     
     func collectionView(
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        menus.count
+        subCategories.count
     }
     
     func collectionView(
@@ -98,7 +65,31 @@ extension MenuViewCell:
             withReuseIdentifier: MenuItemViewCell.identifier,
             for: indexPath
         ) as? MenuItemViewCell
-        cell?.menu = menus[indexPath.row]
+        cell?.subCategory = subCategories[indexPath.row]
         return cell ?? UICollectionViewCell()
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+        didSelectItem?(subCategories[indexPath.row].id)
+    }
+}
+
+// MARK: - Skeleton
+extension MenuViewCell : SkeletonCollectionViewDataSource {
+    func collectionSkeletonView(
+        _ skeletonView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        8
+    }
+    
+    func collectionSkeletonView(
+        _ skeletonView: UICollectionView,
+        cellIdentifierForItemAt indexPath: IndexPath
+    ) -> ReusableCellIdentifier {
+        return MenuItemViewCell.identifier
     }
 }

@@ -11,11 +11,12 @@ import RxCocoa
 import RxRelay
 
 protocol SearchViewModelInput {
-    func search(params: [String : Any])
+    func search(params: [String : Any], type : SearchType)
 }
 
 protocol SearchViewModelOutput {
-    var successSearch : PublishSubject<AllProductsDataModel> { get set }
+    var successAllProducts : PublishSubject<AllProductsDataModel> { get set }
+    var successProductsData : PublishSubject<[ProductDataModel]> { get set }
     var error : PublishSubject<String> { get set } 
     var isLoading : BehaviorRelay<Bool> { get set }
 }
@@ -31,24 +32,60 @@ final class SearchViewModel :
     }
     
     // MARK: - Output
-    var successSearch = PublishSubject<AllProductsDataModel>()
+    var successAllProducts = PublishSubject<AllProductsDataModel>()
+    var successProductsData = PublishSubject<[ProductDataModel]>()
     var error = PublishSubject<String>()
     var isLoading = BehaviorRelay<Bool>(value: false)
     
     // MARK: - Input
-    func search(params: [String : Any]) {
+    func search(params: [String : Any], type : SearchType) {
         isLoading.accept(true)
-        useCase.getProducts(params: params) { [weak self] result, error in
-            guard let self = self else { return }
-            self.isLoading.accept(false)
-            if let result = result {
-                if result.success || result.status == "200 OK" {
-                    self.successSearch.onNext(result.data)
+        switch type {
+        case .normal:
+            useCase.getProducts(params: params) { [weak self] result, error in
+                guard let self = self else { return }
+                self.isLoading.accept(false)
+                if let result = result {
+                    if result.success || result.status == "200 OK" {
+                        self.successAllProducts.onNext(result.data)
+                    } else {
+                        self.error.onNext(result.message)
+                    }
                 } else {
-                    self.error.onNext(result.message)
+                    self.error.onNext(error?.localizedDescription ?? "ERROR")
                 }
-            } else {
-                self.error.onNext(error?.localizedDescription ?? "ERROR")
+            }
+        case .bestOffer:
+            useCase.getProducts(
+                type: .discount
+            ) { [weak self] result, error in
+                guard let self = self else { return }
+                self.isLoading.accept(false)
+                if let result = result {
+                    if result.success || result.status == "200" {
+                        self.successProductsData.onNext(result.data)
+                    } else {
+                        self.error.onNext(result.message)
+                    }
+                } else {
+                    self.error.onNext(error?.localizedDescription ?? "ERROR")
+                }
+            }
+        case .recommendation:
+            useCase.getProducts(
+                type: .latest
+            ) { [weak self] result, error in
+                guard let self = self else { return }
+                self.isLoading.accept(false)
+                if let result = result {
+                    if result.success || result.status == "200" {
+                        self.successProductsData.onNext(result.data)
+                    } else {
+                        self.error.onNext(result.message)
+                    }
+                } else {
+                    self.error.onNext(error?.localizedDescription ?? "ERROR")
+                }
             }
         }
     }

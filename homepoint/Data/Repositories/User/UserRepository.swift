@@ -53,7 +53,6 @@ extension UserRepository : UserRepositoryInterface {
             params,
             nil
         ) { response, data, error in
-            print(params)
             if let data = data {
                 do {
                     let json = try JSON(data: data)

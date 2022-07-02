@@ -109,7 +109,7 @@ extension DetailViewController {
     }
     
     private func bindViewModel() {
-        vm.error.subscribe { print($0.element) }.disposed(by: bag)
+        vm.error.subscribe { self.handleError($0.element) }.disposed(by: bag)
         vm.isLoading.subscribe { [weak self] in
             guard let self = self,
                   let show = $0.element
@@ -125,6 +125,12 @@ extension DetailViewController {
         vm.successGetOthersProducts.subscribe { [weak self] in
             self?.handleSuccessGetOtherProducts($0.element)
         }
+    }
+    
+    private func handleError(_ error: String?) {
+        guard let error = error else { return }
+        self.handleError(msg: error)
+        self.navigationController?.popViewController(animated: true)
     }
     
     private func handleSuccessGetProduct(
@@ -283,17 +289,13 @@ extension DetailViewController :
             else { return nil }
             cellHeader.data = productData
             cellHeader.colors = ["#F1C6B9", "#f1f1f1", "#000000"]
-            cellHeader.didTapCompareButton = {
-                print("HEADER")
-            }
+            cellHeader.didTapCompareButton = { return }
             return cellHeader as? T
         case .description:
             guard let cellDescription = cell as? DetailDescriptionViewCell
             else { return nil }
             cellDescription.content = productData?.description
-            cellDescription.didTapSeeMoreButton = {
-                print("DESCRIPTION")
-            }
+            cellDescription.didTapSeeMoreButton = { return }
             return cellDescription as? T
         case .review:
             switch indexPath.row {
@@ -304,9 +306,7 @@ extension DetailViewController :
             case reviewList + 1:
                 guard let cellSeeMore = cell as? ReviewSeeMoreViewCell
                 else { return nil }
-                cellSeeMore.didTapSeeMoreButton = {
-                    print("SEE MORE")
-                }
+                cellSeeMore.didTapSeeMoreButton = { return }
                 return cellSeeMore as? T
             default:
                 guard let cellList = cell as? ReviewListViewCell

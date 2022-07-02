@@ -8,7 +8,7 @@
 import UIKit
 import SkeletonView
 
-class BannerViewCell: UITableViewCell {
+final class BannerViewCell: UITableViewCell {
     
     static let identifier = "BannerViewCell"
     

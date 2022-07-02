@@ -15,6 +15,7 @@ protocol HomeViewModelInput {
 }
 
 protocol HomeViewModelOutput {
+    var successSubCategories : PublishSubject<[ProductSubCategoryModel]> { get set }
     var successLatestProducts : PublishSubject<[ProductDataModel]> { get set }
     var successDiscountProducts : PublishSubject<[ProductDataModel]> { get set }
     var successAllProducts : PublishSubject<[ProductDataModel]> { get set }
@@ -24,13 +25,19 @@ protocol HomeViewModelOutput {
 
 final class HomeViewModel : HomeViewModelInput, HomeViewModelOutput {
     
-    private let useCase : ProductsUseCase
+    private let productsUseCase : ProductsUseCase
+    private let productSubCategoriesUseCase : ProductSubCategoriesUseCase
     
-    init(_ useCase : ProductsUseCase = ProductsUseCase(ProductsRepository())) {
-        self.useCase = useCase
+    init(
+        _ productsUseCase : ProductsUseCase = ProductsUseCase(ProductsRepository()),
+        _ productSubCategoriesUseCase : ProductSubCategoriesUseCase = ProductSubCategoriesUseCase(ProductSubCategoriesRepository())
+    ) {
+        self.productsUseCase = productsUseCase
+        self.productSubCategoriesUseCase = productSubCategoriesUseCase
     }
     
     // MARK: - Output
+    var successSubCategories = PublishSubject<[ProductSubCategoryModel]>()
     var successLatestProducts = PublishSubject<[ProductDataModel]>()
     var successDiscountProducts = PublishSubject<[ProductDataModel]>()
     var successAllProducts = PublishSubject<[ProductDataModel]>()
@@ -41,8 +48,25 @@ final class HomeViewModel : HomeViewModelInput, HomeViewModelOutput {
     func getProducts() {
         isLoading.accept(true)
         let group = DispatchGroup()
+        
         group.enter()
-        useCase.getProducts(
+        productSubCategoriesUseCase.getSubCategories {
+            [weak self] result, error in
+            guard let self = self else { return }
+            if let result = result {
+                if result.success || result.status == "200" {
+                    self.successSubCategories.onNext(result.data)
+                } else {
+                    self.error.onNext(result.message)
+                }
+            } else {
+                self.error.onNext(error?.localizedDescription ?? "ERROR")
+            }
+            group.leave()
+        }
+        
+        group.enter()
+        productsUseCase.getProducts(
             type: .discount
         ) { [weak self] result, error in
             guard let self = self else { return }
@@ -59,7 +83,7 @@ final class HomeViewModel : HomeViewModelInput, HomeViewModelOutput {
         }
         
         group.enter()
-        useCase.getProducts(
+        productsUseCase.getProducts(
             type: .latest
         ) { [weak self] result, error in
             guard let self = self else { return }

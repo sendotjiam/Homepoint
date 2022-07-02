@@ -45,7 +45,6 @@ final class RegisterViewModel : RegisterViewModelInput, RegisterViewModelOutput 
                     self.error.onNext(result.message)
                 }
             } else {
-                print(error, error?.localizedDescription)
                 self.error.onNext(error?.localizedDescription ?? "ERROR")
             }
         }

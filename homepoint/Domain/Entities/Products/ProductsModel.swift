@@ -42,8 +42,8 @@ struct AllProductsDataModel : Equatable {
         self.currentPage = object["currentPage"].intValue
         self.pageSize = object["pageSize"].intValue
         var products = [ProductDataModel]()
-        object["products"].arrayValue.forEach { obj in
-            products.append(ProductDataModel(object: obj))
+        object["products"].arrayValue.forEach {
+            products.append(ProductDataModel(object: $0))
         }
         self.products = products
     }
@@ -72,8 +72,8 @@ struct ProductsResponseModel : Equatable {
         
         var products = [ProductDataModel]()
         if !object["data"].arrayValue.isEmpty {
-            object["data"].arrayValue.forEach { obj in
-                products.append(ProductDataModel(object: obj))
+            object["data"].arrayValue.forEach {
+                products.append(ProductDataModel(object: $0))
             }
             self.data = products
         } else {
@@ -107,8 +107,8 @@ struct ProductDataModel : Equatable {
         self.id = object["id"].stringValue
         self.productSubCategories = ProductSubCategoryModel(object: object["productSubCategories"])
         var images = [ProductImageModel]()
-        object["productImages"].arrayValue.forEach { obj in
-            images.append(ProductImageModel(object: obj))
+        object["productImages"].arrayValue.forEach {
+            images.append(ProductImageModel(object: $0))
         }
         self.productImages = images
         self.name = object["name"].stringValue
@@ -145,6 +145,23 @@ struct ProductDataModel : Equatable {
 }
 
 // MARK: - Product Category
+struct ProductSubCategoriesResponseModel: Equatable {
+    var success: Bool
+    var status, message: String
+    var data: [ProductSubCategoryModel]
+        
+    init(object : JSON) {
+        self.success = object["success"].boolValue
+        self.status = object["status"].stringValue
+        self.message = object["message"].stringValue
+        var data = [ProductSubCategoryModel]()
+        object["data"].arrayValue.forEach {
+            data.append(ProductSubCategoryModel(object: $0))
+        }
+        self.data = data
+    }
+}
+
 struct ProductSubCategoryModel: Equatable {
     var id, name, icon: String
     var isDeleted: Bool

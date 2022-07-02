@@ -11,7 +11,7 @@ import SwiftyJSON
 final class ProductsRepository {
     private let urlString = "api/v1/products"
     
-    let apiClient : ApiClient
+    private let apiClient : ApiClient
     
     init(_ apiClient : ApiClient = AFApiClient()) {
         self.apiClient = apiClient

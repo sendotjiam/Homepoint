@@ -22,7 +22,7 @@ var dataWeeks: WeekMenuList = WeekMenuList([
     WeeksMenuData(title: "Menyimpanan Makanan", image: UIImage(named: "img-menu.kitchenware.penyimpanan.makanan")!),
 ])
 
-class WeeksViewCell: UITableViewCell {
+final class WeeksViewCell: UITableViewCell {
     
     static let identifier = "WeeksViewCell"
     

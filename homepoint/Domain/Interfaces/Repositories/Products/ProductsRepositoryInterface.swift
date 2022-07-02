@@ -8,7 +8,6 @@
 import Foundation
 
 protocol ProductsRepositoryInterface {
-    
     typealias FetchProducts = ((ProductsResponseModel?, Error?) -> Void)
     typealias GetProductById = ((ProductsResponseModel?, Error?) -> Void)
     typealias SearchProducts = ((AllProductsResponseModel?, Error?) -> Void)

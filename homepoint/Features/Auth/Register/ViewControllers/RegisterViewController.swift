@@ -167,7 +167,6 @@ extension RegisterViewController {
     
     private func handleSuccessRegister(_ response: RegisterResponseModel) {
         navigationController?.pushViewController(HomeViewController(), animated: true)
-        print(response)
     }
     
     private func togglePassword() {

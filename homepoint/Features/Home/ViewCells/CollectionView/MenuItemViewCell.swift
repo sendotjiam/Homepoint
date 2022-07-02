@@ -6,35 +6,33 @@
 //
 
 import UIKit
+import SDWebImage
 
-class MenuItemViewCell: UICollectionViewCell {
+final class MenuItemViewCell: UICollectionViewCell {
     
     static let identifier = "MenuItemViewCell"
     
     // MARK: - Outlets
-    @IBOutlet weak var uiView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var labelView: UILabel!
     
-    var menu: MenuData? {
+    // MARK: - Variables
+    var subCategory : ProductSubCategoryModel? {
         didSet { configureCell() }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupUI()
     }
 }
 
 extension MenuItemViewCell {
-    private func setupUI() {
-        
-    }
     
     private func configureCell() {
-        guard let menu = menu else { return }
-        imageView.image = menu.image
-        labelView.text = menu.title
+        guard let subCategory = subCategory else { return }
+        let imageUrl = URL(string: subCategory.icon)
+        imageView.sd_setImage(with: imageUrl)
+        labelView.text = subCategory.name
     }
     
     class func nib() -> UINib { UINib(nibName: "MenuItemViewCell", bundle: nil) }

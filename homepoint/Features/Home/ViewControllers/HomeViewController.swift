@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import SkeletonView
 
-class HomeViewController: UIViewController {
+final class HomeViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var homeTableView: UITableView!
@@ -29,6 +29,7 @@ class HomeViewController: UIViewController {
     private let vm : HomeViewModel = HomeViewModel()
     private let bag = DisposeBag()
     
+    private var subCategories = [ProductSubCategoryModel]()
     private var latestProducts = [ProductDataModel]()
     private var discountProducts = [ProductDataModel]()
     
@@ -85,10 +86,13 @@ extension HomeViewController {
             forCellReuseIdentifier: RecommendationViewCell.identifier
         )
         
-        homeTableView.sectionHeaderHeight = 0.00001
-        homeTableView.sectionFooterHeight = 0.00001
+        homeTableView.sectionHeaderHeight = 0.000001
+        homeTableView.sectionFooterHeight = 0.000001
 
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapView))
+        let gesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(didTapFloatingButton)
+        )
         floatingView.addGestureRecognizer(gesture)
         floatingView.layer.shadowOffset = CGSize(width: 1,
                                           height: 1)
@@ -96,18 +100,47 @@ extension HomeViewController {
         floatingView.layer.shadowOpacity = 0.5
     }
     
+    @objc private func didTapFloatingButton() {
+        let urlWhats = "whatsapp://send?phone=6282114742197&text=Halo%20Homepoint%F0%9F%99%8C%F0%9F%8F%BB%0AAda%20yang%20ingin%20Saya%20tanyakan%2C%20nih!%0A%0A(Tuliskan%20pertanyaanmu%20disini%20ya!)"
+        if let urlString = urlWhats.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) {
+            if let whatsappURL = URL(string: urlString) {
+                if UIApplication.shared.canOpenURL(whatsappURL) {
+                    UIApplication.shared.open(whatsappURL)
+                } else {
+                    if let url = URL(string: "https://api.whatsapp.com/send?phone=6282114742197&text=Halo%20Homepoint%F0%9F%99%8C%F0%9F%8F%BB%0AAda%20yang%20ingin%20Saya%20tanyakan%2C%20nih!%0A%0A(Tuliskan%20pertanyaanmu%20disini%20ya!)") {
+                        UIApplication.shared.open(url)
+                    }
+                }
+            }
+        }
+    }
+}
+
+// MARK: - Binding VM
+extension HomeViewController {
     private func bindViewModel() {
-        vm.successAllProducts.subscribe {
-            self.handleSucccessAllProducts($0.element)
+        vm.successSubCategories.subscribe { [weak self] in
+            self?.handleSuccessSubCategories($0.element)
         }.disposed(by: bag)
-        vm.successDiscountProducts.subscribe {
-            self.handleSucccessDiscountProducts($0.element)
+        vm.successDiscountProducts.subscribe { [weak self] in
+            self?.handleSucccessDiscountProducts($0.element)
         }.disposed(by: bag)
-        vm.successLatestProducts.subscribe {
-            self.handleSucccessLatestProducts($0.element)
+        vm.successLatestProducts.subscribe { [weak self] in
+            self?.handleSucccessLatestProducts($0.element)
         }.disposed(by: bag)
-        vm.isLoading.subscribe { self.handleLoading($0.element) }.disposed(by: bag)
-        vm.error.subscribe { print($0.element!) }.disposed(by: bag)
+        vm.isLoading.subscribe { [weak self] in
+            self?.handleLoading($0.element)
+        }.disposed(by: bag)
+        vm.error.subscribe { [weak self] in
+            self?.handleError($0.element)
+        }.disposed(by: bag)
+    }
+    
+    private func handleSuccessSubCategories(
+        _ subCategories : [ProductSubCategoryModel]?
+    ) {
+        guard let subCategories = subCategories else { return }
+        self.subCategories = subCategories
     }
     
     private func handleSucccessDiscountProducts(
@@ -115,7 +148,6 @@ extension HomeViewController {
     ) {
         guard let products = products else { return }
         discountProducts = products
-        reloadTableView()
     }
     
     private func handleSucccessLatestProducts(
@@ -123,21 +155,16 @@ extension HomeViewController {
     ) {
         guard let products = products else { return }
         latestProducts = products
-        reloadTableView()
     }
     
-    private func handleSucccessAllProducts(
-        _ products : [ProductDataModel]?
-    ) {
-    }
-    
-    private func handleError() {
-        
+    private func handleError(_ error : String?) {
+        self.handleError(msg: error)
     }
     
     private func handleLoading(_ isLoading: Bool?) {
         guard let isLoading = isLoading else { return }
         if !isLoading {
+            reloadTableView()
             DispatchQueue.main.async {
                 self.view.stopShimmer()
             }
@@ -145,46 +172,7 @@ extension HomeViewController {
     }
 }
 
-extension HomeViewController : SkeletonTableViewDataSource {
-    func numSections(in collectionSkeletonView: UITableView) -> Int {
-        sections.count
-    }
-
-    func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
-    }
-
-    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        switch sections[indexPath.section] {
-        case .menu:
-            return MenuViewCell.identifier
-        case .banner:
-            return BannerViewCell.identifier
-        case .weeks:
-            return WeeksViewCell.identifier
-        case .bestOffer:
-            return BestOfferViewCell.identifier
-        case .recommendation:
-            return RecommendationViewCell.identifier
-        }
-    }
-
-    @objc private func didTapView() {
-        let urlWhats = "whatsapp://send?phone=6282114742197&text=Halo%20Homepoint%F0%9F%99%8C%F0%9F%8F%BB%0AAda%20yang%20ingin%20Saya%20tanyakan%2C%20nih!%0A%0A(Tuliskan%20pertanyaanmu%20disini%20ya!)"
-            if let urlString = urlWhats.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) {
-                if let whatsappURL = URL(string: urlString) {
-                    if UIApplication.shared.canOpenURL(whatsappURL) {
-                        UIApplication.shared.open(whatsappURL)
-                    } else {
-                        if let url = URL(string: "https://api.whatsapp.com/send?phone=6282114742197&text=Halo%20Homepoint%F0%9F%99%8C%F0%9F%8F%BB%0AAda%20yang%20ingin%20Saya%20tanyakan%2C%20nih!%0A%0A(Tuliskan%20pertanyaanmu%20disini%20ya!)") {
-                            UIApplication.shared.open(url)
-                        }
-                    }
-                }
-            }
-       }
-}
-
+// MARK: - TableView
 extension HomeViewController:
     UITableViewDelegate,
     UITableViewDataSource {
@@ -228,10 +216,25 @@ extension HomeViewController:
             for: indexPath
         ) as? T
         switch sections[indexPath.section] {
+        case .menu:
+            guard let cellMenu = cell as? MenuViewCell else { return nil }
+            cellMenu.subCategories = subCategories
+            cellMenu.didSelectItem = { [weak self] in
+                let vc = SearchViewController("")
+                vc.searchParams["Product subcategory"] = $0
+                self?.navigationController?.pushViewController(vc, animated: true)
+            }
+            return cellMenu as? T
         case .recommendation:
             guard let cellRecommendation = cell as? RecommendationViewCell
             else { return nil }
             cellRecommendation.dataList = latestProducts
+            cellRecommendation.didViewMore = { [weak self] in
+                let vc = SearchViewController("")
+                vc.type = .recommendation
+                vc.search()
+                self?.navigationController?.pushViewController(vc, animated: true)
+            }
             cellRecommendation.didSelectItem = { [weak self] in
                 let vc = DetailViewController($0)
                 self?.navigationController?.pushViewController(vc, animated: true)
@@ -241,6 +244,12 @@ extension HomeViewController:
             guard let cellOffer = cell as? BestOfferViewCell
             else { return nil }
             cellOffer.dataList = discountProducts
+            cellOffer.didViewMore = { [weak self] in
+                let vc = SearchViewController("")
+                vc.type = .bestOffer
+                vc.search()
+                self?.navigationController?.pushViewController(vc, animated: true)
+            }
             cellOffer.didSelectItem = { [weak self] in
                 let vc = DetailViewController($0)
                 self?.navigationController?.pushViewController(vc, animated: true)
@@ -253,6 +262,32 @@ extension HomeViewController:
     func reloadTableView() {
         DispatchQueue.main.async { [weak self] in
             self?.homeTableView.reloadData()
+        }
+    }
+}
+
+// MARK: - Skeleton
+extension HomeViewController : SkeletonTableViewDataSource {
+    func numSections(in collectionSkeletonView: UITableView) -> Int {
+        sections.count
+    }
+
+    func collectionSkeletonView(_ skeletonView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        1
+    }
+
+    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+        switch sections[indexPath.section] {
+        case .menu:
+            return MenuViewCell.identifier
+        case .banner:
+            return BannerViewCell.identifier
+        case .weeks:
+            return WeeksViewCell.identifier
+        case .bestOffer:
+            return BestOfferViewCell.identifier
+        case .recommendation:
+            return RecommendationViewCell.identifier
         }
     }
 }

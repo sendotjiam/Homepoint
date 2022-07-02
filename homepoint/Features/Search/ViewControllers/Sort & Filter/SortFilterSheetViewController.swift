@@ -71,7 +71,7 @@ final class SortFilterSheetViewController: UIViewController {
             sortDelegate?.sort(by: nil)
             resetSortData()
         case .filter:
-            print("RESET")
+            break
         }
         dismiss(animated: true)
     }
@@ -190,7 +190,6 @@ extension SortFilterSheetViewController :
         case .sort:
             selectedSort = sortStates[indexPath.row]
         case .filter:
-            print(indexPath.row)
             break
         }
     }

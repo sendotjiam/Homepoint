@@ -9,6 +9,10 @@ import UIKit
 import RxSwift
 import SkeletonView
 
+enum SearchType {
+    case normal, bestOffer, recommendation
+}
+
 final class SearchViewController: UIViewController {
     
     // MARK: - Outlets
@@ -21,15 +25,9 @@ final class SearchViewController: UIViewController {
     
     init(_ query : String) {
         self.query = query
-        searchParams = [
-            "Page size": 16,
-            "Page number": pageNumber,
-            "Product name": query,
-        ]
-        vm.search(params: searchParams)
+        searchParams["Product name"] = query
         super.init(nibName: Constants.SearchVC, bundle: nil)
         self.hidesBottomBarWhenPushed = true
-        self.view.showShimmer()
     }
     
     required init?(coder: NSCoder) {
@@ -44,10 +42,14 @@ final class SearchViewController: UIViewController {
     private var vm = SearchViewModel()
     private var bag = DisposeBag()
     private var products = [ProductDataModel]()
-    private var searchParams : [String : Any] = [:]
     private var pageNumber = 0
     private var brands = [String]()
     private var colors = [String]()
+    var searchParams : [String : Any] = [
+        "Page size": 16,
+        "Page number": 0,
+    ]
+    var type : SearchType = .normal
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -103,9 +105,17 @@ extension SearchViewController {
         sortButton.imageView?.contentMode = .scaleAspectFit
     }
     
+    func search() {
+        vm.search(params: searchParams, type: type)
+        self.view.showShimmer()
+    }
+    
     private func bindViewModel() {
-        vm.successSearch.subscribe { [weak self] in
-            self?.handleSuccessSearch($0.element)
+        vm.successAllProducts.subscribe { [weak self] in
+            self?.handleSuccessAllProducts($0.element)
+        }.disposed(by: bag)
+        vm.successProductsData.subscribe { [weak self] in
+            self?.handleSuccessProductsData($0.element)
         }.disposed(by: bag)
         vm.error.subscribe { [weak self] in
             self?.handleError(msg: $0.element)
@@ -115,7 +125,17 @@ extension SearchViewController {
         }.disposed(by: bag)
     }
     
-    private func handleSuccessSearch(_ products : AllProductsDataModel?) {
+    private func handleSuccessProductsData(
+        _ products : [ProductDataModel]?
+    ) {
+        guard let products = products else { return }
+        self.products = products
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
+    private func handleSuccessAllProducts(_ products : AllProductsDataModel?) {
         guard let products = products else { return }
         self.products = products.products
         DispatchQueue.main.async {
@@ -137,8 +157,8 @@ extension SearchViewController {
             "Page number": pageNumber,
             "Product name": nameQuery,
         ]
-        vm.search(params: searchParams)
-        self.view.showShimmer()
+        type = .normal
+        search()
     }
 }
 
@@ -146,25 +166,7 @@ extension SearchViewController : SortProductDelegate {
     func sort(by sort: SortState?) {
         if sort == nil { return }
         searchParams["sort"] = sort?.rawValue
-        vm.search(params: searchParams)
-        self.view.showShimmer()
-    }
-}
-
-// MARK: - Skeleton
-extension SearchViewController : SkeletonCollectionViewDataSource {
-    func collectionSkeletonView(
-        _ skeletonView: UICollectionView,
-        numberOfItemsInSection section: Int
-    ) -> Int {
-        10
-    }
-    
-    func collectionSkeletonView(
-        _ skeletonView: UICollectionView,
-        cellIdentifierForItemAt indexPath: IndexPath
-    ) -> ReusableCellIdentifier {
-        return LargeProductCardViewCell.identifier
+        search()
     }
 }
 
@@ -241,5 +243,22 @@ extension SearchViewController :
     ) {
         let vc = DetailViewController(products[indexPath.row].id)
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+// MARK: - Skeleton
+extension SearchViewController : SkeletonCollectionViewDataSource {
+    func collectionSkeletonView(
+        _ skeletonView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        10
+    }
+    
+    func collectionSkeletonView(
+        _ skeletonView: UICollectionView,
+        cellIdentifierForItemAt indexPath: IndexPath
+    ) -> ReusableCellIdentifier {
+        return LargeProductCardViewCell.identifier
     }
 }

@@ -20,6 +20,7 @@ final class BestOfferViewCell: UITableViewCell {
         }
     }
     var didSelectItem : ((_ id: String) -> ())? = nil
+    var didViewMore : (() -> ())? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -105,7 +106,10 @@ extension BestOfferViewCell:
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
-        /// supposed to be product id
-        self.didSelectItem?(dataList[indexPath.row].id)
+        if indexPath.row == dataList.count {
+            self.didViewMore?()
+        } else {
+            self.didSelectItem?(dataList[indexPath.row].id)
+        }
     }
 }
