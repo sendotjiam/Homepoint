@@ -19,9 +19,9 @@ final class BannerViewCell: UITableViewCell {
     
     // MARK: - Data
     var imgArr = [
-        UIImage(named:"img-banner1"),
-        UIImage(named:"img-banner2"),
-        UIImage(named:"img-banner3")
+        UIImage(named:"img_banner1"),
+        UIImage(named:"img_banner2"),
+        UIImage(named:"img_banner3")
     ]
     var timer = Timer()
     var counter = 1
@@ -41,7 +41,7 @@ extension BannerViewCell {
         sliderView.contentInset = UIEdgeInsets.zero
         sliderView.register(
             BannerItemViewCell.nib(),
-            forCellWithReuseIdentifier: "BannerItemViewCell"
+            forCellWithReuseIdentifier: BannerItemViewCell.identifier
         )
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -72,7 +72,7 @@ extension BannerViewCell {
              self.sliderView.scrollToItem(
                 at: index,
                 at: .centeredHorizontally,
-                animated: false
+                animated: true
              )
              pageView.currentPage = counter
              counter = 1

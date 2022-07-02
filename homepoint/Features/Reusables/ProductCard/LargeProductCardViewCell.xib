@@ -32,10 +32,13 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H21-dm-sEQ">
-                                <rect key="frame" x="120" y="0.0" width="24" height="30"/>
+                                <rect key="frame" x="116" y="0.0" width="28" height="34"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_badge" translatesAutoresizingMaskIntoConstraints="NO" id="wrA-rr-ADK">
+                                        <rect key="frame" x="0.0" y="0.0" width="28" height="34"/>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NrH-DQ-uSW">
-                                        <rect key="frame" x="2" y="10" width="20" height="10"/>
+                                        <rect key="frame" x="4" y="12" width="20" height="10"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="8"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -44,12 +47,16 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="NrH-DQ-uSW" firstAttribute="centerY" secondItem="H21-dm-sEQ" secondAttribute="centerY" id="K81-yy-oAR"/>
-                                    <constraint firstAttribute="height" constant="30" id="gno-f2-6PH"/>
+                                    <constraint firstAttribute="trailing" secondItem="wrA-rr-ADK" secondAttribute="trailing" id="Rzz-g4-Paa"/>
+                                    <constraint firstAttribute="bottom" secondItem="wrA-rr-ADK" secondAttribute="bottom" id="ZJJ-lI-0zP"/>
+                                    <constraint firstAttribute="height" constant="34" id="gno-f2-6PH"/>
+                                    <constraint firstItem="wrA-rr-ADK" firstAttribute="top" secondItem="H21-dm-sEQ" secondAttribute="top" id="oW1-qJ-V5v"/>
                                     <constraint firstItem="NrH-DQ-uSW" firstAttribute="centerX" secondItem="H21-dm-sEQ" secondAttribute="centerX" id="rnb-Zp-PXq"/>
-                                    <constraint firstAttribute="width" constant="24" id="wWu-Jr-ESG"/>
+                                    <constraint firstItem="wrA-rr-ADK" firstAttribute="leading" secondItem="H21-dm-sEQ" secondAttribute="leading" id="tqx-Mi-Ave"/>
+                                    <constraint firstAttribute="width" constant="28" id="wWu-Jr-ESG"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
@@ -194,17 +201,15 @@
                 <outlet property="soldNumberLabel" destination="fbI-oU-Pwy" id="IL8-yh-c0O"/>
                 <outlet property="strikethroughPriceLabel" destination="fCo-p4-AsK" id="DLG-Cr-uTo"/>
             </connections>
-            <point key="canvasLocation" x="214.49275362318843" y="156.02678571428569"/>
+            <point key="canvasLocation" x="214.49275362318843" y="155.35714285714286"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="ic-star" width="12.5" height="12"/>
+        <image name="ic_badge" width="29" height="38"/>
         <image name="img_dummy" width="160" height="142"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

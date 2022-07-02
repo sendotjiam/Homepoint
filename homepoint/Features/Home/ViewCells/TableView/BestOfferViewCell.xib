@@ -58,7 +58,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Penawaran Terbaik" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcN-MR-FnX">
-                        <rect key="frame" x="20" y="16" width="280" height="18"/>
+                        <rect key="frame" x="20" y="8" width="280" height="26"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -70,7 +70,7 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="mcN-MR-FnX" secondAttribute="trailing" constant="20" id="0FQ-I0-yJj"/>
                     <constraint firstAttribute="trailing" secondItem="Gtb-Ct-V43" secondAttribute="trailing" id="12o-3j-FCH"/>
-                    <constraint firstItem="mcN-MR-FnX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="Hfd-jr-Hh6"/>
+                    <constraint firstItem="mcN-MR-FnX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Hfd-jr-Hh6"/>
                     <constraint firstAttribute="bottom" secondItem="Gtb-Ct-V43" secondAttribute="bottom" id="Hfe-hE-ayq"/>
                     <constraint firstItem="Gtb-Ct-V43" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="vQw-sn-ivZ"/>
                     <constraint firstItem="mcN-MR-FnX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="y0n-04-G6Q"/>
