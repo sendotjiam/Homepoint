@@ -182,7 +182,7 @@ class ProductsRepositoryTest: XCTestCase {
 
         /// When
         let expected = expectation(description: "Should return product - get by name")
-        sut.fetchProducts(params: [:]) { response, error in
+        sut.fetchProducts(queryParam: "") { response, error in
             guard let response = response else { return }
             /// Then
             XCTAssertEqual(response, expectedModel)
@@ -199,7 +199,7 @@ class ProductsRepositoryTest: XCTestCase {
 
         /// When
         let expected = expectation(description: "Should return error - Api Error")
-        sut.fetchProducts(params: [:]) { response, error in
+        sut.fetchProducts(queryParam: "") { response, error in
             guard let error = error else { return }
             /// Then
             XCTAssertEqual(error as! NetworkError, NetworkError.ApiError)
@@ -216,7 +216,7 @@ class ProductsRepositoryTest: XCTestCase {
 
         /// When
         let expected = expectation(description: "Should return error - Empty Data Error")
-        sut.fetchProducts(params: [:]) { response, error in
+        sut.fetchProducts(queryParam:  "") { response, error in
             guard let error = error else { return }
             /// Then
             XCTAssertEqual(error as! NetworkError, NetworkError.EmptyDataError)
