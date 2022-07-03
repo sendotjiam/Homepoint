@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import NVActivityIndicatorView
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var overlayView: UIView!

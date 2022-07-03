@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ShippingOptionsViewCell: UITableViewCell {
+final class ShippingOptionsViewCell: UITableViewCell {
 
     static let identifier = "ShippingOptionsViewCell"
     

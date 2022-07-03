@@ -11,7 +11,7 @@ protocol CustomSegmentedControlDelegate: AnyObject {
     func change(to index:Int)
 }
 
-class CustomSegmentedControl : UIView {
+final class CustomSegmentedControl : UIView {
     
     // MARK: - Properties
     private var buttonTitles : [String]!

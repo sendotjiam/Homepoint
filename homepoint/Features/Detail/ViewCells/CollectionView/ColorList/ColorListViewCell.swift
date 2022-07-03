@@ -7,16 +7,6 @@
 
 import UIKit
 
-final class ColorCellModel {
-    let hexColor : String
-    var isSelected : Bool
-    
-    init(_ hexColor: String, _ isSelected: Bool) {
-        self.hexColor = hexColor
-        self.isSelected = isSelected
-    }
-}
-
 final class ColorListViewCell: UICollectionViewCell {
 
     static let identifier = "ColorListViewCell"

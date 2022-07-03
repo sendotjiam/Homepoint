@@ -8,7 +8,7 @@
 import UIKit
 import SkeletonView
 
-class OrderListViewController: UIViewController {
+final class OrderListViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!

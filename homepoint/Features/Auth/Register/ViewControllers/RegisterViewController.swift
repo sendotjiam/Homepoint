@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-class RegisterViewController: UIViewController {
+final class RegisterViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var scrollView: UIScrollView!

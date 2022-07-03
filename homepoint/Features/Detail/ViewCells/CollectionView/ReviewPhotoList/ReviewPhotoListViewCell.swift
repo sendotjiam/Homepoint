@@ -7,16 +7,6 @@
 
 import UIKit
 
-final class ReviewPhotoListCellModel {
-    let imageUrl : String
-    let index : Int
-    
-    init(imageUrl: String, index: Int) {
-        self.imageUrl = imageUrl
-        self.index = index
-    }
-}
-
 final class ReviewPhotoListViewCell: UICollectionViewCell {
 
     static let identifier = "ReviewPhotoListViewCell"

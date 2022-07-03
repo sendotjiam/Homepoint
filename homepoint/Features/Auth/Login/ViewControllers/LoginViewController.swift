@@ -8,8 +8,7 @@
 import UIKit
 import RxSwift
 
-class LoginViewController: UIViewController {
-    
+final class LoginViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var emailTextField: UITextField!
