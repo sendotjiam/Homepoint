@@ -67,14 +67,13 @@ final class HistoryViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.view.showShimmer()
+        self.view.stopShimmer()
     }
 
 }
 
 extension HistoryViewController {
-    private func setupUI() {
-        segmentedControl.delegate = self
+    private func setupUI() {        segmentedControl.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(
@@ -95,23 +94,6 @@ extension HistoryViewController :
         DispatchQueue.main.async { [weak self] in
             self?.tableView.reloadData()
         }
-    }
-}
-
-// MARK: - Skeleton
-extension HistoryViewController : SkeletonTableViewDataSource {
-    func collectionSkeletonView(
-        _ skeletonView: UITableView,
-        numberOfRowsInSection section: Int
-    ) -> Int {
-        6
-    }
-    
-    func collectionSkeletonView(
-        _ skeletonView: UITableView,
-        cellIdentifierForRowAt indexPath: IndexPath
-    ) -> ReusableCellIdentifier {
-        return OrderListViewCell.identifier
     }
 }
 
@@ -136,5 +118,22 @@ extension HistoryViewController :
         ) as? OrderListViewCell
         cell?.data = orderListData[indexPath.row]
         return cell ?? UITableViewCell()
+    }
+}
+
+// MARK: - Skeleton
+extension HistoryViewController : SkeletonTableViewDataSource {
+    func collectionSkeletonView(
+        _ skeletonView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
+        6
+    }
+    
+    func collectionSkeletonView(
+        _ skeletonView: UITableView,
+        cellIdentifierForRowAt indexPath: IndexPath
+    ) -> ReusableCellIdentifier {
+        return OrderListViewCell.identifier
     }
 }
