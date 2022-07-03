@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 protocol WishlistItemInteraction {
     func didRemoveTapped(_ id: String)
