@@ -125,7 +125,6 @@
 		62C0B139285C59B500EACE59 /* DiscussHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C0B137285C59B500EACE59 /* DiscussHeaderViewCell.swift */; };
 		62C0B13A285C59B600EACE59 /* DiscussHeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62C0B138285C59B500EACE59 /* DiscussHeaderViewCell.xib */; };
 		62C0B13D285C5BEB00EACE59 /* DiscussListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C0B13B285C5BEB00EACE59 /* DiscussListViewCell.swift */; };
-		62C0B13E285C5BEC00EACE59 /* DiscussListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62C0B13C285C5BEB00EACE59 /* DiscussListViewCell.xib */; };
 		62CA2D312847989200389230 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CA2D302847989200389230 /* UIViewController+Ext.swift */; };
 		62CBAA64284F405300BD5EAC /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CBAA63284F405300BD5EAC /* CustomSegmentedControl.swift */; };
 		62CBAA6A284F437C00BD5EAC /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CBAA68284F437C00BD5EAC /* HistoryViewController.swift */; };
@@ -146,6 +145,7 @@
 		62F612532871789300AD8C5A /* CartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62F612512871789300AD8C5A /* CartViewController.xib */; };
 		62F6125E2871796E00AD8C5A /* ReviewPhotoListCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F6125D2871796E00AD8C5A /* ReviewPhotoListCellModel.swift */; };
 		62F612602871799200AD8C5A /* ColorCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F6125F2871799200AD8C5A /* ColorCellModel.swift */; };
+		62F6126E28717EB300AD8C5A /* DiscussListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62F6126D28717EB200AD8C5A /* DiscussListViewCell.xib */; };
 		62FCC0E1283E5B5400BF79E2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC0E0283E5B5400BF79E2 /* Constants.swift */; };
 		62FCC0E3283E5B6C00BF79E2 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC0E2283E5B6C00BF79E2 /* String+Ext.swift */; };
 		62FCC0F0283E5BFA00BF79E2 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC0EF283E5BFA00BF79E2 /* ApiClient.swift */; };
@@ -294,7 +294,6 @@
 		62C0B137285C59B500EACE59 /* DiscussHeaderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussHeaderViewCell.swift; sourceTree = "<group>"; };
 		62C0B138285C59B500EACE59 /* DiscussHeaderViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscussHeaderViewCell.xib; sourceTree = "<group>"; };
 		62C0B13B285C5BEB00EACE59 /* DiscussListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussListViewCell.swift; sourceTree = "<group>"; };
-		62C0B13C285C5BEB00EACE59 /* DiscussListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DiscussListViewCell.xib; sourceTree = "<group>"; };
 		62CA2D302847989200389230 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		62CBAA63284F405300BD5EAC /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		62CBAA68284F437C00BD5EAC /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -317,6 +316,7 @@
 		62F612512871789300AD8C5A /* CartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartViewController.xib; sourceTree = "<group>"; };
 		62F6125D2871796E00AD8C5A /* ReviewPhotoListCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPhotoListCellModel.swift; sourceTree = "<group>"; };
 		62F6125F2871799200AD8C5A /* ColorCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCellModel.swift; sourceTree = "<group>"; };
+		62F6126D28717EB200AD8C5A /* DiscussListViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscussListViewCell.xib; sourceTree = "<group>"; };
 		62FCC0E0283E5B5400BF79E2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		62FCC0E2283E5B6C00BF79E2 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		62FCC0EF283E5BFA00BF79E2 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
@@ -1178,8 +1178,8 @@
 		62F61262287179BD00AD8C5A /* List */ = {
 			isa = PBXGroup;
 			children = (
+				62F6126D28717EB200AD8C5A /* DiscussListViewCell.xib */,
 				62C0B13B285C5BEB00EACE59 /* DiscussListViewCell.swift */,
-				62C0B13C285C5BEB00EACE59 /* DiscussListViewCell.xib */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -1589,6 +1589,7 @@
 				62139A1128685FF5003C34CB /* FilterBrandHeaderViewCell.xib in Resources */,
 				62139A0928685FD5003C34CB /* FilterRatingViewCell.xib in Resources */,
 				627A3902284CCE3B002ADC6B /* OrderListViewController.xib in Resources */,
+				62F6126E28717EB300AD8C5A /* DiscussListViewCell.xib in Resources */,
 				6210400C2851ECDD00A413F6 /* ShippingOptionsViewCell.xib in Resources */,
 				5370DFCC2848FE6500FD1ED5 /* Inter-SemiBold.ttf in Resources */,
 				6295B327286DB73B0092A489 /* WishlistItemViewCell.xib in Resources */,
@@ -1614,7 +1615,6 @@
 				6256155B2869EB45006F0D62 /* FilterBrandListViewCell.xib in Resources */,
 				627A390C284CD028002ADC6B /* OrderFilterViewCell.xib in Resources */,
 				D11876EE285792BE001351B4 /* RegisterViewController.xib in Resources */,
-				62C0B13E285C5BEC00EACE59 /* DiscussListViewCell.xib in Resources */,
 				62CFEE2D283E574A00E909AA /* LaunchScreen.storyboard in Resources */,
 				D1F1ED582858D26300A556EB /* LastForgetPassViewController.xib in Resources */,
 				D10CB4F0284F9DB500F675B2 /* LoginViewController.xib in Resources */,
