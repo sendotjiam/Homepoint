@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Cj6-29-7H4">
-                        <rect key="frame" x="0.0" y="52" width="320" height="140"/>
+                        <rect key="frame" x="0.0" y="24" width="320" height="168"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="Uw4-8T-Cup"/>
@@ -42,27 +42,12 @@
                             <constraint firstAttribute="height" constant="4" id="1La-UJ-BtB"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daftar Pesanan Aktif" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLp-j4-VUh">
-                        <rect key="frame" x="20" y="16" width="280" height="20"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20" id="azH-1J-hbA"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
-                        </userDefinedRuntimeAttributes>
-                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Cj6-29-7H4" firstAttribute="top" secondItem="LLp-j4-VUh" secondAttribute="bottom" constant="16" id="0mB-iV-wvy"/>
-                    <constraint firstAttribute="trailing" secondItem="LLp-j4-VUh" secondAttribute="trailing" constant="20" id="6Oe-Jx-r74"/>
-                    <constraint firstItem="LLp-j4-VUh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="7tC-P4-F5z"/>
                     <constraint firstAttribute="trailing" secondItem="Cj6-29-7H4" secondAttribute="trailing" id="ItV-Kg-x9i"/>
                     <constraint firstAttribute="trailing" secondItem="YaT-ku-Ysx" secondAttribute="trailing" id="KED-cA-owJ"/>
                     <constraint firstItem="Cj6-29-7H4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="MIp-LV-vcU"/>
-                    <constraint firstItem="LLp-j4-VUh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="UzU-jv-nSQ"/>
+                    <constraint firstItem="Cj6-29-7H4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="NzQ-Gy-2te"/>
                     <constraint firstItem="YaT-ku-Ysx" firstAttribute="top" secondItem="Cj6-29-7H4" secondAttribute="bottom" constant="8" id="YR7-Ld-Cga"/>
                     <constraint firstItem="YaT-ku-Ysx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="fcc-gT-aZj"/>
                     <constraint firstAttribute="bottom" secondItem="YaT-ku-Ysx" secondAttribute="bottom" constant="8" id="gyG-G4-gQP"/>

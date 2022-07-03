@@ -32,7 +32,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9RC-ks-zow">
-                    <rect key="frame" x="0.0" y="106" width="414" height="670"/>
+                    <rect key="frame" x="0.0" y="98" width="414" height="678"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BlN-TT-S1p">
@@ -123,7 +123,7 @@
                 <constraint firstAttribute="bottom" secondItem="KM8-qg-fJ1" secondAttribute="bottom" id="E5s-cf-Bez"/>
                 <constraint firstItem="bs5-zl-kx5" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="4" id="F5Y-dq-obS"/>
                 <constraint firstItem="nCG-yd-6TJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="HjH-03-bjZ"/>
-                <constraint firstItem="9RC-ks-zow" firstAttribute="top" secondItem="LQj-JF-fwc" secondAttribute="bottom" constant="8" id="KH6-A3-K3E"/>
+                <constraint firstItem="9RC-ks-zow" firstAttribute="top" secondItem="LQj-JF-fwc" secondAttribute="bottom" id="KH6-A3-K3E"/>
                 <constraint firstItem="LQj-JF-fwc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="OgR-IZ-c25"/>
                 <constraint firstItem="LQj-JF-fwc" firstAttribute="top" secondItem="nCG-yd-6TJ" secondAttribute="bottom" constant="14" id="Pqz-4V-Wkq"/>
                 <constraint firstItem="KM8-qg-fJ1" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="SsU-GM-thj"/>

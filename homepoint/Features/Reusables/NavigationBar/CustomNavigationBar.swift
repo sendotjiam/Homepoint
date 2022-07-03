@@ -17,7 +17,7 @@ enum NavigationBarType {
     case backSearchAndCart(isTransparent: Bool = false)
     case backAndTitle(title: String?)
     case backTitleAndLike(title: String?, isFavorite: Bool = false)
-    case searchAndHistory
+    case titleAndHistory(title: String?)
 }
 
 enum NavigationBarRightItemType {
@@ -170,15 +170,15 @@ extension UIViewController  {
         case .hidden:
             navigationController?
                 .setNavigationBarHidden(true, animated: false)
-        case .backAndTitle(let title):
+        case let .backAndTitle(title):
             addBackButton()
             addTitle(title ?? "")
-        case .backTitleAndLike(let title, let isFavorite):
+        case let .backTitleAndLike(title, isFavorite):
             addLikeButton(isFavorite)
             addBackButton()
             addSearchBar()
             addTitle(title ?? "")
-        case .backSearchAndCart(let isTransparent):
+        case let .backSearchAndCart(isTransparent):
             addBackButton(isTransparent)
             if isTransparent {
                 resetNavbarBackground()
@@ -190,8 +190,8 @@ extension UIViewController  {
         case .backAndSearch:
             addBackButton()
             addSearchBar()
-        case .searchAndHistory:
-            addSearchBar()
+        case let .titleAndHistory(title):
+            addTitle(title ?? "")
             addRightBarButtonItems([.history])
         case .back:
             addBackButton()
@@ -206,7 +206,10 @@ extension UIViewController  {
 
 // MARK: - NavigationItem
 extension UIViewController : NavigationItemHandler {
-    @objc func cartTapped(sender: UIBarButtonItem) {}
+    @objc func cartTapped(sender: UIBarButtonItem) {
+        let vc = CartViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
     @objc func notificationTapped(sender: UIBarButtonItem) {}
     @objc func likeTapped(sender: UIBarButtonItem) {}
     @objc func historyTapped(sender: UIBarButtonItem) {}

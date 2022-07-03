@@ -50,7 +50,7 @@ final class OrderListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setNavigationBar(type: .searchAndHistory)
+        setNavigationBar(type: .titleAndHistory(title: "Daftar Pesanan Aktif"))
     }
 }
 

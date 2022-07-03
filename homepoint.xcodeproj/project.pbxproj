@@ -146,6 +146,8 @@
 		62F6125E2871796E00AD8C5A /* ReviewPhotoListCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F6125D2871796E00AD8C5A /* ReviewPhotoListCellModel.swift */; };
 		62F612602871799200AD8C5A /* ColorCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F6125F2871799200AD8C5A /* ColorCellModel.swift */; };
 		62F6126E28717EB300AD8C5A /* DiscussListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62F6126D28717EB200AD8C5A /* DiscussListViewCell.xib */; };
+		62F6127D28719B4C00AD8C5A /* CartItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F6127B28719B4C00AD8C5A /* CartItemViewCell.swift */; };
+		62F6127E28719B4C00AD8C5A /* CartItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62F6127C28719B4C00AD8C5A /* CartItemViewCell.xib */; };
 		62FCC0E1283E5B5400BF79E2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC0E0283E5B5400BF79E2 /* Constants.swift */; };
 		62FCC0E3283E5B6C00BF79E2 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC0E2283E5B6C00BF79E2 /* String+Ext.swift */; };
 		62FCC0F0283E5BFA00BF79E2 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC0EF283E5BFA00BF79E2 /* ApiClient.swift */; };
@@ -317,6 +319,8 @@
 		62F6125D2871796E00AD8C5A /* ReviewPhotoListCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPhotoListCellModel.swift; sourceTree = "<group>"; };
 		62F6125F2871799200AD8C5A /* ColorCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCellModel.swift; sourceTree = "<group>"; };
 		62F6126D28717EB200AD8C5A /* DiscussListViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscussListViewCell.xib; sourceTree = "<group>"; };
+		62F6127B28719B4C00AD8C5A /* CartItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemViewCell.swift; sourceTree = "<group>"; };
+		62F6127C28719B4C00AD8C5A /* CartItemViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartItemViewCell.xib; sourceTree = "<group>"; };
 		62FCC0E0283E5B5400BF79E2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		62FCC0E2283E5B6C00BF79E2 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		62FCC0EF283E5BFA00BF79E2 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
@@ -1071,6 +1075,7 @@
 		62F6124E287177D800AD8C5A /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				62F6126F287187F700AD8C5A /* ViewCells */,
 				62F6124F2871787600AD8C5A /* ViewControllers */,
 			);
 			path = Cart;
@@ -1272,6 +1277,15 @@
 				627A390A284CD028002ADC6B /* OrderFilterViewCell.xib */,
 			);
 			path = OrderFilter;
+			sourceTree = "<group>";
+		};
+		62F6126F287187F700AD8C5A /* ViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				62F6127B28719B4C00AD8C5A /* CartItemViewCell.swift */,
+				62F6127C28719B4C00AD8C5A /* CartItemViewCell.xib */,
+			);
+			path = ViewCells;
 			sourceTree = "<group>";
 		};
 		62FCC0DC283E5B1A00BF79E2 /* Application */ = {
@@ -1615,6 +1629,7 @@
 				6256155B2869EB45006F0D62 /* FilterBrandListViewCell.xib in Resources */,
 				627A390C284CD028002ADC6B /* OrderFilterViewCell.xib in Resources */,
 				D11876EE285792BE001351B4 /* RegisterViewController.xib in Resources */,
+				62F6127E28719B4C00AD8C5A /* CartItemViewCell.xib in Resources */,
 				62CFEE2D283E574A00E909AA /* LaunchScreen.storyboard in Resources */,
 				D1F1ED582858D26300A556EB /* LastForgetPassViewController.xib in Resources */,
 				D10CB4F0284F9DB500F675B2 /* LoginViewController.xib in Resources */,
@@ -1769,6 +1784,7 @@
 				624B121B28605AC80071D088 /* ProductsRepositoryInterface.swift in Sources */,
 				62E4BF75286C649C00769B75 /* WishlistViewController.swift in Sources */,
 				62FCC0E1283E5B5400BF79E2 /* Constants.swift in Sources */,
+				62F6127D28719B4C00AD8C5A /* CartItemViewCell.swift in Sources */,
 				53D772FA2849FBF2008F2912 /* MenuViewCell.swift in Sources */,
 				5370DFD728490EC800FD1ED5 /* HomeViewController.swift in Sources */,
 				53D7732D284A41B9008F2912 /* MenuItemViewCell.swift in Sources */,
