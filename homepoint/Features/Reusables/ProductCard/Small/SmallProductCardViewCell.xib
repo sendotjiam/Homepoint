@@ -150,7 +150,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wkn-Rv-Xzr">
-                                <rect key="frame" x="96" y="0.0" width="24" height="30"/>
+                                <rect key="frame" x="96" y="-2" width="24" height="30"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_badge" translatesAutoresizingMaskIntoConstraints="NO" id="xVV-sm-jrb">
                                         <rect key="frame" x="0.0" y="0.0" width="24" height="30"/>
@@ -184,7 +184,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="1kW-xc-bXu" firstAttribute="leading" secondItem="e2F-me-CRi" secondAttribute="leading" id="2AV-xE-g56"/>
-                            <constraint firstItem="Wkn-Rv-Xzr" firstAttribute="top" secondItem="e2F-me-CRi" secondAttribute="top" id="2lF-rO-3b6"/>
+                            <constraint firstItem="Wkn-Rv-Xzr" firstAttribute="top" secondItem="e2F-me-CRi" secondAttribute="top" constant="-2" id="2lF-rO-3b6"/>
                             <constraint firstItem="gOe-w3-asn" firstAttribute="leading" secondItem="e2F-me-CRi" secondAttribute="leading" id="DCb-Ct-fTj"/>
                             <constraint firstAttribute="trailing" secondItem="1kW-xc-bXu" secondAttribute="trailing" id="HSg-4y-9YK"/>
                             <constraint firstAttribute="bottom" secondItem="gOe-w3-asn" secondAttribute="bottom" id="J5o-LD-4hy"/>
