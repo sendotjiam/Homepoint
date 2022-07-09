@@ -8,7 +8,7 @@
 import XCTest
 @testable import homepoint
 
-final class WishlistsRepository: XCTestCase {
+final class WishlistsRepositoryTest: XCTestCase {
     
     var sut : WishlistRepository!
 
@@ -183,7 +183,3 @@ final class WishlistsRepository: XCTestCase {
     }
     
 }
-
-//"AllWishlistsResponseModel(success: true, status: "200 OK", message: "Wishlist found successfully", data: homepoint.AllWishlistsDataModel(totalPage: 1, totalRecord: 1, currentPage: 0, pageSize: 1, wishlistItems: []))")
-//
-//"AllWishlistsResponseModel(success: true, status: "200 OK", message: "Wishlist found successfully", data: homepoint.AllWishlistsDataModel(totalPage: 1, totalRecord: 1, currentPage: 0, pageSize: 1, wishlistItems: [homepoint.WishlistDataModel(id: "94d50c87-6e4a-4a65-b7a8-650e8c11a7ce", createdAt: "2022-07-09T09:26:32.753+00:00", isDeleted: false, products: homepoint.ProductDataModel(id: "", productSubCategories: homepoint.ProductSubCategoryModel(id: "", name: "", icon: "", isDeleted: false), productImages: [], name: "", description: "", brand: "", price: 0.0, discount: 0.0, stock: 0, color: "", ratingAverage: 0, ratingCount: 0, amountSold: 0, createdAt: "", isDeleted: false))]))")
