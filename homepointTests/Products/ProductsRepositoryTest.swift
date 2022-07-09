@@ -8,7 +8,7 @@
 import XCTest
 @testable import homepoint
 
-class ProductsRepositoryTest: XCTestCase {
+final class ProductsRepositoryTest: XCTestCase {
 
     var sut : ProductsRepository!
 

@@ -6,7 +6,13 @@
 //
 
 import UIKit
-import NVActivityIndicatorView
+
+protocol DetailHeaderProtocol {
+    func didTapCompareButton()
+    func didTapLikeButton(id: String)
+    func didTapShareButton()
+    func didTapMessageButton()
+}
 
 final class DetailHeaderViewCell: UITableViewCell {
 
@@ -34,16 +40,23 @@ final class DetailHeaderViewCell: UITableViewCell {
     
     var price = 100000
     var discountedPrice = 50000
-    
-    var didTapCompareButton : (() -> ())? = nil
+    var delegate : DetailHeaderProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
     }
     
+    @IBAction func messageButtonTapped(_ sender: Any) {
+    }
+    @IBAction func shareButtonTapped(_ sender: Any) {
+    }
+    @IBAction func likeButtonTapped(_ sender: Any) {
+        guard let data = data else { return }
+        delegate?.didTapLikeButton(id: data.id)
+    }
     @IBAction func compareButtonTapped(_ sender: Any) {
-        didTapCompareButton?()
+        delegate?.didTapCompareButton()
     }
 }
 

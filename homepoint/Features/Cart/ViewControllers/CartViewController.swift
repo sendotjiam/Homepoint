@@ -24,6 +24,15 @@ final class CartViewController: UIViewController {
     private let sections : [SectionType] = [.items, .purchase]
     private var quantity = 0
     
+    init() {
+        super.init(nibName: "CartViewController", bundle: nil)
+        self.hidesBottomBarWhenPushed = true
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()

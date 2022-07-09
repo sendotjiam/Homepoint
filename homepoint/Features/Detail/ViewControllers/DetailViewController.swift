@@ -24,10 +24,10 @@ final class DetailViewController: UIViewController {
     
     // MARK: - Section
     private enum SectionType {
-        case header, description, review, discussion, others, shipping
+        case header, description, review, others, shipping
     }
     private let sections : [SectionType] = [
-        .header, .description, .shipping, .review, .discussion, .others
+        .header, .description, .shipping, .review, .others
     ]
     private var reviewList : Int = 10
     
@@ -122,6 +122,9 @@ extension DetailViewController {
         vm.successGetProduct.subscribe { [weak self] in
             self?.handleSuccessGetProduct($0.element)
         }.disposed(by: bag)
+        vm.successAddWishlist.subscribe { [weak self] in
+            self?.createSimpleAlert("Berhasil", "Berhasil menambahkan produk sebagai wishlist", "OK")
+        }
         vm.successGetOthersProducts.subscribe { [weak self] in
             self?.handleSuccessGetOtherProducts($0.element)
         }
@@ -183,8 +186,6 @@ extension DetailViewController {
             ReviewHeaderViewCell.nib(),
             ReviewListViewCell.nib(),
             ReviewSeeMoreViewCell.nib(),
-            DiscussHeaderViewCell.nib(),
-            DiscussListViewCell.nib(),
             OtherViewCell.nib()
         ], [
             DetailHeaderViewCell.identifier,
@@ -193,8 +194,6 @@ extension DetailViewController {
             ReviewHeaderViewCell.identifier,
             ReviewListViewCell.identifier,
             ReviewSeeMoreViewCell.identifier,
-            DiscussHeaderViewCell.identifier,
-            DiscussListViewCell.identifier,
             OtherViewCell.identifier
         ])
     }
@@ -220,6 +219,17 @@ extension DetailViewController {
     }
 }
 
+extension DetailViewController : DetailHeaderProtocol {
+    func didTapLikeButton(id: String) {
+        vm.addWishlist(productId: id)
+    }
+    func didTapShareButton() {
+        "SHARE"
+    }
+    func didTapMessageButton() {return}
+    func didTapCompareButton() {return}
+}
+
 // MARK: - TableView
 extension DetailViewController :
     UITableViewDelegate,
@@ -235,7 +245,6 @@ extension DetailViewController :
         switch sections[section] {
         case .description : return productData?.description == "" ? 0 : 1
         case .review: return reviewList + 2
-        case .discussion: return 3 + 1
         case .others : return otherProducts.isEmpty ? 0 : 1
         default: return 1
         }
@@ -262,13 +271,6 @@ extension DetailViewController :
             default:
                 cell = generateCell(ReviewListViewCell.identifier, indexPath)
             }
-        case .discussion:
-            switch indexPath.row {
-            case 0:
-                cell = generateCell(DiscussHeaderViewCell.identifier, indexPath)
-            default:
-                cell = generateCell(DiscussListViewCell.identifier, indexPath)
-            }
         case .others:
             cell = generateCell(OtherViewCell.identifier, indexPath)
         }
@@ -289,7 +291,7 @@ extension DetailViewController :
             else { return nil }
             cellHeader.data = productData
             cellHeader.colors = ["#F1C6B9", "#f1f1f1", "#000000"]
-            cellHeader.didTapCompareButton = { return }
+            cellHeader.delegate = self
             return cellHeader as? T
         case .description:
             guard let cellDescription = cell as? DetailDescriptionViewCell
@@ -310,18 +312,6 @@ extension DetailViewController :
                 return cellSeeMore as? T
             default:
                 guard let cellList = cell as? ReviewListViewCell
-                else { return nil }
-                return cellList as? T
-            }
-        case .discussion:
-            switch indexPath.row {
-            case 0:
-                guard let cellHeader = cell as? DiscussHeaderViewCell
-                else { return nil }
-                
-                return cellHeader as? T
-            default:
-                guard let cellList = cell as? DiscussListViewCell
                 else { return nil }
                 return cellList as? T
             }
