@@ -106,6 +106,17 @@
 		623FF1702879BD87002EAC7B /* CartRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623FF16F2879BD87002EAC7B /* CartRepository.swift */; };
 		623FF1732879C4FA002EAC7B /* MockCartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623FF1722879C4FA002EAC7B /* MockCartData.swift */; };
 		623FF1752879C517002EAC7B /* CartRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623FF1742879C517002EAC7B /* CartRepositoryTest.swift */; };
+		623FF17B287ACA3A002EAC7B /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623FF179287ACA3A002EAC7B /* PaymentViewController.swift */; };
+		623FF17C287ACA3A002EAC7B /* PaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 623FF17A287ACA3A002EAC7B /* PaymentViewController.xib */; };
+		623FF17E287ACA4B002EAC7B /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623FF17D287ACA4B002EAC7B /* PaymentViewModel.swift */; };
+		623FF182287AE134002EAC7B /* CourierViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623FF180287AE134002EAC7B /* CourierViewCell.swift */; };
+		623FF183287AE134002EAC7B /* CourierViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 623FF181287AE134002EAC7B /* CourierViewCell.xib */; };
+		623FF188287AE459002EAC7B /* PaymentOrderListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623FF186287AE459002EAC7B /* PaymentOrderListViewCell.swift */; };
+		623FF189287AE459002EAC7B /* PaymentOrderListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 623FF187287AE459002EAC7B /* PaymentOrderListViewCell.xib */; };
+		623FF18C287B187B002EAC7B /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623FF18A287B187B002EAC7B /* BottomSheetViewController.swift */; };
+		623FF18D287B187B002EAC7B /* BottomSheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 623FF18B287B187B002EAC7B /* BottomSheetViewController.xib */; };
+		623FF190287B19BA002EAC7B /* SheetItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623FF18E287B19BA002EAC7B /* SheetItemViewCell.swift */; };
+		623FF191287B19BA002EAC7B /* SheetItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 623FF18F287B19BA002EAC7B /* SheetItemViewCell.xib */; };
 		6242118F2862D1C300180D8A /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6242118E2862D1C300180D8A /* SearchViewModel.swift */; };
 		624B12152860571E0071D088 /* ProductImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624B12142860571E0071D088 /* ProductImageModel.swift */; };
 		624B121828605A960071D088 /* ProductsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624B121728605A960071D088 /* ProductsRepository.swift */; };
@@ -324,6 +335,17 @@
 		623FF16F2879BD87002EAC7B /* CartRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRepository.swift; sourceTree = "<group>"; };
 		623FF1722879C4FA002EAC7B /* MockCartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCartData.swift; sourceTree = "<group>"; };
 		623FF1742879C517002EAC7B /* CartRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRepositoryTest.swift; sourceTree = "<group>"; };
+		623FF179287ACA3A002EAC7B /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		623FF17A287ACA3A002EAC7B /* PaymentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentViewController.xib; sourceTree = "<group>"; };
+		623FF17D287ACA4B002EAC7B /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
+		623FF180287AE134002EAC7B /* CourierViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourierViewCell.swift; sourceTree = "<group>"; };
+		623FF181287AE134002EAC7B /* CourierViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourierViewCell.xib; sourceTree = "<group>"; };
+		623FF186287AE459002EAC7B /* PaymentOrderListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentOrderListViewCell.swift; sourceTree = "<group>"; };
+		623FF187287AE459002EAC7B /* PaymentOrderListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentOrderListViewCell.xib; sourceTree = "<group>"; };
+		623FF18A287B187B002EAC7B /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
+		623FF18B287B187B002EAC7B /* BottomSheetViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomSheetViewController.xib; sourceTree = "<group>"; };
+		623FF18E287B19BA002EAC7B /* SheetItemViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetItemViewCell.swift; sourceTree = "<group>"; };
+		623FF18F287B19BA002EAC7B /* SheetItemViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SheetItemViewCell.xib; sourceTree = "<group>"; };
 		6242118E2862D1C300180D8A /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		624B12142860571E0071D088 /* ProductImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageModel.swift; sourceTree = "<group>"; };
 		624B121728605A960071D088 /* ProductsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsRepository.swift; sourceTree = "<group>"; };
@@ -958,6 +980,60 @@
 			path = Cart;
 			sourceTree = "<group>";
 		};
+		623FF176287ACA1A002EAC7B /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				623FF17F287AE115002EAC7B /* ViewCells */,
+				623FF178287ACA28002EAC7B /* ViewModels */,
+				623FF177287ACA22002EAC7B /* ViewControllers */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		623FF177287ACA22002EAC7B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				623FF179287ACA3A002EAC7B /* PaymentViewController.swift */,
+				623FF17A287ACA3A002EAC7B /* PaymentViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		623FF178287ACA28002EAC7B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				623FF17D287ACA4B002EAC7B /* PaymentViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		623FF17F287AE115002EAC7B /* ViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				623FF185287AE40E002EAC7B /* TableView */,
+				623FF184287AE3F7002EAC7B /* CollectionView */,
+			);
+			path = ViewCells;
+			sourceTree = "<group>";
+		};
+		623FF184287AE3F7002EAC7B /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				623FF180287AE134002EAC7B /* CourierViewCell.swift */,
+				623FF181287AE134002EAC7B /* CourierViewCell.xib */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		623FF185287AE40E002EAC7B /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				623FF186287AE459002EAC7B /* PaymentOrderListViewCell.swift */,
+				623FF187287AE459002EAC7B /* PaymentOrderListViewCell.xib */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
 		6242118D2862D1AB00180D8A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -1383,6 +1459,10 @@
 		62B14669286602C70096A78C /* BottomSheet */ = {
 			isa = PBXGroup;
 			children = (
+				623FF18A287B187B002EAC7B /* BottomSheetViewController.swift */,
+				623FF18B287B187B002EAC7B /* BottomSheetViewController.xib */,
+				623FF18E287B19BA002EAC7B /* SheetItemViewCell.swift */,
+				623FF18F287B19BA002EAC7B /* SheetItemViewCell.xib */,
 			);
 			path = BottomSheet;
 			sourceTree = "<group>";
@@ -1797,6 +1877,7 @@
 			isa = PBXGroup;
 			children = (
 				53B76A2F287C762800A56095 /* Profile */,
+				623FF176287ACA1A002EAC7B /* Payment */,
 				62F6124E287177D800AD8C5A /* Cart */,
 				62E4BF71286C647E00769B75 /* Wishlist */,
 				5370DFD128490D6A00FD1ED5 /* Home */,
@@ -2090,12 +2171,15 @@
 				5370DFCA2848FE6500FD1ED5 /* Inter-Black.ttf in Resources */,
 				53D772FB2849FBF2008F2912 /* MenuViewCell.xib in Resources */,
 				53D773032849FC87008F2912 /* BannerViewCell.xib in Resources */,
+				623FF18D287B187B002EAC7B /* BottomSheetViewController.xib in Resources */,
 				53D7730B2849FCEE008F2912 /* BestOfferViewCell.xib in Resources */,
 				53D7732E284A41B9008F2912 /* MenuItemViewCell.xib in Resources */,
 				53B76A63287C762800A56095 /* AddressViewController.xib in Resources */,
+				623FF17C287ACA3A002EAC7B /* PaymentViewController.xib in Resources */,
 				62104010285237A000A413F6 /* ColorListViewCell.xib in Resources */,
 				5370DFCF2848FE6500FD1ED5 /* Inter-ExtraBold.ttf in Resources */,
 				5370DFCE2848FE6500FD1ED5 /* Inter-Bold.ttf in Resources */,
+				623FF183287AE134002EAC7B /* CourierViewCell.xib in Resources */,
 				621040052851DA6B00A413F6 /* DetailDescriptionViewCell.xib in Resources */,
 				62CBAA6B284F437C00BD5EAC /* HistoryViewController.xib in Resources */,
 				62139A1128685FF5003C34CB /* FilterBrandHeaderViewCell.xib in Resources */,
@@ -2110,6 +2194,7 @@
 				53B76A62287C762800A56095 /* ChangeProfileViewController.xib in Resources */,
 				62103FFA2851D01C00A413F6 /* DetailViewController.xib in Resources */,
 				62BBB360285B191400E984C6 /* OtherViewCell.xib in Resources */,
+				623FF189287AE459002EAC7B /* PaymentOrderListViewCell.xib in Resources */,
 				62CFEE2D283E574A00E909AA /* LaunchScreen.storyboard in Resources */,
 				62F612532871789300AD8C5A /* CartViewController.xib in Resources */,
 				627A3911284CD892002ADC6B /* OrderFilterItemViewCell.xib in Resources */,
@@ -2146,6 +2231,7 @@
 				53B76A67287C762800A56095 /* ProfileViewController.xib in Resources */,
 				5370DFCD2848FE6500FD1ED5 /* Inter-Light.ttf in Resources */,
 				62759B82284A52AD00622184 /* SearchViewController.xib in Resources */,
+				623FF191287B19BA002EAC7B /* SheetItemViewCell.xib in Resources */,
 				629B41DB285345760051EB23 /* ReviewListViewCell.xib in Resources */,
 				62139A0528685EBE003C34CB /* FilterPriceViewCell.xib in Resources */,
 				5370DFC82848FE6500FD1ED5 /* Inter-Regular.ttf in Resources */,
@@ -2277,6 +2363,7 @@
 				623FF1692879BC3D002EAC7B /* CartUseCase.swift in Sources */,
 				627A390B284CD028002ADC6B /* OrderFilterViewCell.swift in Sources */,
 				621040042851DA6B00A413F6 /* DetailDescriptionViewCell.swift in Sources */,
+				623FF17B287ACA3A002EAC7B /* PaymentViewController.swift in Sources */,
 				6216E0852848ED4D0019747D /* SmallProductCardViewCell.swift in Sources */,
 				626F283A2850DC9600677122 /* CustomTabBarController.swift in Sources */,
 				53B76A6E287C762800A56095 /* RightArrowFieldViewCell.swift in Sources */,
@@ -2289,6 +2376,7 @@
 				62FCC0E1283E5B5400BF79E2 /* Constants.swift in Sources */,
 				623C896528703F14008FD3FA /* ProductSubCategoriesRepositoryInterface.swift in Sources */,
 				62BBB35F285B191400E984C6 /* OtherViewCell.swift in Sources */,
+				623FF18C287B187B002EAC7B /* BottomSheetViewController.swift in Sources */,
 				6275AF8A28587B9E00D3857D /* UserRepositoryInterface.swift in Sources */,
 				62F612522871789300AD8C5A /* CartViewController.swift in Sources */,
 				62CBAA6A284F437C00BD5EAC /* HistoryViewController.swift in Sources */,
@@ -2324,10 +2412,12 @@
 				624B122328605D2E0071D088 /* ProductsUseCase.swift in Sources */,
 				62C0B13D285C5BEB00EACE59 /* DiscussListViewCell.swift in Sources */,
 				53B76A59287C762800A56095 /* AddAddressViewController.swift in Sources */,
+				623FF182287AE134002EAC7B /* CourierViewCell.swift in Sources */,
 				623FF16C2879BC5A002EAC7B /* CartRepositoryInterface.swift in Sources */,
 				62CBAA70284F57A900BD5EAC /* OrderListItemCellModel.swift in Sources */,
 				6275AF9028587CDC00D3857D /* UserRepository.swift in Sources */,
 				6210400F285237A000A413F6 /* ColorListViewCell.swift in Sources */,
+				623FF188287AE459002EAC7B /* PaymentOrderListViewCell.swift in Sources */,
 				533AFACF284F9B2A00684B1E /* ViewMoreProductViewCell.swift in Sources */,
 				626A1D1428465BE500B2DA8A /* UIView+Ext.swift in Sources */,
 				626E84922859D797003403DE /* RegisterViewModel.swift in Sources */,
@@ -2357,11 +2447,13 @@
 				623FF1702879BD87002EAC7B /* CartRepository.swift in Sources */,
 				623FF1602879A310002EAC7B /* ProductsResponseModel.swift in Sources */,
 				62103FFF2851DA5900A413F6 /* DetailHeaderViewCell.swift in Sources */,
+				623FF190287B19BA002EAC7B /* SheetItemViewCell.swift in Sources */,
 				62759B81284A52AD00622184 /* SearchViewController.swift in Sources */,
 				53D773022849FC87008F2912 /* BannerViewCell.swift in Sources */,
 				53D77329284A419E008F2912 /* WeeksViewCell.swift in Sources */,
 				626E848F2859D615003403DE /* LoginViewModel.swift in Sources */,
 				62BBB35A285B109C00E984C6 /* ReviewSeeMoreViewCell.swift in Sources */,
+				623FF17E287ACA4B002EAC7B /* PaymentViewModel.swift in Sources */,
 				629B41DA285345760051EB23 /* ReviewListViewCell.swift in Sources */,
 				53B76A61287C762800A56095 /* ChangeProfileViewController.swift in Sources */,
 				53B76A5D287C762800A56095 /* DropdownViewCell.swift in Sources */,

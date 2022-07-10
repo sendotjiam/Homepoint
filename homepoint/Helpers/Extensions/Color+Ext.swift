@@ -32,6 +32,7 @@ enum ColorCollection {
     case creamColor
     case lightGreyColor
     case lightTealColor
+    case lightBlueColor
 }
 
 extension ColorCollection {
@@ -92,6 +93,8 @@ extension ColorCollection {
                 return UIColor(red: 0.882, green: 0.913, blue: 0.937, alpha: 1)
             case .lightTealColor:
                 return UIColor(red: 0.784, green: 0.894, blue: 0.905, alpha: 1)
+            case .lightBlueColor:
+                return UIColor(red: 0.737, green: 0.874, blue: 0.956, alpha: 1)
             }
         }
     }

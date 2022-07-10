@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "ic_right.arrow.png",
+      "filename" : "ic_BCA.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "ic_right.arrow@2x.png",
+      "filename" : "ic_BCA@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "ic_right.arrow@3x.png",
+      "filename" : "ic_BCA@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
