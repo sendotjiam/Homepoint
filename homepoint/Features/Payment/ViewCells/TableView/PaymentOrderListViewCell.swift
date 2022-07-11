@@ -30,7 +30,8 @@ final class PaymentOrderListViewCell: UITableViewCell {
     static let identifier = "PaymentOrderListViewCell"
     
     // MARK: - Outlets
-    @IBOutlet weak var insuranceStackView: UIStackView!
+//    @IBOutlet weak var insuranceStackView: UIStackView!
+    @IBOutlet weak var insuranceView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
@@ -57,7 +58,7 @@ extension PaymentOrderListViewCell {
     private func setupUI() {
         insuranceCheckbox.delegate = self
         selectionStyle = .none
-        insuranceStackView.isHidden = true
+        insuranceView.isHidden = true
     }
     
     private func configureCell() {
@@ -65,7 +66,7 @@ extension PaymentOrderListViewCell {
         titleLabel.text = data.title
         priceLabel.text = data.price.convertToCurrency()
         quantityLabel.text = "\(data.quantity)x"
-        insuranceStackView.isHidden = data.needInsurance ? false : true
+        insuranceView.isHidden = data.needInsurance ? false : true
     }
     
     class func nib() -> UINib {

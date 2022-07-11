@@ -7,12 +7,12 @@
 
 import UIKit
 
-enum SheetType {
-    case shopLocations, paymentMethods
+protocol BottomSheetDelegate {
+    func didSelectItem(type: SheetType, data : SheetItemCellModel)
 }
 
-enum PaymentMethodType {
-    case BTN, BNI, BRI, BCA, MANDIRI
+enum SheetType {
+    case shopLocations, paymentMethods
 }
 
 final class BottomSheetViewController: UIViewController {
@@ -25,6 +25,7 @@ final class BottomSheetViewController: UIViewController {
     
     // MARK: - Variables
     var type : SheetType!
+    var delegate : BottomSheetDelegate?
     
     /// Data with title and images/icons
     var data = [SheetItemCellModel]()
@@ -73,5 +74,10 @@ extension BottomSheetViewController : UITableViewDelegate, UITableViewDataSource
         default:
             return UITableViewCell()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.didSelectItem(type: type, data: data[indexPath.row])
+        self.dismiss(animated: true)
     }
 }

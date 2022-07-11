@@ -29,6 +29,9 @@ final class PaymentViewController: UIViewController {
     @IBOutlet weak var accountInfoStackView: UIStackView!
     @IBOutlet weak var totalPaymentLabel: UILabel!
     @IBOutlet weak var paymentButton: UIButton!
+    @IBOutlet weak var paymentMethodView: UIView!
+    @IBOutlet weak var paymentMethodImageView: UIImageView!
+    @IBOutlet weak var paymentMethodLabel: UILabel!
     
     // MARK: - Variables
     let courierData : [CourierCellModel] = [
@@ -39,9 +42,24 @@ final class PaymentViewController: UIViewController {
     var subtotalPrice = 0.0
     // Mock Data
     let ordersData : [PaymendOrderListCellModel] = [
-        PaymendOrderListCellModel(title: "Penggorengan Elektronik tanpa minyak / Air Fryer 2.5 L / Microwave Ori", quantity: 1, price: 529000, needInsurance: true),
-        PaymendOrderListCellModel(title: "Non-Stick Cookware Set", quantity: 1, price: 529000, needInsurance: true),
-        PaymendOrderListCellModel(title: "Gelas Mug Keramik 300ml Hitam Polos", quantity: 4, price: 529000, needInsurance: false)
+        PaymendOrderListCellModel(
+            title: "Penggorengan Elektronik tanpa minyak / Air Fryer 2.5 L / Microwave Ori Penggorengan Elektronik tanpa minyak / Air Fryer 2.5 L / Microwave Ori",
+            quantity: 1,
+            price: 529000,
+            needInsurance: true
+        ),
+        PaymendOrderListCellModel(
+            title: "Non-Stick Cookware Set",
+            quantity: 1,
+            price: 529000,
+            needInsurance: true
+        ),
+        PaymendOrderListCellModel(
+            title: "Gelas Mug Keramik 300ml Hitam Polos",
+            quantity: 4,
+            price: 529000,
+            needInsurance: false
+        )
     ]
     
     override func viewDidLoad() {
@@ -62,6 +80,7 @@ final class PaymentViewController: UIViewController {
     }
     
     @IBAction func voucherButtonTapped(_ sender: Any) {
+        
     }
     
     @IBAction func selectShopLocationButtonTapped(_ sender: Any) {
@@ -72,6 +91,7 @@ final class PaymentViewController: UIViewController {
             SheetItemCellModel(title: "Homepoint Cabang Surabaya", image: "ic_homepoint"),
             SheetItemCellModel(title: "Homepoint Cabang Jakarta", image: "ic_homepoint")
         ]
+        vc.delegate = self
         vc.modalPresentationStyle = .pageSheet
         present(vc, animated: true)
     }
@@ -86,6 +106,7 @@ final class PaymentViewController: UIViewController {
             SheetItemCellModel(title: "Bank Tabungan Negara", image: "ic_BTN"),
             SheetItemCellModel(title: "Bank Mandiri", image: "ic_MANDIRI")
         ]
+        vc.delegate = self
         vc.modalPresentationStyle = .pageSheet
         present(vc, animated: true)
     }
@@ -94,14 +115,19 @@ final class PaymentViewController: UIViewController {
 extension PaymentViewController {
     private func setupUI() {
         addressView.addBorder(width: 1, color: ColorCollection.primaryColor.value)
-        paymentMethodButton.addBorder(width: 1, color: ColorCollection.primaryColor.value)
+        paymentMethodView.addBorder(width: 1, color: ColorCollection.primaryColor.value)
         voucherButton.addBorder(width: 1, color: .black)
-        [addressView, voucherButton, shopLocationView, paymentMethodButton, paymentButton].forEach {
+        [addressView,
+         voucherButton,
+         shopLocationView,
+         paymentMethodView,
+         paymentButton].forEach {
             $0?.roundedCorner(with: 8)
         }
         calculateTableViewHeightAndSubtotalPrice()
         
         accountInfoStackView.isHidden = true
+        paymentMethodImageView.isHidden = true
         
         setupTableView()
         setupCollectionView()
@@ -110,23 +136,29 @@ extension PaymentViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(PaymentOrderListViewCell.nib(), forCellReuseIdentifier: PaymentOrderListViewCell.identifier)
+        tableView.register(
+            PaymentOrderListViewCell.nib(),
+            forCellReuseIdentifier: PaymentOrderListViewCell.identifier
+        )
     }
     
     private func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(CourierViewCell.nib(), forCellWithReuseIdentifier: CourierViewCell.identifier)
+        collectionView.register(
+            CourierViewCell.nib(),
+            forCellWithReuseIdentifier: CourierViewCell.identifier
+        )
     }
     
     func calculateTableViewHeightAndSubtotalPrice() {
         var height = 0.0
         ordersData.forEach {
             height += (50)
-            if $0.needInsurance { height += 20 }
+            if $0.needInsurance { height += 17 }
             subtotalPrice += $0.price
         }
-        height += 3s
+        height += 34
         subtotalLabel.text = subtotalPrice.convertToCurrency()
         tableViewHeight.constant = height
     }
@@ -139,21 +171,55 @@ extension PaymentViewController : PaymentOrderListProtocol {
     }
 }
 
-extension PaymentViewController : UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension PaymentViewController : BottomSheetDelegate {
+    func didSelectItem(type: SheetType, data: SheetItemCellModel) {
+        switch type {
+        case .shopLocations:
+            shopLocationLabel.isHidden = false
+            selectShopLocationLabel.text = data.title
+            selectShopLocationLabel.textColor = .black
+            selectShopLocationLabel.tag = 1
+        case .paymentMethods:
+            paymentMethodImageView.isHidden = false
+            paymentMethodImageView.image = UIImage(named: data.image)
+            paymentMethodLabel.text = data.title
+            paymentMethodLabel.textColor = .black
+        }
+    }
+}
+
+extension PaymentViewController :
+    UITableViewDelegate,
+    UITableViewDataSource {
+    func tableView(
+        _ tableView: UITableView,
+        numberOfRowsInSection section: Int
+    ) -> Int {
         ordersData.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: PaymentOrderListViewCell.identifier, for: indexPath) as? PaymentOrderListViewCell
+    func tableView(
+        _ tableView: UITableView,
+        cellForRowAt indexPath: IndexPath
+    ) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: PaymentOrderListViewCell.identifier,
+            for: indexPath
+        ) as? PaymentOrderListViewCell
         cell?.delegate = self
         cell?.data = ordersData[indexPath.row]
         return cell ?? UITableViewCell()
     }
 }
 
-extension PaymentViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension PaymentViewController :
+    UICollectionViewDelegate,
+    UICollectionViewDataSource,
+    UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
         3
     }
     
@@ -161,7 +227,10 @@ extension PaymentViewController : UICollectionViewDelegate, UICollectionViewData
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CourierViewCell.identifier, for: indexPath) as? CourierViewCell
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: CourierViewCell.identifier,
+            for: indexPath
+        ) as? CourierViewCell
         cell?.courier = courierData[indexPath.row]
         return cell ?? UICollectionViewCell()
     }
@@ -176,10 +245,25 @@ extension PaymentViewController : UICollectionViewDelegate, UICollectionViewData
         return CGSize(width: width, height: height)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectShopLocationButton.isEnabled = true
-        shopLocationView.backgroundColor = .white
-        shopLocationView.addBorder(width: 1, color: ColorCollection.primaryColor.value)
-        selectShopLocationLabel.textColor = ColorCollection.primaryColor.value
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+        switch indexPath.row {
+        case 2:
+            selectShopLocationButton.isEnabled = true
+            shopLocationView.backgroundColor = .white
+            shopLocationView.addBorder(width: 1, color: ColorCollection.primaryColor.value)
+            if selectShopLocationLabel.tag != 1 {
+                selectShopLocationLabel.textColor = ColorCollection.primaryColor.value
+            }
+        default:
+            shopLocationLabel.isHidden = true
+            selectShopLocationButton.isEnabled = false
+            selectShopLocationLabel.textColor = ColorCollection.darkTextColor.value
+            selectShopLocationLabel.text = "Pilih Lokasi Toko"
+            shopLocationView.backgroundColor = ColorCollection.ligthTextColor.value
+            shopLocationView.addBorder(width: 0, color: ColorCollection.primaryColor.value)
+        }
     }
 }
