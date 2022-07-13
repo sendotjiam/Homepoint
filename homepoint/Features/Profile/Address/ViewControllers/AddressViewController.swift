@@ -25,6 +25,20 @@ class AddressViewController: UIViewController {
         Address(title: "Alamat Kos", detail: "Jl. Jend. Sudriman no. 72, Jakarta Pusat Cisauk, Tanggerang Selatan, Banten", isMain: false)
     ]
     
+    init() {
+        super.init(nibName: Constants.AddressVC, bundle: nil)
+        self.hidesBottomBarWhenPushed = true
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNavigationBar(type: .backAndTitle(title: "Alamat"))
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()

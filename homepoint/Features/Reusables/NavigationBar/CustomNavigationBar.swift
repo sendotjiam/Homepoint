@@ -18,6 +18,7 @@ enum NavigationBarType {
     case backAndTitle(title: String?)
     case backTitleAndLike(title: String?, isFavorite: Bool = false)
     case titleAndHistory(title: String?)
+    case title(title: String?)
 }
 
 enum NavigationBarRightItemType {
@@ -170,6 +171,8 @@ extension UIViewController  {
         case .hidden:
             navigationController?
                 .setNavigationBarHidden(true, animated: false)
+        case let .title(title):
+            addTitle(title ?? "")
         case let .backAndTitle(title):
             addBackButton()
             addTitle(title ?? "")

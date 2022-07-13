@@ -16,8 +16,13 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBar(type: .backAndTitle(title: "Profil"))
+        
         setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setNavigationBar(type: .title(title: "Profil"))
     }
     
     func setupView() {

@@ -33,4 +33,7 @@ struct Constants {
     static let SearchVC = "SearchViewController"
     static let HistoryVC = "HistoryViewController"
     static let OrderListVC = "OrderListViewController"
+    static let ChangeProfileVC = "ChangeProfileViewController"
+    static let AddressVC = "AddressViewController"
+    static let AddAddressVC = "AddAddressViewController"
 }

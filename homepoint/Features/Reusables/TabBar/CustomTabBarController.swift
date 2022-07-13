@@ -15,12 +15,12 @@ final class CustomTabBarController: UITabBarController {
         let homeVC = HomeViewController()
         let wishlistVC = WishlistViewController()
         let orderVC = OrderListViewController()
-        let ex4 = E()
+        let profileVC = ProfileViewController()
         
         let navHome = UINavigationController(rootViewController: homeVC)
         let navWishlist = UINavigationController(rootViewController: wishlistVC)
         let navOrder = UINavigationController(rootViewController: orderVC)
-        let navEx4 = UINavigationController(rootViewController: ex4)
+        let navProfile = UINavigationController(rootViewController: profileVC)
         
         let titles = [
             Constants.Home,
@@ -36,7 +36,7 @@ final class CustomTabBarController: UITabBarController {
         ]
         
         setupTabBar(
-            [navHome, navWishlist, navOrder, navEx4],
+            [navHome, navWishlist, navOrder, navProfile],
             titles,
             images
         )
