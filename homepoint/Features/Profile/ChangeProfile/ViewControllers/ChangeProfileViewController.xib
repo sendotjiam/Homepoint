@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Inter-Regular.ttf">
+            <string>Inter-Regular</string>
+        </array>
+        <array key="Inter-SemiBold.ttf">
+            <string>Inter-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChangeProfileViewController" customModule="homepoint" customModuleProvider="target">
+            <connections>
+                <outlet property="femaleButton" destination="xnf-4A-rUS" id="tae-ym-Zpz"/>
+                <outlet property="maleButton" destination="iXt-gX-4kg" id="zMh-ux-kqN"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info Profil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhC-Qh-f4a">
+                    <rect key="frame" x="20" y="64" width="374" height="19.5"/>
+                    <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nama Lengkap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jG1-Az-87g">
+                    <rect key="frame" x="30" y="101.5" width="364" height="15"/>
+                    <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OLH-w1-aPz">
+                    <rect key="frame" x="20" y="120.5" width="374" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8n-Ma-Mfr">
+                    <rect key="frame" x="20" y="806" width="374" height="36"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="filled" title="Simpan">
+                        <fontDescription key="titleFontDescription" name="Inter-Medium" family="Inter" pointSize="18"/>
+                        <color key="baseForegroundColor" systemColor="labelColor"/>
+                        <color key="baseBackgroundColor" red="0.98431372549019602" green="0.77647058823529413" blue="0.27450980392156865" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                    </buttonConfiguration>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tanggal Lahir" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gie-fc-gbC">
+                    <rect key="frame" x="30" y="170.5" width="364" height="15"/>
+                    <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gnE-64-HHX">
+                    <rect key="frame" x="20" y="189.5" width="374" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jenis Kelamin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acP-MQ-1l9">
+                    <rect key="frame" x="20" y="243.5" width="374" height="19.5"/>
+                    <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info Kontak" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8K-DM-srO">
+                    <rect key="frame" x="20" y="303" width="374" height="19.5"/>
+                    <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FsO-1V-rhd">
+                    <rect key="frame" x="30" y="340.5" width="364" height="15"/>
+                    <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qqN-Bq-A1J">
+                    <rect key="frame" x="20" y="359.5" width="374" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nomor HP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UmO-hI-xyx">
+                    <rect key="frame" x="30" y="409.5" width="364" height="15"/>
+                    <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8hN-6q-8tG">
+                    <rect key="frame" x="20" y="428.5" width="374" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pDG-Sd-gB0">
+                    <rect key="frame" x="20" y="269" width="97.5" height="14"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xnf-4A-rUS">
+                            <rect key="frame" x="0.0" y="0.0" width="14" height="14"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="14" id="Zum-oM-FCU"/>
+                                <constraint firstAttribute="width" constant="14" id="crB-1X-8GY"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="ic-radio.unselected"/>
+                            <state key="selected" image="ic-radio.selected"/>
+                            <connections>
+                                <action selector="femaleDidTap:" destination="-1" eventType="touchUpInside" id="Jir-EG-iDJ"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Perempuan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grO-8i-KJB">
+                            <rect key="frame" x="22" y="0.0" width="75.5" height="14"/>
+                            <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                            <color key="textColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0ag-mg-x6x">
+                    <rect key="frame" x="139.5" y="269" width="90" height="14"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXt-gX-4kg">
+                            <rect key="frame" x="0.0" y="0.0" width="14" height="14"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="14" id="0cr-rV-QYF"/>
+                                <constraint firstAttribute="height" constant="14" id="VdZ-BL-lFU"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="ic-radio.unselected"/>
+                            <state key="selected" image="ic-radio.selected"/>
+                            <connections>
+                                <action selector="maleDidTap:" destination="-1" eventType="touchUpInside" id="Xqc-VR-Oxb"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Laki - Laki" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKX-0a-rsK">
+                            <rect key="frame" x="22" y="0.0" width="68" height="14"/>
+                            <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
+                            <color key="textColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qqN-Bq-A1J" secondAttribute="trailing" constant="20" id="2Y5-Xz-LWe"/>
+                <constraint firstItem="acP-MQ-1l9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="4IT-bF-5GO"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gie-fc-gbC" secondAttribute="trailing" constant="20" id="5Ae-xi-iVV"/>
+                <constraint firstItem="OLH-w1-aPz" firstAttribute="top" secondItem="jG1-Az-87g" secondAttribute="bottom" constant="4" id="60D-Np-E6F"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="O8n-Ma-Mfr" secondAttribute="trailing" constant="20" id="71L-98-KGJ"/>
+                <constraint firstItem="X8K-DM-srO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="7Bn-7u-5f7"/>
+                <constraint firstItem="xhC-Qh-f4a" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="9E9-Ar-K6Q"/>
+                <constraint firstItem="gnE-64-HHX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="AfG-Gr-8K1"/>
+                <constraint firstItem="UmO-hI-xyx" firstAttribute="top" secondItem="qqN-Bq-A1J" secondAttribute="bottom" constant="16" id="BzN-au-SKO"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="X8K-DM-srO" secondAttribute="trailing" constant="20" id="FkV-vj-Mw7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gnE-64-HHX" secondAttribute="trailing" constant="20" id="HtF-wt-JSJ"/>
+                <constraint firstItem="X8K-DM-srO" firstAttribute="top" secondItem="pDG-Sd-gB0" secondAttribute="bottom" constant="20" id="IfI-qf-S1P"/>
+                <constraint firstItem="8hN-6q-8tG" firstAttribute="top" secondItem="UmO-hI-xyx" secondAttribute="bottom" constant="4" id="JLA-ib-WU6"/>
+                <constraint firstItem="qqN-Bq-A1J" firstAttribute="top" secondItem="FsO-1V-rhd" secondAttribute="bottom" constant="4" id="Jmt-7F-bKh"/>
+                <constraint firstItem="gie-fc-gbC" firstAttribute="top" secondItem="OLH-w1-aPz" secondAttribute="bottom" constant="16" id="KJZ-0t-DNd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="OLH-w1-aPz" secondAttribute="trailing" constant="20" id="Kuh-GO-59L"/>
+                <constraint firstItem="pDG-Sd-gB0" firstAttribute="top" secondItem="acP-MQ-1l9" secondAttribute="bottom" constant="6" id="L9b-yR-Sd3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8hN-6q-8tG" secondAttribute="trailing" constant="20" id="LW6-OQ-wjS"/>
+                <constraint firstItem="8hN-6q-8tG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="O01-eh-Cnh"/>
+                <constraint firstItem="8hN-6q-8tG" firstAttribute="top" secondItem="UmO-hI-xyx" secondAttribute="bottom" constant="4" id="OTJ-aQ-4X1"/>
+                <constraint firstItem="FsO-1V-rhd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="PR8-y7-FoD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="acP-MQ-1l9" secondAttribute="trailing" constant="20" id="Pbr-CZ-FHc"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="O8n-Ma-Mfr" secondAttribute="bottom" constant="20" id="RIp-wu-uuM"/>
+                <constraint firstItem="0ag-mg-x6x" firstAttribute="top" secondItem="acP-MQ-1l9" secondAttribute="bottom" constant="6" id="RoM-63-Bb6"/>
+                <constraint firstItem="gie-fc-gbC" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="SFq-zV-dKz"/>
+                <constraint firstItem="O8n-Ma-Mfr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Sgm-za-mMc"/>
+                <constraint firstItem="xhC-Qh-f4a" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="VrJ-Fy-Ipn"/>
+                <constraint firstItem="gnE-64-HHX" firstAttribute="top" secondItem="gie-fc-gbC" secondAttribute="bottom" constant="4" id="bn0-rQ-N3b"/>
+                <constraint firstItem="qqN-Bq-A1J" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="cmx-vh-AZR"/>
+                <constraint firstItem="gnE-64-HHX" firstAttribute="top" secondItem="gie-fc-gbC" secondAttribute="bottom" constant="4" id="dqW-Pr-N47"/>
+                <constraint firstItem="qqN-Bq-A1J" firstAttribute="top" secondItem="FsO-1V-rhd" secondAttribute="bottom" constant="4" id="fEt-01-9AM"/>
+                <constraint firstItem="jG1-Az-87g" firstAttribute="top" secondItem="xhC-Qh-f4a" secondAttribute="bottom" constant="18" id="fkK-wG-ftH"/>
+                <constraint firstItem="pDG-Sd-gB0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="mUU-cZ-6Mf"/>
+                <constraint firstItem="UmO-hI-xyx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="mow-bD-rdw"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xhC-Qh-f4a" secondAttribute="trailing" constant="20" id="o7T-98-Chl"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jG1-Az-87g" secondAttribute="trailing" constant="20" id="pt5-be-5Jc"/>
+                <constraint firstItem="jG1-Az-87g" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="q9b-wR-u47"/>
+                <constraint firstItem="0ag-mg-x6x" firstAttribute="leading" secondItem="pDG-Sd-gB0" secondAttribute="trailing" constant="22" id="qpL-YG-LkN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UmO-hI-xyx" secondAttribute="trailing" constant="20" id="vXD-y1-DbP"/>
+                <constraint firstItem="OLH-w1-aPz" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="w0V-dg-zu2"/>
+                <constraint firstItem="FsO-1V-rhd" firstAttribute="top" secondItem="X8K-DM-srO" secondAttribute="bottom" constant="18" id="w31-tS-CH4"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="FsO-1V-rhd" secondAttribute="trailing" constant="20" id="yq1-Kx-fJc"/>
+                <constraint firstItem="acP-MQ-1l9" firstAttribute="top" secondItem="gnE-64-HHX" secondAttribute="bottom" constant="20" id="ztZ-gQ-3cH"/>
+            </constraints>
+            <point key="canvasLocation" x="132" y="76"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic-radio.selected" width="18.5" height="18.5"/>
+        <image name="ic-radio.unselected" width="18.5" height="18.5"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
