@@ -7,6 +7,11 @@
 
 import UIKit
 import RxSwift
+import NVActivityIndicatorView
+
+protocol LoginProtocol {
+    func successLogin()
+}
 
 final class LoginViewController: UIViewController {
     
@@ -31,6 +36,24 @@ final class LoginViewController: UIViewController {
     private let bag = DisposeBag()
     private var isEmailError = true
     private var isPasswordError = true
+
+    var delegate : LoginProtocol?
+
+    private let loader = NVActivityIndicatorView (
+        frame: .zero,
+        type: .circleStrokeSpin,
+        color: ColorCollection.primaryColor.value,
+        padding: 0
+    )
+
+    init() {
+        super.init(nibName: "LoginViewController", bundle: nil)
+        self.hidesBottomBarWhenPushed = true
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +66,7 @@ final class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setNavigationBar(type: .back)
     }
     
     // MARK: - Actions
@@ -129,24 +153,29 @@ extension LoginViewController {
     
     private func bindViewModel() {
         vm.successLogin
-            .subscribe { self.handleSuccessLogin($0) }
+            .subscribe { [weak self] in self?.handleSuccessLogin($0) }
             .disposed(by: bag)
         
         vm.error
-            .subscribe { self.handleError(msg: $0) }
+            .subscribe { [weak self] in self?.handleError(msg: $0) }
             .disposed(by: bag)
         
         vm.isLoading
-            .subscribe { show in
-                guard let show = show.element else { return }
+            .subscribe { [weak self] in
+                guard let self = self,
+                      let show = $0.element
+                else { return }
                 self.showLoadingIndicator(show)
             }
             .disposed(by: bag)
     }
     
     private func handleSuccessLogin(_ response: LoginResponseModel) {
-        navigationController?.pushViewController(HomeViewController(), animated: true)
-        // Navigation move to home page
+        delegate?.successLogin()
+        navigationController?.popViewController(animated: true)
+        print(response)
+
+        // masukin protocol
     }
     
     private func togglePassword() {

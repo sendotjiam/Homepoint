@@ -27,12 +27,19 @@ final class AFApiClient : ApiClient {
         _ headers: HTTPHeaders?,
         completion: @escaping (_ response: URLResponse?, _ data: Data?, _ error: Error?) -> Void
     ) {
-        guard let url = URL(string: "\(Constants.BaseUrl)\(path)") else { return }
+        guard let url = URL(string: "\(Constants.BaseUrl)\(path)")
+        else { return }
+        var encoder : ParameterEncoding = JSONEncoding.default
+        if let headers = headers {
+            if headers["Content-Type"] == "application/x-www-form-urlencoded" {
+                encoder = URLEncoding.default
+            }
+        }
         AF.request(
             url,
             method: method,
             parameters: parameters ?? nil,
-            encoding: JSONEncoding.default,
+            encoding: encoder,
             headers: headers,
             interceptor: nil,
             requestModifier: nil

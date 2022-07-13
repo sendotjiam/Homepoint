@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import NVActivityIndicatorView
 
 final class RegisterViewController: UIViewController {
     
@@ -36,6 +37,13 @@ final class RegisterViewController: UIViewController {
     private var isNameError = true
     private var isEmailError = true
     private var isPasswordError = true
+
+    private let loader = NVActivityIndicatorView (
+        frame: .zero,
+        type: .circleStrokeSpin,
+        color: ColorCollection.primaryColor.value,
+        padding: 0
+    )
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -150,23 +158,27 @@ extension RegisterViewController {
 
     private func bindViewModel() {
         vm.successRegister
-            .subscribe { self.handleSuccessRegister($0) }
+            .subscribe { [weak self] in
+                self?.handleSuccessRegister($0) }
             .disposed(by: bag)
         
         vm.error
-            .subscribe { self.handleError(msg: $0) }
+            .subscribe { [weak self] in
+                self?.handleError(msg: $0) }
             .disposed(by: bag)
         
         vm.isLoading
-            .subscribe { show in
-                guard let show = show.element else { return }
-                self.showLoadingIndicator(show)
+            .subscribe { [weak self] in
+                guard let self = self,
+                      let show = $0.element
+                else { return }
+                self.showLoader(self.loader, show)
             }
             .disposed(by: bag)
     }
     
     private func handleSuccessRegister(_ response: RegisterResponseModel) {
-        navigationController?.pushViewController(HomeViewController(), animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     private func togglePassword() {

@@ -11,7 +11,8 @@ import SwiftyJSON
 
 struct MockUserData {
     static func generateLoginData() -> Data? {
-        "{ \"message\": \"Token for Login\", \"status\": \"200\", \"success\": true, \"data\": { \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZW5kbzFAbWFpbC5jb20iLCJleHAiOjE2NTUyMjA3OTMsImlhdCI6MTY1NTIxNDc5M30.-k4BDV5qHvYI-IaItSoVyL6LPxp_9MclkuwDhacH2NA\"} }".data(using: .utf8)
+        "{ \"message\": \"Token for Login\", \"status\": \"200\", \"success\": true, \"data\": { \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZW5kbzFAbWFpbC5jb20iLCJleHAiOjE2NTUyMjA3OTMsImlhdCI6MTY1NTIxNDc5M30.-k4BDV5qHvYI-IaItSoVyL6LPxp_9MclkuwDhacH2NA\", \"name\": \"Sendo\", \"id\": \"3e714161-1e1e-4b6d-b78e-32f1bb072e26\"} }".data(using: .utf8)
+
     }
     
     static func generateLoginResponseModel() -> LoginResponseModel {
@@ -25,7 +26,10 @@ struct MockUserData {
     
     static func generateLoginDataModel() -> LoginDataModel {
         LoginDataModel(object: JSON([
-            "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZW5kbzFAbWFpbC5jb20iLCJleHAiOjE2NTUyMjA3OTMsImlhdCI6MTY1NTIxNDc5M30.-k4BDV5qHvYI-IaItSoVyL6LPxp_9MclkuwDhacH2NA"
+            "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZW5kbzFAbWFpbC5jb20iLCJleHAiOjE2NTUyMjA3OTMsImlhdCI6MTY1NTIxNDc5M30.-k4BDV5qHvYI-IaItSoVyL6LPxp_9MclkuwDhacH2NA",
+            "name": "Sendo",
+            "id": "3e714161-1e1e-4b6d-b78e-32f1bb072e26"
+
         ]))
     }
     

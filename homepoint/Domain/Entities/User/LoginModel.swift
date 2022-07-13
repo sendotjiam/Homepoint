@@ -44,8 +44,12 @@ struct LoginResponseModel : Equatable {
 
 struct LoginDataModel : Equatable {
     var token: String
+    var name: String
+    var id: String
     
     init(object: JSON) {
         self.token = object["token"].stringValue
+        self.name = object["name"].stringValue
+        self.id = object["id"].stringValue
     }
 }

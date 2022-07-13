@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftyJSON
+import Alamofire
 
 final class UserRepository {
     private let urlString = "api/v1/users/"
@@ -23,11 +24,12 @@ extension UserRepository : UserRepositoryInterface {
         params: [String : Any],
         completion: @escaping ((LoginResponseModel?, Error?) -> Void)
     ) {
+        let headers : HTTPHeaders = ["Content-Type": "application/x-www-form-urlencoded"]
         apiClient.request(
             urlString + "login",
             .post,
             params,
-            nil
+            headers
         ) { response, data, error in
             if let data = data {
                 do {
