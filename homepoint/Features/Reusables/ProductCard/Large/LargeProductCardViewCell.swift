@@ -48,6 +48,7 @@ extension LargeProductCardViewCell {
             radius: 2,
             offset: CGSize(width: 0, height: 1)
         )
+        imageView.image = UIImage(named: "img_product.dummy")
     }
     
     private func configureCell() {

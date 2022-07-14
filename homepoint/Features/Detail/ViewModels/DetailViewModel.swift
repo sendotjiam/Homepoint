@@ -88,6 +88,7 @@ final class DetailViewModel :
     func addWishlist(productId: String) {
         // Mock
         let userId = "0d9cb9e6-0328-453e-a6d1-0457de2c9d9d"
+        isLoading.accept(true)
         wishlistUseCase.addWishlist(
             productId: productId,
             userId: userId
@@ -101,6 +102,7 @@ final class DetailViewModel :
             } else {
                 self.error.onNext(error?.localizedDescription ?? "ERROR")
             }
+            self.isLoading.accept(false)
         }
     }
 }

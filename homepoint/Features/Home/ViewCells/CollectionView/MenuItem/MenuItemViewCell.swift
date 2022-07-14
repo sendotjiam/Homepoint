@@ -23,10 +23,16 @@ final class MenuItemViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupUI()
     }
 }
 
 extension MenuItemViewCell {
+    
+    private func setupUI() {
+        imageView.image = UIImage(named: "img_subcategory.dummy")
+        labelView.text = "Aksesoris Dapur"
+    }
     
     private func configureCell() {
         guard let subCategory = subCategory else { return }

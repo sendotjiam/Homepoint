@@ -11,6 +11,34 @@ import NVActivityIndicatorView
 var globalLoadingIndicator : UIView?
 
 extension UIViewController  {
+    
+    /// Alert with actions
+    func createConfirmationAlert(
+        _ title : String,
+        _ message: String,
+        _ yesHandler : ((UIAlertAction) -> Void)?
+    ) -> UIAlertController {
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        let noAction = UIAlertAction(
+            title: "No",
+            style: .cancel,
+            handler: nil
+        )
+        let yesAction = UIAlertAction(
+            title: "Yes",
+            style: .default,
+            handler: yesHandler
+        )
+        alert.addAction(noAction)
+        alert.addAction(yesAction)
+        return alert
+    }
+    
+    
     /// Alert with only one action
     func createSimpleAlert(
         _ title : String,
@@ -63,20 +91,31 @@ extension UIViewController  {
         }
     }
     
-    func showLoader(_ loader: NVActivityIndicatorView, _ show : Bool) {
+    func showLoader(_ loaderView: UIView, _ loader: NVActivityIndicatorView, _ show : Bool) {
         if show {
             loader.translatesAutoresizingMaskIntoConstraints = false
-            view.addSubview(loader)
+            view.addSubview(loaderView)
+            loaderView.addSubview(loader)
             NSLayoutConstraint.activate([
-                loader.widthAnchor.constraint(equalToConstant: 40),
-                loader.heightAnchor.constraint(equalToConstant: 40),
-                loader.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                loader.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                loaderView.widthAnchor.constraint(equalToConstant: 60),
+                loaderView.heightAnchor.constraint(equalToConstant: 60),
+                loaderView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                loaderView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                
+                loader.widthAnchor.constraint(equalToConstant: 30),
+                loader.heightAnchor.constraint(equalToConstant: 30),
+                loader.centerXAnchor.constraint(equalTo: loaderView.centerXAnchor),
+                loader.centerYAnchor.constraint(equalTo: loaderView.centerYAnchor)
             ])
             loader.startAnimating()
-            
+            loaderView.isHidden = false
+            navigationController?.navigationBar.isHidden = true
+            view.isUserInteractionEnabled = false
         } else {
             loader.stopAnimating()
+            loaderView.isHidden = true
+            navigationController?.navigationBar.isHidden = false
+            view.isUserInteractionEnabled = true
         }
     }
     

@@ -52,9 +52,9 @@ extension WishlistRepository : WishlistRepositoryInterface {
         completion: @escaping FetchWishlists
     ) {
         apiClient.request(
-            urlString + "/\(userId)",
+            urlString + "/\(userId)?page=0&size=12",
             .get,
-            [:],
+            nil,
             nil
         ) { response, data, error in
             if let data = data {
@@ -73,7 +73,7 @@ extension WishlistRepository : WishlistRepositoryInterface {
     
     func deleteWishlist(id: String, completion: @escaping DeleteWishlist) {
         apiClient.request(
-            urlString + "/\(id)",
+            urlString + "/items/\(id)",
             .delete,
             [:],
             nil

@@ -30,7 +30,7 @@ final class WishlistItemViewCell: UITableViewCell {
     
     
     // MARK: - Variables
-    var data : ProductDataModel? {
+    var data : WishlistDataModel? {
         didSet { configureCell() }
     }
     var state : WishlistPageType? {
@@ -43,12 +43,18 @@ final class WishlistItemViewCell: UITableViewCell {
         setupUI()
     }
     
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
+    
     @IBAction func removeButtonTapped(_ sender: Any) {
-        delegate?.didRemoveTapped("")
+        guard let id = data?.id else { return }
+        delegate?.didRemoveTapped(id)
     }
     
     @IBAction func addToCartButtonTapped(_ sender: Any) {
-        delegate?.didAddToCartTapped("")
+        guard let id = data?.id else { return }
+        delegate?.didAddToCartTapped(id)
     }
 }
 
@@ -61,7 +67,7 @@ extension WishlistItemViewCell {
     }
     
     private func configureCell() {
-        guard let data = data else { return }
+        guard let data = data?.products else { return }
         let imageUrl = URL(string: data.productImages[0].image)
         productImageView.sd_setImage(with: imageUrl)
         productNameLabel.text = data.name

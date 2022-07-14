@@ -52,7 +52,7 @@ extension UIView {
     
     func showShimmer() {
         self.isUserInteractionEnabled = false
-        self.showAnimatedSkeleton()
+        self.showAnimatedGradientSkeleton()
     }
     
     func stopShimmer() {

@@ -7,19 +7,27 @@
 
 import UIKit
 
+protocol CheckboxClickable {
+    func didTap(_ isSelected: Bool)
+}
+
 final class Checkbox : UIButton {
     
     // Images
     let checkedImage = UIImage(named: "ic_checkbox.selected")
     let uncheckedImage = UIImage(named: "ic_checkbox")
     
+    var delegate : CheckboxClickable?
+    
     // Bool property
     var isChecked: Bool = false {
         didSet {
             if isChecked == true {
                 self.setImage(checkedImage, for: .normal)
+                delegate?.didTap(true)
             } else {
                 self.setImage(uncheckedImage, for: .normal)
+                delegate?.didTap(false)
             }
         }
     }

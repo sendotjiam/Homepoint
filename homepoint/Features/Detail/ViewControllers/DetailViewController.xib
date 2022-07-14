@@ -127,9 +127,9 @@
                         <constraint firstItem="zrv-n0-umG" firstAttribute="top" secondItem="eG3-gA-XSp" secondAttribute="bottom" constant="14" id="wwe-tG-2Bn"/>
                     </constraints>
                 </view>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5I-kk-3Xw">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5I-kk-3Xw">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

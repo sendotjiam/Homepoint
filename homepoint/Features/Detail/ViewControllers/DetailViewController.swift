@@ -22,6 +22,21 @@ final class DetailViewController: UIViewController {
     @IBOutlet weak var minusButton: UIButton!
     @IBOutlet weak var realPriceLabel: UILabel!
     
+    private lazy var loaderView : UIView = {
+        let view = UIView()
+        view.roundedCorner(with: 8)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        return view
+    }()
+    private let loader = NVActivityIndicatorView(
+        frame: .zero,
+        type: .circleStrokeSpin,
+        color: ColorCollection.primaryColor.value,
+        padding: 0
+    )
+    
+    
     // MARK: - Section
     private enum SectionType {
         case header, description, review, others, shipping
@@ -43,13 +58,6 @@ final class DetailViewController: UIViewController {
     
     private let vm = DetailViewModel()
     private let bag = DisposeBag()
-    
-    private let loader = NVActivityIndicatorView(
-        frame: .zero,
-        type: .circleStrokeSpin,
-        color: ColorCollection.primaryColor.value,
-        padding: 0
-    )
     
     // MARK: - Life Cycle
     init(_ id: String) {
@@ -92,6 +100,7 @@ final class DetailViewController: UIViewController {
 
 extension DetailViewController {
     private func setupUI() {
+        overlayView.alpha = 1
         countTotalPrice()
         bottomContainerView.dropShadow(
             with: 0.1,
@@ -102,10 +111,16 @@ extension DetailViewController {
         minusButton.addBorder(width: 1, color: .lightGray)
         minusButton.roundedCorner(with: 4)
         addToCartButton.roundedCorner(with: 8)
+        setupLoaderView()
         setupTableView()
+        
         if #available(iOS 11.0, *) {
              tableView.contentInsetAdjustmentBehavior = .never
         }
+    }
+    
+    private func setupLoaderView() {
+        
     }
     
     private func bindViewModel() {
@@ -115,19 +130,29 @@ extension DetailViewController {
                   let show = $0.element
             else { return }
             DispatchQueue.main.async {
-                self.showLoader(self.loader, show)
+                self.showLoader(self.loaderView, self.loader, show)
                 self.overlayView.isHidden = show ? false : true
             }
         }.disposed(by: bag)
         vm.successGetProduct.subscribe { [weak self] in
             self?.handleSuccessGetProduct($0.element)
         }.disposed(by: bag)
-        vm.successAddWishlist.subscribe { [weak self] in
-            self?.createSimpleAlert("Berhasil", "Berhasil menambahkan produk sebagai wishlist", "OK")
-        }
+        vm.successAddWishlist.subscribe { [weak self] _ in
+            guard let self = self else { return }
+            let alert = self.createSimpleAlert(
+                "Berhasil",
+                "Berhasil menambahkan produk sebagai wishlist",
+                "OK"
+            )
+            self.present(alert, animated: true)
+            NotificationCenter.default.post(
+                name: Notification.Name("reload_wishlist"),
+                object: nil
+            )
+        }.disposed(by: bag)
         vm.successGetOthersProducts.subscribe { [weak self] in
             self?.handleSuccessGetOtherProducts($0.element)
-        }
+        }.disposed(by: bag)
     }
     
     private func handleError(_ error: String?) {
@@ -222,6 +247,7 @@ extension DetailViewController {
 extension DetailViewController : DetailHeaderProtocol {
     func didTapLikeButton(id: String) {
         vm.addWishlist(productId: id)
+        overlayView.alpha = 0.2
     }
     func didTapShareButton() {
         "SHARE"
