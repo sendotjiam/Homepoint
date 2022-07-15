@@ -13,7 +13,7 @@ struct Address {
     var isMain: Bool
 }
 
-class AddressViewController: UIViewController {
+final class AddressViewController: UIViewController {
     @IBOutlet weak var noAddressView: UIStackView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addAddressBtn: UIButton!
@@ -67,7 +67,7 @@ class AddressViewController: UIViewController {
         let vc = AddAddressViewController()
         navigationController?.pushViewController(
             vc,
-            animated: false
+            animated: true
         )
     }
 }

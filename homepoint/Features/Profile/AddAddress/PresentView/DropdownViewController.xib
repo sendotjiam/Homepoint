@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -65,12 +64,11 @@
                     </constraints>
                 </view>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="C59-Xo-R8c" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ajl-62-epR"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="C59-Xo-R8c" secondAttribute="trailing" id="j8o-CE-Ukd"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="C59-Xo-R8c" secondAttribute="bottom" id="nwl-2Z-5gg"/>
+                <constraint firstItem="C59-Xo-R8c" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ajl-62-epR"/>
+                <constraint firstAttribute="trailing" secondItem="C59-Xo-R8c" secondAttribute="trailing" id="j8o-CE-Ukd"/>
+                <constraint firstAttribute="bottom" secondItem="C59-Xo-R8c" secondAttribute="bottom" id="nwl-2Z-5gg"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="131.8840579710145" y="150.66964285714286"/>

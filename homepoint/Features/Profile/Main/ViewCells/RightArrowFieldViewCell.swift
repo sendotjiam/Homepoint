@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RightArrowFieldViewCell: UITableViewCell {
+final class RightArrowFieldViewCell: UITableViewCell {
     @IBOutlet weak var labelView: UILabel!
     @IBOutlet weak var uiView: UIView!
     

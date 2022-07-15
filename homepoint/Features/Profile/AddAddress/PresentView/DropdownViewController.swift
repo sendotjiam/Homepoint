@@ -11,7 +11,7 @@ protocol DropdownViewControllerDelegate {
     func selectedValue(type: AddressList, value: String)
 }
 
-class DropdownViewController: UIViewController {
+final class DropdownViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var doneLabel: UILabel!
     

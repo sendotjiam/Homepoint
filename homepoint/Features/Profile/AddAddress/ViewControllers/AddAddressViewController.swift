@@ -11,7 +11,7 @@ enum AddressList {
     case provinsi, kabupaten, kecamatan, kelurahan, kodePos
 }
 
-class AddAddressViewController: UIViewController {
+final class AddAddressViewController: UIViewController {
     @IBOutlet weak var checkButton: UIButton!
     var isChecked: Bool = false
     
@@ -86,36 +86,36 @@ class AddAddressViewController: UIViewController {
     @objc func provinsiTapped() {
         let vc = DropdownViewController(type: AddressList.provinsi, delegate: self)
         vc.data = ["Jakut", "Jaksel", "Jakpus", "Jaktim", "Jakbar", "Bekasi", "Banten", "Bogor"]
-        let navigationVC: UINavigationController = UINavigationController(rootViewController: vc)
-        self.present(navigationVC, animated: true, completion: nil)
+        vc.modalPresentationStyle = .pageSheet
+        self.present(vc, animated: true)
     }
     
     @objc func kabupatenTapped() {
         let vc = DropdownViewController(type: AddressList.kabupaten, delegate: self)
         vc.data = ["Jakut", "Jaksel", "Jakpus", "Jaktim", "Jakbar", "Bekasi", "Banten", "Bogor"]
-        let navigationVC: UINavigationController = UINavigationController(rootViewController: vc)
-        self.present(navigationVC, animated: true, completion: nil)
+        vc.modalPresentationStyle = .pageSheet
+        self.present(vc, animated: true)
     }
     
     @objc func kecamatanTapped() {
         let vc = DropdownViewController(type: AddressList.kecamatan, delegate: self)
         vc.data = ["Jakut", "Jaksel", "Jakpus", "Jaktim", "Jakbar", "Bekasi", "Banten", "Bogor"]
-        let navigationVC: UINavigationController = UINavigationController(rootViewController: vc)
-        self.present(navigationVC, animated: true, completion: nil)
+        vc.modalPresentationStyle = .pageSheet
+        self.present(vc, animated: true)
     }
     
     @objc func kelurahanTapped() {
         let vc = DropdownViewController(type: AddressList.kelurahan, delegate: self)
         vc.data = ["Jakut", "Jaksel", "Jakpus", "Jaktim", "Jakbar", "Bekasi", "Banten", "Bogor"]
-        let navigationVC: UINavigationController = UINavigationController(rootViewController: vc)
-        self.present(navigationVC, animated: true, completion: nil)
+        vc.modalPresentationStyle = .pageSheet
+        self.present(vc, animated: true)
     }
     
     @objc func kodePosTapped() {
         let vc = DropdownViewController(type: AddressList.kodePos, delegate: self)
         vc.data = ["Jakut", "Jaksel", "Jakpus", "Jaktim", "Jakbar", "Bekasi", "Banten", "Bogor"]
-        let navigationVC: UINavigationController = UINavigationController(rootViewController: vc)
-        self.present(navigationVC, animated: true, completion: nil)
+        vc.modalPresentationStyle = .pageSheet
+        self.present(vc, animated: true)
     }
     
     @IBAction func checkedDidTap(_ sender: Any) {

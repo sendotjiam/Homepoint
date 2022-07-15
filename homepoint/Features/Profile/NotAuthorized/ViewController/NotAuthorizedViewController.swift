@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NotAuthorizedViewController: UIViewController {
+final class NotAuthorizedViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

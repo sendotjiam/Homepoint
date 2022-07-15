@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ImageFieldViewCell: UITableViewCell {
+final class ImageFieldViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChangeProfileViewController: UIViewController {
+final class ChangeProfileViewController: UIViewController {
     @IBOutlet weak var femaleButton: UIButton!
     @IBOutlet weak var maleButton: UIButton!
     var gender: String? = nil

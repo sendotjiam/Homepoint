@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     @IBOutlet weak var profileTableView: UITableView!
     private enum section {
         case changeProfile, address, changePassword, policy, help, chatAdmin, logout
@@ -72,7 +72,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                 DispatchQueue.main.async {
                     self?.navigationController?.pushViewController(
                         vc,
-                        animated: false
+                        animated: true
                     )
                 }
             }
@@ -86,7 +86,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
                 DispatchQueue.main.async {
                     self?.navigationController?.pushViewController(
                         vc,
-                        animated: false
+                        animated: true
                     )
                 }
             }

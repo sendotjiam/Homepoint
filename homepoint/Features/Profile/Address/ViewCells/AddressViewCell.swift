@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddressViewCell: UITableViewCell {
+final class AddressViewCell: UITableViewCell {
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var mainAddressLabel: UILabel!

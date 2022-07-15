@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DropdownViewCell: UITableViewCell {
+final class DropdownViewCell: UITableViewCell {
     @IBOutlet weak var label: UILabel!
     
     var value: String? {

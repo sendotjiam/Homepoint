@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -58,7 +58,7 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Provinsi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNj-iJ-GMd">
-                                    <rect key="frame" x="16" y="17" width="54.5" height="17"/>
+                                    <rect key="frame" x="16" y="17.5" width="50" height="16.5"/>
                                     <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -89,7 +89,7 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kabupaten/Kota" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkd-MT-xXW">
-                                    <rect key="frame" x="16" y="17" width="110" height="17"/>
+                                    <rect key="frame" x="16" y="17.5" width="102.5" height="16.5"/>
                                     <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -120,7 +120,7 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kecamatan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRe-eH-HA8">
-                                    <rect key="frame" x="16" y="17" width="76" height="17"/>
+                                    <rect key="frame" x="16" y="17.5" width="71.5" height="16.5"/>
                                     <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -151,7 +151,7 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kelurahan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHJ-FY-rJl">
-                                    <rect key="frame" x="16" y="17" width="68" height="17"/>
+                                    <rect key="frame" x="16" y="17.5" width="63.5" height="16.5"/>
                                     <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -182,7 +182,7 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kode Pos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9X5-AZ-rQZ">
-                                    <rect key="frame" x="16" y="17" width="63.5" height="17"/>
+                                    <rect key="frame" x="16" y="17.5" width="61.5" height="16.5"/>
                                     <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -203,13 +203,13 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Informasi Penerima" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6y-D4-5Z5">
-                            <rect key="frame" x="20" y="430" width="374" height="17"/>
+                            <rect key="frame" x="20" y="430" width="374" height="16.5"/>
                             <fontDescription key="fontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="fO4-GF-jLP">
-                            <rect key="frame" x="20" y="751" width="177" height="20"/>
+                            <rect key="frame" x="20" y="751.5" width="170" height="20"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvh-4l-ip7">
                                     <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -225,7 +225,7 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jadikan alamat utama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tR-RF-EgQ">
-                                    <rect key="frame" x="32" y="0.0" width="145" height="20"/>
+                                    <rect key="frame" x="32" y="0.0" width="138" height="20"/>
                                     <fontDescription key="fontDescription" name="Inter-Regular" family="Inter" pointSize="14"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -233,7 +233,7 @@
                             </subviews>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GPn-An-BNj">
-                            <rect key="frame" x="20" y="787" width="374" height="31"/>
+                            <rect key="frame" x="20" y="787.5" width="374" height="30.5"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="filled" title="Simpan">
                                 <fontDescription key="titleFontDescription" name="Inter-SemiBold" family="Inter" pointSize="14"/>
@@ -267,7 +267,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NdR-lm-Ovz">
-                            <rect key="frame" x="20" y="463" width="374" height="51"/>
+                            <rect key="frame" x="20" y="462.5" width="374" height="51"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nama Penerima" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="ZTg-Vx-iSp">
                                     <rect key="frame" x="16" y="0.0" width="342" height="51"/>
@@ -292,7 +292,7 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gCC-0f-yPN">
-                            <rect key="frame" x="20" y="530" width="374" height="51"/>
+                            <rect key="frame" x="20" y="529.5" width="374" height="51"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nomor HP Penerima" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="PNN-5F-h5t">
                                     <rect key="frame" x="16" y="0.0" width="342" height="51"/>
