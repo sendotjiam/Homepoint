@@ -36,15 +36,16 @@ final class WishlistItemViewCell: UITableViewCell {
     var state : WishlistPageType? {
         didSet { hideView() }
     }
+    var shouldChecked : Bool = false {
+        didSet {
+            checkbox.isChecked = shouldChecked
+        }
+    }
     var delegate : WishlistItemInteraction?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
     }
     
     @IBAction func removeButtonTapped(_ sender: Any) {

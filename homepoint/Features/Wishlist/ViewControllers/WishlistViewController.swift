@@ -62,23 +62,7 @@ final class WishlistViewController: UIViewController {
     }
     
     @IBAction func editButtonTapped(_ sender: Any) {
-        switch pageType {
-        case .normal:
-            pageType = .edit
-            editButton.setTitle("Batal", for: .normal)
-            editButton.setTitleColor(ColorCollection.grayTextColor.value, for: .normal)
-            allCheckbox.isHidden = false
-            itemAmount.text = "Pilih semua \(data.count)"
-        case .edit:
-            pageType = .normal
-            editButton.setTitle("Atur", for: .normal)
-            editButton.setTitleColor(ColorCollection.primaryColor.value, for: .normal)
-            allCheckbox.isHidden = true
-            itemAmount.text = "\(data.count) Produk"
-        }
-        DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
-        }
+        togglePageType()
     }
 }
 
@@ -121,6 +105,24 @@ extension WishlistViewController {
     
     private func checkDataIsEmpty() {
         emptyView.isHidden = data.isEmpty ? false : true
+    }
+    
+    private func togglePageType() {
+        switch pageType {
+        case .normal:
+            pageType = .edit
+            editButton.setTitle("Batal", for: .normal)
+            editButton.setTitleColor(ColorCollection.grayTextColor.value, for: .normal)
+            allCheckbox.isHidden = false
+            itemAmount.text = "Pilih semua \(data.count)"
+        case .edit:
+            pageType = .normal
+            editButton.setTitle("Atur", for: .normal)
+            editButton.setTitleColor(ColorCollection.primaryColor.value, for: .normal)
+            allCheckbox.isHidden = true
+            itemAmount.text = "\(data.count) Produk"
+        }
+        reloadTableView()
     }
     
     override func searchTapped(sender: UIBarButtonItem) {
@@ -203,7 +205,8 @@ extension WishlistViewController : WishlistItemInteraction {
 }
 extension WishlistViewController : CheckboxClickable {
     func didTap(_ isSelected: Bool) {
-        
+        isAllSelected = isSelected
+        reloadTableView()
     }
 }
 
@@ -229,6 +232,7 @@ extension WishlistViewController :
         cell?.state = pageType
         cell?.data = data[indexPath.row]
         cell?.delegate = self
+        cell?.shouldChecked = isAllSelected
         return cell ?? UITableViewCell()
     }
     

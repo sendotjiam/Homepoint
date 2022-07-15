@@ -179,6 +179,11 @@
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
             </userDefinedRuntimeAttributes>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="5Za-HG-xuK"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="137.68115942028987" y="75"/>
         </view>
     </objects>
