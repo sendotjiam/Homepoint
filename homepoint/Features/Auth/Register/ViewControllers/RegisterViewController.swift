@@ -28,6 +28,14 @@ final class RegisterViewController: UIViewController {
     @IBOutlet weak var emailClearBtn: UIButton!
     @IBOutlet weak var registerBtn: UIButton!
 
+    private lazy var loaderView : UIView = {
+        let view = UIView()
+        view.roundedCorner(with: 8)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        return view
+    }()
+
     var iconClick = false
     let imageIcon = UIImageView()
     
@@ -172,7 +180,7 @@ extension RegisterViewController {
                 guard let self = self,
                       let show = $0.element
                 else { return }
-                self.showLoader(self.loader, show)
+                self.showLoader(self.loaderView, self.loader, show)
             }
             .disposed(by: bag)
     }

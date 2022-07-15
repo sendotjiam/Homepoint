@@ -28,6 +28,20 @@ final class LoginViewController: UIViewController {
     @IBOutlet weak var passwordError: UILabel!
     @IBOutlet weak var loginBtn: UIButton!
 
+    private lazy var loaderView : UIView = {
+        let view = UIView()
+        view.roundedCorner(with: 8)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        return view
+    }()
+    private let loader = NVActivityIndicatorView (
+        frame: .zero,
+        type: .circleStrokeSpin,
+        color: ColorCollection.primaryColor.value,
+        padding: 0
+    )
+
     var iconClick = false
     let imageIcon = UIImageView()
     
@@ -38,13 +52,6 @@ final class LoginViewController: UIViewController {
     private var isPasswordError = true
 
     var delegate : LoginProtocol?
-
-    private let loader = NVActivityIndicatorView (
-        frame: .zero,
-        type: .circleStrokeSpin,
-        color: ColorCollection.primaryColor.value,
-        padding: 0
-    )
 
     init() {
         super.init(nibName: "LoginViewController", bundle: nil)
@@ -165,7 +172,7 @@ extension LoginViewController {
                 guard let self = self,
                       let show = $0.element
                 else { return }
-                self.showLoadingIndicator(show)
+                self.showLoader(self.loaderView, self.loader, show)
             }
             .disposed(by: bag)
     }
