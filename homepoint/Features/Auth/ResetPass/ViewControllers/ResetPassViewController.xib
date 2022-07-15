@@ -72,7 +72,7 @@
                                     <rect key="frame" x="0.0" y="222" width="414" height="53"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kata Sandi Baru" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1XV-YH-wCA">
-                                            <rect key="frame" x="22" y="12" width="370" height="27"/>
+                                            <rect key="frame" x="22" y="12" width="370" height="41"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -83,7 +83,7 @@
                                         <constraint firstItem="1XV-YH-wCA" firstAttribute="top" secondItem="Ad6-V4-yxz" secondAttribute="top" constant="12" id="B7d-ha-Fpc"/>
                                         <constraint firstItem="1XV-YH-wCA" firstAttribute="leading" secondItem="Ad6-V4-yxz" secondAttribute="leading" constant="22" id="JTb-or-oe5"/>
                                         <constraint firstAttribute="trailing" secondItem="1XV-YH-wCA" secondAttribute="trailing" constant="22" id="bT8-3G-ICD"/>
-                                        <constraint firstAttribute="bottom" secondItem="1XV-YH-wCA" secondAttribute="bottom" constant="14" id="gQX-AJ-4d6"/>
+                                        <constraint firstAttribute="bottom" secondItem="1XV-YH-wCA" secondAttribute="bottom" id="gQX-AJ-4d6"/>
                                         <constraint firstAttribute="height" constant="53" id="iJI-TI-X9X"/>
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
@@ -266,7 +266,7 @@
                 <constraint firstItem="iCa-Hp-uzN" firstAttribute="top" secondItem="QYS-kh-56Z" secondAttribute="top" constant="-46" id="d5s-6V-eM2"/>
                 <constraint firstItem="iCa-Hp-uzN" firstAttribute="leading" secondItem="qEQ-Er-Qoy" secondAttribute="leading" id="zsL-JK-4dk"/>
             </constraints>
-            <point key="canvasLocation" x="-599" y="132"/>
+            <point key="canvasLocation" x="-600" y="131.91964285714286"/>
         </view>
     </objects>
     <resources>

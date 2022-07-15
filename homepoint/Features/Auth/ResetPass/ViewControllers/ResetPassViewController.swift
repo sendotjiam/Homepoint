@@ -54,12 +54,39 @@ final class ResetPassViewController: UIViewController {
     }
 
     @IBAction func passwordChanged(_ sender: Any) {
-
+        if let password = passwordTF.text {
+            if let errorMessage = invalidPassword(password)
+            {
+                isPasswordError = true
+                errorPassLabel.text = errorMessage
+                errorPassLabel.isHidden = false
+            }
+            else {
+                isPasswordError = false
+                errorPassLabel.isHidden = true
+            }
+        }
+        if passwordTF.text == "" {
+            return errorPassLabel.isHidden = true
+        }
+        checkValidForm()
     }
 
     @IBAction func confirmChanged(_ sender: Any) {
+        if let confirm = confirmPasswordTF.text {
+            if confirm == passwordTF.text {
+                isConfirmError = false
+                errorConfirmLabel.isHidden = true
+            } else {
+                isConfirmError = true
+                errorConfirmLabel.isHidden = false
+            }
+        }
+        if confirmPasswordTF.text == "" {
+            return errorConfirmLabel.isHidden = true
+        }
+        checkValidForm()
     }
-
 
 }
 
@@ -90,8 +117,6 @@ extension ResetPassViewController {
         imageIcon.frame = CGRect(x: -6, y: -5, width: 24, height: 24)
         passwordTF.rightView = contentView
         passwordTF.rightViewMode = .always
-        confirmPasswordTF.rightView = contentView
-        confirmPasswordTF.rightViewMode = .always
 
         let tapGestureRecognizer = UITapGestureRecognizer(
             target: self,
