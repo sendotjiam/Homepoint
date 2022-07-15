@@ -12,6 +12,26 @@ var globalLoadingIndicator : UIView?
 
 extension UIViewController  {
     
+    func addNotificationCenter(label: String, selector: Selector) {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: selector,
+            name: Notification.Name(label),
+            object: nil
+        )
+    }
+    
+    func postNotificationCenter(label: String) {
+        NotificationCenter.default.post(
+            name: Notification.Name(label),
+            object: nil
+        )
+    }
+    
+    func removeNotificationCenter() {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     /// Alert with actions
     func createConfirmationAlert(
         _ title : String,

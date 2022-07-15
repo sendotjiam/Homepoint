@@ -15,12 +15,11 @@ final class DetailViewController: UIViewController {
     @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bottomContainerView: UIView!
-    @IBOutlet weak var discountedPriceLabel: UILabel!
+    @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var qtyLabel: UILabel!
     @IBOutlet weak var addToCartButton: UIButton!
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var minusButton: UIButton!
-    @IBOutlet weak var realPriceLabel: UILabel!
     
     private lazy var loaderView : UIView = {
         let view = UIView()
@@ -48,13 +47,13 @@ final class DetailViewController: UIViewController {
     
     // MARK: - Variable
     private var qty = 1.0
-    private var price = 0.0
-    private var total = 0.0
-    private var discount : Double = 0.0
+    private var discountValue = 0.0
     private var discountedPrice = 0.0
     private var originalPrice = 0.0
+    private var finalPrice = 0.0
     private var productData : ProductDataModel?
     private var otherProducts = [ProductDataModel]()
+    private var wishlistId = ""
     
     private let vm = DetailViewModel()
     private let bag = DisposeBag()
@@ -64,7 +63,6 @@ final class DetailViewController: UIViewController {
         super.init(nibName: Constants.DetailVC, bundle: nil)
         self.hidesBottomBarWhenPushed = true
         vm.getProductAndOtherProducts(id: id)
-        navigationController?.hidesBarsOnSwipe = false
     }
     
     required init?(coder: NSCoder) {
@@ -80,6 +78,10 @@ final class DetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setNavigationBar(type: .backSearchAndCart(isTransparent: true))
+    }
+    
+    deinit {
+        self.removeNotificationCenter()
     }
     
     // MARK: - Actions
@@ -111,7 +113,6 @@ extension DetailViewController {
         minusButton.addBorder(width: 1, color: .lightGray)
         minusButton.roundedCorner(with: 4)
         addToCartButton.roundedCorner(with: 8)
-        setupLoaderView()
         setupTableView()
         
         if #available(iOS 11.0, *) {
@@ -119,86 +120,10 @@ extension DetailViewController {
         }
     }
     
-    private func setupLoaderView() {
-        
-    }
-    
-    private func bindViewModel() {
-        vm.error.subscribe { self.handleError($0.element) }.disposed(by: bag)
-        vm.isLoading.subscribe { [weak self] in
-            guard let self = self,
-                  let show = $0.element
-            else { return }
-            DispatchQueue.main.async {
-                self.showLoader(self.loaderView, self.loader, show)
-                self.overlayView.isHidden = show ? false : true
-            }
-        }.disposed(by: bag)
-        vm.successGetProduct.subscribe { [weak self] in
-            self?.handleSuccessGetProduct($0.element)
-        }.disposed(by: bag)
-        vm.successAddWishlist.subscribe { [weak self] _ in
-            guard let self = self else { return }
-            let alert = self.createSimpleAlert(
-                "Berhasil",
-                "Berhasil menambahkan produk sebagai wishlist",
-                "OK"
-            )
-            self.present(alert, animated: true)
-            NotificationCenter.default.post(
-                name: Notification.Name("reload_wishlist"),
-                object: nil
-            )
-        }.disposed(by: bag)
-        vm.successGetOthersProducts.subscribe { [weak self] in
-            self?.handleSuccessGetOtherProducts($0.element)
-        }.disposed(by: bag)
-    }
-    
-    private func handleError(_ error: String?) {
-        guard let error = error else { return }
-        self.handleError(msg: error)
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    private func handleSuccessGetProduct(
-        _ product : ProductDataModel?
-    ) {
-        guard let data = product else { return }
-        originalPrice = data.price
-        discount = data.discount
-        discountedPrice = originalPrice - discount
-        countTotalPrice()
-        self.productData = data
-        DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
-        }
-    }
-    
-    private func handleSuccessGetOtherProducts(
-        _ products : [ProductDataModel]?
-    ) {
-        self.otherProducts = products ?? []
-        DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
-        }
-    }
-    
     private func countTotalPrice() {
-        price = originalPrice * qty
-        discountedPrice = originalPrice - discount
-        let priceStr = price.convertToCurrency()
-        let discountedStr = discountedPrice.convertToCurrency()
-        let attributedPrice = "\(priceStr)"
-        realPriceLabel.attributedText = attributedPrice
-            .strikethroughText(
-                range: NSRange(
-                    location: 0,
-                    length: priceStr.count
-                )
-            )
+        discountedPrice = finalPrice * qty
         qtyLabel.text = "\(Int(qty))"
-        discountedPriceLabel.text = "\(discountedStr)"
+        totalPriceLabel.text = "\(discountedPrice.convertToCurrency())"
     }
     
     private func setupTableView() {
@@ -236,6 +161,100 @@ extension DetailViewController {
     }
 }
 
+// MARK: - Binding
+extension DetailViewController {
+    private func bindViewModel() {
+        vm.error.subscribe { [weak self] in
+            self?.handleError($0.element)
+        }.disposed(by: bag)
+        vm.isLoading.subscribe { [weak self] in
+            self?.handleLoading($0.element)
+        }.disposed(by: bag)
+        vm.successGetProduct.subscribe { [weak self] in
+            self?.handleSuccessGetProduct($0.element)
+        }.disposed(by: bag)
+        vm.successAddWishlist.subscribe { [weak self] in
+            self?.handleSuccessAddWishlist($0.element)
+        }.disposed(by: bag)
+        vm.successGetOthersProducts.subscribe { [weak self] in
+            self?.handleSuccessGetOtherProducts($0.element)
+        }.disposed(by: bag)
+        vm.successIsWishlist.subscribe { [weak self] in
+            self?.handleIsWishlist($0.element)
+        }.disposed(by: bag)
+        vm.successDeleteWishlist.subscribe { [weak self] _ in
+            self?.handleDeleteWishlist()
+        }.disposed(by: bag)
+    }
+    
+    private func handleError(_ error: String?) {
+        guard let error = error else { return }
+        self.handleError(msg: error)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    private func handleIsWishlist(_ wishlistId: String?) {
+        self.wishlistId = wishlistId ?? ""
+        reloadTableView()
+    }
+    
+    private func handleDeleteWishlist() {
+        self.wishlistId = ""
+        reloadTableView()
+        let alert = self.createSimpleAlert(
+            "Berhasil",
+            "Berhasil menghapus produk dalam wishlist",
+            "OK"
+        )
+        self.present(alert, animated: true)
+
+        self.postNotificationCenter(label: "reload_wishlist")
+    }
+    
+    private func handleSuccessAddWishlist(_ wishlist: WishlistDataModel?) {
+        self.wishlistId = wishlist?.id ?? ""
+        let alert = self.createSimpleAlert(
+            "Berhasil",
+            "Berhasil menambahkan produk sebagai wishlist",
+            "OK"
+        )
+        self.present(alert, animated: true)
+        self.postNotificationCenter(label: "reload_wishlist")
+    }
+    
+    private func handleLoading(_ isLoading: Bool?) {
+        guard let loading = isLoading
+        else { return }
+        DispatchQueue.main.async {
+            self.showLoader(self.loaderView, self.loader, loading)
+            self.overlayView.isHidden = loading ? false : true
+        }
+    }
+    
+    private func handleSuccessGetProduct(
+        _ product : ProductDataModel?
+    ) {
+        guard let data = product else { return }
+        
+        originalPrice = data.price
+        discountValue = (data.price * (data.discount / 100))
+        finalPrice = originalPrice - discountValue
+        
+        countTotalPrice()
+        
+        self.productData = data
+        vm.checkProductIsWishlist(productId: productData?.id ?? "")
+        reloadTableView()
+    }
+    
+    private func handleSuccessGetOtherProducts(
+        _ products : [ProductDataModel]?
+    ) {
+        self.otherProducts = products ?? []
+        reloadTableView()
+    }
+}
+
 // MARK: - Navigation Bar
 extension DetailViewController {
     override func searchTapped(sender: UIBarButtonItem) {
@@ -244,14 +263,13 @@ extension DetailViewController {
     }
 }
 
+// MARK: - Delegation
 extension DetailViewController : DetailHeaderProtocol {
     func didTapLikeButton(id: String) {
-        vm.addWishlist(productId: id)
+        wishlistId != "" ? vm.deleteWishlist(id: wishlistId) : vm.addWishlist(productId: id)
         overlayView.alpha = 0.2
     }
-    func didTapShareButton() {
-        "SHARE"
-    }
+    func didTapShareButton() { return }
     func didTapMessageButton() {return}
     func didTapCompareButton() {return}
 }
@@ -316,8 +334,8 @@ extension DetailViewController :
             guard let cellHeader = cell as? DetailHeaderViewCell
             else { return nil }
             cellHeader.data = productData
-            cellHeader.colors = ["#F1C6B9", "#f1f1f1", "#000000"]
             cellHeader.delegate = self
+            cellHeader.isWishlist = wishlistId == "" ? false : true
             return cellHeader as? T
         case .description:
             guard let cellDescription = cell as? DetailDescriptionViewCell
@@ -355,6 +373,12 @@ extension DetailViewController :
             }
             return cell as? T
         default: return cell
+        }
+    }
+    
+    func reloadTableView() {
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
         }
     }
 }

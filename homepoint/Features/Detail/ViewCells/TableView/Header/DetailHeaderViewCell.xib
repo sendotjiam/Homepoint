@@ -264,6 +264,7 @@
                 <outlet property="productNameLabel" destination="wds-tN-3WA" id="ara-sq-1f5"/>
                 <outlet property="ratingLabel" destination="JRt-CK-2EP" id="umI-x3-8i7"/>
                 <outlet property="soldNumberLabel" destination="myt-eI-hVa" id="RpE-4j-3f3"/>
+                <outlet property="wishlistButton" destination="rmk-Q4-9Jj" id="ewJ-ep-bUe"/>
             </connections>
             <point key="canvasLocation" x="123.18840579710145" y="239.0625"/>
         </tableViewCell>

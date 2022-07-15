@@ -28,13 +28,17 @@ final class DetailHeaderViewCell: UITableViewCell {
     @IBOutlet weak var brandLabel: UILabel!
     @IBOutlet weak var compareButtonView: UIStackView!
     @IBOutlet weak var colorListCollectionView: UICollectionView!
-
+    @IBOutlet weak var wishlistButton: UIButton!
+    
     // MARK: - Data
     var data : ProductDataModel? {
         didSet { configureCell() }
     }
     var colors = [String]() {
         didSet { configureCell() }
+    }
+    var isWishlist : Bool = false {
+        didSet { toggleWishlist() }
     }
     var colorsModel : ColorCellModel?
     
@@ -77,12 +81,6 @@ extension DetailHeaderViewCell {
     private func configureCell() {
         guard let data = data else { return }
         let imageUrl = URL(string: data.productImages[0].image)
-        let priceStr = data.price.convertToCurrency()
-        let discountedStr = (data.price - data.discount).convertToCurrency()
-        let attributedPrice = "\(priceStr) \(discountedStr)"
-        priceLabel.attributedText = attributedPrice.strikethroughText(range: NSRange(
-            location: 0, length: priceStr.count
-        ))
         productImageView?.sd_setImage(with: imageUrl, completed: nil)
         productNameLabel.text = data.name
         soldNumberLabel.text = "Terjual \(data.amountSold)"
@@ -90,9 +88,31 @@ extension DetailHeaderViewCell {
         brandLabel.text = data.brand
         
         colorsModel = ColorCellModel(data.color, false)
+        
+        if data.discount == 0.0 {
+            priceLabel.text = data.price.convertToCurrency()
+        } else {
+            let discountValue = (data.price * (data.discount / 100))
+            let finalPrice = data.price - discountValue
+            let price = data.price.convertToCurrency()
+            let combinePrices = "\(price) \(finalPrice.convertToCurrency())"
+            priceLabel.attributedText = combinePrices.strikethroughText(
+                    color: .lightGray,
+                    range: NSRange(
+                        location: 0,
+                        length: price.count
+                    )
+                )
+        }
+        
         DispatchQueue.main.async { [weak self] in
             self?.colorListCollectionView.reloadData()
         }
+    }
+    
+    private func toggleWishlist() {
+        let icon = UIImage(named: isWishlist ? "ic_heart.fill" : "ic_like")
+        wishlistButton.setImage(icon, for: .normal)
     }
     
     class func nib() -> UINib {

@@ -11,7 +11,7 @@ protocol WishlistUseCaseProvider {
     typealias AddWishlistItem = ((WishlistResponseModel?, Error?) -> Void)
     typealias FetchWishlists = ((AllWishlistsResponseModel?, Error?) -> Void)
     typealias DeleteWishlist = ((WishlistResponseModel?, Error?) -> Void)
-    
+    typealias IsWishlist = ((String?, Error?) -> Void)
     func addWishlist(
         productId: String,
         userId: String,
@@ -25,6 +25,11 @@ protocol WishlistUseCaseProvider {
     
     func deleteWishlist(id: String, completion: @escaping DeleteWishlist)
 
+    func checkProductIsWishlist(
+        productId: String,
+        userId: String,
+        completion: @escaping IsWishlist
+    )
 }
 
 final class WishlistUseCase {
@@ -36,6 +41,7 @@ final class WishlistUseCase {
 }
 
 extension WishlistUseCase : WishlistUseCaseProvider {
+    
     func addWishlist(
         productId: String,
         userId: String,
@@ -62,6 +68,21 @@ extension WishlistUseCase : WishlistUseCaseProvider {
     func deleteWishlist(id: String, completion: @escaping DeleteWishlist) {
         repository.deleteWishlist(id: id) { result, error in
             completion(result, error)
+        }
+    }
+    
+    func checkProductIsWishlist(
+        productId: String,
+        userId: String,
+        completion: @escaping IsWishlist
+    ) {
+        let params : [String: String] = [
+            "userId" : userId,
+            "productId": productId
+        ]
+        print(params)
+        repository.checkProductIsWishlist(params: params) { result, error in
+            completion(result?.data.id ?? "", nil)
         }
     }
 }

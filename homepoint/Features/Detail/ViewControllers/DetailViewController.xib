@@ -14,13 +14,12 @@
             <connections>
                 <outlet property="addToCartButton" destination="zrv-n0-umG" id="fHZ-cO-xy2"/>
                 <outlet property="bottomContainerView" destination="mBJ-gv-Dos" id="Z3f-0H-tg5"/>
-                <outlet property="discountedPriceLabel" destination="mcH-TX-D5n" id="x9Q-bk-LzF"/>
                 <outlet property="minusButton" destination="8Fk-mB-b9d" id="gT0-5O-tEI"/>
                 <outlet property="overlayView" destination="X5I-kk-3Xw" id="TzS-ZD-2hK"/>
                 <outlet property="plusButton" destination="h9A-Jn-zay" id="uQj-Vs-HAe"/>
                 <outlet property="qtyLabel" destination="J4X-2p-cLc" id="zOt-vj-YFW"/>
-                <outlet property="realPriceLabel" destination="xDB-Ji-Too" id="S1P-v4-rc1"/>
                 <outlet property="tableView" destination="3qc-Bo-s5s" id="vYb-50-uUK"/>
+                <outlet property="totalPriceLabel" destination="mcH-TX-D5n" id="yob-Dh-G5r"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

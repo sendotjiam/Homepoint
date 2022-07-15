@@ -41,11 +41,9 @@ final class WishlistViewController: UIViewController {
         vm.getWishlists()
         view.showShimmer()
         
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(reloadWishlist),
-            name: Notification.Name("reload_wishlist"),
-            object: nil
+        self.addNotificationCenter(
+            label: "reload_wishlist",
+            selector: #selector(reloadWishlist)
         )
     }
     
@@ -53,6 +51,10 @@ final class WishlistViewController: UIViewController {
         super.viewWillAppear(animated)
         checkDataIsEmpty()
         setNavigationBar(type: .defaultNav)
+    }
+    
+    deinit {
+        removeNotificationCenter()
     }
     
     @IBAction func cleanButtonTapped(_ sender: Any) {
@@ -224,7 +226,6 @@ extension WishlistViewController :
             withIdentifier: WishlistItemViewCell.identifier,
             for: indexPath
         ) as? WishlistItemViewCell
-        print("CHECKBOX SELECTED", isAllSelected)
         cell?.state = pageType
         cell?.data = data[indexPath.row]
         cell?.delegate = self

@@ -91,4 +91,31 @@ extension WishlistRepository : WishlistRepositoryInterface {
             }
         }
     }
+    
+    func checkProductIsWishlist(
+        params: [String : Any],
+        completion: @escaping CheckProductIsWishlist
+    ) {
+        guard let userId = params["userId"],
+              let productId = params["productId"]
+        else { return }
+        apiClient.request(
+            urlString + "/items/\(userId)/\(productId)",
+            .get,
+            nil,
+            nil
+        ) { response, data, error in
+            if let data = data {
+                do {
+                    let json = try JSON(data: data)
+                    let model = WishlistResponseModel(object: json)
+                    completion(model, nil)
+                } catch {
+                    completion(nil, NetworkError.EmptyDataError)
+                }
+            } else {
+                completion(nil, NetworkError.ApiError)
+            }
+        }
+    }
 }
