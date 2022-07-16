@@ -134,6 +134,8 @@
 		6275AF95285880D000D3857D /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6275AF94285880D000D3857D /* LoginModel.swift */; };
 		6275AF972858833000D3857D /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6275AF962858833000D3857D /* RegisterModel.swift */; };
 		6279A6932882EB500048545C /* NotLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279A6922882EB500048545C /* NotLoginView.swift */; };
+		6279A6962883064E0048545C /* NotLoginAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6279A6942883064E0048545C /* NotLoginAlertViewController.swift */; };
+		6279A6972883064E0048545C /* NotLoginAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6279A6952883064E0048545C /* NotLoginAlertViewController.xib */; };
 		627A3901284CCE3B002ADC6B /* OrderListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627A38FF284CCE3B002ADC6B /* OrderListViewController.swift */; };
 		627A3902284CCE3B002ADC6B /* OrderListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 627A3900284CCE3B002ADC6B /* OrderListViewController.xib */; };
 		627A3907284CCFE8002ADC6B /* OrderListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 627A3905284CCFE8002ADC6B /* OrderListViewCell.swift */; };
@@ -350,6 +352,8 @@
 		6275AF94285880D000D3857D /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		6275AF962858833000D3857D /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		6279A6922882EB500048545C /* NotLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotLoginView.swift; sourceTree = "<group>"; };
+		6279A6942883064E0048545C /* NotLoginAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotLoginAlertViewController.swift; sourceTree = "<group>"; };
+		6279A6952883064E0048545C /* NotLoginAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotLoginAlertViewController.xib; sourceTree = "<group>"; };
 		627A38FF284CCE3B002ADC6B /* OrderListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewController.swift; sourceTree = "<group>"; };
 		627A3900284CCE3B002ADC6B /* OrderListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderListViewController.xib; sourceTree = "<group>"; };
 		627A3905284CCFE8002ADC6B /* OrderListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewCell.swift; sourceTree = "<group>"; };
@@ -1215,6 +1219,8 @@
 			isa = PBXGroup;
 			children = (
 				6279A6922882EB500048545C /* NotLoginView.swift */,
+				6279A6942883064E0048545C /* NotLoginAlertViewController.swift */,
+				6279A6952883064E0048545C /* NotLoginAlertViewController.xib */,
 			);
 			path = NotLogin;
 			sourceTree = "<group>";
@@ -2076,6 +2082,7 @@
 				621040002851DA5900A413F6 /* DetailHeaderViewCell.xib in Resources */,
 				62DC6ABB285336280093DB64 /* ReviewPhotoListViewCell.xib in Resources */,
 				62E4BF76286C649C00769B75 /* WishlistViewController.xib in Resources */,
+				6279A6972883064E0048545C /* NotLoginAlertViewController.xib in Resources */,
 				5370DFCB2848FE6500FD1ED5 /* Inter-ExtraLight.ttf in Resources */,
 				5370DFCA2848FE6500FD1ED5 /* Inter-Black.ttf in Resources */,
 				53D772FB2849FBF2008F2912 /* MenuViewCell.xib in Resources */,
@@ -2309,6 +2316,7 @@
 				53D7732D284A41B9008F2912 /* MenuItemViewCell.swift in Sources */,
 				6216E07B2848EC780019747D /* Color+Ext.swift in Sources */,
 				6214C7432861B79D0060CAD4 /* Double+Ext.swift in Sources */,
+				6279A6962883064E0048545C /* NotLoginAlertViewController.swift in Sources */,
 				624B122328605D2E0071D088 /* ProductsUseCase.swift in Sources */,
 				62C0B13D285C5BEB00EACE59 /* DiscussListViewCell.swift in Sources */,
 				53B76A59287C762800A56095 /* AddAddressViewController.swift in Sources */,

@@ -101,11 +101,18 @@ extension OrderListViewController : LoginProtocol, NotLoginViewProtocol {
 // MARK: - NavigationBar
 extension OrderListViewController {
     override func historyTapped(sender: UIBarButtonItem) {
-        navigationController?
-            .pushViewController(
-                HistoryViewController(),
-                animated: true
-            )
+        if (UserDefaults.standard.value(forKey: "user_token") != nil) {
+            navigationController?
+                .pushViewController(
+                    HistoryViewController(),
+                    animated: true
+                )
+        } else {
+            let vc = NotLoginAlertViewController()
+            vc.delegate = self
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: false)
+        }
     }
 }
 

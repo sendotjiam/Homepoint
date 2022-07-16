@@ -209,10 +209,7 @@ extension UIViewController  {
 
 // MARK: - NavigationItem
 extension UIViewController : NavigationItemHandler {
-    @objc func cartTapped(sender: UIBarButtonItem) {
-        let vc = CartViewController()
-        navigationController?.pushViewController(vc, animated: true)
-    }
+    @objc func cartTapped(sender: UIBarButtonItem) {}
     @objc func notificationTapped(sender: UIBarButtonItem) {}
     @objc func likeTapped(sender: UIBarButtonItem) {}
     @objc func historyTapped(sender: UIBarButtonItem) {}

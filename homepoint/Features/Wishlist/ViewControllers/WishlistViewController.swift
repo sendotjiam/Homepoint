@@ -46,6 +46,10 @@ final class WishlistViewController: UIViewController {
             label: "reload_view",
             selector: #selector(reloadView)
         )
+        self.addNotificationCenter(
+            label: "reload_wishlist",
+            selector: #selector(reloadView)
+        )
     }
     
     override func viewWillAppear(_ animated: Bool) {
