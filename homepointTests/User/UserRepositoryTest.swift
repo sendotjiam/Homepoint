@@ -119,6 +119,24 @@ final class UserRepositoryTest: XCTestCase {
             /// Then
             guard let response = response else { return }
             XCTAssertEqual(response.data, expectedDataModel)
+
+    internal func test_PositiveCase_Forget() {
+        /// Given
+        let params : [String : Any] = ForgetRequestModel(
+            email: "tommy@mail.com"
+        ).toDictionary()
+        var expectedModel = MockUserData.generateForgetResponseModel()
+        expectedModel.data = MockUserData.generateForgetDataModel()
+        let mock = MockApiClient()
+        mock.data = MockUserData.generateForgetData()
+        let sut = UserRepository(mock)
+
+        /// When
+        let expected = expectation(description: "Should have return success forget")
+        sut.forget(params: params) { response, error in
+            /// Then
+            guard let response = response else { return }
+            XCTAssertEqual(response, expectedModel)
             expected.fulfill()
         }
         wait(for: [expected], timeout: 1)
@@ -158,5 +176,26 @@ final class UserRepositoryTest: XCTestCase {
             expected.fulfill()
         }
         wait(for: [expected], timeout: 1)
+
+
+    internal func test_NegativeCase_Forget() {
+        /// Given
+        let params : [String : Any] = ForgetRequestModel(
+            email: "tommy@mail.com"
+        ).toDictionary()
+        let expectedError = NetworkError.ApiError
+        let mock = MockApiClient()
+        mock.error = AuthError.FailedRegister
+        sut = UserRepository(mock)
+
+        /// When
+        let expectation = expectation(description: "Should have return failed forget")
+        sut.forget(params: params) { response, error in
+            /// Then
+            guard let error = error else { return }
+            XCTAssertEqual(error as! NetworkError, expectedError)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
     }
 }

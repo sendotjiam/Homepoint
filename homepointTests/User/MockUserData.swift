@@ -70,4 +70,25 @@ struct MockUserData {
             ]))
         ]
     }
+
+
+    static func generateForgetData() -> Data? {
+        "{ \"message\": \"Success For Forget\", \"status\": \"200\", \"success\": true, \"data\": { \"email\": \"tommy@mail.com\" } }".data(using: .utf8)
+    }
+
+    static func generateForgetResponseModel() -> ForgetResponseModel {
+        ForgetResponseModel(object: JSON([
+            "success": true,
+            "status": "200",
+            "message": "Success For Forget",
+            "data": ""
+        ]))
+    }
+
+    static func generateForgetDataModel() -> ForgetDataModel {
+        ForgetDataModel(object: JSON([
+            "email": "tommy@mail.com",
+        ]))
+    }
+
 }

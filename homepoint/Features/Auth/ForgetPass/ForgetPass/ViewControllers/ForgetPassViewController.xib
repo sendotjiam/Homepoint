@@ -166,7 +166,7 @@
                                                 <color key="baseBackgroundColor" red="0.98431372549999996" green="0.77647058820000003" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </buttonConfiguration>
                                             <connections>
-                                                <action selector="didTapReset:" destination="-1" eventType="touchUpInside" id="9wK-cL-k0j"/>
+                                                <action selector="didTapForget:" destination="-1" eventType="touchUpInside" id="Bcu-bN-BiK"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZb-xv-wRp">

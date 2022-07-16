@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import NVActivityIndicatorView
 
 final class ForgetPassViewController: UIViewController {
     
@@ -16,8 +18,23 @@ final class ForgetPassViewController: UIViewController {
     @IBOutlet weak var emailError: UILabel!
     @IBOutlet weak var requestBtn: UIButton!
 
+    private lazy var loaderView : UIView = {
+        let view = UIView()
+        view.roundedCorner(with: 8)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        return view
+    }()
+    private let loader = NVActivityIndicatorView (
+        frame: .zero,
+        type: .circleStrokeSpin,
+        color: ColorCollection.primaryColor.value,
+        padding: 0
+    )
 
     // MARK: - Variables
+    private let vm : ForgetViewModel = ForgetViewModel()
+    private let bag = DisposeBag()
     private var isEmailError = true
 
     override func viewDidLoad() {
@@ -25,21 +42,26 @@ final class ForgetPassViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: false)
         addHideKeyboardGesture()
         setupKeyboardObserver()
+
         setupUI()
+        bindViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setNavigationBar(type: .back)
     }
-    
-    @IBAction func didTapReset(_ sender: Any) {
-        navigationController?
-            .pushViewController(
-                LastForgetPassViewController(),
-                animated: true
+
+    @IBAction func didTapForget(_ sender: Any) {
+        guard let email = emailTextField.text
+        else { return }
+        vm.forget(
+            model: ForgetRequestModel(
+                email: email
             )
+        )
     }
+
     @IBAction func didTapEmailClearBtn(_ sender: UIButton) {
         emailTextField.text = ""
         emailClearBtn.isHidden = true
@@ -70,11 +92,33 @@ final class ForgetPassViewController: UIViewController {
 extension ForgetPassViewController {
     private func setupUI() {
         setupTextField()
+
         emailError.isHidden = true
         requestBtn.isEnabled = false
     }
     private func bindViewModel() {
-        
+        vm.successForget
+            .subscribe { [weak self] in self?.handleSuccessForget($0) }
+            .disposed(by: bag)
+
+        vm.error
+            .subscribe { [weak self] in self?.handleError(msg: $0) }
+            .disposed(by: bag)
+
+        vm.isLoading
+            .subscribe { [weak self] in
+                guard let self = self,
+                      let show = $0.element
+                else { return }
+                self.showLoader(self.loaderView, self.loader, show)
+            }
+            .disposed(by: bag)
+    }
+
+    private func handleSuccessForget(_ response: ForgetResponseModel) {
+        navigationController?.pushViewController(LastForgetPassViewController(), animated: true)
+        print(response)
+
     }
 
     func invalidEmail(_ value: String) -> String? {
