@@ -81,6 +81,30 @@ extension UserRepository : UserRepositoryInterface {
                     let json = try JSON(data: data)
                     let model = UsersResponseModel(object: json)
                     completion(model, nil)
+                    } catch {
+                    completion(nil, NetworkError.EmptyDataError)
+                }
+            } else {
+                completion(nil, NetworkError.ApiError)
+            }
+        }
+    }
+
+    func forget(
+        params: [String : Any],
+        completion: @escaping ((ForgetResponseModel?, Error?) -> Void)
+    ) {
+        apiClient.request(
+            urlString + "forgot_password",
+            .post,
+            params,
+            nil
+        ) { response, data, error in
+            if let data = data {
+                do {
+                    let json = try JSON(data: data)
+                    let model = ForgetResponseModel(object: json)
+                    completion(model, error)
                 } catch {
                     completion(nil, NetworkError.EmptyDataError)
                 }

@@ -20,7 +20,12 @@ protocol UserUseCaseProvider {
     )
     func getUser(
         by id: String,
-        completion: @escaping GetUserById
+        completion: @escaping GetUserById 
+    )
+
+    func forget(
+        request: ForgetRequestModel,
+        completion: @escaping ((ForgetResponseModel?, Error?) -> ())
     )
 }
 
@@ -60,4 +65,13 @@ extension UserUseCase : UserUseCaseProvider {
             completion(result, error)
         }
     }
+    func forget(
+        request: ForgetRequestModel,
+        completion: @escaping ((ForgetResponseModel?, Error?) -> ())
+    ) {
+        repository.forget(params: request.toDictionary()) { (result, error) in
+            completion(result, error)
+        }
+    }
+
 }

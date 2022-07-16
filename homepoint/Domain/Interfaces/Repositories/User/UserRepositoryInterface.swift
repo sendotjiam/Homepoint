@@ -21,6 +21,10 @@ protocol UserRepositoryInterface {
     
     func getUser(
         by id: String,
-        completion: @escaping GetUserById
+        completion: @escaping GetUserById )
+        
+    func forget(
+        params: [String: Any],
+        completion: @escaping ((ForgetResponseModel?, Error?) -> Void)
     )
 }
