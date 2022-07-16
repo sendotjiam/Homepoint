@@ -158,6 +158,7 @@ final class RegisterViewController: UIViewController {
 
 extension RegisterViewController {
     private func setupUI() {
+        registerBtn.roundedCorner(with: 8)
         togglePassword()
         setupTextField()
         setupPrivacyField()

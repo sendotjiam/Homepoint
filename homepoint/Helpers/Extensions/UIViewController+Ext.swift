@@ -80,7 +80,7 @@ extension UIViewController  {
     }
     
     func handleError(msg: String?) {
-        let alert = createSimpleAlert("Failed", msg ?? "Failed to get your products", "Try Again")
+        let alert = createSimpleAlert("Gagal", msg ?? "Gagal", "Coba lagi")
         present(alert, animated: true)
     }
     

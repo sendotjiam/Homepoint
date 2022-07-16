@@ -19,6 +19,7 @@
                 <outlet property="editButton" destination="Qac-zW-JGG" id="xQG-Bm-2gn"/>
                 <outlet property="emptyView" destination="5Za-HG-xuK" id="Byb-Nf-fFQ"/>
                 <outlet property="itemAmount" destination="1kp-OU-ACJ" id="edi-PL-FPT"/>
+                <outlet property="notLoginView" destination="8vV-hc-WPx" id="0E7-5Q-smu"/>
                 <outlet property="tableView" destination="9RC-ks-zow" id="wJx-23-V0q"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -147,11 +148,16 @@
                         <constraint firstItem="CQQ-id-B5P" firstAttribute="centerX" secondItem="5Za-HG-xuK" secondAttribute="centerX" id="wkf-7z-kea"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8vV-hc-WPx" customClass="NotLoginView" customModule="homepoint" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="LightBlue-2"/>
             <constraints>
                 <constraint firstItem="BlN-TT-S1p" firstAttribute="top" secondItem="9RC-ks-zow" secondAttribute="bottom" constant="16" id="413-rR-B4z"/>
+                <constraint firstItem="8vV-hc-WPx" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="46s-5A-OeZ"/>
                 <constraint firstItem="5Za-HG-xuK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8JH-4r-iwg"/>
                 <constraint firstItem="bs5-zl-kx5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="9hs-eO-L1h"/>
                 <constraint firstAttribute="trailing" secondItem="LQj-JF-fwc" secondAttribute="trailing" id="CP4-bp-XOJ"/>
@@ -172,18 +178,16 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9RC-ks-zow" secondAttribute="trailing" id="XUf-4P-4j9"/>
                 <constraint firstItem="nCG-yd-6TJ" firstAttribute="top" secondItem="bs5-zl-kx5" secondAttribute="bottom" constant="14" id="ZT0-pJ-MX7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nCG-yd-6TJ" secondAttribute="trailing" constant="20" id="eD8-Jz-Nvh"/>
+                <constraint firstItem="8vV-hc-WPx" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="lSY-eQ-Gb5"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="BlN-TT-S1p" secondAttribute="bottom" id="nbA-Nu-DEn"/>
+                <constraint firstAttribute="bottom" secondItem="8vV-hc-WPx" secondAttribute="bottom" id="o5r-Z9-pzW"/>
                 <constraint firstItem="KM8-qg-fJ1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="q6g-Gz-854"/>
+                <constraint firstItem="8vV-hc-WPx" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="qfd-mY-CZq"/>
                 <constraint firstItem="5Za-HG-xuK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="xoH-vP-8zH"/>
             </constraints>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
             </userDefinedRuntimeAttributes>
-            <variation key="default">
-                <mask key="subviews">
-                    <exclude reference="5Za-HG-xuK"/>
-                </mask>
-            </variation>
             <point key="canvasLocation" x="137.68115942028987" y="75"/>
         </view>
     </objects>

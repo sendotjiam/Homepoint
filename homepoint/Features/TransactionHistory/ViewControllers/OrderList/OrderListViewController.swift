@@ -12,6 +12,7 @@ final class OrderListViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var notLoginView: NotLoginView!
     
     // MARK: - Data
     private enum SectionType {
@@ -35,8 +36,6 @@ final class OrderListViewController: UIViewController {
     // MARK: - Life Cycle
     init() {
         super.init(nibName: Constants.OrderListVC, bundle: nil)
-        self.view.showShimmer()
-        self.view.stopShimmer()
     }
     
     required init?(coder: NSCoder) {
@@ -46,11 +45,20 @@ final class OrderListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        self.addNotificationCenter(
+            label: "reload_view",
+            selector: #selector(reloadView)
+        )
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setNavigationBar(type: .titleAndHistory(title: "Daftar Pesanan Aktif"))
+    }
+    
+    deinit {
+        removeNotificationCenter()
     }
 }
 
@@ -67,6 +75,26 @@ extension OrderListViewController {
             forCellReuseIdentifier: OrderFilterViewCell.identifier
         )
         tableView.sectionFooterHeight = 0.00001
+        
+        notLoginView.delegate = self
+        notLoginView.isHidden = (UserDefaults.standard.value(forKey: "user_token") != nil) ? true : false
+    }
+    
+    @objc func reloadView() {
+        notLoginView.isHidden = true
+        // call API
+    }
+}
+
+extension OrderListViewController : LoginProtocol, NotLoginViewProtocol {
+    func successLogin() {
+        reloadView()
+    }
+    
+    func navigateToLogin() {
+        let vc = LoginViewController()
+        vc.delegate = self
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

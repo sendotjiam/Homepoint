@@ -45,6 +45,7 @@ final class HomeViewModel : HomeViewModelInput, HomeViewModelOutput {
     var isLoading = BehaviorRelay<Bool>(value: false)
     
     // MARK: - Input
+    
     func getProducts() {
         isLoading.accept(true)
         let group = DispatchGroup()

@@ -76,6 +76,10 @@ final class LoginViewController: UIViewController {
         setNavigationBar(type: .back)
     }
     
+    deinit {
+        removeNotificationCenter()
+    }
+    
     // MARK: - Actions
     @IBAction func didTapLogin(_ sender: UIButton) {
         guard let email = emailTextField.text,
@@ -148,6 +152,8 @@ final class LoginViewController: UIViewController {
 
 extension LoginViewController {
     private func setupUI() {
+        loginBtn.roundedCorner(with: 8)
+        
         togglePassword()
         setupTextField()
         setupRegisterLabel()
@@ -178,11 +184,9 @@ extension LoginViewController {
     }
     
     private func handleSuccessLogin(_ response: LoginResponseModel) {
-        delegate?.successLogin()
+//        delegate?.successLogin()
+        self.postNotificationCenter(label: "reload_view")
         navigationController?.popViewController(animated: true)
-        print(response)
-
-        // masukin protocol
     }
     
     private func togglePassword() {

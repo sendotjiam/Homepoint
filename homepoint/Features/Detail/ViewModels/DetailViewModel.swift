@@ -51,19 +51,15 @@ final class DetailViewModel :
     
     // MARK: - Input
     func getProductAndOtherProducts(id: String) {
-        //MOCK
-        let userId = "0d9cb9e6-0328-453e-a6d1-0457de2c9d9d"
-        var productId = ""
+        isLoading.accept(true)
         let group = DispatchGroup()
         
-        isLoading.accept(true)
         group.enter()
         productUseCase.getProduct(by: id) { [weak self] result, error in
             guard let self = self else { return }
             if let result = result {
                 if result.success || result.status == "200 OK" {
                     self.successGetProduct.onNext(result.data[0])
-                    productId = result.data[0].id
                 } else {
                     self.error.onNext(result.message)
                 }

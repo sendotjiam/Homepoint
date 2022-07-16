@@ -43,10 +43,10 @@ final class LoginViewModel : LoginViewModelInput, LoginViewModelOutput {
                     self.saveToken(token: result.data.token)
                     self.successLogin.onNext(result)
                 } else {
-                    self.error.onNext(result.message)
+                    self.error.onNext("Email atau password salah.")
                 }
             } else {
-                self.error.onNext(error?.localizedDescription ?? "ERROR")
+                self.error.onNext("Tidak ada koneksi.")
             }
         }
     }

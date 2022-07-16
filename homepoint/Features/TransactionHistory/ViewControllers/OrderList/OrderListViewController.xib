@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderListViewController" customModule="homepoint" customModuleProvider="target">
             <connections>
+                <outlet property="notLoginView" destination="fbp-km-uAH" id="Od0-2K-0s0"/>
                 <outlet property="tableView" destination="Fx7-Tj-HzO" id="0SK-AE-CjA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -28,12 +29,20 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbp-km-uAH" customClass="NotLoginView" customModule="homepoint" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="LightBlue-2"/>
             <constraints>
+                <constraint firstItem="fbp-km-uAH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0xV-ui-sH7"/>
+                <constraint firstItem="fbp-km-uAH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="1rH-Vb-o3y"/>
                 <constraint firstItem="Fx7-Tj-HzO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="2gB-FJ-SRk"/>
+                <constraint firstAttribute="bottom" secondItem="fbp-km-uAH" secondAttribute="bottom" id="7oN-9t-aRW"/>
                 <constraint firstItem="Fx7-Tj-HzO" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="EV5-1a-qnQ"/>
+                <constraint firstAttribute="trailing" secondItem="fbp-km-uAH" secondAttribute="trailing" id="kVD-mK-0wy"/>
                 <constraint firstAttribute="bottom" secondItem="Fx7-Tj-HzO" secondAttribute="bottom" id="wU3-zm-2HA"/>
                 <constraint firstItem="Fx7-Tj-HzO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="z7k-d1-85m"/>
             </constraints>

@@ -8,7 +8,12 @@
 import UIKit
 
 final class ProfileViewController: UIViewController {
+    
+    // MARK: - Outlets
     @IBOutlet weak var profileTableView: UITableView!
+    @IBOutlet weak var notLoginView: NotLoginView!
+    
+    // MARK: - Variables
     private enum section {
         case changeProfile, address, changePassword, policy, help, chatAdmin, logout
     }
@@ -18,6 +23,11 @@ final class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         setupView()
+        
+        self.addNotificationCenter(
+            label: "reload_view",
+            selector: #selector(reloadView)
+        )
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -25,13 +35,38 @@ final class ProfileViewController: UIViewController {
         setNavigationBar(type: .title(title: "Profil"))
     }
     
+    deinit {
+        removeNotificationCenter()
+    }
+    
     func setupView() {
+        notLoginView.delegate = self
+    
         profileTableView.delegate = self
         profileTableView.dataSource = self
-        
         profileTableView.register(ChangeProfileFieldViewCell.nib(), forCellReuseIdentifier: "ChangeProfileFieldViewCell")
         profileTableView.register(RightArrowFieldViewCell.nib(), forCellReuseIdentifier: "RightArrowFieldViewCell")
         profileTableView.register(ImageFieldViewCell.nib(), forCellReuseIdentifier: "ImageFieldViewCell")
+
+        print(UserDefaults.standard.value(forKey: "user_token"), "TOKEN")
+        notLoginView.isHidden = (UserDefaults.standard.value(forKey: "user_token") != nil) ? true : false
+    }
+    
+    @objc func reloadView() {
+        notLoginView.isHidden = true
+        // call API
+    }
+}
+
+extension ProfileViewController : LoginProtocol, NotLoginViewProtocol {
+    func successLogin() {
+        reloadView()
+    }
+    
+    func navigateToLogin() {
+        let vc = LoginViewController()
+        vc.delegate = self
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

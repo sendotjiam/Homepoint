@@ -10,7 +10,7 @@ import RxSwift
 import RxRelay
 
 protocol WishlistViewModelInput {
-    func getWishlists()
+    func getWishlists(userId : String)
     func deleteWishlist(id: String)
     func updateWishlist(qty: Int)
 }
@@ -39,10 +39,9 @@ final class WishlistViewModel :
     var error = PublishSubject<String>()
     var isLoading = BehaviorRelay<Bool>(value: false)
     
-    func getWishlists() {
+    func getWishlists(userId : String) {
+        if userId == "" { return }
         isLoading.accept(true)
-        // Mock
-        let userId = "0d9cb9e6-0328-453e-a6d1-0457de2c9d9d"
         useCase.fetchWishlists(userId: userId) {
             [weak self] result, error in
             guard let self = self else { return }

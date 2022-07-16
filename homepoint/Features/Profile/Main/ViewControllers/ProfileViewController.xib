@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="homepoint" customModuleProvider="target">
             <connections>
+                <outlet property="notLoginView" destination="D9d-7p-0R2" id="X8R-BJ-dQ5"/>
                 <outlet property="profileTableView" destination="Whj-KR-rdZ" id="7l1-Cx-neC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -25,16 +26,24 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D9d-7p-0R2" customClass="NotLoginView" customModule="homepoint" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="LightBlue-2"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Whj-KR-rdZ" secondAttribute="bottom" id="CBf-cE-Nrl"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="D9d-7p-0R2" secondAttribute="bottom" id="HWi-92-UdT"/>
+                <constraint firstItem="D9d-7p-0R2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Noc-xT-CoT"/>
                 <constraint firstItem="Whj-KR-rdZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Ozw-A0-jYV"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Whj-KR-rdZ" secondAttribute="trailing" id="rW1-3t-710"/>
+                <constraint firstAttribute="trailing" secondItem="D9d-7p-0R2" secondAttribute="trailing" id="ux3-El-hXQ"/>
+                <constraint firstItem="D9d-7p-0R2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="yjH-WB-ras"/>
                 <constraint firstItem="Whj-KR-rdZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="zFJ-nH-8Yq"/>
             </constraints>
-            <point key="canvasLocation" x="132" y="81"/>
+            <point key="canvasLocation" x="131.8840579710145" y="80.357142857142847"/>
         </view>
     </objects>
     <resources>

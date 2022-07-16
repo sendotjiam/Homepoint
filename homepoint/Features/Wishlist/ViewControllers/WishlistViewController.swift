@@ -20,6 +20,7 @@ final class WishlistViewController: UIViewController {
     @IBOutlet weak var cleanButton: UIButton!
     @IBOutlet weak var bottomContainerView: UIView!
     @IBOutlet weak var emptyView: UIView!
+    @IBOutlet weak var notLoginView: NotLoginView!
     
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var allCheckbox: Checkbox!
@@ -38,12 +39,12 @@ final class WishlistViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         bindViewModel()
-        vm.getWishlists()
+        vm.getWishlists(userId: "")
         view.showShimmer()
         
         self.addNotificationCenter(
-            label: "reload_wishlist",
-            selector: #selector(reloadWishlist)
+            label: "reload_view",
+            selector: #selector(reloadView)
         )
     }
     
@@ -78,6 +79,9 @@ extension WishlistViewController {
         )
         checkDataIsEmpty()
         setupTableView()
+        
+        notLoginView.delegate = self
+        notLoginView.isHidden = (UserDefaults.standard.value(forKey: "user_token") != nil) ? true : false
     }
     
     private func setupTableView() {
@@ -94,12 +98,14 @@ extension WishlistViewController {
 
     @objc func refresh(_ sender: AnyObject) {
         refreshControl.beginRefreshing()
-        vm.getWishlists()
+        vm.getWishlists(userId: "")
         view.showShimmer()
     }
     
-    @objc func reloadWishlist() {
-        vm.getWishlists()
+    @objc func reloadView() {
+        notLoginView.isHidden = true
+        
+        vm.getWishlists(userId: "")
         view.showShimmer()
     }
     
@@ -207,6 +213,17 @@ extension WishlistViewController : CheckboxClickable {
     func didTap(_ isSelected: Bool) {
         isAllSelected = isSelected
         reloadTableView()
+    }
+}
+extension WishlistViewController : LoginProtocol, NotLoginViewProtocol {
+    func successLogin() {
+        reloadView()
+    }
+    
+    func navigateToLogin() {
+        let vc = LoginViewController()
+        vc.delegate = self
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
