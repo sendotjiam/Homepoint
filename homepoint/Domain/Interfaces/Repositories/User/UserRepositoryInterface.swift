@@ -8,6 +8,8 @@
 import Foundation
 
 protocol UserRepositoryInterface {
+    typealias GetUserById = ((UsersResponseModel?, Error?) -> Void)
+    
     func login(
         params: [String: Any],
         completion: @escaping ((LoginResponseModel?, Error?) -> Void)
@@ -15,5 +17,10 @@ protocol UserRepositoryInterface {
     func register(
         params: [String: Any],
         completion: @escaping ((RegisterResponseModel?, Error?) -> Void)
+    )
+    
+    func getUser(
+        by id: String,
+        completion: @escaping GetUserById
     )
 }

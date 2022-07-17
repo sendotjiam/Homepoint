@@ -68,4 +68,25 @@ extension UserRepository : UserRepositoryInterface {
             }
         }
     }
+    
+    func getUser (by id: String, completion: @escaping GetUserById) {
+        apiClient.request(
+            urlString + "/" + id,
+            .get,
+            nil,
+            nil
+        ) { response, data, error in
+            if let data = data {
+                do {
+                    let json = try JSON(data: data)
+                    let model = UsersResponseModel(object: json)
+                    completion(model, nil)
+                } catch {
+                    completion(nil, NetworkError.EmptyDataError)
+                }
+            } else {
+                completion(nil, NetworkError.ApiError)
+            }
+        }
+    }
 }

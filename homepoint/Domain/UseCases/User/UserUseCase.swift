@@ -8,6 +8,8 @@
 import Foundation
 
 protocol UserUseCaseProvider {
+    typealias GetUserById = ((UsersResponseModel?, Error?) -> Void)
+    
     func login(
         request: LoginRequestModel,
         completion: @escaping ((LoginResponseModel?, Error?) -> ())
@@ -15,6 +17,10 @@ protocol UserUseCaseProvider {
     func register(
         request: RegisterRequestModel,
         completion: @escaping ((RegisterResponseModel?, Error?) -> ())
+    )
+    func getUser(
+        by id: String,
+        completion: @escaping GetUserById
     )
 }
 
@@ -46,4 +52,12 @@ extension UserUseCase : UserUseCaseProvider {
         }
     }
 
+    func getUser(
+        by id: String,
+        completion: @escaping GetUserById
+    ) {
+        repository.getUser(by: id) { result, error in
+            completion(result, error)
+        }
+    }
 }

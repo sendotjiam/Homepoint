@@ -103,4 +103,60 @@ final class UserRepositoryTest: XCTestCase {
         }
         wait(for: [expectation], timeout: 1)
     }
+    
+    // MARK: - Get User By Id
+    internal func test_PositiveCase_GetUserById() {
+        /// Given
+        let expectedDataModel = MockUserData.generateUsersDataModel()
+        let id = "a1a22a38-7a2d-4ee8-bd12-20ddd91e3c0c"
+        let mock = MockApiClient()
+        mock.data = MockUserData.generateUsersData()
+        sut = UserRepository(mock)
+
+        /// When
+        let expected = expectation(description: "Should return product - get by id")
+        sut.getUser(by: id) { response, error in
+            /// Then
+            guard let response = response else { return }
+            XCTAssertEqual(response.data, expectedDataModel)
+            expected.fulfill()
+        }
+        wait(for: [expected], timeout: 1)
+    }
+    
+    internal func test_NegativeCase_GetUserById_ApiError() {
+        /// Given
+        let id = "a1a22a38-7a2d-4ee8-bd12-20ddd91e3c0c"
+        let mock = MockApiClient()
+        mock.error = NetworkError.ApiError
+        sut = UserRepository(mock)
+        
+        /// When
+        let expected = expectation(description: "Should return error - Api Error")
+        sut.getUser(by: id) { response, error in
+            guard let error = error else { return }
+            /// Then
+            XCTAssertEqual(error as! NetworkError, NetworkError.ApiError)
+            expected.fulfill()
+        }
+        wait(for: [expected], timeout: 1)
+    }
+    
+    internal func test_NegativeCase_GetUserById_EmptyDataError() {
+        /// Given
+        let id = "a1a22a38-7a2d-4ee8-bd12-20ddd91e3c0c"
+        let mock = MockApiClient()
+        mock.data = "".data(using: .utf8)
+        sut = UserRepository(mock)
+        
+        /// When
+        let expected = expectation(description: "Should return error - Empty Data Error")
+        sut.getUser(by: id) { response, error in
+            guard let error = error else { return }
+            /// Then
+            XCTAssertEqual(error as! NetworkError, NetworkError.EmptyDataError)
+            expected.fulfill()
+        }
+        wait(for: [expected], timeout: 1)
+    }
 }
