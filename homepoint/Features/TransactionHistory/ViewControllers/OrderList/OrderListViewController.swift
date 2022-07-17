@@ -86,15 +86,9 @@ extension OrderListViewController {
     }
 }
 
-extension OrderListViewController : LoginProtocol, NotLoginViewProtocol {
+extension OrderListViewController : LoginProtocol {
     func successLogin() {
         reloadView()
-    }
-    
-    func navigateToLogin() {
-        let vc = LoginViewController()
-        vc.delegate = self
-        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -107,11 +101,6 @@ extension OrderListViewController {
                     HistoryViewController(),
                     animated: true
                 )
-        } else {
-            let vc = NotLoginAlertViewController()
-            vc.delegate = self
-            vc.modalPresentationStyle = .overFullScreen
-            self.present(vc, animated: false)
         }
     }
 }

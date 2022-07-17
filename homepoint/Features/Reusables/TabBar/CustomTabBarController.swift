@@ -73,9 +73,3 @@ extension CustomTabBarController {
         self.selectedIndex = 0
     }
 }
-class E : UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-    }
-}

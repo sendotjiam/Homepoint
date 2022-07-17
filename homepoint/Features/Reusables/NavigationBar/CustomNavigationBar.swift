@@ -209,8 +209,26 @@ extension UIViewController  {
 
 // MARK: - NavigationItem
 extension UIViewController : NavigationItemHandler {
-    @objc func cartTapped(sender: UIBarButtonItem) {}
-    @objc func notificationTapped(sender: UIBarButtonItem) {}
+    @objc func cartTapped(sender: UIBarButtonItem) {
+        if (UserDefaults.standard.value(forKey: "user_token") != nil) {
+            let vc = CartViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            let vc = NotLoginAlertViewController()
+            vc.delegate = self
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: false)
+        }
+    }
+    @objc func notificationTapped(sender: UIBarButtonItem) {
+        if (UserDefaults.standard.value(forKey: "user_token") != nil) {}
+        else {
+            let vc = NotLoginAlertViewController()
+            vc.delegate = self
+            vc.modalPresentationStyle = .overFullScreen
+            self.present(vc, animated: false)
+        }
+    }
     @objc func likeTapped(sender: UIBarButtonItem) {}
     @objc func historyTapped(sender: UIBarButtonItem) {}
     @objc func searchTapped(sender: UIBarButtonItem) {}
@@ -219,12 +237,20 @@ extension UIViewController : NavigationItemHandler {
     }
 }
 
+// MARK: - Login
+extension UIViewController : NotLoginViewProtocol {
+    func navigateToLogin() {
+        let vc = LoginViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+}
 
 // MARK: - SearchBar
 extension UIViewController : UISearchBarDelegate{
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let query = searchBar.text else { return }
         let searchVC = SearchViewController(query)
+        searchVC.search()
         self.navigationController?
             .pushViewController(
                 searchVC, animated: true

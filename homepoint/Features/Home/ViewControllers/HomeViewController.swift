@@ -114,21 +114,6 @@ extension HomeViewController {
             }
         }
     }
-    
-    override func cartTapped(sender: UIBarButtonItem) {
-        if (UserDefaults.standard.value(forKey: "user_token") != nil) {
-            navigationController?
-                .pushViewController(
-                    CartViewController(),
-                    animated: true
-                )
-        } else {
-            let vc = NotLoginAlertViewController()
-            vc.delegate = self
-            vc.modalPresentationStyle = .overFullScreen
-            self.present(vc, animated: false)
-        }
-    }
 }
 
 // MARK: - Binding VM
@@ -184,14 +169,6 @@ extension HomeViewController {
                 self.view.stopShimmer()
             }
         }
-    }
-}
-
-// MARK: - Login
-extension HomeViewController : NotLoginViewProtocol {
-    func navigateToLogin() {
-        let vc = LoginViewController()
-        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

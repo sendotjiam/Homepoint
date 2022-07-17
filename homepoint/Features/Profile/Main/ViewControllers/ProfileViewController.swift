@@ -48,7 +48,6 @@ final class ProfileViewController: UIViewController {
         profileTableView.register(RightArrowFieldViewCell.nib(), forCellReuseIdentifier: "RightArrowFieldViewCell")
         profileTableView.register(ImageFieldViewCell.nib(), forCellReuseIdentifier: "ImageFieldViewCell")
 
-        print(UserDefaults.standard.value(forKey: "user_token"), "TOKEN")
         notLoginView.isHidden = (UserDefaults.standard.value(forKey: "user_token") != nil) ? true : false
     }
     
@@ -58,15 +57,9 @@ final class ProfileViewController: UIViewController {
     }
 }
 
-extension ProfileViewController : LoginProtocol, NotLoginViewProtocol {
+extension ProfileViewController : LoginProtocol {
     func successLogin() {
         reloadView()
-    }
-    
-    func navigateToLogin() {
-        let vc = LoginViewController()
-        vc.delegate = self
-        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

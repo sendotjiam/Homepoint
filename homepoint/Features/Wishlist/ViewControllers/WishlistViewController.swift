@@ -136,7 +136,20 @@ extension WishlistViewController {
     }
     
     override func searchTapped(sender: UIBarButtonItem) {
-        
+        if (UserDefaults.standard.value(forKey: "user_token") != nil) {
+        }
+    }
+    
+    override func cartTapped(sender: UIBarButtonItem) {
+        if (UserDefaults.standard.value(forKey: "user_token") != nil) {
+            let vc = CartViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    override func notificationTapped(sender: UIBarButtonItem) {
+        if (UserDefaults.standard.value(forKey: "user_token") != nil) {
+        }
     }
 }
 
@@ -219,15 +232,9 @@ extension WishlistViewController : CheckboxClickable {
         reloadTableView()
     }
 }
-extension WishlistViewController : LoginProtocol, NotLoginViewProtocol {
+extension WishlistViewController : LoginProtocol {
     func successLogin() {
         reloadView()
-    }
-    
-    func navigateToLogin() {
-        let vc = LoginViewController()
-        vc.delegate = self
-        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
