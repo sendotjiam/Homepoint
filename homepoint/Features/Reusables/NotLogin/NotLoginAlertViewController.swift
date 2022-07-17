@@ -22,8 +22,8 @@ final class NotLoginAlertViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        containerView.alpha = 0.5
-        containerView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        containerView.alpha = 0.0
+        containerView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
             self.containerView.alpha = 1
             self.containerView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
