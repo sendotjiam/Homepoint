@@ -48,13 +48,12 @@ extension SmallProductCardViewCell {
             offset: CGSize(width: 0, height: 1)
         )
         containerView.clipsToBounds = true
-        imageView.image = UIImage(named: "img_product.dummy")
     }
     
     private func configureCell() {
         guard let data = data else { return }
         let imageUrl = URL(string: data.productImages[0].image)
-        imageView.sd_setImage(with: imageUrl, completed: nil)
+        imageView.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "img_product.dummy"))
         nameLabel.text = data.name
         ratingLabel.text = "\(data.ratingAverage)"
         soldNumberLabel.text = "Terjual \(data.amountSold)"

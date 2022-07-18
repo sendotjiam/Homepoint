@@ -81,7 +81,7 @@ extension DetailHeaderViewCell {
     private func configureCell() {
         guard let data = data else { return }
         let imageUrl = URL(string: data.productImages[0].image)
-        productImageView?.sd_setImage(with: imageUrl, completed: nil)
+        productImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "img_dummy"))
         productNameLabel.text = data.name
         soldNumberLabel.text = "Terjual \(data.amountSold)"
         ratingLabel.text = "\(data.ratingAverage)"

@@ -159,15 +159,26 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xhs-2C-TgI">
+                                <rect key="frame" x="0.0" y="0.0" width="160" height="142"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="j40-9f-zxS" secondAttribute="trailing" id="0UX-JV-Sep"/>
+                            <constraint firstItem="xhs-2C-TgI" firstAttribute="top" secondItem="fQx-Hu-UMo" secondAttribute="top" id="2op-xa-2HE"/>
                             <constraint firstAttribute="trailing" secondItem="vUl-jk-9Em" secondAttribute="trailing" id="7Kk-iw-mnw"/>
+                            <constraint firstItem="xhs-2C-TgI" firstAttribute="leading" secondItem="fQx-Hu-UMo" secondAttribute="leading" id="845-o3-da4"/>
                             <constraint firstAttribute="trailing" secondItem="H21-dm-sEQ" secondAttribute="trailing" constant="16" id="8gr-uu-z7W"/>
                             <constraint firstItem="vUl-jk-9Em" firstAttribute="top" secondItem="j40-9f-zxS" secondAttribute="bottom" id="O30-us-5kb"/>
                             <constraint firstItem="vUl-jk-9Em" firstAttribute="leading" secondItem="fQx-Hu-UMo" secondAttribute="leading" id="Rhp-iG-STd"/>
                             <constraint firstItem="j40-9f-zxS" firstAttribute="top" secondItem="fQx-Hu-UMo" secondAttribute="top" id="SxU-x5-q4F"/>
+                            <constraint firstItem="vUl-jk-9Em" firstAttribute="top" secondItem="xhs-2C-TgI" secondAttribute="bottom" id="U8A-Ii-QWL"/>
+                            <constraint firstAttribute="trailing" secondItem="xhs-2C-TgI" secondAttribute="trailing" id="jKw-VP-8aS"/>
                             <constraint firstItem="H21-dm-sEQ" firstAttribute="top" secondItem="fQx-Hu-UMo" secondAttribute="top" id="k29-Vo-onZ"/>
                             <constraint firstItem="j40-9f-zxS" firstAttribute="leading" secondItem="fQx-Hu-UMo" secondAttribute="leading" id="mAM-BO-Z4a"/>
                             <constraint firstAttribute="bottom" secondItem="vUl-jk-9Em" secondAttribute="bottom" id="odn-Zf-VJQ"/>

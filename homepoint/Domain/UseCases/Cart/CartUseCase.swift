@@ -10,7 +10,7 @@ import Foundation
 protocol CartUseCaseProvider {
     typealias CartCompletion = ((CartResponseModel?, Error?) -> Void)
     
-    func addCart(params: [String : Any], completion: @escaping CartCompletion)
+    func addCart(userId : String, productId : String, qty: Int, completion: @escaping CartCompletion)
     func fetchCarts(userId: String, completion: @escaping CartCompletion)
     func updateCart(params: [String : Any], completion: @escaping CartCompletion)
     func deleteCart(id: String, completion: @escaping CartCompletion)
@@ -26,7 +26,12 @@ final class CartUseCase {
 }
 
 extension CartUseCase : CartUseCaseProvider {
-    func addCart(params: [String : Any], completion: @escaping CartCompletion) {
+    func addCart(userId : String, productId : String, qty: Int, completion: @escaping CartCompletion) {
+        let params : [String : Any] = [
+            "userId": userId,
+            "productId": productId,
+            "quantity": qty
+        ]
         repository.addCart(params: params) { result, error in
             completion(result, error)
         }

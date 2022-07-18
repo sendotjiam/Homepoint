@@ -44,6 +44,7 @@ final class DetailViewController: UIViewController {
         .header, .description, .shipping, .review, .others
     ]
     private var reviewList : Int = 10
+    private var userId = ""
     
     // MARK: - Variable
     private var qty = 1.0
@@ -97,6 +98,13 @@ final class DetailViewController: UIViewController {
     }
     
     @IBAction func addToCartButtonTapped(_ sender: Any) {
+        if isUserLoggedIn() {
+            guard let data = productData
+            else { return }
+            vm.addToCart(userId: userId, productId: data.id, qty: Int(qty))
+        } else {
+            showNotLoginAlert()
+        }
     }
 }
 
@@ -118,6 +126,8 @@ extension DetailViewController {
         if #available(iOS 11.0, *) {
              tableView.contentInsetAdjustmentBehavior = .never
         }
+        
+        self.userId = getUserId() ?? ""
     }
     
     private func countTotalPrice() {
@@ -185,22 +195,33 @@ extension DetailViewController {
         vm.successDeleteWishlist.subscribe { [weak self] _ in
             self?.handleDeleteWishlist()
         }.disposed(by: bag)
+        vm.successAddToCart.subscribe { [weak self] _ in
+            self?.handleSuccessAddToCart()
+        }.disposed(by: bag)
+    }
+    
+    private func handleSuccessAddToCart() {
+        let alert = self.createSimpleAlert(
+            "Berhasil",
+            "Berhasil menambahkan produk ke dalam keranjang",
+            "OK"
+        )
+        self.present(alert, animated: true)
     }
     
     private func handleError(_ error: String?) {
         guard let error = error else { return }
         self.handleError(msg: error)
-        self.navigationController?.popViewController(animated: true)
     }
     
     private func handleIsWishlist(_ wishlistId: String?) {
         self.wishlistId = wishlistId ?? ""
-        reloadTableView()
+        tableView.reload()
     }
     
     private func handleDeleteWishlist() {
         self.wishlistId = ""
-        reloadTableView()
+        tableView.reload()
         let alert = self.createSimpleAlert(
             "Berhasil",
             "Berhasil menghapus produk dalam wishlist",
@@ -243,15 +264,15 @@ extension DetailViewController {
         countTotalPrice()
         
         self.productData = data
-        vm.checkProductIsWishlist(productId: productData?.id ?? "")
-        reloadTableView()
+        vm.checkProductIsWishlist(userId: userId, productId: productData?.id ?? "")
+        tableView.reload()
     }
     
     private func handleSuccessGetOtherProducts(
         _ products : [ProductDataModel]?
     ) {
         self.otherProducts = products ?? []
-        reloadTableView()
+        tableView.reload()
     }
 }
 
@@ -266,8 +287,12 @@ extension DetailViewController {
 // MARK: - Delegation
 extension DetailViewController : DetailHeaderProtocol {
     func didTapLikeButton(id: String) {
-        wishlistId != "" ? vm.deleteWishlist(id: wishlistId) : vm.addWishlist(productId: id)
-        overlayView.alpha = 0.2
+        if isUserLoggedIn() {
+            wishlistId != "" ? vm.deleteWishlist(id: wishlistId) : vm.addWishlist(userId: userId,productId: id)
+            overlayView.alpha = 0.2
+        } else {
+            showNotLoginAlert()
+        }
     }
     func didTapShareButton() { return }
     func didTapMessageButton() {return}
@@ -373,12 +398,6 @@ extension DetailViewController :
             }
             return cell as? T
         default: return cell
-        }
-    }
-    
-    func reloadTableView() {
-        DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
         }
     }
 }

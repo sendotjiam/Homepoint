@@ -11,15 +11,17 @@ import RxRelay
 
 protocol DetailViewModelInput {
     func getProductAndOtherProducts(id: String)
-    func addWishlist(productId: String)
-    func checkProductIsWishlist(productId: String)
+    func addWishlist(userId: String, productId: String)
+    func checkProductIsWishlist(userId: String, productId: String)
     func deleteWishlist(id: String)
+    func addToCart(userId: String, productId: String, qty: Int)
 }
 
 protocol DetailViewModelOutput {
     var successGetProduct : PublishSubject<ProductDataModel> { get set }
     var successGetOthersProducts : PublishSubject<[ProductDataModel]> { get set }
     var successAddWishlist : PublishSubject<WishlistDataModel> { get set }
+    var successAddToCart : PublishSubject<CartDataModel> { get set }
     var successIsWishlist : BehaviorRelay<String> { get set }
     var successDeleteWishlist : PublishSubject<WishlistDataModel> {get set }
     var error : PublishSubject<String> { get set }
@@ -31,13 +33,16 @@ final class DetailViewModel :
     DetailViewModelOutput {
     private let productUseCase : ProductsUseCase
     private let wishlistUseCase : WishlistUseCase
+    private let cartUseCase : CartUseCase
     
     init(
         _ productUseCase : ProductsUseCase = ProductsUseCase(ProductsRepository()),
-        _ wishlistUseCase : WishlistUseCase = WishlistUseCase(WishlistRepository())
+        _ wishlistUseCase : WishlistUseCase = WishlistUseCase(WishlistRepository()),
+        _ cartUseCase : CartUseCase = CartUseCase(CartRepository())
     ) {
         self.productUseCase = productUseCase
         self.wishlistUseCase = wishlistUseCase
+        self.cartUseCase = cartUseCase
     }
     
     // MARK: - Output
@@ -48,6 +53,7 @@ final class DetailViewModel :
     var successIsWishlist = BehaviorRelay<String>(value: "")
     var successAddWishlist = PublishSubject<WishlistDataModel>()
     var successDeleteWishlist = PublishSubject<WishlistDataModel>()
+    var successAddToCart = PublishSubject<CartDataModel>()
     
     // MARK: - Input
     func getProductAndOtherProducts(id: String) {
@@ -90,9 +96,7 @@ final class DetailViewModel :
         }
     }
     
-    func checkProductIsWishlist(productId: String) {
-        // Mock
-        let userId = "0d9cb9e6-0328-453e-a6d1-0457de2c9d9d"
+    func checkProductIsWishlist(userId: String, productId: String) {
         isLoading.accept(true)
         wishlistUseCase.checkProductIsWishlist(
             productId: productId, userId: userId
@@ -107,9 +111,7 @@ final class DetailViewModel :
         }
     }
     
-    func addWishlist(productId: String) {
-        // Mock
-        let userId = "0d9cb9e6-0328-453e-a6d1-0457de2c9d9d"
+    func addWishlist(userId: String, productId: String) {
         isLoading.accept(true)
         wishlistUseCase.addWishlist(
             productId: productId,
@@ -130,13 +132,29 @@ final class DetailViewModel :
     }
     
     func deleteWishlist(id: String) {
-        // Mock
         isLoading.accept(true)
         wishlistUseCase.deleteWishlist(id: id) { result, error in
             if let result = result {
                 if result.success || result.status == "200" {
                     self.successDeleteWishlist.onNext(result.data)
                     self.successIsWishlist.accept("")
+                } else {
+                    self.error.onNext(result.message)
+                }
+            } else {
+                self.error.onNext(error?.localizedDescription ?? "ERROR")
+            }
+            self.isLoading.accept(false)
+        }
+    }
+    
+    func addToCart(userId: String, productId: String, qty: Int) {
+        isLoading.accept(true)
+        cartUseCase.addCart(userId: userId, productId: productId, qty: qty) { result, error in
+            if let result = result {
+                if result.success || result.status == "200" {
+                    guard let data = result.data.first else { return }
+                    self.successAddToCart.onNext(data)
                 } else {
                     self.error.onNext(result.message)
                 }

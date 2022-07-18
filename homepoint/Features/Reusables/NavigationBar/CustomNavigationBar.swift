@@ -147,8 +147,8 @@ extension UIViewController  {
             for: .normal
         )
         btn.addTarget(self, action: #selector(likeTapped(sender:)), for: .touchUpInside)
-        btn.widthAnchor.constraint(equalToConstant: 20).isActive = true
-        btn.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        btn.widthAnchor.constraint(equalToConstant: 28).isActive = true
+        btn.heightAnchor.constraint(equalToConstant: 28).isActive = true
         let item = UIBarButtonItem(customView: btn)
         navigationItem.setRightBarButton(item, animated: false)
     }
@@ -210,26 +210,23 @@ extension UIViewController  {
 // MARK: - NavigationItem
 extension UIViewController : NavigationItemHandler {
     @objc func cartTapped(sender: UIBarButtonItem) {
-        if (UserDefaults.standard.value(forKey: "user_token") != nil) {
+        if isUserLoggedIn() {
             let vc = CartViewController()
             navigationController?.pushViewController(vc, animated: true)
         } else {
-            let vc = NotLoginAlertViewController()
-            vc.delegate = self
-            vc.modalPresentationStyle = .overFullScreen
-            self.present(vc, animated: false)
+            showNotLoginAlert()
         }
     }
     @objc func notificationTapped(sender: UIBarButtonItem) {
         if (UserDefaults.standard.value(forKey: "user_token") != nil) {}
         else {
-            let vc = NotLoginAlertViewController()
-            vc.delegate = self
-            vc.modalPresentationStyle = .overFullScreen
-            self.present(vc, animated: false)
+            showNotLoginAlert()
         }
     }
-    @objc func likeTapped(sender: UIBarButtonItem) {}
+    @objc func likeTapped(sender: UIBarButtonItem) {
+        let vc = WishlistViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
     @objc func historyTapped(sender: UIBarButtonItem) {}
     @objc func searchTapped(sender: UIBarButtonItem) {}
     @objc func backTapped(sender: UIBarButtonItem) {

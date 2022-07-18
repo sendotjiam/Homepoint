@@ -22,9 +22,6 @@ final class WishlistViewController: UIViewController {
     @IBOutlet weak var emptyView: UIView!
     @IBOutlet weak var notLoginView: NotLoginView!
     
-    @IBOutlet weak var editButton: UIButton!
-    @IBOutlet weak var allCheckbox: Checkbox!
-    @IBOutlet weak var itemAmount: UILabel!
     private let refreshControl = UIRefreshControl()
 
     
@@ -34,12 +31,13 @@ final class WishlistViewController: UIViewController {
     private let bag = DisposeBag()
     var data = [WishlistDataModel]()
     private var isAllSelected = false
+    private var userId = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         bindViewModel()
-        vm.getWishlists(userId: "")
+        vm.getWishlists(userId: getUserId() ?? "")
         view.showShimmer()
         
         self.addNotificationCenter(
@@ -54,7 +52,6 @@ final class WishlistViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        checkDataIsEmpty()
         setNavigationBar(type: .defaultNav)
     }
     
@@ -65,16 +62,10 @@ final class WishlistViewController: UIViewController {
     @IBAction func cleanButtonTapped(_ sender: Any) {
         
     }
-    
-    @IBAction func editButtonTapped(_ sender: Any) {
-        togglePageType()
-    }
 }
 
 extension WishlistViewController {
     private func setupUI() {
-        allCheckbox.isHidden = true
-        allCheckbox.delegate = self
         cleanButton.roundedCorner(with: 8)
         bottomContainerView.dropShadow(
             with: 0.1,
@@ -85,7 +76,9 @@ extension WishlistViewController {
         setupTableView()
         
         notLoginView.delegate = self
-        notLoginView.isHidden = (UserDefaults.standard.value(forKey: "user_token") != nil) ? true : false
+        notLoginView.isHidden = isUserLoggedIn()
+        
+        self.userId = getUserId() ?? ""
     }
     
     private func setupTableView() {
@@ -102,14 +95,14 @@ extension WishlistViewController {
 
     @objc func refresh(_ sender: AnyObject) {
         refreshControl.beginRefreshing()
-        vm.getWishlists(userId: "")
+        vm.getWishlists(userId: getUserId() ?? "")
         view.showShimmer()
     }
     
     @objc func reloadView() {
         notLoginView.isHidden = true
         
-        vm.getWishlists(userId: "")
+        vm.getWishlists(userId: getUserId() ?? "")
         view.showShimmer()
     }
     
@@ -117,38 +110,20 @@ extension WishlistViewController {
         emptyView.isHidden = data.isEmpty ? false : true
     }
     
-    private func togglePageType() {
-        switch pageType {
-        case .normal:
-            pageType = .edit
-            editButton.setTitle("Batal", for: .normal)
-            editButton.setTitleColor(ColorCollection.grayTextColor.value, for: .normal)
-            allCheckbox.isHidden = false
-            itemAmount.text = "Pilih semua \(data.count)"
-        case .edit:
-            pageType = .normal
-            editButton.setTitle("Atur", for: .normal)
-            editButton.setTitleColor(ColorCollection.primaryColor.value, for: .normal)
-            allCheckbox.isHidden = true
-            itemAmount.text = "\(data.count) Produk"
-        }
-        reloadTableView()
-    }
-    
     override func searchTapped(sender: UIBarButtonItem) {
-        if (UserDefaults.standard.value(forKey: "user_token") != nil) {
+        if isUserLoggedIn() {
         }
     }
     
     override func cartTapped(sender: UIBarButtonItem) {
-        if (UserDefaults.standard.value(forKey: "user_token") != nil) {
+        if isUserLoggedIn() {
             let vc = CartViewController()
             navigationController?.pushViewController(vc, animated: true)
         }
     }
     
     override func notificationTapped(sender: UIBarButtonItem) {
-        if (UserDefaults.standard.value(forKey: "user_token") != nil) {
+        if isUserLoggedIn() {
         }
     }
 }
@@ -163,11 +138,23 @@ extension WishlistViewController {
             self?.handleSuccessDeleteWishlist($0)
         }.disposed(by: bag)
         vm.isLoading.subscribe { [weak self] in
-            self?.handleLoading($0.element)
+            self?.handleLoading($0)
         }.disposed(by: bag)
         vm.error.subscribe { [weak self] in
-            self?.handleError($0.element)
+            self?.handleError($0)
         }.disposed(by: bag)
+        vm.successAddToCart.subscribe { [weak self] _ in
+            self?.handleSuccessAddToCart()
+        }.disposed(by: bag)
+    }
+    
+    private func handleSuccessAddToCart() {
+        let alert = self.createSimpleAlert(
+            "Berhasil",
+            "Berhasil menambahkan produk ke dalam keranjang",
+            "OK"
+        )
+        self.present(alert, animated: true)
     }
     
     private func handleSuccessDeleteWishlist(_ deleted: WishlistDataModel?) {
@@ -176,9 +163,8 @@ extension WishlistViewController {
             return $0.id != deleted.id
         }
         data = newData
-        itemAmount.text = self.pageType == .edit ? "Pilih semua \(data.count)" : "\(data.count) Produk"
         checkDataIsEmpty()
-        reloadTableView()
+        tableView.reload()
     }
     
     private func handleSuccessGetWishlists(_ data : [WishlistDataModel]?) {
@@ -187,9 +173,7 @@ extension WishlistViewController {
         checkDataIsEmpty()
         view.stopShimmer()
         DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            self.itemAmount.text = self.pageType == .edit ? "Pilih semua \(data.count)" : "\(data.count) Produk"
-            self.tableView.reloadData()
+            self?.tableView.reloadData()
         }
     }
     
@@ -201,7 +185,7 @@ extension WishlistViewController {
         guard let isLoading = isLoading else { return }
         if !isLoading {
             refreshControl.endRefreshing()
-            reloadTableView()
+            tableView.reload()
             DispatchQueue.main.async {
                 self.view.stopShimmer()
             }
@@ -217,19 +201,19 @@ extension WishlistViewController : WishlistItemInteraction {
             "Apakah kamu yakin ingin menghapus wishlist ini?"
         ) { [weak self] _ in
             self?.vm.deleteWishlist(id: id)
-            self?.reloadTableView()
+            self?.tableView.reload()
         }
         self.present(alert, animated: true)
     }
     
     func didAddToCartTapped(_ id: String) {
-        
+        vm.addToCart(userId: userId, productId: id, qty: 1)
     }
 }
 extension WishlistViewController : CheckboxClickable {
     func didTap(_ isSelected: Bool) {
         isAllSelected = isSelected
-        reloadTableView()
+        tableView.reload()
     }
 }
 extension WishlistViewController : LoginProtocol {
@@ -262,12 +246,6 @@ extension WishlistViewController :
         cell?.delegate = self
         cell?.shouldChecked = isAllSelected
         return cell ?? UITableViewCell()
-    }
-    
-    func reloadTableView() {
-        DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
-        }
     }
 }
 

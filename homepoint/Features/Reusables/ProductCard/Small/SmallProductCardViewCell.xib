@@ -180,18 +180,29 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YsF-6Y-xQt">
+                                <rect key="frame" x="0.0" y="0.0" width="128" height="80"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="1kW-xc-bXu" firstAttribute="leading" secondItem="e2F-me-CRi" secondAttribute="leading" id="2AV-xE-g56"/>
                             <constraint firstItem="Wkn-Rv-Xzr" firstAttribute="top" secondItem="e2F-me-CRi" secondAttribute="top" constant="-2" id="2lF-rO-3b6"/>
                             <constraint firstItem="gOe-w3-asn" firstAttribute="leading" secondItem="e2F-me-CRi" secondAttribute="leading" id="DCb-Ct-fTj"/>
+                            <constraint firstItem="YsF-6Y-xQt" firstAttribute="leading" secondItem="e2F-me-CRi" secondAttribute="leading" id="EDU-xv-VGY"/>
                             <constraint firstAttribute="trailing" secondItem="1kW-xc-bXu" secondAttribute="trailing" id="HSg-4y-9YK"/>
                             <constraint firstAttribute="bottom" secondItem="gOe-w3-asn" secondAttribute="bottom" id="J5o-LD-4hy"/>
                             <constraint firstItem="1kW-xc-bXu" firstAttribute="top" secondItem="e2F-me-CRi" secondAttribute="top" id="SPz-mt-7fk"/>
                             <constraint firstItem="gOe-w3-asn" firstAttribute="top" secondItem="1kW-xc-bXu" secondAttribute="bottom" id="Wud-yV-NhR"/>
+                            <constraint firstAttribute="trailing" secondItem="YsF-6Y-xQt" secondAttribute="trailing" id="cgo-qX-cj0"/>
                             <constraint firstAttribute="trailing" secondItem="gOe-w3-asn" secondAttribute="trailing" id="fjQ-7o-nxX"/>
                             <constraint firstAttribute="trailing" secondItem="Wkn-Rv-Xzr" secondAttribute="trailing" constant="8" id="tux-GF-eaB"/>
+                            <constraint firstItem="YsF-6Y-xQt" firstAttribute="top" secondItem="e2F-me-CRi" secondAttribute="top" id="v9z-La-r63"/>
+                            <constraint firstItem="gOe-w3-asn" firstAttribute="top" secondItem="YsF-6Y-xQt" secondAttribute="bottom" id="w9J-kl-rRp"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>

@@ -7,6 +7,8 @@
 
 import Foundation
 import SwiftyJSON
+import RxSwift
+import Alamofire
 
 final class CartRepository {
     private let urlString = "api/v1/cart"
@@ -25,12 +27,13 @@ extension CartRepository : CartRepositoryInterface {
               let quantity = params["quantity"]
         else { return }
         let queryParams = "\(userId)/\(productId)"
-        let bodyParam = ["quantity": quantity]
-        apiClient.request(
+        let headers : HTTPHeaders = ["Content-Type": "application/json"]
+        apiClient.requestBodyEncoding(
             urlString + "/items/\(queryParams)",
             .post,
-            bodyParam,
-            nil
+            [:],
+            headers,
+            "\(quantity)"
         ) { response, data, error in
             if let data = data {
                 do {
@@ -50,7 +53,7 @@ extension CartRepository : CartRepositoryInterface {
         apiClient.request(
             urlString + "/\(userId)",
             .get,
-            [:],
+            nil,
             nil
         ) { response, data, error in
             if let data = data {
@@ -94,9 +97,9 @@ extension CartRepository : CartRepositoryInterface {
     
     func deleteCart(id: String, completion: @escaping CartCompletion) {
         apiClient.request(
-            urlString + "/\(id)",
+            urlString + "/items/\(id)",
             .delete,
-            [:],
+            nil,
             nil
         ) { response, data, error in
             if let data = data {

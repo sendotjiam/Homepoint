@@ -38,5 +38,6 @@ struct Constants {
     static let AddressVC = "AddressViewController"
     static let AddAddressVC = "AddAddressViewController"
 
+    static let CartVC = "CartViewController"
     static let WishlistVC = "WishlistViewController"
 }

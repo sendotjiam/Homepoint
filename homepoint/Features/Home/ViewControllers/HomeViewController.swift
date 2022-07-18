@@ -164,7 +164,7 @@ extension HomeViewController {
     private func handleLoading(_ isLoading: Bool?) {
         guard let isLoading = isLoading else { return }
         if !isLoading {
-            reloadTableView()
+            homeTableView.reload()
             DispatchQueue.main.async {
                 self.view.stopShimmer()
             }
@@ -266,12 +266,6 @@ extension HomeViewController:
             }
             return cellOffer as? T
         default: return cell
-        }
-    }
-    
-    func reloadTableView() {
-        DispatchQueue.main.async { [weak self] in
-            self?.homeTableView.reloadData()
         }
     }
 }

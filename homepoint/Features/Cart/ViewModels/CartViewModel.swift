@@ -10,7 +10,7 @@ import RxSwift
 import RxRelay
 
 protocol CartViewModelInput {
-    func getCarts()
+    func getCarts(userId: String)
     func deleteCartItem(id: String)
     func updateCartItem(id: String, qty: Int)
 }
@@ -27,7 +27,7 @@ final class CartViewModel : CartViewModelInput, CartViewModelOutput {
     
     private let useCase : CartUseCase
     
-    init(_ useCase : CartUseCase) {
+    init(_ useCase : CartUseCase = CartUseCase(CartRepository())) {
         self.useCase = useCase
     }
     
@@ -37,14 +37,15 @@ final class CartViewModel : CartViewModelInput, CartViewModelOutput {
     var error = PublishSubject<String>()
     var isLoading = BehaviorRelay<Bool>(value: false)
     
-    func getCarts() {
-        let userId = ""
+    func getCarts(userId: String) {
         isLoading.accept(true)
         useCase.fetchCarts(userId: userId) { [weak self] result, error in
             guard let self = self else { return }
             if let result = result {
                 if result.success || result.status == "200" {
-                    self.successFetchCarts.onNext(result.data)
+                    if let data = result.data.first?.id, data == "" {
+                        self.successFetchCarts.onNext([])
+                    } else { self.successFetchCarts.onNext(result.data) }
                 } else {
                     self.error.onNext(result.message)
                 }
@@ -61,7 +62,7 @@ final class CartViewModel : CartViewModelInput, CartViewModelOutput {
             guard let self = self else { return }
             if let result = result {
                 if result.success || result.status == "200" {
-                    self.successUpdateCart.onNext(result.data)
+                    self.successDeleteCart.onNext(result.data)
                 } else {
                     self.error.onNext(result.message)
                 }

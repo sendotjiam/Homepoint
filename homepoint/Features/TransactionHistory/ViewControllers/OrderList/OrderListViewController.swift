@@ -77,7 +77,7 @@ extension OrderListViewController {
         tableView.sectionFooterHeight = 0.00001
         
         notLoginView.delegate = self
-        notLoginView.isHidden = (UserDefaults.standard.value(forKey: "user_token") != nil) ? true : false
+        notLoginView.isHidden = isUserLoggedIn()
     }
     
     @objc func reloadView() {
@@ -95,7 +95,7 @@ extension OrderListViewController : LoginProtocol {
 // MARK: - NavigationBar
 extension OrderListViewController {
     override func historyTapped(sender: UIBarButtonItem) {
-        if (UserDefaults.standard.value(forKey: "user_token") != nil) {
+        if isUserLoggedIn() {
             navigationController?
                 .pushViewController(
                     HistoryViewController(),

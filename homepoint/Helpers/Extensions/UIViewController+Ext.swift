@@ -12,6 +12,21 @@ var globalLoadingIndicator : UIView?
 
 extension UIViewController  {
     
+    func getUserId() -> String? {
+        return UserDefaults.standard.value(forKey: "user_id") as? String
+    }
+    
+    func isUserLoggedIn() -> Bool {
+        ((UserDefaults.standard.value(forKey: "user_token") != nil) || (UserDefaults.standard.value(forKey: "user_id") != nil))
+    }
+    
+    func showNotLoginAlert() {
+        let vc = NotLoginAlertViewController()
+        vc.delegate = self
+        vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: false)
+    }
+    
     func addNotificationCenter(label: String, selector: Selector) {
         NotificationCenter.default.addObserver(
             self,

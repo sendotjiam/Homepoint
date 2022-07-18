@@ -40,7 +40,7 @@ final class LoginViewModel : LoginViewModelInput, LoginViewModelOutput {
             self.isLoading.accept(false)
             if let result = result {
                 if result.success && result.status == "200" {
-                    self.saveToken(token: result.data.token)
+                    self.saveIdAndToken(id: result.data.id, token: result.data.token)
                     self.successLogin.onNext(result)
                 } else {
                     self.error.onNext("Email atau password salah.")
@@ -51,7 +51,8 @@ final class LoginViewModel : LoginViewModelInput, LoginViewModelOutput {
         }
     }
     
-    private func saveToken(token: String) {
+    private func saveIdAndToken(id: String, token: String) {
+        UserDefaults.standard.setValue(id, forKey: "user_id")
         UserDefaults.standard.setValue(token, forKey: "user_token")
     }
 }

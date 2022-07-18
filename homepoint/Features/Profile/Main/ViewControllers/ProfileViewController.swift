@@ -48,7 +48,7 @@ final class ProfileViewController: UIViewController {
         profileTableView.register(RightArrowFieldViewCell.nib(), forCellReuseIdentifier: "RightArrowFieldViewCell")
         profileTableView.register(ImageFieldViewCell.nib(), forCellReuseIdentifier: "ImageFieldViewCell")
 
-        notLoginView.isHidden = (UserDefaults.standard.value(forKey: "user_token") != nil) ? true : false
+        notLoginView.isHidden = isUserLoggedIn()
     }
     
     @objc func reloadView() {
