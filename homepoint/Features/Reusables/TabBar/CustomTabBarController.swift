@@ -34,11 +34,18 @@ final class CustomTabBarController: UITabBarController {
             UIImage(named: Constants.OrderIcon),
             UIImage(named: Constants.ProfileIcon)
         ]
+        let selected = [
+            UIImage(named: Constants.HomeIcon + ".fill"),
+            UIImage(named: Constants.WishlistIcon + ".fill"),
+            UIImage(named: Constants.OrderIcon + ".fill"),
+            UIImage(named: Constants.ProfileIcon + ".fill")
+        ]
         
         setupTabBar(
             [navHome, navWishlist, navOrder, navProfile],
             titles,
-            images
+            images,
+            selected
         )
     }
 }
@@ -47,7 +54,8 @@ extension CustomTabBarController {
     private func setupTabBar(
         _ navControllers : [UINavigationController],
         _ titles: [String],
-        _ images: [UIImage?]
+        _ images: [UIImage?],
+        _ selected : [UIImage?]
     ) {
         tabBar.isTranslucent = false
         tabBar.backgroundColor = .white
@@ -62,8 +70,9 @@ extension CustomTabBarController {
             nav.tabBarItem = UITabBarItem(
                 title: titles[idx],
                 image: images[idx],
-                tag: 1
+                selectedImage: selected[idx]
             )
+            nav.tabBarItem.imageInsets = UIEdgeInsets(top: 4, left: 0, bottom: 4, right: 0)
             idx += 1
         }
         setViewControllers(

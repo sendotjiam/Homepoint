@@ -20,10 +20,8 @@ struct Constants {
     static let HomeIcon = "ic_home"
     static let Wishlist = "Wishlist"
     static let WishlistIcon = "ic_wishlist"
-    static let Scan = "Scan"
-    static let ScanIcon = "ic_scan"
     static let Order = "Pesanan"
-    static let OrderIcon = "ic_notes"
+    static let OrderIcon = "ic_list"
     static let Profile = "Profil"
     static let ProfileIcon = "ic_profile"
     
