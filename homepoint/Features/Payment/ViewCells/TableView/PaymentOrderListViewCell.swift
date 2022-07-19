@@ -21,7 +21,7 @@ final class PaymendOrderListCellModel {
     }
 }
 
-protocol PaymentOrderListProtocol {
+protocol PaymentOrderListProtocol : AnyObject {
     func didTapInsurance(_ includeInsurance: Bool)
 }
 
@@ -41,7 +41,7 @@ final class PaymentOrderListViewCell: UITableViewCell {
     var data : PaymendOrderListCellModel? {
         didSet { configureCell() }
     }
-    var delegate : PaymentOrderListProtocol?
+    weak var delegate : PaymentOrderListProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()

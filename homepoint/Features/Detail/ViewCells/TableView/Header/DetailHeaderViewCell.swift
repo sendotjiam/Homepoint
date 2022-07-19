@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol DetailHeaderProtocol {
+protocol DetailHeaderProtocol : AnyObject{
     func didTapLikeButton(id: String)
     func didTapShareButton()
     func didTapMessageButton()
@@ -42,7 +42,7 @@ final class DetailHeaderViewCell: UITableViewCell {
     
     var price = 100000
     var discountedPrice = 50000
-    var delegate : DetailHeaderProtocol?
+    weak var delegate : DetailHeaderProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()

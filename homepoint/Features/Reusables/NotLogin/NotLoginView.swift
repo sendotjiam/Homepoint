@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol NotLoginViewProtocol {
+protocol NotLoginViewProtocol: AnyObject {
     func navigateToLogin()
 }
 
@@ -50,7 +50,7 @@ final class NotLoginView : UIView {
         return button
     }()
     
-    var delegate : NotLoginViewProtocol?
+    weak var delegate : NotLoginViewProtocol?
     
     override func awakeFromNib() {
         super.awakeFromNib()

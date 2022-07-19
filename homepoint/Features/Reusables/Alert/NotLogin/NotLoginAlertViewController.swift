@@ -12,7 +12,7 @@ final class NotLoginAlertViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var loginButton: UIButton!
     
-    var delegate : NotLoginViewProtocol?
+    weak var delegate : NotLoginViewProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()

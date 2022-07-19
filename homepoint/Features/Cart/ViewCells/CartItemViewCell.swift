@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-protocol CartItemInteraction {
+protocol CartItemInteraction : AnyObject {
     func didSelect(_ id: String)
     func didLikeTapped(_ id: String)
     func didRemoveTapped(_ id: String)
@@ -30,7 +30,7 @@ final class CartItemViewCell: UITableViewCell {
     var data : CartDataModel? {
         didSet { configureCell() }
     }
-    var delegate : CartItemInteraction?
+    weak var delegate : CartItemInteraction?
     var qty : Int = 0
     
     override func awakeFromNib() {

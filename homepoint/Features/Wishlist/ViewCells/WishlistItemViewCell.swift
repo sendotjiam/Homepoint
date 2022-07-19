@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-protocol WishlistItemInteraction {
+protocol WishlistItemInteraction : AnyObject {
     func didRemoveTapped(_ id: String)
     func didAddToCartTapped(_ id: String)
 }
@@ -41,7 +41,7 @@ final class WishlistItemViewCell: UITableViewCell {
             checkbox.isChecked = shouldChecked
         }
     }
-    var delegate : WishlistItemInteraction?
+    weak var delegate : WishlistItemInteraction?
     
     override func awakeFromNib() {
         super.awakeFromNib()

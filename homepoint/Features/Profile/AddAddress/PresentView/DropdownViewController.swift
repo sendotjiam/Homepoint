@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol DropdownViewControllerDelegate {
+protocol DropdownViewControllerDelegate : AnyObject {
     func selectedValue(type: AddressList, value: String)
 }
 
@@ -15,7 +15,7 @@ final class DropdownViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var doneLabel: UILabel!
     
-    var delegate: DropdownViewControllerDelegate?
+    weak var delegate: DropdownViewControllerDelegate?
     var data: [String]?
     var type: AddressList
     var value: String = "Tidak ada data terpilih"

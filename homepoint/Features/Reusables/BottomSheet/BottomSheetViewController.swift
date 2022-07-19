@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol BottomSheetDelegate {
+protocol BottomSheetDelegate : AnyObject {
     func didSelectItem(type: SheetType, data : SheetItemCellModel)
 }
 
@@ -25,7 +25,7 @@ final class BottomSheetViewController: UIViewController {
     
     // MARK: - Variables
     var type : SheetType!
-    var delegate : BottomSheetDelegate?
+    weak var delegate : BottomSheetDelegate?
     
     /// Data with title and images/icons
     var data = [SheetItemCellModel]()
