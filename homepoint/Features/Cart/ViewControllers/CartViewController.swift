@@ -43,6 +43,8 @@ final class CartViewController: UIViewController {
     private let bag = DisposeBag()
     private var carts : [CartDataModel] = []
     private var userId = ""
+    private var selectedId = [String]()
+    private var wishlistId = ""
     
     init() {
         super.init(nibName: Constants.CartVC, bundle: nil)
@@ -67,7 +69,8 @@ final class CartViewController: UIViewController {
     }
     
     @IBAction func purchaseButtonTapped(_ sender: Any) {
-        print("PURCHASE")
+        let vc = PaymentViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -98,11 +101,11 @@ extension CartViewController {
     }
     
     private func reloadView() {
-        purchaseButton.setTitle("Beli (\(carts.count))", for: .normal)
+        purchaseButton.setTitle("Beli (\(selectedId.count))", for: .normal)
     }
     
     private func checkButton() {
-        if quantity == 0 {
+        if selectedId.isEmpty {
             purchaseButton.isEnabled = false
             purchaseButton.alpha = 0.5
         } else {
@@ -164,11 +167,47 @@ extension CartViewController {
             if !loading { self.view.stopShimmer() }
         }
     }
+    
+    private func handleIsWishlist(_ wishlistId: String?) {
+        self.wishlistId = wishlistId ?? ""
+        tableView.reload()
+    }
+    
+    private func handleDeleteWishlist() {
+        self.wishlistId = ""
+        tableView.reload()
+        let alert = self.createSimpleAlert(
+            "Berhasil",
+            "Berhasil menghapus produk dalam wishlist",
+            "OK"
+        )
+        self.present(alert, animated: true)
+
+        self.postNotificationCenter(label: "reload_wishlist")
+    }
+    
+    private func handleSuccessAddWishlist(_ wishlist: WishlistDataModel?) {
+        self.wishlistId = wishlist?.id ?? ""
+        let alert = self.createSimpleAlert(
+            "Berhasil",
+            "Berhasil menambahkan produk sebagai wishlist",
+            "OK"
+        )
+        self.present(alert, animated: true)
+        self.postNotificationCenter(label: "reload_wishlist")
+    }
 }
 
 // MARK: - Interaction
 extension CartViewController : CartItemInteraction {
-    func didSelect(_ index: Int) {
+    func didSelect(_ id: String) {
+        if selectedId.contains(id) {
+            selectedId = selectedId.filter { $0 != id }
+        } else { selectedId.append(id) }
+        checkButton()
+    }
+    
+    func didLikeTapped(_ id: String) {
         
     }
     
@@ -205,7 +244,6 @@ extension CartViewController :
             for: indexPath
         ) as? CartItemViewCell
         cell?.delegate = self
-        cell?.index = indexPath.row
         cell?.data = carts[indexPath.row]
         return cell ?? UITableViewCell()
     }

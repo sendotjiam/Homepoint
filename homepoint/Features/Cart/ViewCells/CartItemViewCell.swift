@@ -9,7 +9,8 @@ import UIKit
 import SDWebImage
 
 protocol CartItemInteraction {
-    func didSelect(_ index: Int)
+    func didSelect(_ id: String)
+    func didLikeTapped(_ id: String)
     func didRemoveTapped(_ id: String)
 }
 
@@ -29,7 +30,6 @@ final class CartItemViewCell: UITableViewCell {
     var data : CartDataModel? {
         didSet { configureCell() }
     }
-    var index = 0
     var delegate : CartItemInteraction?
     var qty : Int = 0
     
@@ -43,7 +43,8 @@ final class CartItemViewCell: UITableViewCell {
     }
     
     @IBAction func likeButtonTapped(_ sender: Any) {
-        delegate?.didSelect(index)
+        guard let data = data else { return }
+        delegate?.didLikeTapped(data.products.id)
     }
     
     @IBAction func removeButtonTapped(_ sender: Any) {
@@ -53,11 +54,13 @@ final class CartItemViewCell: UITableViewCell {
     
     @IBAction func addButtonTapped(_ sender: Any) {
         qty += 1
+        quantityLabel.text = "\(qty)"
     }
     
     @IBAction func minusButtonTapped(_ sender: Any) {
         if qty == 0 { return }
         qty -= 1
+        quantityLabel.text = "\(qty)"
     }
     
 }
@@ -67,6 +70,7 @@ extension CartItemViewCell {
     private func setupUI() {
         selectionStyle = .none
         cartImageView.clipsToBounds = true
+        checkbox.delegate = self
         cartImageView.roundedCorner(with: 8)
         quantityView.roundedCorner(with: 12)
     }
@@ -87,3 +91,9 @@ extension CartItemViewCell {
     }
 }
 
+extension CartItemViewCell : CheckboxClickable {
+    func didTap(_ isSelected: Bool) {
+        guard let id = data?.id else { return }
+        delegate?.didSelect(id)
+    }
+}

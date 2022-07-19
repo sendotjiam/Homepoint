@@ -106,20 +106,20 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wCR-sC-oDy">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_empty.wishlist" translatesAutoresizingMaskIntoConstraints="NO" id="TFl-Cl-QiD">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_empty.cart" translatesAutoresizingMaskIntoConstraints="NO" id="TFl-Cl-QiD">
                             <rect key="frame" x="86" y="68" width="242" height="212"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="242" id="eme-hZ-rg4"/>
                                 <constraint firstAttribute="height" constant="212" id="md2-61-BiX"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keranjang kamu kosong" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9iN-5p-rg8">
-                            <rect key="frame" x="138" y="300" width="138" height="14.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cukup hatiku aja yang kosong, keranjang kamu jangan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9iN-5p-rg8">
+                            <rect key="frame" x="50.5" y="300" width="313.5" height="14.5"/>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                             <color key="textColor" name="PrimaryBlue"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yuk tambahkan produk Homepoint yang kamu inginkan ke dalam Keranjang!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Es4-qc-F1Q">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yuk, isi keranjang belanja kamu sekarang dengan produk terbaik Homepoint!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Es4-qc-F1Q">
                             <rect key="frame" x="20" y="320.5" width="374" height="12"/>
                             <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <color key="textColor" red="0.70980392160000005" green="0.70980392160000005" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
@@ -164,7 +164,7 @@
         </view>
     </objects>
     <resources>
-        <image name="img_empty.wishlist" width="324" height="282.5"/>
+        <image name="img_empty.cart" width="324" height="312"/>
         <namedColor name="DarkBlue">
             <color red="0.13300000131130219" green="0.21199999749660492" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

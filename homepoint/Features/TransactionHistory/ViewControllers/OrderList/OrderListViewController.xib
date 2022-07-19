@@ -29,6 +29,40 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78O-QA-9ri">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_empty.order" translatesAutoresizingMaskIntoConstraints="NO" id="R5t-pv-MSe">
+                            <rect key="frame" x="86" y="68" width="242" height="212"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="242" id="CZP-i9-whA"/>
+                                <constraint firstAttribute="height" constant="212" id="JXR-br-pCr"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cukup hatiku aja yang kosong, keranjang kamu jangan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MoC-0T-q2A">
+                            <rect key="frame" x="50.5" y="300" width="313.5" height="14.5"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                            <color key="textColor" name="PrimaryBlue"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yuk, isi keranjang belanja kamu sekarang dengan produk terbaik Homepoint!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nmb-r4-ecr">
+                            <rect key="frame" x="20" y="320.5" width="374" height="12"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <color key="textColor" red="0.70980392160000005" green="0.70980392160000005" blue="0.70980392160000005" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="Nmb-r4-ecr" firstAttribute="leading" secondItem="78O-QA-9ri" secondAttribute="leading" constant="20" id="5KF-3T-Yfb"/>
+                        <constraint firstItem="MoC-0T-q2A" firstAttribute="centerX" secondItem="78O-QA-9ri" secondAttribute="centerX" id="7vz-9U-4gX"/>
+                        <constraint firstItem="R5t-pv-MSe" firstAttribute="top" secondItem="78O-QA-9ri" secondAttribute="top" constant="68" id="9CN-7X-HKz"/>
+                        <constraint firstAttribute="trailing" secondItem="Nmb-r4-ecr" secondAttribute="trailing" constant="20" id="FyC-tN-ZH1"/>
+                        <constraint firstItem="Nmb-r4-ecr" firstAttribute="top" secondItem="MoC-0T-q2A" secondAttribute="bottom" constant="6" id="G59-rj-b4W"/>
+                        <constraint firstItem="R5t-pv-MSe" firstAttribute="centerX" secondItem="78O-QA-9ri" secondAttribute="centerX" id="Mpb-kS-AI7"/>
+                        <constraint firstItem="MoC-0T-q2A" firstAttribute="top" secondItem="R5t-pv-MSe" secondAttribute="bottom" constant="20" id="rhd-z8-cMN"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbp-km-uAH" customClass="NotLoginView" customModule="homepoint" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -42,7 +76,11 @@
                 <constraint firstItem="Fx7-Tj-HzO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="2gB-FJ-SRk"/>
                 <constraint firstAttribute="bottom" secondItem="fbp-km-uAH" secondAttribute="bottom" id="7oN-9t-aRW"/>
                 <constraint firstItem="Fx7-Tj-HzO" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="EV5-1a-qnQ"/>
+                <constraint firstAttribute="trailing" secondItem="78O-QA-9ri" secondAttribute="trailing" id="SnZ-Li-PTl"/>
+                <constraint firstItem="78O-QA-9ri" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="cz5-5Q-twm"/>
                 <constraint firstAttribute="trailing" secondItem="fbp-km-uAH" secondAttribute="trailing" id="kVD-mK-0wy"/>
+                <constraint firstItem="78O-QA-9ri" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rqR-RN-2J0"/>
+                <constraint firstAttribute="bottom" secondItem="78O-QA-9ri" secondAttribute="bottom" id="uh4-XI-fUe"/>
                 <constraint firstAttribute="bottom" secondItem="Fx7-Tj-HzO" secondAttribute="bottom" id="wU3-zm-2HA"/>
                 <constraint firstItem="Fx7-Tj-HzO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="z7k-d1-85m"/>
             </constraints>
@@ -53,8 +91,12 @@
         </view>
     </objects>
     <resources>
+        <image name="img_empty.order" width="324" height="284"/>
         <namedColor name="LightBlue-2">
             <color red="0.41200000047683716" green="0.60000002384185791" blue="0.72200000286102295" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryBlue">
+            <color red="0.19200000166893005" green="0.37599998712539673" blue="0.57599997520446777" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
