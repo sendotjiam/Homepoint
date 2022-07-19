@@ -15,6 +15,7 @@
                 <outlet property="accountInfoStackView" destination="90z-eB-jGb" id="taN-2h-xrw"/>
                 <outlet property="accountNameLabel" destination="ly1-yk-pkk" id="YHs-eu-HTr"/>
                 <outlet property="accountNumberLabel" destination="Pjv-bP-cdy" id="JIF-qd-Mkk"/>
+                <outlet property="addressLabel" destination="tfU-0x-dQZ" id="Bd6-mY-Roq"/>
                 <outlet property="addressView" destination="rrT-ko-7Bb" id="4K6-gF-efK"/>
                 <outlet property="collectionView" destination="SQg-Aa-KyT" id="Uo7-k8-oxW"/>
                 <outlet property="discountLabel" destination="wSQ-2h-RTu" id="TX5-xy-l74"/>
@@ -34,7 +35,6 @@
                 <outlet property="totalPaymentLabel" destination="vax-I6-hYJ" id="iDi-zk-lhL"/>
                 <outlet property="totalSpendingLabel" destination="MD0-Jp-BAE" id="OGB-mU-W2F"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="voucherButton" destination="oli-Jn-sv6" id="T16-Nq-S0t"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -50,7 +50,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aSY-fH-w2d">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="1305"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="1225"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E9T-nm-z6m">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="146.5"/>
@@ -108,7 +108,7 @@
                                                                     <color key="textColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jln. Magelang Selatan No. 123123123123 A, Jakart Pusat" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfU-0x-dQZ">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jln. Magelang Selatan No. 123123123123 A, Kota Malang" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfU-0x-dQZ">
                                                                     <rect key="frame" x="0.0" y="33" width="304" height="29"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                                     <color key="textColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -188,44 +188,8 @@
                                         <constraint firstAttribute="trailing" secondItem="ylx-qT-u2c" secondAttribute="trailing" constant="20" id="z0S-Qh-5Ra"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zvD-uX-f49">
-                                    <rect key="frame" x="0.0" y="379" width="414" height="72"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_right.arrow" translatesAutoresizingMaskIntoConstraints="NO" id="RAy-XA-RLt">
-                                            <rect key="frame" x="350" y="24" width="24" height="24"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="24" id="tvX-DX-ZdD"/>
-                                                <constraint firstAttribute="height" constant="24" id="uhz-O6-0RI"/>
-                                            </constraints>
-                                        </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oli-Jn-sv6">
-                                            <rect key="frame" x="20" y="16" width="374" height="40"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="aPh-Ga-KJA"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                            <state key="normal" title="Tambahkan Voucher Promo">
-                                                <color key="titleColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="voucherButtonTapped:" destination="-1" eventType="touchUpInside" id="PWz-Mg-IAD"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstItem="oli-Jn-sv6" firstAttribute="top" secondItem="zvD-uX-f49" secondAttribute="top" constant="16" id="Tgd-V1-y1d"/>
-                                        <constraint firstAttribute="bottom" secondItem="oli-Jn-sv6" secondAttribute="bottom" constant="16" id="bcc-4e-XaR"/>
-                                        <constraint firstAttribute="trailing" secondItem="oli-Jn-sv6" secondAttribute="trailing" constant="20" id="keZ-GN-KXl"/>
-                                        <constraint firstItem="oli-Jn-sv6" firstAttribute="leading" secondItem="zvD-uX-f49" secondAttribute="leading" constant="20" id="qrq-sl-qJZ"/>
-                                        <constraint firstItem="RAy-XA-RLt" firstAttribute="centerY" secondItem="zvD-uX-f49" secondAttribute="centerY" id="tg4-5K-BAY"/>
-                                        <constraint firstAttribute="trailing" secondItem="RAy-XA-RLt" secondAttribute="trailing" constant="40" id="w5b-PU-jEf"/>
-                                    </constraints>
-                                </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fqA-tc-i2i">
-                                    <rect key="frame" x="0.0" y="459" width="414" height="204"/>
+                                    <rect key="frame" x="0.0" y="379" width="414" height="204"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="r4a-u4-LVJ">
                                             <rect key="frame" x="20" y="16" width="374" height="172"/>
@@ -304,7 +268,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hlW-Gh-1Tp">
-                                    <rect key="frame" x="0.0" y="671" width="414" height="634"/>
+                                    <rect key="frame" x="0.0" y="591" width="414" height="634"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="gNW-U7-KBo">
                                             <rect key="frame" x="20" y="16" width="374" height="436"/>
@@ -642,7 +606,6 @@
     </objects>
     <resources>
         <image name="ic_pin" width="24" height="29"/>
-        <image name="ic_right.arrow" width="32" height="32"/>
         <namedColor name="DarkBlue">
             <color red="0.13300000131130219" green="0.21199999749660492" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

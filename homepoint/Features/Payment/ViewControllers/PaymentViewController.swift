@@ -11,9 +11,9 @@ final class PaymentViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var addressView: UIView!
+    @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var voucherButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var shopLocationLabel: UILabel!
     @IBOutlet weak var selectShopLocationLabel: UILabel!
@@ -39,7 +39,21 @@ final class PaymentViewController: UIViewController {
         CourierCellModel(title: "Kurir homepoint", image: "ic_homepoint.courier", price: 0),
         CourierCellModel(title: "Ambil di tempat", image: "ic_pickup.shop", price: 0)
     ]
-    var subtotalPrice = 0.0
+    var totalPrice = 0.0
+    private var subtotalPrice = 0.0 {
+        didSet {
+            totalSpending = subtotalPrice
+            totalSpendingLabel.text = totalSpending.convertToCurrency()
+        }
+    }
+    private var totalSpending = 0.0 {
+        didSet {
+            totalPrice = totalSpending
+            totalPaymentLabel.text = totalPrice.convertToCurrency()
+        }
+    }
+    private var hasChoosePaymentMethod = false
+    private var hasChooseCourier = false
     // Mock Data
     let ordersData : [PaymendOrderListCellModel] = [
         PaymendOrderListCellModel(
@@ -79,10 +93,6 @@ final class PaymentViewController: UIViewController {
     @IBAction func paymentButtonTapped(_ sender: Any) {
     }
     
-    @IBAction func voucherButtonTapped(_ sender: Any) {
-        
-    }
-    
     @IBAction func selectShopLocationButtonTapped(_ sender: Any) {
         let vc = BottomSheetViewController()
         vc.type = .shopLocations
@@ -116,9 +126,7 @@ extension PaymentViewController {
     private func setupUI() {
         addressView.addBorder(width: 1, color: ColorCollection.primaryColor.value)
         paymentMethodView.addBorder(width: 1, color: ColorCollection.primaryColor.value)
-        voucherButton.addBorder(width: 1, color: .black)
         [addressView,
-         voucherButton,
          shopLocationView,
          paymentMethodView,
          paymentButton].forEach {
@@ -126,6 +134,8 @@ extension PaymentViewController {
         }
         calculateTableViewHeightAndSubtotalPrice()
         
+        paymentButton.isEnabled = false
+         
         accountInfoStackView.isHidden = true
         paymentMethodImageView.isHidden = true
         
@@ -162,6 +172,25 @@ extension PaymentViewController {
         subtotalLabel.text = subtotalPrice.convertToCurrency()
         tableViewHeight.constant = height
     }
+    
+    private func checkAccountType(title : String) -> (String, String){
+        switch title {
+        case "Bank Negara Indonesia":
+            return ("123 456 7890", "Homepointstore")
+        case "Bank Rakyat Indonesia":
+            return ("098 765 4321", "Homepointstore")
+        case "Bank Tabungan Negara":
+            return ("999 888 4111", "Homepointstore")
+        case "Bank Mandiri":
+            return ("222 512 1111", "Homepointstore")
+        default: // BCA
+            return ("375 178 5066", "Homepointstore")
+        }
+    }
+    
+    private func checkButton() {
+        paymentButton.isEnabled = (hasChooseCourier && hasChoosePaymentMethod) ? true : false
+    }
 }
 
 extension PaymentViewController : PaymentOrderListProtocol {
@@ -179,11 +208,19 @@ extension PaymentViewController : BottomSheetDelegate {
             selectShopLocationLabel.text = data.title
             selectShopLocationLabel.textColor = .black
             selectShopLocationLabel.tag = 1
+            hasChooseCourier = true
+            checkButton()
         case .paymentMethods:
             paymentMethodImageView.isHidden = false
             paymentMethodImageView.image = UIImage(named: data.image)
             paymentMethodLabel.text = data.title
             paymentMethodLabel.textColor = .black
+            accountInfoStackView.isHidden = false
+            let accountType = checkAccountType(title: data.title)
+            accountNameLabel.text = "a/n \(accountType.1)"
+            accountNumberLabel.text = accountType.0
+            hasChoosePaymentMethod = true
+            checkButton()
         }
     }
 }
@@ -249,8 +286,40 @@ extension PaymentViewController :
         _ collectionView: UICollectionView,
         didSelectItemAt indexPath: IndexPath
     ) {
+        shopLocationLabel.isHidden = true
+        selectShopLocationButton.isEnabled = false
+        selectShopLocationLabel.text = "Pilih Lokasi Toko"
+        selectShopLocationLabel.textColor = ColorCollection.darkTextColor.value
+        shopLocationView.backgroundColor = ColorCollection.ligthTextColor.value
+        shopLocationView.addBorder(width: 0, color: ColorCollection.primaryColor.value)
         switch indexPath.row {
+        case 0:
+            guard let address = addressLabel.text else { return }
+            if address.lowercased().contains("kota malang") {
+                selectShopLocationLabel.text = "Homepoint Cabang Malang"
+                shopLocationLabel.isHidden = false
+                shopLocationView.backgroundColor = .white
+                shopLocationView.addBorder(width: 1, color: ColorCollection.primaryColor.value)
+                selectShopLocationLabel.textColor = .black
+                hasChooseCourier = true
+            } else { hasChooseCourier = false }
+        case 1:
+            // Confuse use case from design (need explanation from uiux)
+            guard let address = addressLabel.text else { return }
+            if (address.lowercased().contains("kota malang") || address.lowercased().contains("kota bandung") || address.lowercased().contains("kota jakarta")) {
+                var city = ""
+                if address.lowercased().contains("kota malang") { city = "Malang" }
+                else if address.lowercased().contains("kota bandung") { city = "Bandung" }
+                else { city = "Jakarta" }
+                selectShopLocationLabel.text = "Homepoint Cabang \(city)"
+                shopLocationLabel.isHidden = false
+                shopLocationView.backgroundColor = .white
+                shopLocationView.addBorder(width: 1, color: ColorCollection.primaryColor.value)
+                selectShopLocationLabel.textColor = .black
+                hasChooseCourier = true
+            } else { hasChooseCourier = false }
         case 2:
+            hasChooseCourier = false
             selectShopLocationButton.isEnabled = true
             shopLocationView.backgroundColor = .white
             shopLocationView.addBorder(width: 1, color: ColorCollection.primaryColor.value)
@@ -258,12 +327,8 @@ extension PaymentViewController :
                 selectShopLocationLabel.textColor = ColorCollection.primaryColor.value
             }
         default:
-            shopLocationLabel.isHidden = true
-            selectShopLocationButton.isEnabled = false
-            selectShopLocationLabel.textColor = ColorCollection.darkTextColor.value
-            selectShopLocationLabel.text = "Pilih Lokasi Toko"
-            shopLocationView.backgroundColor = ColorCollection.ligthTextColor.value
-            shopLocationView.addBorder(width: 0, color: ColorCollection.primaryColor.value)
+            break
         }
+        checkButton()
     }
 }
