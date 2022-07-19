@@ -10,6 +10,7 @@ import Alamofire
 @testable import homepoint
 
 final class MockApiClient : ApiClient {
+    
     var data : Data?
     var error : Error?
     
@@ -18,6 +19,17 @@ final class MockApiClient : ApiClient {
         _ method: HTTPMethod,
         _ parameters: Parameters?,
         _ headers: HTTPHeaders?,
+        completion: @escaping (URLResponse?, Data?, Error?) -> Void
+    ) {
+        completion(URLResponse(), data, error)
+    }
+    
+    func requestBodyEncoding(
+        _ path: String,
+        _ method: HTTPMethod,
+        _ parameters: Parameters?,
+        _ headers: HTTPHeaders?,
+        _ bodyValue: String?,
         completion: @escaping (URLResponse?, Data?, Error?) -> Void
     ) {
         completion(URLResponse(), data, error)
