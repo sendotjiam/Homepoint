@@ -41,8 +41,12 @@ extension BottomSheetViewController {
         containerView.roundedCorner(with: 8)
         
         switch type {
-        case .paymentMethods, .shopLocations:
+        case .paymentMethods:
             tableViewHeight.constant = (CGFloat(data.count * 20) + CGFloat(data.count * 32)) + 50
+            titleLabel.text = "Pilih Metode Pembayaran"
+        case .shopLocations:
+            tableViewHeight.constant = (CGFloat(data.count * 20) + CGFloat(data.count * 32)) + 50
+            titleLabel.text = "Pilih Lokasi Toko"
         default:
             break
         }
