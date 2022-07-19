@@ -213,7 +213,7 @@ extension SortFilterSheetViewController :
         case .color:
             guard let cell = cell as? FilterColorViewCell
             else { return nil }
-            var cleanColors = Set(colors.map { $0 })
+            let cleanColors = Set(colors.map { $0 })
             cell.colors = cleanColors
             return cell as? T
         default: return cell

@@ -36,7 +36,7 @@
                                 </userDefinedRuntimeAttributes>
                             </collectionView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="z9A-R4-Rcg">
-                                <rect key="frame" x="4" y="115" width="155.5" height="26"/>
+                                <rect key="frame" x="4" y="115" width="352" height="26"/>
                             </pageControl>
                         </subviews>
                         <constraints>
@@ -47,6 +47,7 @@
                             <constraint firstAttribute="bottom" secondItem="YOq-vE-hB3" secondAttribute="bottom" id="kuA-sZ-fX8"/>
                             <constraint firstAttribute="bottom" secondItem="z9A-R4-Rcg" secondAttribute="bottom" constant="4" id="nG0-TF-4kF"/>
                             <constraint firstItem="YOq-vE-hB3" firstAttribute="top" secondItem="uf8-xb-t4u" secondAttribute="top" id="q63-ep-riQ"/>
+                            <constraint firstItem="z9A-R4-Rcg" firstAttribute="centerX" secondItem="uf8-xb-t4u" secondAttribute="centerX" id="yyv-s4-Cgj"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>

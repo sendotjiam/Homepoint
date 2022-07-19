@@ -104,7 +104,7 @@ extension UIViewController  {
             view.isUserInteractionEnabled = false
         } else {
             view.isUserInteractionEnabled = true
-            DispatchQueue.main.async { [weak self] in
+            DispatchQueue.main.async {
                 globalLoadingIndicator?.removeFromSuperview()
                 globalLoadingIndicator = nil
             }
