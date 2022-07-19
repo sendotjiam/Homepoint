@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "ic_regular.courier.png",
+      "filename" : "ic_homepoint.courier.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "ic_regular.courier@2x.png",
+      "filename" : "ic_homepoint.courier@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "ic_regular.courier@3x.png",
+      "filename" : "ic_homepoint.courier@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

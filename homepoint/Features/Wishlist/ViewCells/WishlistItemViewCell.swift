@@ -80,10 +80,8 @@ extension WishlistItemViewCell {
     private func hideView() {
         switch state {
         case .normal:
-            self.checkboxView.isHidden = true
             self.bottomStackView.isHidden = false
         case .edit:
-            self.checkboxView.isHidden = false
             self.bottomStackView.isHidden = true
         case .none:
             break

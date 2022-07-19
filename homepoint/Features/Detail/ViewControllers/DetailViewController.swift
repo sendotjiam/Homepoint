@@ -288,7 +288,7 @@ extension DetailViewController {
 extension DetailViewController : DetailHeaderProtocol {
     func didTapLikeButton(id: String) {
         if isUserLoggedIn() {
-            wishlistId != "" ? vm.deleteWishlist(id: wishlistId) : vm.addWishlist(userId: userId,productId: id)
+            wishlistId != "" ? vm.deleteWishlist(id: wishlistId) : vm.addWishlist(userId: userId, productId: id)
             overlayView.alpha = 0.2
         } else {
             showNotLoginAlert()

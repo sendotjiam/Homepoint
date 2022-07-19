@@ -143,12 +143,19 @@ extension WishlistViewController {
         vm.error.subscribe { [weak self] in
             self?.handleError($0)
         }.disposed(by: bag)
-        vm.successAddToCart.subscribe { [weak self] _ in
-            self?.handleSuccessAddToCart()
+        vm.successAddToCart.subscribe { [weak self] in
+            self?.handleSuccessAddToCart($0)
         }.disposed(by: bag)
     }
     
-    private func handleSuccessAddToCart() {
+    private func handleSuccessAddToCart(_ data : CartDataModel?) {
+        guard let data = data else { return }
+        let newData = self.data.filter {
+            return $0.products.id != data.products.id
+        }
+        self.data = newData
+        checkDataIsEmpty()
+        tableView.reload()
         let alert = self.createSimpleAlert(
             "Berhasil",
             "Berhasil menambahkan produk ke dalam keranjang",

@@ -77,7 +77,7 @@ final class SearchViewController: UIViewController {
             self.brands.append($0.brand)
             self.colors.append($0.color)
         }
-        vc.brands = brands
+        vc.brands = Array(Set(brands.map { $0 }))
         vc.colors = colors
         self.present(vc, animated: true)
     }

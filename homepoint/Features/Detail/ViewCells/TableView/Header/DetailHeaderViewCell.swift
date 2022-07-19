@@ -8,7 +8,6 @@
 import UIKit
 
 protocol DetailHeaderProtocol {
-    func didTapCompareButton()
     func didTapLikeButton(id: String)
     func didTapShareButton()
     func didTapMessageButton()
@@ -26,7 +25,6 @@ final class DetailHeaderViewCell: UITableViewCell {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var brandContainerView: UIView!
     @IBOutlet weak var brandLabel: UILabel!
-    @IBOutlet weak var compareButtonView: UIStackView!
     @IBOutlet weak var colorListCollectionView: UICollectionView!
     @IBOutlet weak var wishlistButton: UIButton!
     
@@ -59,15 +57,11 @@ final class DetailHeaderViewCell: UITableViewCell {
         guard let data = data else { return }
         delegate?.didTapLikeButton(id: data.id)
     }
-    @IBAction func compareButtonTapped(_ sender: Any) {
-        delegate?.didTapCompareButton()
-    }
 }
 
 
 extension DetailHeaderViewCell {
     private func setupUI() {
-        compareButtonView.roundedCorner(with: 8)
         brandContainerView.roundedCorner(with: 8)
         selectionStyle = .none
         colorListCollectionView.delegate = self

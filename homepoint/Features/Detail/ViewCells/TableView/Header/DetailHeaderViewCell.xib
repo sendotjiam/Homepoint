@@ -25,26 +25,6 @@
                             <constraint firstAttribute="height" constant="250" id="7WZ-VR-Neg"/>
                         </constraints>
                     </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kwA-RL-P8r">
-                        <rect key="frame" x="150" y="202" width="134" height="34"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_compare" translatesAutoresizingMaskIntoConstraints="NO" id="mEb-8f-SHK">
-                                <rect key="frame" x="10" y="4" width="26.5" height="26"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bandingkan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HPf-Eb-50Q">
-                                <rect key="frame" x="44.5" y="4" width="79.5" height="26"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                <color key="textColor" name="DarkBlue"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" name="Yellow"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="34" id="JXs-9B-22e"/>
-                            <constraint firstAttribute="width" constant="134" id="elQ-X9-B8R"/>
-                        </constraints>
-                        <edgeInsets key="layoutMargins" top="4" left="10" bottom="4" right="10"/>
-                    </stackView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSG-8I-3cw">
                         <rect key="frame" x="20" y="414" width="260" height="66"/>
                         <subviews>
@@ -224,30 +204,15 @@
                             </stackView>
                         </subviews>
                     </stackView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIb-QR-JQL">
-                        <rect key="frame" x="150" y="202" width="134" height="34"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="134" id="DiO-bI-yde"/>
-                            <constraint firstAttribute="height" constant="34" id="ZQQ-gG-ImA"/>
-                        </constraints>
-                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                        <connections>
-                            <action selector="compareButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="JAv-xu-zck"/>
-                        </connections>
-                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="bSG-8I-3cw" secondAttribute="trailing" constant="20" id="2N8-ef-mFu"/>
-                    <constraint firstAttribute="trailing" secondItem="vIb-QR-JQL" secondAttribute="trailing" constant="16" id="NIu-8U-lAb"/>
-                    <constraint firstItem="qpj-pF-6Rj" firstAttribute="top" secondItem="vIb-QR-JQL" secondAttribute="bottom" constant="34" id="PiM-HB-7AQ"/>
                     <constraint firstItem="qpj-pF-6Rj" firstAttribute="top" secondItem="5S7-WL-Ggs" secondAttribute="bottom" constant="20" id="Pos-IB-doj"/>
                     <constraint firstItem="bSG-8I-3cw" firstAttribute="top" secondItem="qpj-pF-6Rj" secondAttribute="bottom" constant="20" id="UbP-8M-AdC"/>
-                    <constraint firstItem="qpj-pF-6Rj" firstAttribute="top" secondItem="kwA-RL-P8r" secondAttribute="bottom" constant="34" id="Xq5-o3-jJO"/>
                     <constraint firstItem="5S7-WL-Ggs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ZNh-Fh-sAN"/>
                     <constraint firstItem="bSG-8I-3cw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="cJ1-st-XwP"/>
                     <constraint firstAttribute="trailing" secondItem="qpj-pF-6Rj" secondAttribute="trailing" constant="20" id="kSq-Zq-dF6"/>
                     <constraint firstItem="qpj-pF-6Rj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="l75-jS-TGj"/>
-                    <constraint firstAttribute="trailing" secondItem="kwA-RL-P8r" secondAttribute="trailing" constant="16" id="oiM-0G-jnK"/>
                     <constraint firstAttribute="bottom" secondItem="bSG-8I-3cw" secondAttribute="bottom" constant="8" id="t8z-Y0-2sp"/>
                     <constraint firstItem="5S7-WL-Ggs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="uNn-Q1-6kV"/>
                     <constraint firstAttribute="trailing" secondItem="5S7-WL-Ggs" secondAttribute="trailing" id="ztS-1H-VZc"/>
@@ -258,7 +223,6 @@
                 <outlet property="brandContainerView" destination="bSG-8I-3cw" id="sWo-Fj-41Q"/>
                 <outlet property="brandLabel" destination="xtR-Dc-UsN" id="pet-WL-msH"/>
                 <outlet property="colorListCollectionView" destination="0EX-Wh-Bnr" id="9GU-pE-sVf"/>
-                <outlet property="compareButtonView" destination="kwA-RL-P8r" id="LD9-9r-YeA"/>
                 <outlet property="priceLabel" destination="d3y-fG-RcG" id="IJP-Jk-hBK"/>
                 <outlet property="productImageView" destination="5S7-WL-Ggs" id="34R-LK-Zw3"/>
                 <outlet property="productNameLabel" destination="wds-tN-3WA" id="ara-sq-1f5"/>
@@ -271,19 +235,12 @@
     </objects>
     <resources>
         <image name="ic-star" width="12.5" height="12"/>
-        <image name="ic_compare" width="26.5" height="26.5"/>
         <image name="ic_like" width="37" height="32"/>
         <image name="ic_message" width="37" height="32"/>
         <image name="ic_share" width="26.5" height="26.5"/>
         <image name="img_dummy" width="160" height="142"/>
-        <namedColor name="DarkBlue">
-            <color red="0.13300000131130219" green="0.21199999749660492" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="LightBlue-1">
             <color red="0.90200001001358032" green="0.93699997663497925" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Yellow">
-            <color red="0.98400002717971802" green="0.77600002288818359" blue="0.27500000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -41,6 +41,7 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="z9A-R4-Rcg" firstAttribute="leading" secondItem="uf8-xb-t4u" secondAttribute="leading" constant="4" id="6Li-Xw-I3h"/>
+                            <constraint firstItem="z9A-R4-Rcg" firstAttribute="centerX" secondItem="uf8-xb-t4u" secondAttribute="centerX" id="JzX-dD-uBm"/>
                             <constraint firstAttribute="trailing" secondItem="YOq-vE-hB3" secondAttribute="trailing" id="MEU-5E-AKG"/>
                             <constraint firstItem="YOq-vE-hB3" firstAttribute="leading" secondItem="uf8-xb-t4u" secondAttribute="leading" id="MIn-jY-1Ai"/>
                             <constraint firstItem="YOq-vE-hB3" firstAttribute="top" secondItem="uf8-xb-t4u" secondAttribute="top" id="QFB-f6-3yt"/>

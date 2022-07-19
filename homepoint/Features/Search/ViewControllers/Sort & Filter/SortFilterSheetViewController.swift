@@ -175,8 +175,6 @@ extension SortFilterSheetViewController :
                 cell = generateCell(FilterColorViewCell.identifier, indexPath)
             case .rating:
                 cell = generateCell(FilterRatingViewCell.identifier, indexPath)
-            default:
-                return UITableViewCell()
             }
             return cell ?? UITableViewCell()
         }
@@ -218,7 +216,6 @@ extension SortFilterSheetViewController :
             return cell as? T
         default: return cell
         }
-        return cell
     }
 }
 
