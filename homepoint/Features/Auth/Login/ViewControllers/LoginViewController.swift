@@ -157,7 +157,6 @@ extension LoginViewController {
         togglePassword()
         setupTextField()
         setupRegisterLabel()
-        setupPrivacyLabel()
 
         emailError.isHidden = true
         passwordError.isHidden = true
@@ -219,24 +218,6 @@ extension LoginViewController {
         registerLabel.attributedText = attributeString
         registerLabel.isUserInteractionEnabled = true
         registerLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapRegister)))
-    }
-
-    func setupPrivacyLabel(){
-        let attributedString = NSMutableAttributedString(string: "Dengan masuk, Anda menyetujui Syarat & Ketentuan serta Kebijakan Privasi Homepoint")
-
-        attributedString.addAttributes([.font: UIFont.systemFont(ofSize: 14.0)], range: NSRange(location: 0, length: attributedString.length))
-
-        attributedString.addAttributes([
-            .font: UIFont.systemFont(ofSize: 14.0,weight: .semibold),
-            .foregroundColor: ColorCollection.primaryColor.value
-        ], range: NSRange(location: 30, length: 18))
-
-        attributedString.addAttributes([
-            .font: UIFont.systemFont(ofSize: 14.0,weight: .semibold),
-            .foregroundColor: ColorCollection.primaryColor.value
-        ], range: NSRange(location: 55, length: 17))
-
-        privacyLabel.attributedText = attributedString
     }
 
     func setupTextField(){

@@ -18,7 +18,6 @@
                 <outlet property="loginBtn" destination="SN2-UP-rOK" id="juv-yq-hZc"/>
                 <outlet property="passwordError" destination="OTa-bM-JGU" id="3GV-cn-44G"/>
                 <outlet property="passwordTextField" destination="Bzf-s7-W1o" id="bVV-b4-BWK"/>
-                <outlet property="privacyLabel" destination="HRJ-kZ-b5D" id="ubz-WN-ssg"/>
                 <outlet property="registerLabel" destination="Dqm-Vo-GM2" id="3xL-VT-Gi5"/>
                 <outlet property="scrollView" destination="cxo-Pd-TuV" id="Xor-WL-bRr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -41,7 +40,7 @@
                     <rect key="frame" x="0.0" y="-46" width="414" height="942"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="10q-hc-z26">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="718"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="660"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="esZ-55-sNc" userLabel="Dummy">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
@@ -326,16 +325,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SB7-3K-jHA">
-                                    <rect key="frame" x="0.0" y="618" width="414" height="100"/>
+                                    <rect key="frame" x="0.0" y="618" width="414" height="42"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Dengan masuk, Anda menyetujui Syarat &amp; Ketentuan serta Kebijakan Privasi Homepoint" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HRJ-kZ-b5D">
-                                            <rect key="frame" x="40" y="12" width="334" height="33.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Belum memiliki akun? Daftar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dqm-Vo-GM2">
-                                            <rect key="frame" x="24" y="70" width="366" height="18"/>
+                                            <rect key="frame" x="24" y="12" width="366" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="18" id="XVe-xD-Qw1"/>
                                             </constraints>
@@ -347,11 +340,8 @@
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="Dqm-Vo-GM2" secondAttribute="trailing" constant="24" id="3E4-cJ-Tii"/>
-                                        <constraint firstItem="Dqm-Vo-GM2" firstAttribute="top" secondItem="HRJ-kZ-b5D" secondAttribute="bottom" constant="24.5" id="6h0-2w-szZ"/>
-                                        <constraint firstItem="HRJ-kZ-b5D" firstAttribute="top" secondItem="SB7-3K-jHA" secondAttribute="top" constant="12" id="9E7-5H-9VG"/>
-                                        <constraint firstAttribute="trailing" secondItem="HRJ-kZ-b5D" secondAttribute="trailing" constant="40" id="Gtd-jE-t2l"/>
-                                        <constraint firstItem="HRJ-kZ-b5D" firstAttribute="leading" secondItem="SB7-3K-jHA" secondAttribute="leading" constant="40" id="X6Z-3R-kvy"/>
-                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="YjV-ep-fOm"/>
+                                        <constraint firstItem="Dqm-Vo-GM2" firstAttribute="top" secondItem="SB7-3K-jHA" secondAttribute="top" constant="12" id="OrD-mB-Hh8"/>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="YjV-ep-fOm"/>
                                         <constraint firstAttribute="bottom" secondItem="Dqm-Vo-GM2" secondAttribute="bottom" constant="12" id="eE3-QJ-8f7"/>
                                         <constraint firstItem="Dqm-Vo-GM2" firstAttribute="leading" secondItem="SB7-3K-jHA" secondAttribute="leading" constant="24" id="jld-7E-g3R"/>
                                     </constraints>
