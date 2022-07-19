@@ -60,12 +60,15 @@ extension LargeProductCardViewCell {
         soldNumberLabel.text = "Terjual \(data.amountSold)"
         
         if data.discount == 0.0 {
+            discountView.isHidden = true
             strikethroughPriceLabel.isHidden = true
             priceLabel.text = data.price.convertToCurrency()
         } else {
             let discountValue = (data.price * (data.discount / 100))
             let finalPrice = data.price - discountValue
             let price = data.price.convertToCurrency()
+            discountView.isHidden = false
+            strikethroughPriceLabel.isHidden = false
             strikethroughPriceLabel.attributedText = price
                 .strikethroughText(
                     color: .red,

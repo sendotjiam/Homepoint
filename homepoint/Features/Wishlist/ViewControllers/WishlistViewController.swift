@@ -9,10 +9,6 @@ import UIKit
 import RxSwift
 import SkeletonView
 
-enum WishlistPageType {
-    case normal, edit
-}
-
 final class WishlistViewController: UIViewController {
 
     // MARK: - Outlets
@@ -26,12 +22,11 @@ final class WishlistViewController: UIViewController {
 
     
     // MARK: - Variables
-    var pageType : WishlistPageType = .normal
     private var vm = WishlistViewModel()
     private let bag = DisposeBag()
     var data = [WishlistDataModel]()
-    private var isAllSelected = false
     private var userId = ""
+    private var selectedId = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +55,8 @@ final class WishlistViewController: UIViewController {
     }
     
     @IBAction func cleanButtonTapped(_ sender: Any) {
-        
+        // Call bulk delete wishlist
+        print("BULK DELETE")
     }
 }
 
@@ -74,6 +70,7 @@ extension WishlistViewController {
         )
         checkDataIsEmpty()
         setupTableView()
+        checkButton()
         
         notLoginView.delegate = self
         notLoginView.isHidden = isUserLoggedIn()
@@ -108,6 +105,16 @@ extension WishlistViewController {
     
     private func checkDataIsEmpty() {
         emptyView.isHidden = data.isEmpty ? false : true
+    }
+    
+    private func checkButton() {
+        if selectedId.isEmpty {
+            cleanButton.isEnabled = false
+            cleanButton.alpha = 0.5
+        } else {
+            cleanButton.isEnabled = true
+            cleanButton.alpha = 1
+        }
     }
     
     override func searchTapped(sender: UIBarButtonItem) {
@@ -202,6 +209,13 @@ extension WishlistViewController {
 
 // MARK: - Interaction
 extension WishlistViewController : WishlistItemInteraction {
+    func didSelect(_ id: String) {
+        if selectedId.contains(id) {
+            selectedId = selectedId.filter { $0 != id }
+        } else { selectedId.append(id) }
+        checkButton()
+    }
+    
     func didRemoveTapped(_ id: String) {
         let alert = self.createConfirmationAlert(
             "Konfirmasi",
@@ -217,12 +231,7 @@ extension WishlistViewController : WishlistItemInteraction {
         vm.addToCart(userId: userId, productId: id, qty: 1)
     }
 }
-extension WishlistViewController : CheckboxClickable {
-    func didTap(_ isSelected: Bool) {
-        isAllSelected = isSelected
-        tableView.reload()
-    }
-}
+
 extension WishlistViewController : LoginProtocol {
     func successLogin() {
         reloadView()
@@ -248,10 +257,8 @@ extension WishlistViewController :
             withIdentifier: WishlistItemViewCell.identifier,
             for: indexPath
         ) as? WishlistItemViewCell
-        cell?.state = pageType
         cell?.data = data[indexPath.row]
         cell?.delegate = self
-        cell?.shouldChecked = isAllSelected
         return cell ?? UITableViewCell()
     }
 }

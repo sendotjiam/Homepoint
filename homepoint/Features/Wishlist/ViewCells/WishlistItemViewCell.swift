@@ -9,6 +9,7 @@ import UIKit
 import SDWebImage
 
 protocol WishlistItemInteraction : AnyObject {
+    func didSelect(_ id: String)
     func didRemoveTapped(_ id: String)
     func didAddToCartTapped(_ id: String)
 }
@@ -32,14 +33,6 @@ final class WishlistItemViewCell: UITableViewCell {
     // MARK: - Variables
     var data : WishlistDataModel? {
         didSet { configureCell() }
-    }
-    var state : WishlistPageType? {
-        didSet { hideView() }
-    }
-    var shouldChecked : Bool = false {
-        didSet {
-            checkbox.isChecked = shouldChecked
-        }
     }
     weak var delegate : WishlistItemInteraction?
     
@@ -65,6 +58,7 @@ extension WishlistItemViewCell {
         productImageView.clipsToBounds = true
         productImageView.roundedCorner(with: 8)
         addToCartButton.roundedCorner(with: 8)
+        checkbox.delegate = self
     }
     
     private func configureCell() {
@@ -76,19 +70,15 @@ extension WishlistItemViewCell {
         ratingLabel.text = "\(data.ratingAverage)"
         soldAmountLabel.text = "Terjual \(data.amountSold)"
     }
-    
-    private func hideView() {
-        switch state {
-        case .normal:
-            self.bottomStackView.isHidden = false
-        case .edit:
-            self.bottomStackView.isHidden = true
-        case .none:
-            break
-        }
-    }
-    
+
     class func nib() -> UINib {
         UINib(nibName: "WishlistItemViewCell", bundle: nil)
+    }
+}
+
+extension WishlistItemViewCell : CheckboxClickable {
+    func didTap(_ isSelected: Bool) {
+        guard let id = data?.id else { return }
+        delegate?.didSelect(id)
     }
 }
