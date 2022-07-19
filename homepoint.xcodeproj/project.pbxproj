@@ -69,6 +69,12 @@
 		6210400C2851ECDD00A413F6 /* ShippingOptionsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6210400A2851ECDD00A413F6 /* ShippingOptionsViewCell.xib */; };
 		6210400F285237A000A413F6 /* ColorListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6210400D285237A000A413F6 /* ColorListViewCell.swift */; };
 		62104010285237A000A413F6 /* ColorListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6210400E285237A000A413F6 /* ColorListViewCell.xib */; };
+		621086122886AFA600DC9F19 /* ConfirmPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621086102886AFA600DC9F19 /* ConfirmPaymentViewController.swift */; };
+		621086132886AFA600DC9F19 /* ConfirmPaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 621086112886AFA600DC9F19 /* ConfirmPaymentViewController.xib */; };
+		621086192886C27B00DC9F19 /* ConfirmationAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621086172886C27B00DC9F19 /* ConfirmationAlertViewController.swift */; };
+		6210861A2886C27B00DC9F19 /* ConfirmationAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 621086182886C27B00DC9F19 /* ConfirmationAlertViewController.xib */; };
+		6210861E2886C80300DC9F19 /* InformationAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6210861C2886C80300DC9F19 /* InformationAlertViewController.swift */; };
+		6210861F2886C80300DC9F19 /* InformationAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6210861D2886C80300DC9F19 /* InformationAlertViewController.xib */; };
 		62139A0428685EBE003C34CB /* FilterPriceViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62139A0228685EBE003C34CB /* FilterPriceViewCell.swift */; };
 		62139A0528685EBE003C34CB /* FilterPriceViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62139A0328685EBE003C34CB /* FilterPriceViewCell.xib */; };
 		62139A0828685FD5003C34CB /* FilterRatingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62139A0628685FD5003C34CB /* FilterRatingViewCell.swift */; };
@@ -300,6 +306,12 @@
 		6210400A2851ECDD00A413F6 /* ShippingOptionsViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShippingOptionsViewCell.xib; sourceTree = "<group>"; };
 		6210400D285237A000A413F6 /* ColorListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorListViewCell.swift; sourceTree = "<group>"; };
 		6210400E285237A000A413F6 /* ColorListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorListViewCell.xib; sourceTree = "<group>"; };
+		621086102886AFA600DC9F19 /* ConfirmPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPaymentViewController.swift; sourceTree = "<group>"; };
+		621086112886AFA600DC9F19 /* ConfirmPaymentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmPaymentViewController.xib; sourceTree = "<group>"; };
+		621086172886C27B00DC9F19 /* ConfirmationAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationAlertViewController.swift; sourceTree = "<group>"; };
+		621086182886C27B00DC9F19 /* ConfirmationAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConfirmationAlertViewController.xib; sourceTree = "<group>"; };
+		6210861C2886C80300DC9F19 /* InformationAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationAlertViewController.swift; sourceTree = "<group>"; };
+		6210861D2886C80300DC9F19 /* InformationAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationAlertViewController.xib; sourceTree = "<group>"; };
 		62139A0228685EBE003C34CB /* FilterPriceViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPriceViewCell.swift; sourceTree = "<group>"; };
 		62139A0328685EBE003C34CB /* FilterPriceViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterPriceViewCell.xib; sourceTree = "<group>"; };
 		62139A0628685FD5003C34CB /* FilterRatingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterRatingViewCell.swift; sourceTree = "<group>"; };
@@ -827,6 +839,61 @@
 			path = ShippingOptions;
 			sourceTree = "<group>";
 		};
+		6210860E2886AF8700DC9F19 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				623FF179287ACA3A002EAC7B /* PaymentViewController.swift */,
+				623FF17A287ACA3A002EAC7B /* PaymentViewController.xib */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
+		6210860F2886AF9100DC9F19 /* ConfirmPayment */ = {
+			isa = PBXGroup;
+			children = (
+				621086102886AFA600DC9F19 /* ConfirmPaymentViewController.swift */,
+				621086112886AFA600DC9F19 /* ConfirmPaymentViewController.xib */,
+			);
+			path = ConfirmPayment;
+			sourceTree = "<group>";
+		};
+		621086142886C25300DC9F19 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				6210861B2886C7F200DC9F19 /* Information */,
+				621086162886C26700DC9F19 /* Confirmation */,
+				621086152886C25E00DC9F19 /* NotLogin */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
+		621086152886C25E00DC9F19 /* NotLogin */ = {
+			isa = PBXGroup;
+			children = (
+				6279A6942883064E0048545C /* NotLoginAlertViewController.swift */,
+				6279A6952883064E0048545C /* NotLoginAlertViewController.xib */,
+			);
+			path = NotLogin;
+			sourceTree = "<group>";
+		};
+		621086162886C26700DC9F19 /* Confirmation */ = {
+			isa = PBXGroup;
+			children = (
+				621086172886C27B00DC9F19 /* ConfirmationAlertViewController.swift */,
+				621086182886C27B00DC9F19 /* ConfirmationAlertViewController.xib */,
+			);
+			path = Confirmation;
+			sourceTree = "<group>";
+		};
+		6210861B2886C7F200DC9F19 /* Information */ = {
+			isa = PBXGroup;
+			children = (
+				6210861C2886C80300DC9F19 /* InformationAlertViewController.swift */,
+				6210861D2886C80300DC9F19 /* InformationAlertViewController.xib */,
+			);
+			path = Information;
+			sourceTree = "<group>";
+		};
 		62139A122868910E003C34CB /* Checkbox */ = {
 			isa = PBXGroup;
 			children = (
@@ -863,6 +930,7 @@
 		6216E07F2848ED2A0019747D /* Reusables */ = {
 			isa = PBXGroup;
 			children = (
+				621086142886C25300DC9F19 /* Alert */,
 				6279A6912882EB200048545C /* NotLogin */,
 				62139A122868910E003C34CB /* Checkbox */,
 				62B14669286602C70096A78C /* BottomSheet */,
@@ -997,8 +1065,8 @@
 		623FF177287ACA22002EAC7B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				623FF179287ACA3A002EAC7B /* PaymentViewController.swift */,
-				623FF17A287ACA3A002EAC7B /* PaymentViewController.xib */,
+				6210860F2886AF9100DC9F19 /* ConfirmPayment */,
+				6210860E2886AF8700DC9F19 /* Payment */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1302,8 +1370,6 @@
 			isa = PBXGroup;
 			children = (
 				6279A6922882EB500048545C /* NotLoginView.swift */,
-				6279A6942883064E0048545C /* NotLoginAlertViewController.swift */,
-				6279A6952883064E0048545C /* NotLoginAlertViewController.xib */,
 			);
 			path = NotLogin;
 			sourceTree = "<group>";
@@ -2190,6 +2256,7 @@
 				62CBAA6B284F437C00BD5EAC /* HistoryViewController.xib in Resources */,
 				62139A1128685FF5003C34CB /* FilterBrandHeaderViewCell.xib in Resources */,
 				62139A0928685FD5003C34CB /* FilterRatingViewCell.xib in Resources */,
+				6210861A2886C27B00DC9F19 /* ConfirmationAlertViewController.xib in Resources */,
 				627A3902284CCE3B002ADC6B /* OrderListViewController.xib in Resources */,
 				62F6126E28717EB300AD8C5A /* DiscussListViewCell.xib in Resources */,
 				6210400C2851ECDD00A413F6 /* ShippingOptionsViewCell.xib in Resources */,
@@ -2220,7 +2287,9 @@
 				6216E0882848ED4D0019747D /* SmallProductCardViewCell.xib in Resources */,
 				53B76A5B287C762800A56095 /* DropdownViewController.xib in Resources */,
 				53D7732A284A419E008F2912 /* WeeksViewCell.xib in Resources */,
+				6210861F2886C80300DC9F19 /* InformationAlertViewController.xib in Resources */,
 				53B76A5E287C762800A56095 /* DropdownViewCell.xib in Resources */,
+				621086132886AFA600DC9F19 /* ConfirmPaymentViewController.xib in Resources */,
 				53B76A6A287C762800A56095 /* ImageFieldViewCell.xib in Resources */,
 				5370DFC92848FE6500FD1ED5 /* Inter-Medium.ttf in Resources */,
 				6256155B2869EB45006F0D62 /* FilterBrandListViewCell.xib in Resources */,
@@ -2362,6 +2431,7 @@
 				62103FF92851D01C00A413F6 /* DetailViewController.swift in Sources */,
 				623C896728703FC5008FD3FA /* ProductSubCategoriesUseCase.swift in Sources */,
 				533D1D1F288441C2000434F0 /* UserModel.swift in Sources */,
+				6210861E2886C80300DC9F19 /* InformationAlertViewController.swift in Sources */,
 				623FF1632879B78E002EAC7B /* CartViewModel.swift in Sources */,
 				624B12152860571E0071D088 /* ProductImageModel.swift in Sources */,
 				62CBAA72284F57CE00BD5EAC /* OrderFilterItemCellModel.swift in Sources */,
@@ -2383,6 +2453,7 @@
 				623C896528703F14008FD3FA /* ProductSubCategoriesRepositoryInterface.swift in Sources */,
 				62BBB35F285B191400E984C6 /* OtherViewCell.swift in Sources */,
 				623FF18C287B187B002EAC7B /* BottomSheetViewController.swift in Sources */,
+				621086192886C27B00DC9F19 /* ConfirmationAlertViewController.swift in Sources */,
 				6275AF8A28587B9E00D3857D /* UserRepositoryInterface.swift in Sources */,
 				62F612522871789300AD8C5A /* CartViewController.swift in Sources */,
 				62CBAA6A284F437C00BD5EAC /* HistoryViewController.swift in Sources */,
@@ -2431,6 +2502,7 @@
 				53B76A5F287C762800A56095 /* NotAuthorizedViewController.swift in Sources */,
 				625AA4FF2866CB8A00C285F0 /* SortFilterHelper.swift in Sources */,
 				62C0B139285C59B500EACE59 /* DiscussHeaderViewCell.swift in Sources */,
+				621086122886AFA600DC9F19 /* ConfirmPaymentViewController.swift in Sources */,
 				627A3910284CD892002ADC6B /* OrderFilterItemViewCell.swift in Sources */,
 				62139A1028685FF5003C34CB /* FilterBrandHeaderViewCell.swift in Sources */,
 				D10CB4EF284F9DB500F675B2 /* LoginViewController.swift in Sources */,

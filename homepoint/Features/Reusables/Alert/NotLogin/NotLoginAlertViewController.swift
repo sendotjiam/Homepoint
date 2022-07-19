@@ -37,6 +37,6 @@ final class NotLoginAlertViewController: UIViewController {
     }
     
     @IBAction func closeButtonTapped(_ sender: Any) {
-        dismiss(animated: false)
+        dismiss(animated: true)
     }
 }

@@ -91,6 +91,8 @@ final class PaymentViewController: UIViewController {
     }
     
     @IBAction func paymentButtonTapped(_ sender: Any) {
+        let vc = ConfirmPaymentViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func selectShopLocationButtonTapped(_ sender: Any) {
