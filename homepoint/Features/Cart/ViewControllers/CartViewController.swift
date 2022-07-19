@@ -77,7 +77,6 @@ final class CartViewController: UIViewController {
 extension CartViewController {
     private func setupUI() {
         purchaseButton.roundedCorner(with: 8)
-        purchaseButton.setTitle("Beli (\(quantity))", for: .normal)
         checkButton()
         
         tableView.delegate = self
@@ -100,10 +99,6 @@ extension CartViewController {
         view.showShimmer()
     }
     
-    private func reloadView() {
-        purchaseButton.setTitle("Beli (\(selectedId.count))", for: .normal)
-    }
-    
     private func checkButton() {
         if selectedId.isEmpty {
             purchaseButton.isEnabled = false
@@ -112,6 +107,7 @@ extension CartViewController {
             purchaseButton.isEnabled = true
             purchaseButton.alpha = 1
         }
+        purchaseButton.setTitle("Beli (\(selectedId.count))", for: .normal)
     }
     
     private func checkDataIsEmpty() {
@@ -150,7 +146,6 @@ extension CartViewController {
         guard let carts = carts else { return }
         self.carts = carts
         checkDataIsEmpty()
-        reloadView()
         tableView.reload()
     }
     
