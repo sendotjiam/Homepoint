@@ -48,6 +48,7 @@ final class WishlistViewModel :
     var isLoading = BehaviorRelay<Bool>(value: false)
     
     func getWishlists(userId : String) {
+        if userId == "" { return }
         isLoading.accept(true)
         wishlistUseCase.fetchWishlists(userId: userId) {
             [weak self] result, error in
