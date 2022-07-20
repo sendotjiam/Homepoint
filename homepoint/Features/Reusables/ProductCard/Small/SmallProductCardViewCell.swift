@@ -53,7 +53,7 @@ extension SmallProductCardViewCell {
     private func configureCell() {
         guard let data = data else { return }
         let imageUrl = URL(string: data.productImages[0].image)
-        imageView.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "img_product.dummy"))
+        imageView.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "img_placeholder.large"))
         nameLabel.text = data.name
         ratingLabel.text = "\(data.ratingAverage)"
         soldNumberLabel.text = "Terjual \(data.amountSold)"

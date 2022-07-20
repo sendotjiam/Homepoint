@@ -60,7 +60,7 @@ final class SearchViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setNavigationBar(type: .backSearchAndCart())
+        setNavigationBar(type: .backSearchAndCart)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

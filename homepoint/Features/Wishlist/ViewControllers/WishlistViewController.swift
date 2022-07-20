@@ -117,11 +117,6 @@ extension WishlistViewController {
         }
     }
     
-    override func searchTapped(sender: UIBarButtonItem) {
-        if isUserLoggedIn() {
-        }
-    }
-    
     override func cartTapped(sender: UIBarButtonItem) {
         if isUserLoggedIn() {
             let vc = CartViewController()
@@ -132,6 +127,10 @@ extension WishlistViewController {
     override func notificationTapped(sender: UIBarButtonItem) {
         if isUserLoggedIn() {
         }
+    }
+    
+    override func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
     }
 }
 
@@ -169,6 +168,8 @@ extension WishlistViewController {
             "OK"
         )
         self.present(alert, animated: true)
+        
+        self.postNotificationCenter(label: "reload_cart")
     }
     
     private func handleSuccessDeleteWishlist(_ deleted: WishlistDataModel?) {

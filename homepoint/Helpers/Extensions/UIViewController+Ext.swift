@@ -144,12 +144,12 @@ extension UIViewController  {
             ])
             loader.startAnimating()
             loaderView.isHidden = false
-            navigationController?.navigationBar.isHidden = true
+            navigationController?.navigationBar.isUserInteractionEnabled = false
             view.isUserInteractionEnabled = false
         } else {
             loader.stopAnimating()
             loaderView.isHidden = true
-            navigationController?.navigationBar.isHidden = false
+            navigationController?.navigationBar.isUserInteractionEnabled = true
             view.isUserInteractionEnabled = true
         }
     }

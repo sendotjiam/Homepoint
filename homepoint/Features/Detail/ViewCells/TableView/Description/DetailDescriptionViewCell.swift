@@ -13,21 +13,15 @@ final class DetailDescriptionViewCell: UITableViewCell {
     
     // MARK: - Outlets
     @IBOutlet weak var contentLabel: UILabel!
-    @IBOutlet weak var seeMoreButton: UIButton!
     
     // MARK: - Data
     var content : String? {
         didSet { configureCell() }
     }
-    var didTapSeeMoreButton : (() -> ())? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
-    }
-    
-    @IBAction func seeMoreButtonTapped(_ sender: Any) {
-        didTapSeeMoreButton?()
     }
 }
 
@@ -40,7 +34,6 @@ extension DetailDescriptionViewCell {
         guard let content = content else { return }
         contentLabel.attributedText = content.htmlAttributedString()
         contentLabel.font = .systemFont(ofSize: 14)
-        seeMoreButton.isHidden = contentLabel.calculateMaxLines() <= 16 ? true : false
     }
     
     class func nib() -> UINib {

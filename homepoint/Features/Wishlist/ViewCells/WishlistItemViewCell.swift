@@ -64,7 +64,7 @@ extension WishlistItemViewCell {
     private func configureCell() {
         guard let data = data?.products else { return }
         let imageUrl = URL(string: data.productImages[0].image)
-        productImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "img_dummy"))
+        productImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "img_placeholder.large"))
         productNameLabel.text = data.name
         priceLabel.text = data.price.convertToCurrency()
         ratingLabel.text = "\(data.ratingAverage)"

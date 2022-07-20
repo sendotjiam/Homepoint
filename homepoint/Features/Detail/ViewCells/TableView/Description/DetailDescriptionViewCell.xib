@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,14 +17,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="332"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="51f-3k-nXS">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAM-oX-a8G">
                         <rect key="frame" x="20" y="41" width="280" height="283"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="16" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAM-oX-a8G">
-                                <rect key="frame" x="0.0" y="0.0" width="265" height="251"/>
-                                <attributedString key="attributedText">
-                                    <fragment>
-                                        <string key="content">Kondisi: Baru
+                        <attributedString key="attributedText">
+                            <fragment>
+                                <string key="content">Kondisi: Baru
 Berat: 1.300 Gram
 Bahan : Stainless Steel + PP + TPR
 1 Set terdiri dari:
@@ -37,27 +33,14 @@ Bahan : Stainless Steel + PP + TPR
 - Gunting
 
 Diamond knife patent pertama di indonesia, tampilan cantik dan berfungsi memotong apapun lebih tidak akan menempel di pisau. </string>
-                                        <attributes>
-                                            <font key="NSFont" metaFont="menu" size="14"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdB-sh-qCU">
-                                <rect key="frame" x="0.0" y="253" width="134" height="30"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Lihat selengkapnya">
-                                    <color key="titleColor" name="DarkBlue"/>
-                                </state>
-                                <connections>
-                                    <action selector="seeMoreButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ppd-xO-CwC"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                    </stackView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deskripsi Produk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OED-Wo-O7n">
+                                <attributes>
+                                    <font key="NSFont" metaFont="menu" size="14"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Deskripsi Produk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OED-Wo-O7n">
                         <rect key="frame" x="20" y="16" width="280" height="17"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                         <nil key="textColor"/>
@@ -66,25 +49,19 @@ Diamond knife patent pertama di indonesia, tampilan cantik dan berfungsi memoton
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="OED-Wo-O7n" secondAttribute="trailing" constant="20" id="2H7-ab-m2o"/>
+                    <constraint firstAttribute="trailing" secondItem="CAM-oX-a8G" secondAttribute="trailing" constant="20" id="5WG-KD-1Wu"/>
                     <constraint firstItem="OED-Wo-O7n" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="6Qd-RE-8Bx"/>
-                    <constraint firstAttribute="bottom" secondItem="51f-3k-nXS" secondAttribute="bottom" constant="8" id="GFI-5m-og3"/>
+                    <constraint firstAttribute="bottom" secondItem="CAM-oX-a8G" secondAttribute="bottom" constant="8" id="EZZ-sk-ams"/>
+                    <constraint firstItem="CAM-oX-a8G" firstAttribute="top" secondItem="OED-Wo-O7n" secondAttribute="bottom" constant="8" id="HBb-hi-YiU"/>
+                    <constraint firstItem="CAM-oX-a8G" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="NnY-jb-nbh"/>
                     <constraint firstItem="OED-Wo-O7n" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Nr6-oV-2hz"/>
-                    <constraint firstItem="51f-3k-nXS" firstAttribute="top" secondItem="OED-Wo-O7n" secondAttribute="bottom" constant="8" id="Uwu-Xv-Kfc"/>
-                    <constraint firstItem="51f-3k-nXS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="aRL-ko-beP"/>
-                    <constraint firstAttribute="trailing" secondItem="51f-3k-nXS" secondAttribute="trailing" constant="20" id="mO5-lv-ERV"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="contentLabel" destination="CAM-oX-a8G" id="XVG-cP-hxM"/>
-                <outlet property="seeMoreButton" destination="zdB-sh-qCU" id="hvs-Ev-Jc7"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="107.8125"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <namedColor name="DarkBlue">
-            <color red="0.13300000131130219" green="0.21199999749660492" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-    </resources>
 </document>

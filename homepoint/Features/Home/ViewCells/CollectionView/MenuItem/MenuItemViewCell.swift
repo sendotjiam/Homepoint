@@ -37,7 +37,7 @@ extension MenuItemViewCell {
     private func configureCell() {
         guard let subCategory = subCategory else { return }
         let imageUrl = URL(string: subCategory.icon)
-        imageView.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "img_subcategory.dummy"))
+        imageView.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "img_placeholder.small"))
         labelView.text = subCategory.name
     }
     

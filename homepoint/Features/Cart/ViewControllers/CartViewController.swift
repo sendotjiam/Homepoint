@@ -61,11 +61,20 @@ final class CartViewController: UIViewController {
         bindViewModel()
         vm.getCarts(userId: userId)
         view.showShimmer()
+        
+        self.addNotificationCenter(
+            label: "reload_cart",
+            selector: #selector(reloadView)
+        )
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setNavigationBar(type: .backTitleAndLike(title: "Keranjang", isFavorite: true))
+    }
+    
+    deinit {
+        self.removeNotificationCenter()
     }
     
     @IBAction func purchaseButtonTapped(_ sender: Any) {
@@ -112,6 +121,11 @@ extension CartViewController {
     
     private func checkDataIsEmpty() {
         emptyView.isHidden = carts.isEmpty ? false : true
+    }
+    
+    @objc func reloadView() {
+        vm.getCarts(userId: getUserId() ?? "")
+        view.showShimmer()
     }
 }
 

@@ -13,6 +13,7 @@ final class OrderListViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var notLoginView: NotLoginView!
+    @IBOutlet weak var emptyView: UIView!
     
     // MARK: - Data
     private enum SectionType {
@@ -78,6 +79,7 @@ extension OrderListViewController {
         
         notLoginView.delegate = self
         notLoginView.isHidden = isUserLoggedIn()
+        emptyView.isHidden = true
     }
     
     @objc func reloadView() {

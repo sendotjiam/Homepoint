@@ -28,8 +28,12 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t41-bv-v4F">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3qc-Bo-s5s">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="690"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="646"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="isSkeletonable" value="YES"/>
@@ -132,19 +136,23 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="LightBlue-2"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="X5I-kk-3Xw" secondAttribute="bottom" id="6xk-qS-DgP"/>
                 <constraint firstItem="mBJ-gv-Dos" firstAttribute="top" secondItem="3qc-Bo-s5s" secondAttribute="bottom" constant="16" id="AKJ-KO-87Z"/>
                 <constraint firstItem="mBJ-gv-Dos" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="F6r-nv-uvU"/>
                 <constraint firstItem="X5I-kk-3Xw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Ip7-b8-Rqh"/>
+                <constraint firstItem="t41-bv-v4F" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="L3c-fV-moC"/>
+                <constraint firstAttribute="bottom" secondItem="t41-bv-v4F" secondAttribute="bottom" id="OIs-2R-TWE"/>
+                <constraint firstItem="t41-bv-v4F" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Vux-fV-4go"/>
                 <constraint firstItem="X5I-kk-3Xw" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="aB8-Do-2gb"/>
                 <constraint firstItem="mBJ-gv-Dos" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="aG6-A3-xz7"/>
                 <constraint firstItem="X5I-kk-3Xw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="b0N-hv-H02"/>
+                <constraint firstItem="3qc-Bo-s5s" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="eR1-HZ-qPu"/>
                 <constraint firstItem="mBJ-gv-Dos" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="g7H-wx-WCZ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3qc-Bo-s5s" secondAttribute="trailing" id="quy-sr-hVs"/>
                 <constraint firstItem="3qc-Bo-s5s" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="tvR-F5-hnD"/>
-                <constraint firstItem="3qc-Bo-s5s" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="yLD-gP-OZc"/>
+                <constraint firstItem="t41-bv-v4F" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="yru-Xp-w0b"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="90.401785714285708"/>
         </view>
@@ -152,6 +160,9 @@
     <resources>
         <namedColor name="DarkBlue">
             <color red="0.13300000131130219" green="0.21199999749660492" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="LightBlue-2">
+            <color red="0.41200000047683716" green="0.60000002384185791" blue="0.72200000286102295" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="LightGray">
             <color red="0.88200002908706665" green="0.88200002908706665" blue="0.88200002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

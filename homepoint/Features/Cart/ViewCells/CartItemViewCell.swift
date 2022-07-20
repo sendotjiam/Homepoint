@@ -78,7 +78,7 @@ extension CartItemViewCell {
     private func configureCell() {
         guard let data = data else { return }
         let imageUrl = URL(string: data.products.productImages.first?.image ?? "")
-        cartImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "img_dummy"))
+        cartImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "img_placeholder.large"))
         nameLabel.text = data.products.name
         qty = data.quantity
         quantityLabel.text = "\(qty)"

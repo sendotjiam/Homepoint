@@ -14,7 +14,8 @@ enum NavigationBarType {
     case hidden
     case back
     case backAndSearch
-    case backSearchAndCart(isTransparent: Bool = false)
+    case backSearchAndCart
+    case detailBackSearchAndCart
     case backAndTitle(title: String?)
     case backTitleAndLike(title: String?, isFavorite: Bool = false)
     case titleAndHistory(title: String?)
@@ -92,36 +93,35 @@ extension UIViewController  {
     
     private func addRightBarButtonItems(
         _ types: [NavigationBarRightItemType],
-        _ isTransparent : Bool = false
+        isDetail : Bool = false
     ) {
         var buttons = [UIButton]()
         types.forEach { type in
             var image : UIImage?
             var action : Selector?
-            let extendedImageName = isTransparent ? ".transparent" : ""
             switch type {
             case .cart:
-                image = UIImage(named: "ic_cart" + extendedImageName)
+                image = UIImage(named: "ic_cart")
                 action = #selector(cartTapped(sender:))
             case .notification:
-                image = UIImage(named: "ic_notification" + extendedImageName)
+                image = UIImage(named: "ic_notification")
                 action = #selector(notificationTapped(sender:))
             case .like:
-                image = UIImage(named: "ic_cart" + extendedImageName)
-                action = #selector(cartTapped(sender:))
+                image = UIImage(named: "ic_like")
+                action = #selector(likeTapped(sender:))
             case .history:
-                image = UIImage(named: "ic_history" + extendedImageName)
+                image = UIImage(named: "ic_history")
                 action = #selector(historyTapped(sender:))
             case .search:
-                image = UIImage(named: "ic_search" + extendedImageName)
+                image = UIImage(named: isDetail ? "ic_search.white" : "ic_search" )
                 action = #selector(searchTapped(sender:))
             }
             guard let action = action else {return}
             let btn = UIButton(type: .custom)
             btn.setImage(image, for: .normal)
             btn.addTarget(self, action: action, for: .touchUpInside)
-            btn.widthAnchor.constraint(equalToConstant: isTransparent ? 32 : 22).isActive = true
-            btn.heightAnchor.constraint(equalToConstant: isTransparent ? 32 : 22).isActive = true
+            btn.widthAnchor.constraint(equalToConstant: 22).isActive = true
+            btn.heightAnchor.constraint(equalToConstant: 22).isActive = true
             buttons.append(btn)
         }
         let stack = UIStackView(arrangedSubviews: buttons)
@@ -181,15 +181,14 @@ extension UIViewController  {
             addBackButton()
             addSearchBar()
             addTitle(title ?? "")
-        case let .backSearchAndCart(isTransparent):
-            addBackButton(isTransparent)
-            if isTransparent {
-                resetNavbarBackground()
-                addRightBarButtonItems([.search, .cart], isTransparent)
-            } else {
-                addSearchBar()
-                addRightBarButtonItems([.cart])
-            }
+        case .backSearchAndCart:
+            addBackButton()
+            addSearchBar()
+            addRightBarButtonItems([.cart])
+        case .detailBackSearchAndCart:
+            addBackButton()
+            resetNavbarBackground()
+            addRightBarButtonItems([.search, .cart], isDetail : true)
         case .backAndSearch:
             addBackButton()
             addSearchBar()

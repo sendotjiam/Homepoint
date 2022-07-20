@@ -77,7 +77,7 @@ final class DetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setNavigationBar(type: .backSearchAndCart(isTransparent: true))
+        setNavigationBar(type: .detailBackSearchAndCart)
     }
     
     deinit {
@@ -121,11 +121,6 @@ extension DetailViewController {
         minusButton.roundedCorner(with: 4)
         addToCartButton.roundedCorner(with: 8)
         setupTableView()
-        
-        if #available(iOS 11.0, *) {
-             tableView.contentInsetAdjustmentBehavior = .never
-        }
-        
         self.userId = getUserId() ?? ""
     }
     
@@ -202,6 +197,7 @@ extension DetailViewController {
             "OK"
         )
         self.present(alert, animated: true)
+        self.postNotificationCenter(label: "reload_cart")
     }
     
     private func handleError(_ error: String?) {
@@ -353,7 +349,6 @@ extension DetailViewController :
             guard let cellDescription = cell as? DetailDescriptionViewCell
             else { return nil }
             cellDescription.content = productData?.description
-            cellDescription.didTapSeeMoreButton = { return }
             return cellDescription as? T
         case .rating:
             guard let cellHeader = cell as? RatingViewCell
