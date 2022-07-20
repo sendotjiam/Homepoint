@@ -16,7 +16,6 @@
 		5370DFC92848FE6500FD1ED5 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFC02848FE6500FD1ED5 /* Inter-Medium.ttf */; };
 		5370DFCA2848FE6500FD1ED5 /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFC12848FE6500FD1ED5 /* Inter-Black.ttf */; };
 		5370DFCB2848FE6500FD1ED5 /* Inter-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFC22848FE6500FD1ED5 /* Inter-ExtraLight.ttf */; };
-		5370DFCC2848FE6500FD1ED5 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFC32848FE6500FD1ED5 /* Inter-SemiBold.ttf */; };
 		5370DFCD2848FE6500FD1ED5 /* Inter-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFC42848FE6500FD1ED5 /* Inter-Light.ttf */; };
 		5370DFCE2848FE6500FD1ED5 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFC52848FE6500FD1ED5 /* Inter-Bold.ttf */; };
 		5370DFCF2848FE6500FD1ED5 /* Inter-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFC62848FE6500FD1ED5 /* Inter-ExtraBold.ttf */; };
@@ -91,11 +90,14 @@
 		6214C7432861B79D0060CAD4 /* Double+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6214C7422861B79D0060CAD4 /* Double+Ext.swift */; };
 		6216E07A2848EC780019747D /* Font+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216E0782848EC780019747D /* Font+Ext.swift */; };
 		6216E07B2848EC780019747D /* Color+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216E0792848EC780019747D /* Color+Ext.swift */; };
-		6216E0852848ED4D0019747D /* SmallProductCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216E0812848ED4D0019747D /* SmallProductCardViewCell.swift */; };
-		6216E0862848ED4D0019747D /* LargeProductCardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6216E0822848ED4D0019747D /* LargeProductCardViewCell.xib */; };
 		6216E0872848ED4D0019747D /* LargeProductCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216E0832848ED4D0019747D /* LargeProductCardViewCell.swift */; };
 		6216E0882848ED4D0019747D /* SmallProductCardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6216E0842848ED4D0019747D /* SmallProductCardViewCell.xib */; };
 		6219C68B285A2BBB006D9A5B /* MockApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6219C68A285A2BBB006D9A5B /* MockApiClient.swift */; };
+		6234B44D2887DB6100E88A71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62CFEE2B283E574A00E909AA /* LaunchScreen.storyboard */; };
+		6234B44E2887DC4400E88A71 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC0E0283E5B5400BF79E2 /* Constants.swift */; };
+		6234B44F2887DCB500E88A71 /* LargeProductCardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6216E0822848ED4D0019747D /* LargeProductCardViewCell.xib */; };
+		6234B4502887DCBB00E88A71 /* SmallProductCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216E0812848ED4D0019747D /* SmallProductCardViewCell.swift */; };
+		6234B4512887DCE600E88A71 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC0E2283E5B6C00BF79E2 /* String+Ext.swift */; };
 		623C896328703EA3008FD3FA /* ProductSubCategoriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623C896228703EA3008FD3FA /* ProductSubCategoriesRepository.swift */; };
 		623C896528703F14008FD3FA /* ProductSubCategoriesRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623C896428703F14008FD3FA /* ProductSubCategoriesRepositoryInterface.swift */; };
 		623C896728703FC5008FD3FA /* ProductSubCategoriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623C896628703FC4008FD3FA /* ProductSubCategoriesUseCase.swift */; };
@@ -197,9 +199,8 @@
 		62CBAA72284F57CE00BD5EAC /* OrderFilterItemCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CBAA71284F57CE00BD5EAC /* OrderFilterItemCellModel.swift */; };
 		62CFEE21283E574600E909AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CFEE20283E574600E909AA /* AppDelegate.swift */; };
 		62CFEE2A283E574A00E909AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62CFEE29283E574A00E909AA /* Assets.xcassets */; };
-		62CFEE2D283E574A00E909AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62CFEE2B283E574A00E909AA /* LaunchScreen.storyboard */; };
-		62D8290428538345003EA34F /* ReviewHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D8290228538345003EA34F /* ReviewHeaderViewCell.swift */; };
-		62D8290528538345003EA34F /* ReviewHeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62D8290328538345003EA34F /* ReviewHeaderViewCell.xib */; };
+		62D8290428538345003EA34F /* RatingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D8290228538345003EA34F /* RatingViewCell.swift */; };
+		62D8290528538345003EA34F /* RatingViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62D8290328538345003EA34F /* RatingViewCell.xib */; };
 		62DC6ABA285336280093DB64 /* ReviewPhotoListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DC6AB8285336280093DB64 /* ReviewPhotoListViewCell.swift */; };
 		62DC6ABB285336280093DB64 /* ReviewPhotoListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62DC6AB9285336280093DB64 /* ReviewPhotoListViewCell.xib */; };
 		62E4BF75286C649C00769B75 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E4BF73286C649C00769B75 /* WishlistViewController.swift */; };
@@ -211,8 +212,6 @@
 		62F6126E28717EB300AD8C5A /* DiscussListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62F6126D28717EB200AD8C5A /* DiscussListViewCell.xib */; };
 		62F6127D28719B4C00AD8C5A /* CartItemViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F6127B28719B4C00AD8C5A /* CartItemViewCell.swift */; };
 		62F6127E28719B4C00AD8C5A /* CartItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62F6127C28719B4C00AD8C5A /* CartItemViewCell.xib */; };
-		62FCC0E1283E5B5400BF79E2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC0E0283E5B5400BF79E2 /* Constants.swift */; };
-		62FCC0E3283E5B6C00BF79E2 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC0E2283E5B6C00BF79E2 /* String+Ext.swift */; };
 		62FCC0F0283E5BFA00BF79E2 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC0EF283E5BFA00BF79E2 /* ApiClient.swift */; };
 		62FCC0FF283E660500BF79E2 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FCC0FE283E660500BF79E2 /* MainCoordinator.swift */; };
 		6BC319791135F916C617312A /* Pods_homepoint_homepointTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E608E2CF0CF8146FB8714C3B /* Pods_homepoint_homepointTests.framework */; };
@@ -438,8 +437,8 @@
 		62CFEE29283E574A00E909AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = homepoint/Application/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		62CFEE2C283E574A00E909AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		62CFEE2E283E574A00E909AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		62D8290228538345003EA34F /* ReviewHeaderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewHeaderViewCell.swift; sourceTree = "<group>"; };
-		62D8290328538345003EA34F /* ReviewHeaderViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewHeaderViewCell.xib; sourceTree = "<group>"; };
+		62D8290228538345003EA34F /* RatingViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewCell.swift; sourceTree = "<group>"; };
+		62D8290328538345003EA34F /* RatingViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingViewCell.xib; sourceTree = "<group>"; };
 		62DC6AB8285336280093DB64 /* ReviewPhotoListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPhotoListViewCell.swift; sourceTree = "<group>"; };
 		62DC6AB9285336280093DB64 /* ReviewPhotoListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewPhotoListViewCell.xib; sourceTree = "<group>"; };
 		62E4BF73286C649C00769B75 /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
@@ -1629,8 +1628,9 @@
 		62DC6AAB28532ED80093DB64 /* Review */ = {
 			isa = PBXGroup;
 			children = (
+				62D8290228538345003EA34F /* RatingViewCell.swift */,
+				62D8290328538345003EA34F /* RatingViewCell.xib */,
 				62F61263287179D400AD8C5A /* List */,
-				62F61264287179DC00AD8C5A /* Header */,
 				62F61265287179F500AD8C5A /* SeeMore */,
 			);
 			path = Review;
@@ -1798,15 +1798,6 @@
 				629B41D9285345760051EB23 /* ReviewListViewCell.xib */,
 			);
 			path = List;
-			sourceTree = "<group>";
-		};
-		62F61264287179DC00AD8C5A /* Header */ = {
-			isa = PBXGroup;
-			children = (
-				62D8290228538345003EA34F /* ReviewHeaderViewCell.swift */,
-				62D8290328538345003EA34F /* ReviewHeaderViewCell.xib */,
-			);
-			path = Header;
 			sourceTree = "<group>";
 		};
 		62F61265287179F500AD8C5A /* SeeMore */ = {
@@ -2231,10 +2222,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6234B44D2887DB6100E88A71 /* LaunchScreen.storyboard in Resources */,
 				D10CB4EC284F9D5F00F675B2 /* ForgetPassViewController.xib in Resources */,
 				62C0B13A285C59B600EACE59 /* DiscussHeaderViewCell.xib in Resources */,
 				62139A0D28685FE5003C34CB /* FilterColorViewCell.xib in Resources */,
-				62D8290528538345003EA34F /* ReviewHeaderViewCell.xib in Resources */,
+				62D8290528538345003EA34F /* RatingViewCell.xib in Resources */,
 				621040002851DA5900A413F6 /* DetailHeaderViewCell.xib in Resources */,
 				62DC6ABB285336280093DB64 /* ReviewPhotoListViewCell.xib in Resources */,
 				62E4BF76286C649C00769B75 /* WishlistViewController.xib in Resources */,
@@ -2260,23 +2252,17 @@
 				627A3902284CCE3B002ADC6B /* OrderListViewController.xib in Resources */,
 				62F6126E28717EB300AD8C5A /* DiscussListViewCell.xib in Resources */,
 				6210400C2851ECDD00A413F6 /* ShippingOptionsViewCell.xib in Resources */,
-				5370DFCC2848FE6500FD1ED5 /* Inter-SemiBold.ttf in Resources */,
 				53B76A66287C762800A56095 /* AddressViewCell.xib in Resources */,
 				6295B327286DB73B0092A489 /* WishlistItemViewCell.xib in Resources */,
-				6216E0862848ED4D0019747D /* LargeProductCardViewCell.xib in Resources */,
 				53B76A62287C762800A56095 /* ChangeProfileViewController.xib in Resources */,
 				62103FFA2851D01C00A413F6 /* DetailViewController.xib in Resources */,
 				62BBB360285B191400E984C6 /* OtherViewCell.xib in Resources */,
 				623FF189287AE459002EAC7B /* PaymentOrderListViewCell.xib in Resources */,
-				62CFEE2D283E574A00E909AA /* LaunchScreen.storyboard in Resources */,
 				62F612532871789300AD8C5A /* CartViewController.xib in Resources */,
 				627A3911284CD892002ADC6B /* OrderFilterItemViewCell.xib in Resources */,
 				62B1466D286602D90096A78C /* SortFilterSheetViewController.xib in Resources */,
 				533AFAD4284FB76800684B1E /* BannerItemViewCell.xib in Resources */,
-				5370DFCC2848FE6500FD1ED5 /* Inter-SemiBold.ttf in Resources */,
 				D1D978C5287FEAD100843956 /* ResetPassViewController.xib in Resources */,
-				6216E0862848ED4D0019747D /* LargeProductCardViewCell.xib in Resources */,
-				62CFEE2D283E574A00E909AA /* LaunchScreen.storyboard in Resources */,
 				533AFAD0284F9B2A00684B1E /* ViewMoreProductViewCell.xib in Resources */,
 				53B76A5A287C762800A56095 /* AddAddressViewController.xib in Resources */,
 				62AA96692864A8DB00C11AAF /* SortItemViewCell.xib in Resources */,
@@ -2297,7 +2283,6 @@
 				627A390C284CD028002ADC6B /* OrderFilterViewCell.xib in Resources */,
 				D11876EE285792BE001351B4 /* RegisterViewController.xib in Resources */,
 				62F6127E28719B4C00AD8C5A /* CartItemViewCell.xib in Resources */,
-				62CFEE2D283E574A00E909AA /* LaunchScreen.storyboard in Resources */,
 				53B76A69287C762800A56095 /* RightArrowFieldViewCell.xib in Resources */,
 				D1F1ED582858D26300A556EB /* LastForgetPassViewController.xib in Resources */,
 				D10CB4F0284F9DB500F675B2 /* LoginViewController.xib in Resources */,
@@ -2309,6 +2294,7 @@
 				623FF191287B19BA002EAC7B /* SheetItemViewCell.xib in Resources */,
 				629B41DB285345760051EB23 /* ReviewListViewCell.xib in Resources */,
 				62139A0528685EBE003C34CB /* FilterPriceViewCell.xib in Resources */,
+				6234B44F2887DCB500E88A71 /* LargeProductCardViewCell.xib in Resources */,
 				5370DFC82848FE6500FD1ED5 /* Inter-Regular.ttf in Resources */,
 				5370DFD828490EC800FD1ED5 /* HomeViewController.xib in Resources */,
 				53D77332284A41CC008F2912 /* WeeksItemViewCell.xib in Resources */,
@@ -2431,6 +2417,7 @@
 				62103FF92851D01C00A413F6 /* DetailViewController.swift in Sources */,
 				623C896728703FC5008FD3FA /* ProductSubCategoriesUseCase.swift in Sources */,
 				533D1D1F288441C2000434F0 /* UserModel.swift in Sources */,
+				6234B44E2887DC4400E88A71 /* Constants.swift in Sources */,
 				6210861E2886C80300DC9F19 /* InformationAlertViewController.swift in Sources */,
 				623FF1632879B78E002EAC7B /* CartViewModel.swift in Sources */,
 				624B12152860571E0071D088 /* ProductImageModel.swift in Sources */,
@@ -2440,17 +2427,15 @@
 				627A390B284CD028002ADC6B /* OrderFilterViewCell.swift in Sources */,
 				621040042851DA6B00A413F6 /* DetailDescriptionViewCell.swift in Sources */,
 				623FF17B287ACA3A002EAC7B /* PaymentViewController.swift in Sources */,
-				6216E0852848ED4D0019747D /* SmallProductCardViewCell.swift in Sources */,
 				626F283A2850DC9600677122 /* CustomTabBarController.swift in Sources */,
 				53B76A6E287C762800A56095 /* RightArrowFieldViewCell.swift in Sources */,
 				62139A0C28685FE5003C34CB /* FilterColorViewCell.swift in Sources */,
 				628EAFFF2875E1FD0061A1E9 /* ProductSubCategoriesResponseModel.swift in Sources */,
 				62CBAA6D284F4FFC00BD5EAC /* Utils.swift in Sources */,
 				6295B326286DB73B0092A489 /* WishlistItemViewCell.swift in Sources */,
-				62FCC0E3283E5B6C00BF79E2 /* String+Ext.swift in Sources */,
 				628EAFEF2875D3BD0061A1E9 /* WishlistUseCase.swift in Sources */,
-				62FCC0E1283E5B5400BF79E2 /* Constants.swift in Sources */,
 				623C896528703F14008FD3FA /* ProductSubCategoriesRepositoryInterface.swift in Sources */,
+				6234B4502887DCBB00E88A71 /* SmallProductCardViewCell.swift in Sources */,
 				62BBB35F285B191400E984C6 /* OtherViewCell.swift in Sources */,
 				623FF18C287B187B002EAC7B /* BottomSheetViewController.swift in Sources */,
 				621086192886C27B00DC9F19 /* ConfirmationAlertViewController.swift in Sources */,
@@ -2460,25 +2445,23 @@
 				D1D978BD287FEA7700843956 /* ForgetPassViewModel.swift in Sources */,
 				53B76A6B287C762800A56095 /* ChangeProfileFieldViewCell.swift in Sources */,
 				624B121828605A960071D088 /* ProductsRepository.swift in Sources */,
-				62D8290428538345003EA34F /* ReviewHeaderViewCell.swift in Sources */,
+				62D8290428538345003EA34F /* RatingViewCell.swift in Sources */,
 				62F612602871799200AD8C5A /* ColorCellModel.swift in Sources */,
 				623C896328703EA3008FD3FA /* ProductSubCategoriesRepository.swift in Sources */,
 				627A3901284CCE3B002ADC6B /* OrderListViewController.swift in Sources */,
 				53D77331284A41CC008F2912 /* WeeksItemViewCell.swift in Sources */,
 				623FF15428797D63002EAC7B /* AllWishlistsResponseModel.swift in Sources */,
-				6216E0852848ED4D0019747D /* SmallProductCardViewCell.swift in Sources */,
 				53D7733D284A423D008F2912 /* RecommendationViewCell.swift in Sources */,
 				6279A6932882EB500048545C /* NotLoginView.swift in Sources */,
 				6275D335288557F20027E345 /* BodyStringEncoding.swift in Sources */,
-				62FCC0E3283E5B6C00BF79E2 /* String+Ext.swift in Sources */,
 				533AFAD3284FB76800684B1E /* BannerItemViewCell.swift in Sources */,
 				62B1466C286602D90096A78C /* SortFilterSheetViewController.swift in Sources */,
 				624B121B28605AC80071D088 /* ProductsRepositoryInterface.swift in Sources */,
 				628EAFFD2875E1CD0061A1E9 /* AllProductsResponseModel.swift in Sources */,
 				53B76A68287C762800A56095 /* ProfileViewController.swift in Sources */,
 				62E4BF75286C649C00769B75 /* WishlistViewController.swift in Sources */,
-				62FCC0E1283E5B5400BF79E2 /* Constants.swift in Sources */,
 				62F6127D28719B4C00AD8C5A /* CartItemViewCell.swift in Sources */,
+				6234B4512887DCE600E88A71 /* String+Ext.swift in Sources */,
 				628EAFF52875D6810061A1E9 /* WishlistRepository.swift in Sources */,
 				53D772FA2849FBF2008F2912 /* MenuViewCell.swift in Sources */,
 				5370DFD728490EC800FD1ED5 /* HomeViewController.swift in Sources */,

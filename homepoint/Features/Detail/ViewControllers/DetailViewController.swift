@@ -38,12 +38,11 @@ final class DetailViewController: UIViewController {
     
     // MARK: - Section
     private enum SectionType {
-        case header, description, review, others, shipping
+        case header, description, rating, others, shipping
     }
     private let sections : [SectionType] = [
-        .header, .description, .shipping, .review, .others
+        .header, .description, .shipping, .rating, .others
     ]
-    private var reviewList : Int = 10
     private var userId = ""
     
     // MARK: - Variable
@@ -143,17 +142,13 @@ extension DetailViewController {
             DetailHeaderViewCell.nib(),
             DetailDescriptionViewCell.nib(),
             ShippingOptionsViewCell.nib(),
-            ReviewHeaderViewCell.nib(),
-            ReviewListViewCell.nib(),
-            ReviewSeeMoreViewCell.nib(),
+            RatingViewCell.nib(),
             OtherViewCell.nib()
         ], [
             DetailHeaderViewCell.identifier,
             DetailDescriptionViewCell.identifier,
             ShippingOptionsViewCell.identifier,
-            ReviewHeaderViewCell.identifier,
-            ReviewListViewCell.identifier,
-            ReviewSeeMoreViewCell.identifier,
+            RatingViewCell.identifier,
             OtherViewCell.identifier
         ])
     }
@@ -313,7 +308,6 @@ extension DetailViewController :
     ) -> Int {
         switch sections[section] {
         case .description : return productData?.description == "" ? 0 : 1
-        case .review: return reviewList + 2
         case .others : return otherProducts.isEmpty ? 0 : 1
         default: return 1
         }
@@ -331,15 +325,8 @@ extension DetailViewController :
             cell = generateCell(DetailDescriptionViewCell.identifier, indexPath)
         case .shipping:
             cell = generateCell(ShippingOptionsViewCell.identifier, indexPath)
-        case .review:
-            switch indexPath.row {
-            case 0:
-                cell = generateCell(ReviewHeaderViewCell.identifier, indexPath)
-            case reviewList + 1:
-                cell = generateCell(ReviewSeeMoreViewCell.identifier, indexPath)
-            default:
-                cell = generateCell(ReviewListViewCell.identifier, indexPath)
-            }
+        case .rating:
+            cell = generateCell(RatingViewCell.identifier, indexPath)
         case .others:
             cell = generateCell(OtherViewCell.identifier, indexPath)
         }
@@ -368,22 +355,10 @@ extension DetailViewController :
             cellDescription.content = productData?.description
             cellDescription.didTapSeeMoreButton = { return }
             return cellDescription as? T
-        case .review:
-            switch indexPath.row {
-            case 0:
-                guard let cellHeader = cell as? ReviewHeaderViewCell
-                else { return nil }
-                return cellHeader as? T
-            case reviewList + 1:
-                guard let cellSeeMore = cell as? ReviewSeeMoreViewCell
-                else { return nil }
-                cellSeeMore.didTapSeeMoreButton = { return }
-                return cellSeeMore as? T
-            default:
-                guard let cellList = cell as? ReviewListViewCell
-                else { return nil }
-                return cellList as? T
-            }
+        case .rating:
+            guard let cellHeader = cell as? RatingViewCell
+            else { return nil }
+            return cellHeader as? T
         case .others:
             guard let cell = cell as? OtherViewCell
             else { return nil }
