@@ -37,7 +37,6 @@ final class SearchViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var collectionView: UICollectionView!
     
-    
     // MARK: - Variables
     private var vm = SearchViewModel()
     private var bag = DisposeBag()
@@ -45,6 +44,9 @@ final class SearchViewController: UIViewController {
     private var pageNumber = 0
     private var brands = [String]()
     private var colors = [String]()
+    private var isEmpty = false
+    private var hasRecommendations = false
+    private var shouldDisplayEmpty = false
     var searchParams : [String : Any] = [
         "Page size": 16,
         "Page number": 0,
@@ -98,6 +100,11 @@ extension SearchViewController {
             LargeProductCardViewCell.nib(),
             forCellWithReuseIdentifier: LargeProductCardViewCell.identifier
         )
+        collectionView.register(
+            EmptySearchHeaderReusableView.self,
+            forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: EmptySearchHeaderReusableView.identifier
+        )
         
         sortFilterView.roundedCorner(with: 18)
         sortFilterView.dropShadow(with: 0.1, radius: 10, offset: CGSize(width: 0, height: 4))
@@ -110,43 +117,21 @@ extension SearchViewController {
         self.view.showShimmer()
     }
     
-    private func bindViewModel() {
-        vm.successAllProducts.subscribe { [weak self] in
-            self?.handleSuccessAllProducts($0.element)
-        }.disposed(by: bag)
-        vm.successProductsData.subscribe { [weak self] in
-            self?.handleSuccessProductsData($0.element)
-        }.disposed(by: bag)
-        vm.error.subscribe { [weak self] in
-            self?.handleError(msg: $0.element)
-        }.disposed(by: bag)
-        vm.isLoading.subscribe { [weak self] in
-            self?.handleIsLoading($0.element)
-        }.disposed(by: bag)
-    }
-    
-    private func handleSuccessProductsData(
-        _ products : [ProductDataModel]?
-    ) {
-        guard let products = products else { return }
-        self.products = products
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
-    }
-    
-    private func handleSuccessAllProducts(_ products : AllProductsDataModel?) {
-        guard let products = products else { return }
-        self.products = products.products
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
-    }
-    
-    private func handleIsLoading(_ isLoading : Bool?) {
-        guard let isLoading = isLoading else { return }
-        if !isLoading {
-            self.view.stopShimmer()
+    private func checkDataIsEmpty() {
+        isEmpty = products.isEmpty
+        sortFilterView.isHidden = isEmpty
+        
+        if isEmpty {
+            vm.search(params: [:], type: .recommendation)
+            view.showShimmer()
+            shouldDisplayEmpty = true
+            hasRecommendations = true
+        } else {
+            if hasRecommendations {
+                hasRecommendations = false
+            } else {
+                shouldDisplayEmpty = false
+            }
         }
     }
     
@@ -162,6 +147,52 @@ extension SearchViewController {
     }
 }
 
+// MARK: - Binding
+extension SearchViewController {
+    private func bindViewModel() {
+        vm.successAllProducts.subscribe { [weak self] in
+            self?.handleSuccessAllProducts($0.element)
+        }.disposed(by: bag)
+        vm.successProductsData.subscribe { [weak self] in
+            self?.handleSuccessProductsData($0)
+        }.disposed(by: bag)
+        vm.error.subscribe { [weak self] in
+            self?.handleError(msg: $0)
+        }.disposed(by: bag)
+        vm.isLoading.subscribe { [weak self] in
+            self?.handleIsLoading($0)
+        }.disposed(by: bag)
+    }
+    
+    private func handleSuccessProductsData(
+        _ products : [ProductDataModel]?
+    ) {
+        guard let products = products else { return }
+        self.products = products
+        checkDataIsEmpty()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
+    private func handleSuccessAllProducts(_ products : AllProductsDataModel?) {
+        guard let products = products else { return }
+        self.products = products.products
+        checkDataIsEmpty()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
+    private func handleIsLoading(_ isLoading : Bool?) {
+        guard let isLoading = isLoading else { return }
+        if !isLoading {
+            self.view.stopShimmer()
+        }
+    }
+}
+
+// MARK: - Interaction
 extension SearchViewController : SortProductDelegate {
     func sort(by sort: SortState?) {
         if sort == nil { return }
@@ -175,38 +206,6 @@ extension SearchViewController :
     UICollectionViewDelegate,
     UICollectionViewDataSource,
     UICollectionViewDelegateFlowLayout {
-    
-//    func collectionView(
-//        _ collectionView: UICollectionView,
-//        viewForSupplementaryElementOfKind kind: String,
-//        at indexPath: IndexPath
-//    ) -> UICollectionReusableView {
-//        let headerView = collectionView.dequeueReusableSupplementaryView(
-//            ofKind: UICollectionView.elementKindSectionHeader,
-//            withReuseIdentifier: "header",
-//            for: indexPath
-//        )
-//        if products.isEmpty {
-//            let titleLabel = UILabel()
-//            let contentLabel = UILabel()
-//            titleLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
-//            contentLabel.font = UIFont.systemFont(ofSize: 10, weight: .light)
-//            titleLabel.text = "Maaf, Kami tidak dapat menemukan apa yang Kamu cari!"
-//            contentLabel.text = "Berikut rekomendasi kami untuk produk yang mungkin Kamu suka, Ganti kata kunci untuk menemukan produk yang Kamu inginkan"
-//            let stack = UIStackView(arrangedSubviews: [titleLabel, contentLabel])
-//            stack.frame = CGRect(
-//                x: 20,
-//                y: 0,
-//                width: collectionView.frame.width - 40,
-//                height: 0
-//            )
-//            stack.axis = .vertical
-//            headerView.addSubview(stack)
-//        } else {
-//            headerView.frame.size.height = 0.00001
-//        }
-//        return headerView
-//    }
     
     func collectionView(
         _ collectionView: UICollectionView,
@@ -243,6 +242,29 @@ extension SearchViewController :
     ) {
         let vc = DetailViewController(products[indexPath.row].id)
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        at indexPath: IndexPath
+    ) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(
+            ofKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: EmptySearchHeaderReusableView.identifier,
+            for: indexPath
+        ) as! EmptySearchHeaderReusableView
+        header.configureCell()
+        return header
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        referenceSizeForHeaderInSection section: Int
+    ) -> CGSize {
+        return isEmpty || shouldDisplayEmpty ?
+            CGSize(width: collectionView.frame.size.width, height: 70) : CGSize.zero
     }
 }
 

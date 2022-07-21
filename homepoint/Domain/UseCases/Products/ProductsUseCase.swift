@@ -67,16 +67,20 @@ extension ProductsUseCase : ProductsUseCaseProvider {
         params.forEach { key, value in
             var tempKey = key
             var tempValue = value
-            if tempKey == "sort" {
+            switch tempKey {
+            case "sort":
                 if tempValue as! String == "" { return }
                 tempKey = checkSort(tempValue as! String)
                 tempValue = true
-            } else if tempKey == "filter" {
+            case "filter":
                 checkFilter()
                 tempValue = true
+            case "Description":
+                let valueStr = (tempValue as! String).split(separator: " ")
+                tempValue = valueStr.joined(separator: "%20")
+            default: break
             }
-            let splitStr = tempKey.split(separator: " ")
-            query += "\(splitStr.joined(separator: "%20"))=\(tempValue)&"
+            query += "\(tempKey)=\(tempValue)&"
         }
         query.removeLast()
         repository.fetchProducts(queryParam: query) { result, error in

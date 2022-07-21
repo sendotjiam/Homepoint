@@ -19,7 +19,7 @@ var dataWeeks: WeekMenuList = WeekMenuList([
     WeeksMenuData(title: "Peralatan Dapur", image: UIImage(named: "img-menu.kitchenware.peralatan.dapur")!),
     WeeksMenuData(title: "Elektronik Dapur", image: UIImage(named: "img-menu.kitchenware.elektronik")!),
     WeeksMenuData(title: "Alat Makan & Minum", image: UIImage(named: "img-menu.kitchenware.alat.makan.minum")!),
-    WeeksMenuData(title: "Menyimpanan Makanan", image: UIImage(named: "img-menu.kitchenware.penyimpanan.makanan")!),
+    WeeksMenuData(title: "Penyimpanan Makanan", image: UIImage(named: "img-menu.kitchenware.penyimpanan.makanan")!),
 ])
 
 final class WeeksViewCell: UITableViewCell {

@@ -61,7 +61,8 @@ final class AFApiClient : ApiClient {
         _ headers: HTTPHeaders?,
         completion: @escaping (URLResponse?, Data?, Error?) -> Void
     ) {
-        guard let url = URL(string: "\(Constants.BaseUrl)\(path)")
+        guard let urlString = "\(Constants.BaseUrl)\(path)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+            let url = URL(string: urlString)
         else { return }
         var encoder : ParameterEncoding = JSONEncoding.default
         if let headers = headers {
