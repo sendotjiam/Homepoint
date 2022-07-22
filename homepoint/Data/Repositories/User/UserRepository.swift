@@ -114,4 +114,29 @@ extension UserRepository : UserRepositoryInterface {
             }
         }
     }
+
+    func reset(
+        params: [String : Any],
+        completion: @escaping ((ResetResponseModel?, Error?) -> Void)
+    ) {
+        let headers : HTTPHeaders = ["Content-Type": "application/x-www-form-urlencoded"]
+        apiClient.request(
+            urlString + "reset_password",
+            .post,
+            params,
+            headers
+        ) { response, data, error in
+            if let data = data {
+                do {
+                    let json = try JSON(data: data)
+                    let model = ResetResponseModel(object: json)
+                    completion(model, error)
+                } catch {
+                    completion(nil, NetworkError.EmptyDataError)
+                }
+            } else {
+                completion(nil, NetworkError.ApiError)
+            }
+        }
+    }
 }

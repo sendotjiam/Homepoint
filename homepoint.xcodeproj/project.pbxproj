@@ -226,6 +226,7 @@
 		D11876EE285792BE001351B4 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D11876EC285792BE001351B4 /* RegisterViewController.xib */; };
 		D12C80712882A79200F13F37 /* ForgetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12C80702882A79200F13F37 /* ForgetModel.swift */; };
 		D1B171A5285D7930002511F8 /* UITapGestureRecognizer+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B171A4285D7930002511F8 /* UITapGestureRecognizer+Ext.swift */; };
+		D1D4A85A288AAD4C0015BFED /* ResetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D4A859288AAD4C0015BFED /* ResetModel.swift */; };
 		D1D978BD287FEA7700843956 /* ForgetPassViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D978BC287FEA7700843956 /* ForgetPassViewModel.swift */; };
 		D1D978C1287FEAB300843956 /* ResetPassViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D978C0287FEAB300843956 /* ResetPassViewModel.swift */; };
 		D1D978C4287FEAD100843956 /* ResetPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D978C2287FEAD100843956 /* ResetPassViewController.swift */; };
@@ -471,6 +472,7 @@
 		D11876EC285792BE001351B4 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		D12C80702882A79200F13F37 /* ForgetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetModel.swift; sourceTree = "<group>"; };
 		D1B171A4285D7930002511F8 /* UITapGestureRecognizer+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+Ext.swift"; sourceTree = "<group>"; };
+		D1D4A859288AAD4C0015BFED /* ResetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetModel.swift; sourceTree = "<group>"; };
 		D1D978BC287FEA7700843956 /* ForgetPassViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPassViewModel.swift; sourceTree = "<group>"; };
 		D1D978C0287FEAB300843956 /* ResetPassViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassViewModel.swift; sourceTree = "<group>"; };
 		D1D978C2287FEAD100843956 /* ResetPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPassViewController.swift; sourceTree = "<group>"; };
@@ -1346,6 +1348,7 @@
 				6275AF962858833000D3857D /* RegisterModel.swift */,
 				533D1D1E288441C2000434F0 /* UserModel.swift */,
 				D12C80702882A79200F13F37 /* ForgetModel.swift */,
+				D1D4A859288AAD4C0015BFED /* ResetModel.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -2539,6 +2542,7 @@
 				623FF1702879BD87002EAC7B /* CartRepository.swift in Sources */,
 				623FF1602879A310002EAC7B /* ProductsResponseModel.swift in Sources */,
 				62103FFF2851DA5900A413F6 /* DetailHeaderViewCell.swift in Sources */,
+				D1D4A85A288AAD4C0015BFED /* ResetModel.swift in Sources */,
 				623FF190287B19BA002EAC7B /* SheetItemViewCell.swift in Sources */,
 				62759B81284A52AD00622184 /* SearchViewController.swift in Sources */,
 				53D773022849FC87008F2912 /* BannerViewCell.swift in Sources */,

@@ -27,4 +27,9 @@ protocol UserRepositoryInterface {
         params: [String: Any],
         completion: @escaping ((ForgetResponseModel?, Error?) -> Void)
     )
+
+    func reset(
+        params: [String: Any],
+        completion: @escaping ((ResetResponseModel?, Error?) -> Void)
+    )
 }

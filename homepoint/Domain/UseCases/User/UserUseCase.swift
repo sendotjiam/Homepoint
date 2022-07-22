@@ -65,11 +65,21 @@ extension UserUseCase : UserUseCaseProvider {
             completion(result, error)
         }
     }
+
     func forget(
         request: ForgetRequestModel,
         completion: @escaping ((ForgetResponseModel?, Error?) -> ())
     ) {
         repository.forget(params: request.toDictionary()) { (result, error) in
+            completion(result, error)
+        }
+    }
+
+    func reset(
+        request: ResetRequestModel,
+        completion: @escaping ((ResetResponseModel?, Error?) -> ())
+    ) {
+        repository.reset(params: request.toDictionary()) { (result, error) in
             completion(result, error)
         }
     }
