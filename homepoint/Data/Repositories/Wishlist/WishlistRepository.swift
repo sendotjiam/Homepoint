@@ -33,16 +33,12 @@ extension WishlistRepository : WishlistRepositoryInterface {
             [:],
             nil
         ) { response, data, error in
-            if let data = data {
-                do {
-                    let json = try JSON(data: data)
-                    let model = WishlistResponseModel(object: json)
-                    completion(model, nil)
-                } catch {
-                    completion(nil, NetworkError.EmptyDataError)
-                }
+            let parsed = RepositoryManager.shared.parse(data: data)
+            if let json = parsed.json {
+                let model = WishlistResponseModel(object: json)
+                completion(model, nil)
             } else {
-                completion(nil, NetworkError.ApiError)
+                completion(nil, parsed.error)
             }
         }
     }
@@ -57,16 +53,12 @@ extension WishlistRepository : WishlistRepositoryInterface {
             nil,
             nil
         ) { response, data, error in
-            if let data = data {
-                do {
-                    let json = try JSON(data: data)
-                    let model = AllWishlistsResponseModel(object: json)
-                    completion(model, nil)
-                } catch {
-                    completion(nil, NetworkError.EmptyDataError)
-                }
+            let parsed = RepositoryManager.shared.parse(data: data)
+            if let json = parsed.json {
+                let model = AllWishlistsResponseModel(object: json)
+                completion(model, nil)
             } else {
-                completion(nil, NetworkError.ApiError)
+                completion(nil, parsed.error)
             }
         }
     }
@@ -78,16 +70,30 @@ extension WishlistRepository : WishlistRepositoryInterface {
             [:],
             nil
         ) { response, data, error in
-            if let data = data {
-                do {
-                    let json = try JSON(data: data)
-                    let model = WishlistResponseModel(object: json)
-                    completion(model, nil)
-                } catch {
-                    completion(nil, NetworkError.EmptyDataError)
-                }
+            let parsed = RepositoryManager.shared.parse(data: data)
+            if let json = parsed.json {
+                let model = WishlistResponseModel(object: json)
+                completion(model, nil)
             } else {
-                completion(nil, NetworkError.ApiError)
+                completion(nil, parsed.error)
+            }
+        }
+    }
+    
+    func deleteBulkWishlists(ids: [String], completion: @escaping DeleteBulkWishlists) {
+        let params = ["wishlistItemIds": ids]
+        apiClient.request(
+            urlString + "/items",
+            .delete,
+            params,
+            nil
+        ) { response, data, error in
+            let parsed = RepositoryManager.shared.parse(data: data)
+            if let json = parsed.json {
+                let model = WishlistResponseModel(object: json)
+                completion(model, nil)
+            } else {
+                completion(nil, parsed.error)
             }
         }
     }
@@ -105,16 +111,12 @@ extension WishlistRepository : WishlistRepositoryInterface {
             nil,
             nil
         ) { response, data, error in
-            if let data = data {
-                do {
-                    let json = try JSON(data: data)
-                    let model = WishlistResponseModel(object: json)
-                    completion(model, nil)
-                } catch {
-                    completion(nil, NetworkError.EmptyDataError)
-                }
+            let parsed = RepositoryManager.shared.parse(data: data)
+            if let json = parsed.json {
+                let model = WishlistResponseModel(object: json)
+                completion(model, nil)
             } else {
-                completion(nil, NetworkError.ApiError)
+                completion(nil, parsed.error)
             }
         }
     }

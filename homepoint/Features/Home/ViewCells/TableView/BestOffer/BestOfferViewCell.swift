@@ -44,9 +44,7 @@ extension BestOfferViewCell {
     }
     
     func configureCell() {
-        DispatchQueue.main.async { [weak self] in
-            self?.collectionView.reloadData()
-        }
+        collectionView.reload()
     }
 
     

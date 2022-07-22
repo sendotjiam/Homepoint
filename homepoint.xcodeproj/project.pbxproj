@@ -138,6 +138,8 @@
 		6256155B2869EB45006F0D62 /* FilterBrandListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 625615592869EB45006F0D62 /* FilterBrandListViewCell.xib */; };
 		625AA4FF2866CB8A00C285F0 /* SortFilterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625AA4FE2866CB8A00C285F0 /* SortFilterHelper.swift */; };
 		625AA5022866E0E100C285F0 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625AA5012866E0E100C285F0 /* UILabel+Ext.swift */; };
+		6264DCDD288AA6270063B75A /* RepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6264DCDC288AA6270063B75A /* RepositoryManager.swift */; };
+		6264DCDF288AB4070063B75A /* UICollectionView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6264DCDE288AB4070063B75A /* UICollectionView+Ext.swift */; };
 		626A1D1428465BE500B2DA8A /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626A1D1328465BE500B2DA8A /* UIView+Ext.swift */; };
 		626E848C2859C9BF003403DE /* UIScrollView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E848B2859C9BF003403DE /* UIScrollView+Ext.swift */; };
 		626E848F2859D615003403DE /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626E848E2859D615003403DE /* LoginViewModel.swift */; };
@@ -373,6 +375,8 @@
 		625615592869EB45006F0D62 /* FilterBrandListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterBrandListViewCell.xib; sourceTree = "<group>"; };
 		625AA4FE2866CB8A00C285F0 /* SortFilterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortFilterHelper.swift; sourceTree = "<group>"; };
 		625AA5012866E0E100C285F0 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
+		6264DCDC288AA6270063B75A /* RepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryManager.swift; sourceTree = "<group>"; };
+		6264DCDE288AB4070063B75A /* UICollectionView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Ext.swift"; sourceTree = "<group>"; };
 		626A1D1328465BE500B2DA8A /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		626E848B2859C9BF003403DE /* UIScrollView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Ext.swift"; sourceTree = "<group>"; };
 		626E848E2859D615003403DE /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -1266,6 +1270,14 @@
 			path = SortItem;
 			sourceTree = "<group>";
 		};
+		6264DCDB288AA6190063B75A /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				6264DCDC288AA6270063B75A /* RepositoryManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		626E848A2859C932003403DE /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -1905,6 +1917,7 @@
 		62FCC0DD283E5B2A00BF79E2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				6264DCDB288AA6190063B75A /* Managers */,
 				62FCC0DF283E5B4600BF79E2 /* Extensions */,
 				62FCC0DE283E5B3A00BF79E2 /* Constants */,
 				62CBAA6C284F4FFC00BD5EAC /* Utils.swift */,
@@ -1934,6 +1947,7 @@
 				D1B171A4285D7930002511F8 /* UITapGestureRecognizer+Ext.swift */,
 				625AA5012866E0E100C285F0 /* UILabel+Ext.swift */,
 				6275D33628855AB90027E345 /* UITableView+Ext.swift */,
+				6264DCDE288AB4070063B75A /* UICollectionView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2462,6 +2476,7 @@
 				627A3901284CCE3B002ADC6B /* OrderListViewController.swift in Sources */,
 				53D77331284A41CC008F2912 /* WeeksItemViewCell.swift in Sources */,
 				623FF15428797D63002EAC7B /* AllWishlistsResponseModel.swift in Sources */,
+				6264DCDD288AA6270063B75A /* RepositoryManager.swift in Sources */,
 				53D7733D284A423D008F2912 /* RecommendationViewCell.swift in Sources */,
 				6279A6932882EB500048545C /* NotLoginView.swift in Sources */,
 				6275D335288557F20027E345 /* BodyStringEncoding.swift in Sources */,
@@ -2543,6 +2558,7 @@
 				625AA5022866E0E100C285F0 /* UILabel+Ext.swift in Sources */,
 				626E848C2859C9BF003403DE /* UIScrollView+Ext.swift in Sources */,
 				62139A0428685EBE003C34CB /* FilterPriceViewCell.swift in Sources */,
+				6264DCDF288AB4070063B75A /* UICollectionView+Ext.swift in Sources */,
 				62139A172868B712003C34CB /* BrandItemViewCell.swift in Sources */,
 				62CA2D312847989200389230 /* UIViewController+Ext.swift in Sources */,
 				D1D978C1287FEAB300843956 /* ResetPassViewModel.swift in Sources */,

@@ -48,9 +48,7 @@ extension RecommendationViewCell {
     }
     
     func configureCell() {
-        DispatchQueue.main.async { [weak self] in
-            self?.recommendationCollectionView.reloadData()
-        }
+        recommendationCollectionView.reload()
     }
 }
 

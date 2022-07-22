@@ -170,18 +170,14 @@ extension SearchViewController {
         guard let products = products else { return }
         self.products = products
         checkDataIsEmpty()
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
+        collectionView.reload()
     }
     
     private func handleSuccessAllProducts(_ products : AllProductsDataModel?) {
         guard let products = products else { return }
         self.products = products.products
         checkDataIsEmpty()
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
+        collectionView.reload()
     }
     
     private func handleIsLoading(_ isLoading : Bool?) {

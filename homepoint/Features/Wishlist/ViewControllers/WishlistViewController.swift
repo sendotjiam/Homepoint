@@ -55,12 +55,23 @@ final class WishlistViewController: UIViewController {
     }
     
     @IBAction func cleanButtonTapped(_ sender: Any) {
-        // Call bulk delete wishlist
-        print("BULK DELETE")
+        handleBulkDeleteWishlists()
     }
 }
 
 extension WishlistViewController {
+    private func handleBulkDeleteWishlists() {
+        let alert = self.createConfirmationAlert(
+            "Konfirmasi",
+            "Apakah kamu yakin ingin menghapus wishlist ini?"
+        ) { [weak self] _ in
+            guard let self = self else { return }
+            self.vm.bulkDeleteWishlists(ids: self.selectedId)
+            self.tableView.reload()
+        }
+        self.present(alert, animated: true)
+    }
+    
     private func setupUI() {
         cleanButton.roundedCorner(with: 8)
         bottomContainerView.dropShadow(
@@ -152,6 +163,13 @@ extension WishlistViewController {
         vm.successAddToCart.subscribe { [weak self] in
             self?.handleSuccessAddToCart($0)
         }.disposed(by: bag)
+        vm.successBulkDeleteWishlists.subscribe { [weak self] _ in
+            self?.handleSuccessBulkDeleteWishlists()
+        }.disposed(by: bag)
+    }
+    
+    private func handleSuccessBulkDeleteWishlists() {
+        vm.getWishlists(userId: userId)
     }
     
     private func handleSuccessAddToCart(_ data : CartDataModel?) {
@@ -187,9 +205,7 @@ extension WishlistViewController {
         self.data = data
         checkDataIsEmpty()
         view.stopShimmer()
-        DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
-        }
+        tableView.reload()
     }
     
     private func handleError(_ error : String?) {

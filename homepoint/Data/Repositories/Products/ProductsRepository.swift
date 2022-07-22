@@ -34,16 +34,12 @@ extension ProductsRepository : ProductsRepositoryInterface {
             nil,
             nil
         ) { response, data, error in
-            if let data = data {
-                do {
-                    let json = try JSON(data: data)
-                    let model = ProductsResponseModel(object: json)
-                    completion(model, nil)
-                } catch {
-                    completion(nil, NetworkError.EmptyDataError)
-                }
+            let parsed = RepositoryManager.shared.parse(data: data)
+            if let json = parsed.json {
+                let model = ProductsResponseModel(object: json)
+                completion(model, nil)
             } else {
-                completion(nil, NetworkError.ApiError)
+                completion(nil, parsed.error)
             }
         }
     }
@@ -59,16 +55,12 @@ extension ProductsRepository : ProductsRepositoryInterface {
             nil,
             nil
         ) { response, data, error in
-            if let data = data {
-                do {
-                    let json = try JSON(data: data)
-                    let model = AllProductsResponseModel(object: json)
-                    completion(model, nil)
-                } catch {
-                    completion(nil, NetworkError.EmptyDataError)
-                }
+            let parsed = RepositoryManager.shared.parse(data: data)
+            if let json = parsed.json {
+                let model = AllProductsResponseModel(object: json)
+                completion(model, nil)
             } else {
-                completion(nil, NetworkError.ApiError)
+                completion(nil, parsed.error)
             }
         }
     }
@@ -83,16 +75,12 @@ extension ProductsRepository : ProductsRepositoryInterface {
             nil,
             nil
         ) { response, data, error in
-            if let data = data {
-                do {
-                    let json = try JSON(data: data)
-                    let model = ProductsResponseModel(object: json)
-                    completion(model, nil)
-                } catch {
-                    completion(nil, NetworkError.EmptyDataError)
-                }
+            let parsed = RepositoryManager.shared.parse(data: data)
+            if let json = parsed.json {
+                let model = ProductsResponseModel(object: json)
+                completion(model, nil)
             } else {
-                completion(nil, NetworkError.ApiError)
+                completion(nil, parsed.error)
             }
         }
     }

@@ -14,4 +14,5 @@ protocol CartRepositoryInterface {
     func fetchCarts(userId: String, completion: @escaping CartCompletion)
     func updateCart(params: [String: Any], completion: @escaping CartCompletion)
     func deleteCart(id: String, completion: @escaping CartCompletion)
+    func deleteBulkCarts(ids: [String], completion: @escaping CartCompletion)
 }

@@ -13,12 +13,14 @@ protocol CartViewModelInput {
     func getCarts(userId: String)
     func deleteCartItem(id: String)
     func updateCartItem(id: String, qty: Int)
+    func bulkDeleteCarts(ids: [String])
 }
 
 protocol CartViewModelOutput {
     var successFetchCarts : PublishSubject<[CartDataModel]> { get set }
     var successDeleteCart : PublishSubject<[CartDataModel]> { get set }
     var successUpdateCart : PublishSubject<[CartDataModel]> { get set }
+    var successBulkDeleteCarts : PublishSubject<[CartDataModel]> { get set }
     var error : PublishSubject<String> { get set }
     var isLoading : BehaviorRelay<Bool> { get set }
 }
@@ -34,6 +36,7 @@ final class CartViewModel : CartViewModelInput, CartViewModelOutput {
     var successFetchCarts = PublishSubject<[CartDataModel]>()
     var successDeleteCart = PublishSubject<[CartDataModel]>()
     var successUpdateCart = PublishSubject<[CartDataModel]>()
+    var successBulkDeleteCarts = PublishSubject<[CartDataModel]>()
     var error = PublishSubject<String>()
     var isLoading = BehaviorRelay<Bool>(value: false)
     
@@ -84,6 +87,22 @@ final class CartViewModel : CartViewModelInput, CartViewModelOutput {
             if let result = result {
                 if result.success || result.status == "200" {
                     self.successUpdateCart.onNext(result.data)
+                } else {
+                    self.error.onNext(result.message)
+                }
+            } else {
+                self.error.onNext(error?.localizedDescription ?? "ERROR")
+            }
+            self.isLoading.accept(false)
+        }
+    }
+    
+    func bulkDeleteCarts(ids: [String]) {
+        isLoading.accept(true)
+        useCase.deleteBulkCarts(ids: ids) { result, error in
+            if let result = result {
+                if result.success || result.status == "200" {
+                    self.successBulkDeleteCarts.onNext(result.data)
                 } else {
                     self.error.onNext(result.message)
                 }

@@ -39,9 +39,7 @@ extension OtherViewCell {
     }
     
     private func configureCell() {
-        DispatchQueue.main.async { [weak self] in
-            self?.collectionView.reloadData()
-        }
+        collectionView.reload()
     }
     
     class func nib() -> UINib {

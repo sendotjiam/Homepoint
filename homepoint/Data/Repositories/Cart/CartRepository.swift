@@ -35,16 +35,12 @@ extension CartRepository : CartRepositoryInterface {
             headers,
             "\(quantity)"
         ) { response, data, error in
-            if let data = data {
-                do {
-                    let json = try JSON(data: data)
-                    let model = CartResponseModel(object: json)
-                    completion(model, nil)
-                } catch {
-                    completion(nil, NetworkError.EmptyDataError)
-                }
+            let parsed = RepositoryManager.shared.parse(data: data)
+            if let json = parsed.json {
+                let model = CartResponseModel(object: json)
+                completion(model, nil)
             } else {
-                completion(nil, NetworkError.ApiError)
+                completion(nil, parsed.error)
             }
         }
     }
@@ -56,16 +52,12 @@ extension CartRepository : CartRepositoryInterface {
             nil,
             nil
         ) { response, data, error in
-            if let data = data {
-                do {
-                    let json = try JSON(data: data)
-                    let model = CartResponseModel(object: json)
-                    completion(model, nil)
-                } catch {
-                    completion(nil, NetworkError.EmptyDataError)
-                }
+            let parsed = RepositoryManager.shared.parse(data: data)
+            if let json = parsed.json {
+                let model = CartResponseModel(object: json)
+                completion(model, nil)
             } else {
-                completion(nil, NetworkError.ApiError)
+                completion(nil, parsed.error)
             }
         }
     }
@@ -81,16 +73,12 @@ extension CartRepository : CartRepositoryInterface {
             bodyParam,
             nil
         ) { response, data, error in
-            if let data = data {
-                do {
-                    let json = try JSON(data: data)
-                    let model = CartResponseModel(object: json)
-                    completion(model, nil)
-                } catch {
-                    completion(nil, NetworkError.EmptyDataError)
-                }
+            let parsed = RepositoryManager.shared.parse(data: data)
+            if let json = parsed.json {
+                let model = CartResponseModel(object: json)
+                completion(model, nil)
             } else {
-                completion(nil, NetworkError.ApiError)
+                completion(nil, parsed.error)
             }
         }
     }
@@ -102,16 +90,30 @@ extension CartRepository : CartRepositoryInterface {
             nil,
             nil
         ) { response, data, error in
-            if let data = data {
-                do {
-                    let json = try JSON(data: data)
-                    let model = CartResponseModel(object: json)
-                    completion(model, nil)
-                } catch {
-                    completion(nil, NetworkError.EmptyDataError)
-                }
+            let parsed = RepositoryManager.shared.parse(data: data)
+            if let json = parsed.json {
+                let model = CartResponseModel(object: json)
+                completion(model, nil)
             } else {
-                completion(nil, NetworkError.ApiError)
+                completion(nil, parsed.error)
+            }
+        }
+    }
+    
+    func deleteBulkCarts(ids: [String], completion: @escaping CartCompletion) {
+        let params = ["cartItemIds": ids]
+        apiClient.request(
+            urlString + "/items",
+            .delete,
+            params,
+            nil
+        ) { response, data, error in
+            let parsed = RepositoryManager.shared.parse(data: data)
+            if let json = parsed.json {
+                let model = CartResponseModel(object: json)
+                completion(model, nil)
+            } else {
+                completion(nil, parsed.error)
             }
         }
     }

@@ -12,9 +12,11 @@ protocol WishlistRepositoryInterface {
     typealias FetchWishlists = ((AllWishlistsResponseModel?, Error?) -> Void)
     typealias DeleteWishlist = ((WishlistResponseModel?, Error?) -> Void)
     typealias CheckProductIsWishlist = ((WishlistResponseModel?, Error?) -> Void)
+    typealias DeleteBulkWishlists = ((WishlistResponseModel?, Error?) -> Void)
     
     func addWishlist(params : [String: Any], completion: @escaping AddWishlistItem)
     func fetchWishlists(userId: String, completion: @escaping FetchWishlists)
     func deleteWishlist(id: String, completion: @escaping DeleteWishlist)
     func checkProductIsWishlist(params: [String: Any], completion : @escaping CheckProductIsWishlist)
+    func deleteBulkWishlists(ids: [String], completion: @escaping DeleteBulkWishlists)
 }

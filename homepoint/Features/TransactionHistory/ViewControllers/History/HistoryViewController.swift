@@ -91,9 +91,7 @@ extension HistoryViewController :
             selectedState = states[index]
         }
         // FILTER THE DATA
-        DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
-        }
+        tableView.reload()
     }
 }
 

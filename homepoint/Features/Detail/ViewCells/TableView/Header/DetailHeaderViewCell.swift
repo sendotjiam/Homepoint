@@ -98,10 +98,7 @@ extension DetailHeaderViewCell {
                     )
                 )
         }
-        
-        DispatchQueue.main.async { [weak self] in
-            self?.colorListCollectionView.reloadData()
-        }
+        colorListCollectionView.reload()
     }
     
     private func toggleWishlist() {

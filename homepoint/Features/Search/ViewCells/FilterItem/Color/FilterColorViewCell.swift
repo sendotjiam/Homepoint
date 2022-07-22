@@ -65,7 +65,7 @@ extension FilterColorViewCell {
     
     private func configureCell() {
         calculateCollectionLines()
-        reloadCollectionView()
+        collectionView.reload()
     }
     
     class func nib() -> UINib {
@@ -110,14 +110,6 @@ extension FilterColorViewCell :
         didSelectItemAt indexPath: IndexPath
     ) {
         colorsModel[indexPath.row].isSelected.toggle()
-        DispatchQueue.main.async {
-            collectionView.reloadData()
-        }
-    }
-    
-    private func reloadCollectionView() {
-        DispatchQueue.main.async { [weak self] in
-            self?.collectionView.reloadData()
-        }
+        collectionView.reload()
     }
 }

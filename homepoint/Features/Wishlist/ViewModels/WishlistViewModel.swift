@@ -14,12 +14,14 @@ protocol WishlistViewModelInput {
     func deleteWishlist(id: String)
     func updateWishlist(qty: Int)
     func addToCart(userId: String, productId: String, qty: Int)
+    func bulkDeleteWishlists(ids: [String])
 }
 
 protocol WishlistViewModelOutput {
     var successGetWishlists : PublishSubject<[WishlistDataModel]> { get set }
     var successDeleteWishlist : PublishSubject<WishlistDataModel> { get set }
     var successUpdateWishlist : PublishSubject<WishlistDataModel> { get set }
+    var successBulkDeleteWishlists : PublishSubject<[WishlistDataModel]> { get set }
     var successAddToCart : PublishSubject<CartDataModel> { get set }
     var error : PublishSubject<String> { get set }
     var isLoading : BehaviorRelay<Bool> { get set }
@@ -43,6 +45,7 @@ final class WishlistViewModel :
     var successGetWishlists = PublishSubject<[WishlistDataModel]>()
     var successDeleteWishlist = PublishSubject<WishlistDataModel>()
     var successUpdateWishlist = PublishSubject<WishlistDataModel>()
+    var successBulkDeleteWishlists = PublishSubject<[WishlistDataModel]>()
     var successAddToCart = PublishSubject<CartDataModel>()
     var error = PublishSubject<String>()
     var isLoading = BehaviorRelay<Bool>(value: false)
@@ -74,7 +77,8 @@ final class WishlistViewModel :
             guard let self = self else { return }
             if let result = result {
                 if result.success || result.status == "200" {
-                    self.successDeleteWishlist.onNext(result.data)
+                    guard let result = result.data.first else { return }
+                    self.successDeleteWishlist.onNext(result)
                 } else {
                     self.error.onNext(result.message)
                 }
@@ -85,6 +89,22 @@ final class WishlistViewModel :
     }
     
     func updateWishlist(qty: Int) {
+    }
+    
+    func bulkDeleteWishlists(ids: [String]) {
+        isLoading.accept(true)
+        wishlistUseCase.deleteBulkWishlists(ids: ids) { result, error in
+            if let result = result {
+                if result.success || result.status == "200" {
+                    self.successBulkDeleteWishlists.onNext(result.data)
+                } else {
+                    self.error.onNext(result.message)
+                }
+            } else {
+                self.error.onNext(error?.localizedDescription ?? "ERROR")
+            }
+            self.isLoading.accept(false)
+        }
     }
     
     func addToCart(userId: String, productId: String, qty: Int) {

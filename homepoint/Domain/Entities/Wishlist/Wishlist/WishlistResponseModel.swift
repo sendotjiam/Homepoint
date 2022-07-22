@@ -11,13 +11,21 @@ import SwiftyJSON
 struct WishlistResponseModel : Equatable {
     var success: Bool
     var status, message: String
-    var data: WishlistDataModel
+    var data: [WishlistDataModel]
     
     init(object: JSON) {
         self.success = object["success"].boolValue
         self.status = object["status"].stringValue
         self.message = object["message"].stringValue
-        self.data = WishlistDataModel(object: object["data"])
+        var wishlists = [WishlistDataModel]()
+        if !object["data"].arrayValue.isEmpty {
+            object["data"].arrayValue.forEach {
+                wishlists.append(WishlistDataModel(object: $0))
+            }
+            self.data = wishlists
+        } else {
+            self.data = [WishlistDataModel(object: object["data"])]
+        }
     }
     
     static func == (lhs: WishlistResponseModel, rhs: WishlistResponseModel) -> Bool {

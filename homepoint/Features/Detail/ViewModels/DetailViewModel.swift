@@ -119,8 +119,9 @@ final class DetailViewModel :
         ) { result, error in
             if let result = result {
                 if result.success || result.status == "200" {
-                    self.successAddWishlist.onNext(result.data)
-                    self.successIsWishlist.accept(result.data.id)
+                    guard let result = result.data.first else { return }
+                    self.successAddWishlist.onNext(result)
+                    self.successIsWishlist.accept(result.id)
                 } else {
                     self.error.onNext(result.message)
                 }
@@ -136,7 +137,8 @@ final class DetailViewModel :
         wishlistUseCase.deleteWishlist(id: id) { result, error in
             if let result = result {
                 if result.success || result.status == "200" {
-                    self.successDeleteWishlist.onNext(result.data)
+                    guard let result = result.data.first else { return }
+                    self.successAddWishlist.onNext(result)
                     self.successIsWishlist.accept("")
                 } else {
                     self.error.onNext(result.message)

@@ -12,6 +12,8 @@ protocol WishlistUseCaseProvider {
     typealias FetchWishlists = ((AllWishlistsResponseModel?, Error?) -> Void)
     typealias DeleteWishlist = ((WishlistResponseModel?, Error?) -> Void)
     typealias IsWishlist = ((String?, Error?) -> Void)
+    typealias DeleteBulkWishlists = ((WishlistResponseModel?, Error?) -> Void)
+    
     func addWishlist(
         productId: String,
         userId: String,
@@ -25,6 +27,8 @@ protocol WishlistUseCaseProvider {
     
     func deleteWishlist(id: String, completion: @escaping DeleteWishlist)
 
+    func deleteBulkWishlists(ids: [String], completion: @escaping DeleteBulkWishlists)
+    
     func checkProductIsWishlist(
         productId: String,
         userId: String,
@@ -71,6 +75,12 @@ extension WishlistUseCase : WishlistUseCaseProvider {
         }
     }
     
+    func deleteBulkWishlists(ids: [String], completion: @escaping DeleteBulkWishlists) {
+        repository.deleteBulkWishlists(ids: ids) { result, error in
+            completion(result, error)
+        }
+    }
+    
     func checkProductIsWishlist(
         productId: String,
         userId: String,
@@ -80,9 +90,8 @@ extension WishlistUseCase : WishlistUseCaseProvider {
             "userId" : userId,
             "productId": productId
         ]
-        print(params)
         repository.checkProductIsWishlist(params: params) { result, error in
-            completion(result?.data.id ?? "", nil)
+            completion(result?.data.first?.id ?? "", nil)
         }
     }
 }

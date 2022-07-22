@@ -121,8 +121,6 @@ extension OrderFilterViewCell :
     ) {
         data.forEach { $0.isSelected = false }
         data[indexPath.row].isSelected = true
-        DispatchQueue.main.async {
-            collectionView.reloadData()
-        }
+        collectionView.reload()
     }
 }

@@ -58,9 +58,7 @@ extension FilterBrandListViewCell {
             selectedBrands[brand] = false
         }
         temp = filteredBrands
-        DispatchQueue.main.async { [weak self] in
-            self?.tableView.reloadData()
-        }
+        tableView.reload()
     }
     
     class func nib() -> UINib {

@@ -26,16 +26,12 @@ extension ProductSubCategoriesRepository : ProductSubCategoriesRepositoryInterfa
             nil,
             nil
         ) { response, data, error in
-            if let data = data {
-                do {
-                    let json = try JSON(data: data)
-                    let model = ProductSubCategoriesResponseModel(object: json)
-                    completion(model, nil)
-                } catch {
-                    completion(nil, NetworkError.EmptyDataError)
-                }
+            let parsed = RepositoryManager.shared.parse(data: data)
+            if let json = parsed.json {
+                let model = ProductSubCategoriesResponseModel(object: json)
+                completion(model, nil)
             } else {
-                completion(nil, NetworkError.ApiError)
+                completion(nil, parsed.error)
             }
         }
     }

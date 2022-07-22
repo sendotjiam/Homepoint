@@ -14,6 +14,7 @@ protocol CartUseCaseProvider {
     func fetchCarts(userId: String, completion: @escaping CartCompletion)
     func updateCart(params: [String : Any], completion: @escaping CartCompletion)
     func deleteCart(id: String, completion: @escaping CartCompletion)
+    func deleteBulkCarts(ids: [String], completion: @escaping CartCompletion)
 }
 
 
@@ -51,6 +52,12 @@ extension CartUseCase : CartUseCaseProvider {
     
     func deleteCart(id: String, completion: @escaping CartCompletion) {
         repository.deleteCart(id: id) { result, error in
+            completion(result, error)
+        }
+    }
+    
+    func deleteBulkCarts(ids: [String], completion: @escaping CartCompletion) {
+        repository.deleteBulkCarts(ids: ids) { result, error in
             completion(result, error)
         }
     }
