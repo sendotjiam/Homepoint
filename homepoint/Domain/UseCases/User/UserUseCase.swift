@@ -8,7 +8,7 @@
 import Foundation
 
 protocol UserUseCaseProvider {
-    typealias GetUserById = ((UsersResponseModel?, Error?) -> Void)
+    typealias UserCompletion = ((UserResponseModel?, Error?) -> Void)
     
     func login(
         request: LoginRequestModel,
@@ -20,13 +20,18 @@ protocol UserUseCaseProvider {
     )
     func getUser(
         by id: String,
-        completion: @escaping GetUserById 
+        completion: @escaping UserCompletion 
     )
 
     func forget(
         request: ForgetRequestModel,
         completion: @escaping ((ForgetResponseModel?, Error?) -> ())
     )
+    func updateUser(
+        params: [String: Any],
+        completion: @escaping UserCompletion
+    )
+        
 }
 
 final class UserUseCase {
@@ -59,7 +64,7 @@ extension UserUseCase : UserUseCaseProvider {
 
     func getUser(
         by id: String,
-        completion: @escaping GetUserById
+        completion: @escaping UserCompletion
     ) {
         repository.getUser(by: id) { result, error in
             completion(result, error)
@@ -84,4 +89,13 @@ extension UserUseCase : UserUseCaseProvider {
         }
     }
 
+    
+    func updateUser(
+        request: UserRequestModel,
+        completion: @escaping UserCompletion
+    ) {
+        repository.updateUser(params: request.toDictionary()) { result, error in
+            completion(result, error)
+        }
+    }
 }

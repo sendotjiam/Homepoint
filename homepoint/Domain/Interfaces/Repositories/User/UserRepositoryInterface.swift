@@ -8,7 +8,7 @@
 import Foundation
 
 protocol UserRepositoryInterface {
-    typealias GetUserById = ((UsersResponseModel?, Error?) -> Void)
+    typealias UserCompletion = ((UserResponseModel?, Error?) -> Void)
     
     func login(
         params: [String: Any],
@@ -21,7 +21,7 @@ protocol UserRepositoryInterface {
     
     func getUser(
         by id: String,
-        completion: @escaping GetUserById )
+        completion: @escaping UserCompletion )
         
     func forget(
         params: [String: Any],
@@ -31,5 +31,10 @@ protocol UserRepositoryInterface {
     func reset(
         params: [String: Any],
         completion: @escaping ((ResetResponseModel?, Error?) -> Void)
+    )
+    
+    func updateUser(
+        params: [String: Any],
+        completion: @escaping UserCompletion
     )
 }

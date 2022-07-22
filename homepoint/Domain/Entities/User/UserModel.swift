@@ -8,30 +8,53 @@
 import Foundation
 import SwiftyJSON
 
-// MARK: - Users
-struct UsersResponseModel : Equatable {
+struct UserRequestModel {
+    var id: String
+    var addresses: Array<Any>
+    var name, phoneNumber, email, password, roles, joinedSince, birthDate, gender: String
+    var isActive: Bool
+    
+    func toDictionary() -> [String: Any] {
+        return [
+            "id": id,
+            "addresses": addresses,
+            "name": name,
+            "phoneNumber": phoneNumber,
+            "email": email,
+            "password": password,
+            "roles": roles,
+            "joinedSince": joinedSince,
+            "birthdate": birthDate,
+            "gender": gender,
+            "isActive": isActive
+        ]
+    }
+}
+
+// MARK: - User
+struct UserResponseModel : Equatable {
     
     var success: Bool
     var status, message: String
-    var data: [UsersDataModel]
+    var data: [UserDataModel]
     
     init(object: JSON) {
         self.success = object["success"].boolValue
         self.status = object["status"].stringValue
         self.message = object["message"].stringValue
         
-        var users = [UsersDataModel]()
+        var user = [UserDataModel]()
         if !object["data"].arrayValue.isEmpty {
             object["data"].arrayValue.forEach {
-                users.append(UsersDataModel(object: $0))
+                user.append(UserDataModel(object: $0))
             }
-            self.data = users
+            self.data = user
         } else {
-            self.data = [UsersDataModel(object: object["data"])]
+            self.data = [UserDataModel(object: object["data"])]
         }
     }
     
-    static func == (lhs: UsersResponseModel, rhs: UsersResponseModel) -> Bool {
+    static func == (lhs: UserResponseModel, rhs: UserResponseModel) -> Bool {
         (lhs.success == rhs.success) &&
         (lhs.status == rhs.status) &&
         (lhs.message == rhs.message) &&
@@ -39,28 +62,40 @@ struct UsersResponseModel : Equatable {
     }
 }
 
-// MARK: - Users Data
-struct UsersDataModel : Equatable {
+// MARK: - User Data
+struct UserDataModel : Equatable {
     
     var id: String
-//    var addresses: [ProductImageModel]
-    var name, phoneNumber, email, birthDate, gender: String
+    var addresses: Array<Any>
+    var name, phoneNumber, email, password, roles, joinedSince, birthDate, gender: String
+    var isActive: Bool
     
     init(object: JSON) {
         self.id = object["id"].stringValue
+        self.addresses = object["addresses"].arrayValue
         self.name = object["name"].stringValue
         self.phoneNumber = object["phoneNumber"].stringValue
         self.email = object["email"].stringValue
+        self.password = object["password"].stringValue
+        self.roles = object["roles"].stringValue
+        self.joinedSince = object["joinedSince"].stringValue
         self.birthDate = object["birthDate"].stringValue
         self.gender = object["gender"].stringValue
+        self.isActive = object["isActive"].boolValue
     }
     
-    static func == (lhs: UsersDataModel, rhs: UsersDataModel) -> Bool {
+    static func == (lhs: UserDataModel, rhs: UserDataModel) -> Bool {
         (lhs.id == rhs.id) &&
+//        (lhs.addresses == rhs.addresses) &&
         (lhs.name == rhs.name) &&
         (lhs.phoneNumber == rhs.phoneNumber) &&
         (lhs.email == rhs.email) &&
+        (lhs.password == rhs.password) &&
+        (lhs.roles == rhs.password) &&
+        (lhs.joinedSince == rhs.joinedSince) &&
         (lhs.birthDate == rhs.birthDate) &&
-        (lhs.gender == rhs.gender)
+        (lhs.gender == rhs.gender) &&
+        (lhs.isActive == rhs.isActive)
+        
     }
 }

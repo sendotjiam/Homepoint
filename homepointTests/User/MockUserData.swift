@@ -46,7 +46,7 @@ struct MockUserData {
         ]))
     }
     
-    static func generateUsersData() -> Data? {
+    static func generateUserData() -> Data? {
         "{\"success\":true,\"status\":\"200\",\"message\":\"Success For Get User from Id\",\"data\":{\"id\":\"a1a22a38-7a2d-4ee8-bd12-20ddd91e3c0c\",\"addresses\":[],\"name\":\"tika\",\"phoneNumber\":null,\"email\":\"tika@gmail.com\",\"password\":\"$2a$10$HuxJVJZ1iw16phWhPvJA0.6je0G07cpwebJCqyNDEtSHRrH5HfKlu\",\"roles\":\"ROLE_CUSTOMER\",\"joinedSince\":\"2022-07-13T13:51:57.684+00:00\",\"birthDate\":null,\"gender\":null,\"isActive\":false}}".data(using: .utf8)
     }
     
@@ -58,9 +58,9 @@ struct MockUserData {
         ]))
     }
     
-    static func generateUsersDataModel() -> [UsersDataModel] {
+    static func generateUserDataModel() -> [UserDataModel] {
         [
-            UsersDataModel(object: JSON([
+            UserDataModel(object: JSON([
                 "id": "a1a22a38-7a2d-4ee8-bd12-20ddd91e3c0c",
                 "name": "tika",
                 "phoneNumber": "",

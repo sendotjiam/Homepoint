@@ -69,7 +69,7 @@ extension UserRepository : UserRepositoryInterface {
         }
     }
     
-    func getUser (by id: String, completion: @escaping GetUserById) {
+    func getUser (by id: String, completion: @escaping UserCompletion) {
         apiClient.request(
             urlString + "/" + id,
             .get,
@@ -79,7 +79,28 @@ extension UserRepository : UserRepositoryInterface {
             if let data = data {
                 do {
                     let json = try JSON(data: data)
-                    let model = UsersResponseModel(object: json)
+                    let model = UserResponseModel(object: json)
+                    completion(model, nil)
+                } catch {
+                    completion(nil, NetworkError.EmptyDataError)
+                }
+            } else {
+                completion(nil, NetworkError.ApiError)
+            }
+        }
+    }
+    
+    func updateUser (params: [String: Any], completion: @escaping UserCompletion) {
+        apiClient.request(
+            urlString,
+            .put,
+            params,
+            nil
+        ) { response, data, error in
+            if let data = data {
+                do {
+                    let json = try JSON(data: data)
+                    let model = UserResponseModel(object: json)
                     completion(model, nil)
                     } catch {
                     completion(nil, NetworkError.EmptyDataError)

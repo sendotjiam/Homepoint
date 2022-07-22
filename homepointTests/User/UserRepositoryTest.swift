@@ -107,10 +107,10 @@ final class UserRepositoryTest: XCTestCase {
     // MARK: - Get User By Id
     internal func test_PositiveCase_GetUserById() {
         /// Given
-        let expectedDataModel = MockUserData.generateUsersDataModel()
+        let expectedDataModel = MockUserData.generateUserDataModel()
         let id = "a1a22a38-7a2d-4ee8-bd12-20ddd91e3c0c"
         let mock = MockApiClient()
-        mock.data = MockUserData.generateUsersData()
+        mock.data = MockUserData.generateUserData()
         sut = UserRepository(mock)
 
         /// When
