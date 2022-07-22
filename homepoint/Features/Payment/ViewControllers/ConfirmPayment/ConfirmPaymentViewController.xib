@@ -19,6 +19,7 @@
                 <outlet property="confirmButton" destination="S12-gb-QSB" id="2zN-Wp-G6V"/>
                 <outlet property="deadlineLabel" destination="Yng-AD-asM" id="tAc-0K-gY1"/>
                 <outlet property="deadlineStackView" destination="tnn-qi-BM4" id="4Ra-2k-vaA"/>
+                <outlet property="mediaImageView" destination="Nvf-iK-ve1" id="3B8-g3-HUS"/>
                 <outlet property="reuploadButton" destination="qdD-aB-SER" id="5T5-rU-Nd8"/>
                 <outlet property="totalPaymentLabel" destination="zx3-lE-5yt" id="h92-hA-77D"/>
                 <outlet property="uploadButton" destination="xWh-VR-1LG" id="6oF-Ae-2a9"/>
@@ -235,6 +236,12 @@
                                                 </button>
                                             </subviews>
                                         </stackView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nvf-iK-ve1">
+                                            <rect key="frame" x="20" y="101.5" width="374" height="164"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="164" id="fgZ-TE-Yjq"/>
+                                            </constraints>
+                                        </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWh-VR-1LG">
                                             <rect key="frame" x="20" y="101.5" width="374" height="164"/>
                                             <constraints>
@@ -255,13 +262,17 @@
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
+                                        <constraint firstItem="sYW-N2-i12" firstAttribute="top" secondItem="Nvf-iK-ve1" secondAttribute="bottom" constant="8" id="202-KQ-oA1"/>
+                                        <constraint firstItem="Nvf-iK-ve1" firstAttribute="top" secondItem="PDX-zn-vKB" secondAttribute="bottom" constant="8" id="31B-Uc-LHL"/>
                                         <constraint firstItem="PDX-zn-vKB" firstAttribute="leading" secondItem="YsK-ZU-T6n" secondAttribute="leading" constant="20" id="7Lj-od-GCd"/>
                                         <constraint firstItem="sYW-N2-i12" firstAttribute="leading" secondItem="YsK-ZU-T6n" secondAttribute="leading" constant="20" id="9Cf-Ms-14H"/>
+                                        <constraint firstAttribute="trailing" secondItem="Nvf-iK-ve1" secondAttribute="trailing" constant="20" id="AOO-44-0Cx"/>
                                         <constraint firstAttribute="bottom" secondItem="sYW-N2-i12" secondAttribute="bottom" constant="8" id="GPR-6m-Jlp"/>
                                         <constraint firstItem="sAX-wb-jE3" firstAttribute="top" secondItem="YsK-ZU-T6n" secondAttribute="top" constant="8" id="JQ3-7H-ruv"/>
                                         <constraint firstItem="sAX-wb-jE3" firstAttribute="leading" secondItem="YsK-ZU-T6n" secondAttribute="leading" constant="20" id="PiL-cL-G3P"/>
                                         <constraint firstItem="xWh-VR-1LG" firstAttribute="top" secondItem="PDX-zn-vKB" secondAttribute="bottom" constant="8" id="V33-Qo-tEo"/>
                                         <constraint firstAttribute="trailing" secondItem="PDX-zn-vKB" secondAttribute="trailing" constant="20" id="Xab-JP-B4X"/>
+                                        <constraint firstItem="Nvf-iK-ve1" firstAttribute="leading" secondItem="YsK-ZU-T6n" secondAttribute="leading" constant="20" id="bVv-w0-PlE"/>
                                         <constraint firstAttribute="trailing" secondItem="sYW-N2-i12" secondAttribute="trailing" constant="20" id="c3r-Pn-wiI"/>
                                         <constraint firstItem="xWh-VR-1LG" firstAttribute="leading" secondItem="YsK-ZU-T6n" secondAttribute="leading" constant="20" id="cVY-se-Q0t"/>
                                         <constraint firstItem="PDX-zn-vKB" firstAttribute="top" secondItem="sAX-wb-jE3" secondAttribute="bottom" constant="8" id="fFd-He-hve"/>
