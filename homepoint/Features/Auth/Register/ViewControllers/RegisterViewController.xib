@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -45,7 +45,7 @@
                     <rect key="frame" x="0.0" y="-46" width="414" height="942"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Efb-zY-JST">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="730"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="617"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QtD-qz-sh9" userLabel="Dummy">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
@@ -319,70 +319,8 @@
                                         <constraint firstAttribute="trailing" secondItem="Vj8-oc-6Da" secondAttribute="trailing" id="wen-7n-nXk"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3f5-ms-fPm">
-                                    <rect key="frame" x="0.0" y="517" width="414" height="45"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atau daftar dengan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wft-A0-Yw7">
-                                            <rect key="frame" x="145" y="12" width="124" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ICR-P7-J9i">
-                                            <rect key="frame" x="20" y="22" width="117" height="1"/>
-                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="1" id="JHc-nb-kBv"/>
-                                            </constraints>
-                                        </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTd-ac-dJG">
-                                            <rect key="frame" x="277" y="22" width="117" height="1"/>
-                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="1" id="bWg-He-uJQ"/>
-                                            </constraints>
-                                        </view>
-                                    </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="Wft-A0-Yw7" secondAttribute="bottom" constant="12" id="0WD-ab-UlK"/>
-                                        <constraint firstItem="Wft-A0-Yw7" firstAttribute="leading" secondItem="ICR-P7-J9i" secondAttribute="trailing" constant="8" id="Evn-4u-Qld"/>
-                                        <constraint firstItem="ICR-P7-J9i" firstAttribute="leading" secondItem="3f5-ms-fPm" secondAttribute="leading" constant="20" id="O8d-Di-AF1"/>
-                                        <constraint firstItem="ICR-P7-J9i" firstAttribute="centerY" secondItem="3f5-ms-fPm" secondAttribute="centerY" id="WfV-oe-oTT"/>
-                                        <constraint firstAttribute="height" constant="45" id="Ydk-gw-Leu"/>
-                                        <constraint firstItem="Wft-A0-Yw7" firstAttribute="top" secondItem="3f5-ms-fPm" secondAttribute="top" constant="12" id="dEs-Ii-cea"/>
-                                        <constraint firstItem="Wft-A0-Yw7" firstAttribute="centerX" secondItem="3f5-ms-fPm" secondAttribute="centerX" id="deG-DN-AFg"/>
-                                        <constraint firstAttribute="trailing" secondItem="oTd-ac-dJG" secondAttribute="trailing" constant="20" id="hAC-uC-SG3"/>
-                                        <constraint firstItem="oTd-ac-dJG" firstAttribute="centerY" secondItem="3f5-ms-fPm" secondAttribute="centerY" id="hLx-lY-vwS"/>
-                                        <constraint firstItem="oTd-ac-dJG" firstAttribute="leading" secondItem="Wft-A0-Yw7" secondAttribute="trailing" constant="8" id="lQ6-nI-kdD"/>
-                                    </constraints>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yHO-BG-V7G">
-                                    <rect key="frame" x="0.0" y="562" width="414" height="68"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vqJ-T5-vQJ">
-                                            <rect key="frame" x="20" y="14" width="374" height="40"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="gray" title="  " cornerStyle="fixed">
-                                                <backgroundConfiguration key="background" cornerRadius="8" image="bg_google.btn"/>
-                                                <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </buttonConfiguration>
-                                            <connections>
-                                                <action selector="didTapGoggle:" destination="-1" eventType="touchUpInside" id="cyH-xV-n0W"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="vqJ-T5-vQJ" secondAttribute="bottom" constant="14" id="J57-41-yGe"/>
-                                        <constraint firstAttribute="trailing" secondItem="vqJ-T5-vQJ" secondAttribute="trailing" constant="20" id="RC6-Gm-9go"/>
-                                        <constraint firstItem="vqJ-T5-vQJ" firstAttribute="top" secondItem="yHO-BG-V7G" secondAttribute="top" constant="14" id="jku-Ed-LWj"/>
-                                        <constraint firstItem="vqJ-T5-vQJ" firstAttribute="leading" secondItem="yHO-BG-V7G" secondAttribute="leading" constant="20" id="rp9-X2-pja"/>
-                                        <constraint firstAttribute="height" constant="68" id="sba-wb-UYc"/>
-                                    </constraints>
-                                </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qmw-9J-94V">
-                                    <rect key="frame" x="0.0" y="630" width="414" height="100"/>
+                                    <rect key="frame" x="0.0" y="517" width="414" height="100"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Dengan mendaftar, Anda menyetujui Syarat &amp; Ketentuan serta Kebijakan Privasi Homepoint" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3d-jJ-PER">
                                             <rect key="frame" x="40" y="12" width="334" height="33.5"/>
@@ -447,7 +385,6 @@
     </objects>
     <resources>
         <image name="bg_auth" width="500" height="285"/>
-        <image name="bg_google.btn" width="251" height="30"/>
         <image name="ic_clearButton" width="24" height="24"/>
         <image name="ic_homepoint.logo" width="185" height="50.5"/>
         <namedColor name="DarkBlue">

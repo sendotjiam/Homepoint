@@ -132,7 +132,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Required" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GjW-EG-Zbq">
-                                                            <rect key="frame" x="20" y="40" width="334" height="14.5"/>
+                                                            <rect key="frame" x="0.0" y="40" width="374" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" systemColor="systemRedColor"/>
                                                             <nil key="highlightedColor"/>
@@ -143,10 +143,10 @@
                                                         <constraint firstItem="KCf-B2-oiE" firstAttribute="leading" secondItem="5KO-WG-6Ld" secondAttribute="leading" id="KId-Ft-Wge"/>
                                                         <constraint firstAttribute="trailing" secondItem="KCf-B2-oiE" secondAttribute="trailing" id="igk-Y8-9kV"/>
                                                         <constraint firstAttribute="height" constant="60" id="jTQ-Fp-wa4"/>
-                                                        <constraint firstAttribute="trailing" secondItem="GjW-EG-Zbq" secondAttribute="trailing" constant="20" id="kHa-zt-gwk"/>
+                                                        <constraint firstAttribute="trailing" secondItem="GjW-EG-Zbq" secondAttribute="trailing" id="kHa-zt-gwk"/>
                                                         <constraint firstItem="KCf-B2-oiE" firstAttribute="top" secondItem="5KO-WG-6Ld" secondAttribute="top" id="m7h-o0-rot"/>
                                                         <constraint firstItem="GjW-EG-Zbq" firstAttribute="top" secondItem="KCf-B2-oiE" secondAttribute="bottom" id="n6n-cn-fZo"/>
-                                                        <constraint firstItem="GjW-EG-Zbq" firstAttribute="leading" secondItem="5KO-WG-6Ld" secondAttribute="leading" constant="20" id="nxl-xR-yIT"/>
+                                                        <constraint firstItem="GjW-EG-Zbq" firstAttribute="leading" secondItem="5KO-WG-6Ld" secondAttribute="leading" id="nxl-xR-yIT"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pTu-9x-vnb" userLabel="password">
@@ -182,8 +182,8 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Required" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbs-YT-eAu">
-                                                            <rect key="frame" x="20" y="40" width="334" height="14.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kata sandi tidak sama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbs-YT-eAu">
+                                                            <rect key="frame" x="0.0" y="40" width="374" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" systemColor="systemRedColor"/>
                                                             <nil key="highlightedColor"/>
@@ -191,10 +191,10 @@
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstItem="zbs-YT-eAu" firstAttribute="leading" secondItem="pTu-9x-vnb" secondAttribute="leading" constant="20" id="28C-Ln-apv"/>
+                                                        <constraint firstItem="zbs-YT-eAu" firstAttribute="leading" secondItem="pTu-9x-vnb" secondAttribute="leading" id="28C-Ln-apv"/>
                                                         <constraint firstAttribute="height" constant="60" id="UsA-7n-iwG"/>
                                                         <constraint firstItem="Tim-Xj-pNn" firstAttribute="top" secondItem="pTu-9x-vnb" secondAttribute="top" id="V5h-hv-4wb"/>
-                                                        <constraint firstAttribute="trailing" secondItem="zbs-YT-eAu" secondAttribute="trailing" constant="20" id="bI9-ba-FSc"/>
+                                                        <constraint firstAttribute="trailing" secondItem="zbs-YT-eAu" secondAttribute="trailing" id="bI9-ba-FSc"/>
                                                         <constraint firstItem="Tim-Xj-pNn" firstAttribute="leading" secondItem="pTu-9x-vnb" secondAttribute="leading" id="hLU-Re-cli"/>
                                                         <constraint firstItem="zbs-YT-eAu" firstAttribute="top" secondItem="Tim-Xj-pNn" secondAttribute="bottom" id="iUo-8B-gLS"/>
                                                         <constraint firstAttribute="trailing" secondItem="Tim-Xj-pNn" secondAttribute="trailing" id="mN7-Q5-HXS"/>
@@ -208,7 +208,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </stackView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OXw-qP-7VF">
-                                            <rect key="frame" x="20" y="190" width="374" height="38"/>
+                                            <rect key="frame" x="20" y="180" width="374" height="38"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="38" id="y5J-kc-7Qw"/>
                                             </constraints>
@@ -226,8 +226,8 @@
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="OXw-qP-7VF" secondAttribute="bottom" constant="8" id="GSP-TO-Ct9"/>
-                                        <constraint firstItem="OXw-qP-7VF" firstAttribute="top" secondItem="HS7-fP-gT8" secondAttribute="bottom" constant="28" id="J5V-dV-ohW"/>
+                                        <constraint firstAttribute="bottom" secondItem="OXw-qP-7VF" secondAttribute="bottom" constant="18" id="GSP-TO-Ct9"/>
+                                        <constraint firstItem="OXw-qP-7VF" firstAttribute="top" secondItem="HS7-fP-gT8" secondAttribute="bottom" constant="18" id="J5V-dV-ohW"/>
                                         <constraint firstItem="HS7-fP-gT8" firstAttribute="top" secondItem="X3C-8a-q6X" secondAttribute="top" constant="28" id="Qez-o1-lZb"/>
                                         <constraint firstAttribute="trailing" secondItem="HS7-fP-gT8" secondAttribute="trailing" constant="20" id="crR-xm-zff"/>
                                         <constraint firstItem="HS7-fP-gT8" firstAttribute="leading" secondItem="X3C-8a-q6X" secondAttribute="leading" constant="20" id="eDM-FB-Vcy"/>

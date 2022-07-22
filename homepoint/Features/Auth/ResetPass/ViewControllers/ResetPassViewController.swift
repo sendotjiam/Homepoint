@@ -24,6 +24,8 @@ final class ResetPassViewController: UIViewController {
 
     var iconClick = false
     let imageIcon = UIImageView()
+    var iconTapped = false
+    let imageConfirm = UIImageView()
 
     // MARK: - Variables
 //    private let vm :
@@ -93,6 +95,7 @@ final class ResetPassViewController: UIViewController {
 extension ResetPassViewController {
     private func setupUI() {
         togglePassword()
+        toggleConfirm()
         setupTextField()
 
         errorPassLabel.isHidden = true
@@ -120,10 +123,28 @@ extension ResetPassViewController {
 
         let tapGestureRecognizer = UITapGestureRecognizer(
             target: self,
-            action: #selector(imageTapped(tapGestureRecognizer:))
+            action: #selector(iconPasswordTapped(tapGestureRecognizer:))
         )
         imageIcon.isUserInteractionEnabled = true
         imageIcon.addGestureRecognizer(tapGestureRecognizer)
+    }
+
+    private func toggleConfirm() {
+        imageConfirm.image = UIImage(named: "ic_eye.close")
+
+        let contentView = UIView()
+        contentView.addSubview(imageConfirm)
+        contentView.frame = CGRect(x: 0, y: 0, width: 21, height: 14)
+        imageConfirm.frame = CGRect(x: -6, y: -5, width: 24, height: 24)
+        confirmPasswordTF.rightView = contentView
+        confirmPasswordTF.rightViewMode = .always
+
+        let tapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(iconConfirmTapped(tapGestureRecognizer:))
+        )
+        imageConfirm.isUserInteractionEnabled = true
+        imageConfirm.addGestureRecognizer(tapGestureRecognizer)
     }
 
     private func setupTextField(){
@@ -232,7 +253,7 @@ extension ResetPassViewController {
         scrollView.scrollIndicatorInsets = .zero
     }
 
-    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+    @objc func iconPasswordTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         let tappedImage = tapGestureRecognizer.view as? UIImageView
         if iconClick {
             iconClick = false
@@ -242,6 +263,19 @@ extension ResetPassViewController {
             iconClick = true
             tappedImage?.image = UIImage(named: "ic_eye.close")
             passwordTF.isSecureTextEntry = true
+        }
+    }
+
+    @objc func iconConfirmTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        let tappedImage = tapGestureRecognizer.view as? UIImageView
+        if iconTapped {
+            iconTapped = false
+            tappedImage?.image = UIImage(named: "ic_eye")
+            confirmPasswordTF.isSecureTextEntry = false
+        } else {
+            iconTapped = true
+            tappedImage?.image = UIImage(named: "ic_eye.close")
+            confirmPasswordTF.isSecureTextEntry = true
         }
     }
 

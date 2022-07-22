@@ -19,7 +19,6 @@ final class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var privacyLabel: UILabel!
     @IBOutlet weak var registerLabel: UILabel!
     @IBOutlet weak var viewEmailTextField: UIView!
     @IBOutlet weak var viewPasswordTextField: UIView!
@@ -100,10 +99,6 @@ final class LoginViewController: UIViewController {
                 animated: true
         )
     }
-    
-    @IBAction func didTapGoogle (_ sender: UIButton) {
-
-    }
 
     @IBAction func emailChanged(_ sender: Any) {
         if let email = emailTextField.text {
@@ -119,6 +114,7 @@ final class LoginViewController: UIViewController {
             }
         }
         if emailTextField.text == "" {
+            isEmailError = true
             return emailError.isHidden = true
         }
         checkValidForm()
@@ -138,6 +134,7 @@ final class LoginViewController: UIViewController {
             }
         }
         if passwordTextField.text == "" {
+            isPasswordError = true
             return passwordError.isHidden = true
         }
         checkValidForm()

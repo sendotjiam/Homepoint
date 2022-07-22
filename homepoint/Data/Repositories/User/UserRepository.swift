@@ -94,11 +94,12 @@ extension UserRepository : UserRepositoryInterface {
         params: [String : Any],
         completion: @escaping ((ForgetResponseModel?, Error?) -> Void)
     ) {
+        let headers : HTTPHeaders = ["Content-Type": "application/x-www-form-urlencoded"]
         apiClient.request(
             urlString + "forgot_password",
             .post,
             params,
-            nil
+            headers
         ) { response, data, error in
             if let data = data {
                 do {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -40,7 +40,7 @@
                     <rect key="frame" x="0.0" y="-46" width="414" height="942"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="10q-hc-z26">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="660"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="547"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="esZ-55-sNc" userLabel="Dummy">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
@@ -261,71 +261,8 @@
                                         <constraint firstAttribute="trailing" secondItem="9hy-yk-glo" secondAttribute="trailing" id="xbQ-kF-7Ze"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YIQ-Dj-CeS">
-                                    <rect key="frame" x="0.0" y="505" width="414" height="45"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atau masuk dengan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a09-Jh-y9c">
-                                            <rect key="frame" x="143" y="12" width="128" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ve2-CH-VGb">
-                                            <rect key="frame" x="20" y="22" width="115" height="1"/>
-                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="1" id="d7E-Nt-aH1"/>
-                                            </constraints>
-                                        </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gze-BM-FcT">
-                                            <rect key="frame" x="279" y="22" width="115" height="1"/>
-                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="1" id="lhj-sP-Qhd"/>
-                                            </constraints>
-                                        </view>
-                                    </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstItem="a09-Jh-y9c" firstAttribute="top" secondItem="YIQ-Dj-CeS" secondAttribute="top" constant="12" id="4rV-HA-rqn"/>
-                                        <constraint firstItem="Gze-BM-FcT" firstAttribute="leading" secondItem="a09-Jh-y9c" secondAttribute="trailing" constant="8" id="5j9-No-zfN"/>
-                                        <constraint firstAttribute="height" constant="45" id="6bA-ml-7bT"/>
-                                        <constraint firstItem="a09-Jh-y9c" firstAttribute="centerX" secondItem="YIQ-Dj-CeS" secondAttribute="centerX" id="H76-eC-1ea"/>
-                                        <constraint firstItem="Gze-BM-FcT" firstAttribute="centerY" secondItem="YIQ-Dj-CeS" secondAttribute="centerY" id="ROq-45-ujn"/>
-                                        <constraint firstAttribute="bottom" secondItem="a09-Jh-y9c" secondAttribute="bottom" constant="12" id="Vp4-eA-NoL"/>
-                                        <constraint firstItem="a09-Jh-y9c" firstAttribute="leading" secondItem="Ve2-CH-VGb" secondAttribute="trailing" constant="8" id="d18-No-Ry4"/>
-                                        <constraint firstAttribute="trailing" secondItem="Gze-BM-FcT" secondAttribute="trailing" constant="20" id="f8Z-cK-cyK"/>
-                                        <constraint firstItem="Ve2-CH-VGb" firstAttribute="centerY" secondItem="YIQ-Dj-CeS" secondAttribute="centerY" id="gYR-Jd-Oca"/>
-                                        <constraint firstItem="Ve2-CH-VGb" firstAttribute="leading" secondItem="YIQ-Dj-CeS" secondAttribute="leading" constant="20" id="hnd-vr-agk"/>
-                                    </constraints>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9o-4W-uZa">
-                                    <rect key="frame" x="0.0" y="550" width="414" height="68"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Zt-jm-tWA">
-                                            <rect key="frame" x="20" y="14" width="374" height="40"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="gray" title="  " cornerStyle="fixed">
-                                                <backgroundConfiguration key="background" cornerRadius="8" image="bg_google.btn"/>
-                                                <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="baseBackgroundColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="0.78947640730000002" colorSpace="calibratedRGB"/>
-                                            </buttonConfiguration>
-                                            <connections>
-                                                <action selector="didTapGoogle:" destination="-1" eventType="touchUpInside" id="RQa-aq-lWp"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="0Zt-jm-tWA" secondAttribute="bottom" constant="14" id="FiY-o8-yEj"/>
-                                        <constraint firstAttribute="trailing" secondItem="0Zt-jm-tWA" secondAttribute="trailing" constant="20" id="OP9-t5-ANn"/>
-                                        <constraint firstItem="0Zt-jm-tWA" firstAttribute="top" secondItem="H9o-4W-uZa" secondAttribute="top" constant="14" id="nbi-ik-YRY"/>
-                                        <constraint firstItem="0Zt-jm-tWA" firstAttribute="leading" secondItem="H9o-4W-uZa" secondAttribute="leading" constant="20" id="snt-al-LiQ"/>
-                                        <constraint firstAttribute="height" constant="68" id="tZw-gV-uzl"/>
-                                    </constraints>
-                                </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SB7-3K-jHA">
-                                    <rect key="frame" x="0.0" y="618" width="414" height="42"/>
+                                    <rect key="frame" x="0.0" y="505" width="414" height="42"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Belum memiliki akun? Daftar" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dqm-Vo-GM2">
                                             <rect key="frame" x="24" y="12" width="366" height="18"/>
@@ -341,7 +278,7 @@
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="Dqm-Vo-GM2" secondAttribute="trailing" constant="24" id="3E4-cJ-Tii"/>
                                         <constraint firstItem="Dqm-Vo-GM2" firstAttribute="top" secondItem="SB7-3K-jHA" secondAttribute="top" constant="12" id="OrD-mB-Hh8"/>
-                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="YjV-ep-fOm"/>
+                                        <constraint firstAttribute="height" constant="42" id="YjV-ep-fOm"/>
                                         <constraint firstAttribute="bottom" secondItem="Dqm-Vo-GM2" secondAttribute="bottom" constant="12" id="eE3-QJ-8f7"/>
                                         <constraint firstItem="Dqm-Vo-GM2" firstAttribute="leading" secondItem="SB7-3K-jHA" secondAttribute="leading" constant="24" id="jld-7E-g3R"/>
                                     </constraints>
@@ -381,7 +318,6 @@
     </objects>
     <resources>
         <image name="bg_auth" width="500" height="285"/>
-        <image name="bg_google.btn" width="251" height="30"/>
         <image name="ic_clearButton" width="24" height="24"/>
         <image name="ic_homepoint.logo" width="185" height="50.5"/>
         <namedColor name="DarkBlue">
