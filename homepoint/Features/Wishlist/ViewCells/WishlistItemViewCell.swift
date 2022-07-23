@@ -34,6 +34,10 @@ final class WishlistItemViewCell: UITableViewCell {
     var data : WishlistDataModel? {
         didSet { configureCell() }
     }
+    var isUnchecked = false {
+        didSet { uncheckAll() }
+    }
+    
     weak var delegate : WishlistItemInteraction?
     
     override func awakeFromNib() {
@@ -70,6 +74,10 @@ extension WishlistItemViewCell {
         ratingLabel.text = "\(data.ratingAverage)"
         soldAmountLabel.text = "Terjual \(data.amountSold)"
     }
+    
+    private func uncheckAll() {
+        checkbox.isChecked = !isUnchecked
+    }
 
     class func nib() -> UINib {
         UINib(nibName: "WishlistItemViewCell", bundle: nil)
@@ -78,6 +86,7 @@ extension WishlistItemViewCell {
 
 extension WishlistItemViewCell : CheckboxClickable {
     func didTap(_ isSelected: Bool) {
+        if !isSelected { return }
         guard let id = data?.id else { return }
         delegate?.didSelect(id)
     }

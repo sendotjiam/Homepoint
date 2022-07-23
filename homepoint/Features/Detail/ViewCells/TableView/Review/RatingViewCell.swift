@@ -21,7 +21,9 @@ final class RatingViewCell: UITableViewCell {
     @IBOutlet weak var twoStarsRateLabel: UILabel!
     
     // MARK: - Variables
-    
+    var data : ProductDataModel? {
+        didSet { configureCell() }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,6 +35,12 @@ extension RatingViewCell {
     private func setupUI() {
         selectionStyle = .none
         ratingView.roundedCorner(with: 8)
+    }
+    
+    private func configureCell() {
+        guard let data = data else { return }
+        avgRatingLabel.text = "\(data.ratingAverage)"
+        totalRatingLabel.text = "\(data.ratingCount) Penilaian"
     }
     
     class func nib() -> UINib {

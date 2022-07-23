@@ -339,21 +339,22 @@ extension DetailViewController :
         ) as? T
         switch sections[indexPath.section] {
         case .header:
-            guard let cellHeader = cell as? DetailHeaderViewCell
+            guard let cell = cell as? DetailHeaderViewCell
             else { return nil }
-            cellHeader.data = productData
-            cellHeader.delegate = self
-            cellHeader.isWishlist = wishlistId == "" ? false : true
-            return cellHeader as? T
+            cell.data = productData
+            cell.delegate = self
+            cell.isWishlist = wishlistId == "" ? false : true
+            return cell as? T
         case .description:
-            guard let cellDescription = cell as? DetailDescriptionViewCell
+            guard let cell = cell as? DetailDescriptionViewCell
             else { return nil }
-            cellDescription.content = productData?.description
-            return cellDescription as? T
+            cell.content = productData?.description
+            return cell as? T
         case .rating:
-            guard let cellHeader = cell as? RatingViewCell
+            guard let cell = cell as? RatingViewCell
             else { return nil }
-            return cellHeader as? T
+            cell.data = productData
+            return cell as? T
         case .others:
             guard let cell = cell as? OtherViewCell
             else { return nil }

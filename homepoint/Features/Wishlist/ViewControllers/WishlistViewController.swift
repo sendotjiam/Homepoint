@@ -47,6 +47,9 @@ final class WishlistViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        selectedId = []
+        checkButton()
+        tableView.reload()
         setNavigationBar(type: .defaultNav)
     }
     
@@ -276,6 +279,7 @@ extension WishlistViewController :
             for: indexPath
         ) as? WishlistItemViewCell
         cell?.data = data[indexPath.row]
+        cell?.isUnchecked = selectedId.isEmpty
         cell?.delegate = self
         return cell ?? UITableViewCell()
     }

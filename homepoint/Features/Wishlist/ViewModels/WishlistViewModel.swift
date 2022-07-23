@@ -58,7 +58,6 @@ final class WishlistViewModel :
             guard let self = self else { return }
             if let result = result {
                 if result.success || result.status == "200" {
-                    print(result)
                     self.successGetWishlists.onNext(result.data.wishlistItems)
                 } else {
                     self.error.onNext(result.message)

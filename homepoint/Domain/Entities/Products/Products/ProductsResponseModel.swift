@@ -49,7 +49,8 @@ struct ProductDataModel : Equatable {
     var price, discount: Double
     var stock: Int
     var color: String
-    var ratingAverage, ratingCount, amountSold: Int
+    var ratingAverage : Double
+    var ratingCount, amountSold: Int
     var createdAt: String
     var isDeleted: Bool
     
@@ -68,7 +69,7 @@ struct ProductDataModel : Equatable {
         self.discount = object["discount"].doubleValue
         self.stock = object["stock"].intValue
         self.color = object["color"].stringValue
-        self.ratingAverage = object["ratingAverage"].intValue
+        self.ratingAverage = object["ratingAverage"].doubleValue
         self.ratingCount = object["ratingCount"].intValue
         self.amountSold = object["amountSold"].intValue
         self.createdAt = object["createdAt"].stringValue
