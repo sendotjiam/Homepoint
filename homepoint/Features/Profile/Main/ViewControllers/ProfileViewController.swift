@@ -52,6 +52,7 @@ final class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        bindViewModel()
         
         self.addNotificationCenter(
             label: "reload_view",
