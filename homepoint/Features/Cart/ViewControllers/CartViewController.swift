@@ -144,6 +144,14 @@ extension CartViewController {
         vm.successDeleteCart.subscribe { [weak self] in
             self?.handleSuccessDeleteCart($0)
         }.disposed(by: bag)
+        vm.successBulkDeleteCarts.subscribe { [weak self] _ in
+            self?.handleSuccessBulkDeleteCarts()
+        }.disposed(by: bag)
+    }
+    
+    private func handleSuccessBulkDeleteCarts() {
+        selectedId = []
+        vm.getCarts(userId: userId)
     }
     
     private func handleSuccessDeleteCart(_ deleted: [CartDataModel]?) {

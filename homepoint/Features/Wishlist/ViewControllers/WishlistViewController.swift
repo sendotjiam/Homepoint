@@ -169,6 +169,7 @@ extension WishlistViewController {
     }
     
     private func handleSuccessBulkDeleteWishlists() {
+        selectedId = []
         vm.getWishlists(userId: userId)
     }
     

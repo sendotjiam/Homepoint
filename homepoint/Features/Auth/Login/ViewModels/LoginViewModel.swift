@@ -39,7 +39,7 @@ final class LoginViewModel : LoginViewModelInput, LoginViewModelOutput {
             guard let self = self else { return }
             self.isLoading.accept(false)
             if let result = result {
-                if result.success && result.status == "200" {
+                if result.success || result.status == "200 OK" {
                     self.saveIdAndToken(id: result.data.id, token: result.data.token)
                     self.successLogin.onNext(result)
                 } else {

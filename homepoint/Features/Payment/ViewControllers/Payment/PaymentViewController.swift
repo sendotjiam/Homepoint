@@ -296,17 +296,13 @@ extension PaymentViewController :
         shopLocationView.addBorder(width: 0, color: ColorCollection.primaryColor.value)
         switch indexPath.row {
         case 0:
-            guard let address = addressLabel.text else { return }
-            if address.lowercased().contains("kota malang") {
-                selectShopLocationLabel.text = "Homepoint Cabang Malang"
-                shopLocationLabel.isHidden = false
-                shopLocationView.backgroundColor = .white
-                shopLocationView.addBorder(width: 1, color: ColorCollection.primaryColor.value)
-                selectShopLocationLabel.textColor = .black
-                hasChooseCourier = true
-            } else { hasChooseCourier = false }
+            selectShopLocationLabel.text = "Homepoint Cabang Malang"
+            shopLocationLabel.isHidden = false
+            shopLocationView.backgroundColor = .white
+            shopLocationView.addBorder(width: 1, color: ColorCollection.primaryColor.value)
+            selectShopLocationLabel.textColor = .black
+            hasChooseCourier = true
         case 1:
-            // Confuse use case from design (need explanation from uiux)
             guard let address = addressLabel.text else { return }
             if (address.lowercased().contains("kota malang") || address.lowercased().contains("kota bandung") || address.lowercased().contains("kota jakarta")) {
                 var city = ""
