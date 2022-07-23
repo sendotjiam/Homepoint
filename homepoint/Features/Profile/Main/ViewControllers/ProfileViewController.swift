@@ -53,6 +53,7 @@ final class ProfileViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         bindViewModel()
+        vm.getUserData(userId: userId)
         
         self.addNotificationCenter(
             label: "reload_view",
