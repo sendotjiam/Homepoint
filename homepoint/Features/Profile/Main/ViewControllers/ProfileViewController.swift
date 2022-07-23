@@ -234,3 +234,16 @@ extension ProfileViewController : ChangeProfileFieldDelegate {
         }
     }
 }
+
+extension ProfileViewController : ChangeProfileFieldDelegate {
+    func didTap() {
+        guard let userData = userData else { return }
+        let vc = ChangeProfileViewController(userData)
+        DispatchQueue.main.async { [weak self] in
+            self?.navigationController?.pushViewController(
+                vc,
+                animated: true
+            )
+        }
+    }
+}
