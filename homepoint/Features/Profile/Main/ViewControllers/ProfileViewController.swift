@@ -57,7 +57,7 @@ final class ProfileViewController: UIViewController {
     }
 }
 
-extension ProfileViewController : LoginProtocol {
+extension ProfileViewController : LoginDelegate {
     func successLogin() {
         reloadView()
     }

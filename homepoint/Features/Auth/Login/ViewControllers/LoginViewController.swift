@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import NVActivityIndicatorView
 
-protocol LoginProtocol : AnyObject {
+protocol LoginDelegate : AnyObject {
     func successLogin()
 }
 
@@ -51,7 +51,7 @@ final class LoginViewController: UIViewController {
     private var isEmailError = true
     private var isPasswordError = true
 
-    weak var delegate : LoginProtocol?
+    weak var delegate : LoginDelegate?
 
     init() {
         super.init(nibName: "LoginViewController", bundle: nil)

@@ -88,7 +88,7 @@ extension OrderListViewController {
     }
 }
 
-extension OrderListViewController : LoginProtocol {
+extension OrderListViewController : LoginDelegate {
     func successLogin() {
         reloadView()
     }

@@ -195,7 +195,7 @@ extension PaymentViewController {
     }
 }
 
-extension PaymentViewController : PaymentOrderListProtocol {
+extension PaymentViewController : PaymentOrderListDelegate {
     func didTapInsurance(_ includeInsurance: Bool) {
         subtotalPrice += (includeInsurance ? 100000 : -100000)
         subtotalLabel.text = subtotalPrice.convertToCurrency()

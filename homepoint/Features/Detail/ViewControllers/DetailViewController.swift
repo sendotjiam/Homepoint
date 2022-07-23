@@ -276,7 +276,7 @@ extension DetailViewController {
 }
 
 // MARK: - Delegation
-extension DetailViewController : DetailHeaderProtocol {
+extension DetailViewController : DetailHeaderDelegate {
     func didTapLikeButton(id: String) {
         if isUserLoggedIn() {
             wishlistId != "" ? vm.deleteWishlist(id: wishlistId) : vm.addWishlist(userId: userId, productId: id)

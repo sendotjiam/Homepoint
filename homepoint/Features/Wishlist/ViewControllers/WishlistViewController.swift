@@ -249,7 +249,7 @@ extension WishlistViewController : WishlistItemInteraction {
     }
 }
 
-extension WishlistViewController : LoginProtocol {
+extension WishlistViewController : LoginDelegate {
     func successLogin() {
         reloadView()
     }

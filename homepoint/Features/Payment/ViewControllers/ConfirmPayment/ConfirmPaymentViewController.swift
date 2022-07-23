@@ -47,6 +47,7 @@ final class ConfirmPaymentViewController: UIViewController {
     
     @IBAction func confirmButtonTapped(_ sender: Any) {
         let vc = ConfirmationAlertViewController()
+        vc.delegate = self
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: false)
     }
@@ -107,6 +108,14 @@ extension ConfirmPaymentViewController {
     }
 }
 
+// MARK: - Confirmation Alert
+extension ConfirmPaymentViewController : ConfirmationAlertDelegate {
+    func didTapConfirm() {
+        dismiss(animated: true)
+    }
+}
+
+// MARK: - Image Picker
 extension ConfirmPaymentViewController :
     UIImagePickerControllerDelegate,
     UINavigationControllerDelegate {

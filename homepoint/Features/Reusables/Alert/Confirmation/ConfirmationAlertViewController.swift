@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ConfirmationAlertDelegate : AnyObject {
+    func didTapConfirm()
+}
+
 /// If want to reuse, send the data and set in configureCell
 final class ConfirmationAlertViewController: UIViewController {
 
@@ -17,6 +21,9 @@ final class ConfirmationAlertViewController: UIViewController {
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var seeAgainButton: UIButton!
     @IBOutlet weak var confirmButton: UIButton!
+    
+    // MARK: - Variabels
+    weak var delegate : ConfirmationAlertDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +41,7 @@ final class ConfirmationAlertViewController: UIViewController {
     }
     
     @IBAction func confirmButtonTapped(_ sender: Any) {
+        delegate?.didTapConfirm()
         dismiss(animated: true)
     }
     
