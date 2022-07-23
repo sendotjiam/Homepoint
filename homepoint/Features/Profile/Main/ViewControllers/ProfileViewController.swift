@@ -39,10 +39,10 @@ final class ProfileViewController: UIViewController {
     private var sections: [section] = [.changeProfile, .address, .changePassword, .policy, .help, .chatAdmin, .logout]
     private let vm = ProfileViewModel()
     private let bag = DisposeBag()
+    private var userId = ""
     
     init() {
         super.init(nibName: Constants.ProfileVC, bundle: nil)
-        vm.getUserData(userId: getUserId() ?? "")
     }
     
     required init?(coder: NSCoder) {
@@ -53,6 +53,7 @@ final class ProfileViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         bindViewModel()
+        vm.getUserData(userId: userId)
         
         self.addNotificationCenter(
             label: "reload_view",
@@ -79,6 +80,7 @@ final class ProfileViewController: UIViewController {
         profileTableView.register(ImageFieldViewCell.nib(), forCellReuseIdentifier: "ImageFieldViewCell")
 
         notLoginView.isHidden = isUserLoggedIn()
+        userId = getUserId() ?? ""
     }
     
     @objc func reloadView() {
