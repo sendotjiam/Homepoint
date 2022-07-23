@@ -72,13 +72,13 @@ final class ProfileViewController: UIViewController {
     
     func setupView() {
         notLoginView.delegate = self
-    
+        
         profileTableView.delegate = self
         profileTableView.dataSource = self
         profileTableView.register(ChangeProfileFieldViewCell.nib(), forCellReuseIdentifier: "ChangeProfileFieldViewCell")
         profileTableView.register(RightArrowFieldViewCell.nib(), forCellReuseIdentifier: "RightArrowFieldViewCell")
         profileTableView.register(ImageFieldViewCell.nib(), forCellReuseIdentifier: "ImageFieldViewCell")
-
+        
         notLoginView.isHidden = isUserLoggedIn()
         userId = getUserId() ?? ""
     }
@@ -112,8 +112,6 @@ extension ProfileViewController {
         guard let data = user else { return }
         
         self.userData = data
-        print(userData?.name ?? "nama")
-        print(userData?.phoneNumber ?? "phoneNumber")
         profileTableView.reload()
     }
     
@@ -166,16 +164,8 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             let cell: ChangeProfileFieldViewCell = tableView.dequeueReusableCell(withIdentifier: "ChangeProfileFieldViewCell", for: indexPath) as! ChangeProfileFieldViewCell
             cell.name = userData?.name
             cell.number = userData?.phoneNumber
-            let vc = ChangeProfileViewController()
-            cell.tapHandler = {[weak self] in
-                DispatchQueue.main.async {
-                    self?.navigationController?.pushViewController(
-                        vc,
-                        animated: true
-                    )
-                }
-            }
             cell.selectionStyle = .none
+            cell.delegate = self
             return cell
         case .address:
             let cell: RightArrowFieldViewCell = tableView.dequeueReusableCell(withIdentifier: "RightArrowFieldViewCell", for: indexPath) as! RightArrowFieldViewCell
@@ -215,6 +205,19 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             let cell: ImageFieldViewCell = tableView.dequeueReusableCell(withIdentifier: "ImageFieldViewCell", for: indexPath) as! ImageFieldViewCell
             cell.selectionStyle = .none
             return cell
+        }
+    }
+}
+
+extension ProfileViewController : ChangeProfileFieldDelegate {
+    func didTap() {
+        guard let userData = userData else { return }
+        let vc = ChangeProfileViewController(userData)
+        DispatchQueue.main.async { [weak self] in
+            self?.navigationController?.pushViewController(
+                vc,
+                animated: true
+            )
         }
     }
 }

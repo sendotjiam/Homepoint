@@ -7,11 +7,16 @@
 
 import UIKit
 
+protocol ChangeProfileFieldDelegate : AnyObject{
+    func didTap()
+}
+
 final class ChangeProfileFieldViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var changeProfileButton: UILabel!
     
+    weak var delegate : ChangeProfileFieldDelegate?
     var tapHandler: (() -> Void)?
     var name: String? {
         didSet {
@@ -42,7 +47,7 @@ final class ChangeProfileFieldViewCell: UITableViewCell {
     }
     
     @objc func tapView() {
-        tapHandler?()
+        delegate?.didTap()
     }
     
     class func nib() -> UINib { UINib(nibName: "ChangeProfileFieldViewCell", bundle: nil) }

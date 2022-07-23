@@ -20,8 +20,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChangeProfileViewController" customModule="homepoint" customModuleProvider="target">
             <connections>
+                <outlet property="birthField" destination="gnE-64-HHX" id="pZm-r8-iF3"/>
+                <outlet property="emailField" destination="qqN-Bq-A1J" id="sQL-UV-awK"/>
                 <outlet property="femaleButton" destination="xnf-4A-rUS" id="tae-ym-Zpz"/>
                 <outlet property="maleButton" destination="iXt-gX-4kg" id="zMh-ux-kqN"/>
+                <outlet property="nameField" destination="OLH-w1-aPz" id="Qub-r8-uMX"/>
+                <outlet property="phoneNumberField" destination="8hN-6q-8tG" id="V95-qR-gv0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

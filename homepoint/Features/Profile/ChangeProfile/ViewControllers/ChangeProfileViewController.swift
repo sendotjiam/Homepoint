@@ -10,13 +10,21 @@ import UIKit
 final class ChangeProfileViewController: UIViewController {
     @IBOutlet weak var femaleButton: UIButton!
     @IBOutlet weak var maleButton: UIButton!
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var birthField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var phoneNumberField: UITextField!
+    
     var gender: String? = nil
     
-    init() {
+    var userData: UserDataModel?
+    
+    init(_ userData : UserDataModel) {
+        self.userData = userData
         super.init(nibName: Constants.ChangeProfileVC, bundle: nil)
         self.hidesBottomBarWhenPushed = true
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -32,7 +40,20 @@ final class ChangeProfileViewController: UIViewController {
     }
     
     func setupView() {
+        guard let userData = userData else {
+            return
+        }
         
+        nameField.text = userData.name
+        birthField.text = userData.birthDate
+        emailField.text = userData.email
+        phoneNumberField.text = userData.phoneNumber
+        gender = userData.gender
+        if (gender == "f") {
+            femaleButton.isSelected = true
+        } else if (gender == "m") {
+            maleButton.isSelected = true
+        }
     }
     
     @IBAction func femaleDidTap(_ sender: UIButton) {
