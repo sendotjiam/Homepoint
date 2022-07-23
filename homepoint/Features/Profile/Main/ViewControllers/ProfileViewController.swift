@@ -6,23 +6,53 @@
 //
 
 import UIKit
+import RxSwift
+import NVActivityIndicatorView
 
 final class ProfileViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var profileTableView: UITableView!
     @IBOutlet weak var notLoginView: NotLoginView!
+    @IBOutlet weak var overlayView: NotLoginView!
+    
+    private lazy var loaderView : UIView = {
+        let view = UIView()
+        view.roundedCorner(with: 8)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        return view
+    }()
+    private let loader = NVActivityIndicatorView(
+        frame: .zero,
+        type: .circleStrokeSpin,
+        color: ColorCollection.primaryColor.value,
+        padding: 0
+    )
     
     // MARK: - Variables
+    var userData: UserDataModel?
+    
     private enum section {
         case changeProfile, address, changePassword, policy, help, chatAdmin, logout
     }
     private var sections: [section] = [.changeProfile, .address, .changePassword, .policy, .help, .chatAdmin, .logout]
+    private let vm = ProfileViewModel()
+    private let bag = DisposeBag()
+    
+    init() {
+        super.init(nibName: Constants.ProfileVC, bundle: nil)
+        vm.getUserData(userId: getUserId() ?? "")
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupView()
+        bindViewModel()
         
         self.addNotificationCenter(
             label: "reload_view",
@@ -63,6 +93,43 @@ extension ProfileViewController : LoginDelegate {
     }
 }
 
+extension ProfileViewController {
+    private func bindViewModel() {
+        vm.successGetUserData.subscribe { [weak self] in
+            self?.handleSuccessGetUserData($0.element)
+        }.disposed(by: bag)
+        vm.error.subscribe { [weak self] in
+            self?.handleError(msg: $0.element)
+        }.disposed(by: bag)
+        vm.isLoading.subscribe { [weak self] in
+            self?.handleLoading($0.element)
+        }.disposed(by: bag)
+    }
+    
+    private func handleSuccessGetUserData(_ user : UserDataModel?) {
+        guard let data = user else { return }
+        
+        self.userData = data
+        print(userData?.name ?? "nama")
+        print(userData?.phoneNumber ?? "phoneNumber")
+        profileTableView.reload()
+    }
+    
+    private func handleError(_ error: String?) {
+        guard let error = error else { return }
+        self.handleError(msg: error)
+    }
+    
+    private func handleLoading(_ isLoading: Bool?) {
+        guard let loading = isLoading
+        else { return }
+        DispatchQueue.main.async {
+            self.showLoader(self.loaderView, self.loader, loading)
+            self.overlayView.isHidden = loading ? false : true
+        }
+    }
+}
+
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         UIView()
@@ -95,6 +162,8 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         switch sections[indexPath.section] {
         case .changeProfile:
             let cell: ChangeProfileFieldViewCell = tableView.dequeueReusableCell(withIdentifier: "ChangeProfileFieldViewCell", for: indexPath) as! ChangeProfileFieldViewCell
+            cell.name = userData?.name
+            cell.number = userData?.phoneNumber
             let vc = ChangeProfileViewController()
             cell.tapHandler = {[weak self] in
                 DispatchQueue.main.async {

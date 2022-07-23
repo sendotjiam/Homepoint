@@ -47,7 +47,7 @@ struct MockUserData {
     }
     
     static func generateUserData() -> Data? {
-        "{\"success\":true,\"status\":\"200\",\"message\":\"Success For Get User from Id\",\"data\":{\"id\":\"a1a22a38-7a2d-4ee8-bd12-20ddd91e3c0c\",\"addresses\":[],\"name\":\"tika\",\"phoneNumber\":null,\"email\":\"tika@gmail.com\",\"password\":\"$2a$10$HuxJVJZ1iw16phWhPvJA0.6je0G07cpwebJCqyNDEtSHRrH5HfKlu\",\"roles\":\"ROLE_CUSTOMER\",\"joinedSince\":\"2022-07-13T13:51:57.684+00:00\",\"birthDate\":null,\"gender\":null,\"isActive\":false}}".data(using: .utf8)
+        "{\"success\":true,\"status\":\"200\",\"message\":\"Success For Get User from Id\",\"data\":{\"id\":\"95bcdbdf-c95d-48bf-80de-557fb9bfc893\",\"addresses\":[],\"name\":\"tika\",\"phoneNumber\":null,\"email\":\"tika@gmail.com\",\"joinedSince\":\"2022-07-23T11:47:02.512+00:00\",\"birthDate\":null,\"gender\":null,\"isActive\":false}}".data(using: .utf8)
     }
     
     static func generateRegisterDataModel() -> RegisterDataModel {
@@ -61,12 +61,15 @@ struct MockUserData {
     static func generateUserDataModel() -> [UserDataModel] {
         [
             UserDataModel(object: JSON([
-                "id": "a1a22a38-7a2d-4ee8-bd12-20ddd91e3c0c",
+                "id": "95bcdbdf-c95d-48bf-80de-557fb9bfc893",
                 "name": "tika",
+                "addresses": [],
                 "phoneNumber": "",
                 "email": "tika@gmail.com",
+                "joinedSince": "2022-07-23T11:47:02.512+00:00",
                 "birthDate": "",
-                "gender": ""
+                "gender": "",
+                "isActive": false
             ]))
         ]
     }

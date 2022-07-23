@@ -28,7 +28,7 @@ protocol UserUseCaseProvider {
         completion: @escaping ((ForgetResponseModel?, Error?) -> ())
     )
     func updateUser(
-        params: [String: Any],
+        request: UserRequestModel,
         completion: @escaping UserCompletion
     )
         

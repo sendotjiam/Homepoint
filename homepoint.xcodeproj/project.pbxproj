@@ -22,6 +22,7 @@
 		5370DFD02848FE6500FD1ED5 /* Inter-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFC72848FE6500FD1ED5 /* Inter-Thin.ttf */; };
 		5370DFD728490EC800FD1ED5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5370DFD528490EC800FD1ED5 /* HomeViewController.swift */; };
 		5370DFD828490EC800FD1ED5 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5370DFD628490EC800FD1ED5 /* HomeViewController.xib */; };
+		5371D92E288B0B5C0040EBF0 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5371D92D288B0B5C0040EBF0 /* ProfileViewModel.swift */; };
 		53B76A59287C762800A56095 /* AddAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B76A33287C762800A56095 /* AddAddressViewController.swift */; };
 		53B76A5A287C762800A56095 /* AddAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53B76A34287C762800A56095 /* AddAddressViewController.xib */; };
 		53B76A5B287C762800A56095 /* DropdownViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53B76A36287C762800A56095 /* DropdownViewController.xib */; };
@@ -264,6 +265,7 @@
 		5370DFC72848FE6500FD1ED5 /* Inter-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Thin.ttf"; sourceTree = "<group>"; };
 		5370DFD528490EC800FD1ED5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5370DFD628490EC800FD1ED5 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		5371D92D288B0B5C0040EBF0 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		53B76A33287C762800A56095 /* AddAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAddressViewController.swift; sourceTree = "<group>"; };
 		53B76A34287C762800A56095 /* AddAddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddAddressViewController.xib; sourceTree = "<group>"; };
 		53B76A36287C762800A56095 /* DropdownViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropdownViewController.xib; sourceTree = "<group>"; };
@@ -570,6 +572,7 @@
 		53B76A2F287C762800A56095 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				53B76A4E287C762800A56095 /* ViewModel */,
 				53B76A30287C762800A56095 /* AddAddress */,
 				53B76A3B287C762800A56095 /* NotAuthorized */,
 				53B76A3F287C762800A56095 /* ChangeProfile */,
@@ -582,19 +585,11 @@
 		53B76A30287C762800A56095 /* AddAddress */ = {
 			isa = PBXGroup;
 			children = (
-				53B76A31287C762800A56095 /* ViewModel */,
 				53B76A32287C762800A56095 /* ViewControllers */,
 				53B76A35287C762800A56095 /* PresentView */,
 				53B76A38287C762800A56095 /* ViewCells */,
 			);
 			path = AddAddress;
-			sourceTree = "<group>";
-		};
-		53B76A31287C762800A56095 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		53B76A32287C762800A56095 /* ViewControllers */ = {
@@ -644,18 +639,10 @@
 		53B76A3F287C762800A56095 /* ChangeProfile */ = {
 			isa = PBXGroup;
 			children = (
-				53B76A40287C762800A56095 /* ViewModel */,
 				53B76A41287C762800A56095 /* ViewControllers */,
 				53B76A44287C762800A56095 /* ViewCells */,
 			);
 			path = ChangeProfile;
-			sourceTree = "<group>";
-		};
-		53B76A40287C762800A56095 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		53B76A41287C762800A56095 /* ViewControllers */ = {
@@ -677,18 +664,10 @@
 		53B76A45287C762800A56095 /* Address */ = {
 			isa = PBXGroup;
 			children = (
-				53B76A46287C762800A56095 /* ViewModel */,
 				53B76A47287C762800A56095 /* ViewControllers */,
 				53B76A4A287C762800A56095 /* ViewCells */,
 			);
 			path = Address;
-			sourceTree = "<group>";
-		};
-		53B76A46287C762800A56095 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		53B76A47287C762800A56095 /* ViewControllers */ = {
@@ -712,7 +691,6 @@
 		53B76A4D287C762800A56095 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				53B76A4E287C762800A56095 /* ViewModel */,
 				53B76A4F287C762800A56095 /* ViewControllers */,
 				53B76A52287C762800A56095 /* ViewCells */,
 			);
@@ -722,6 +700,7 @@
 		53B76A4E287C762800A56095 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				5371D92D288B0B5C0040EBF0 /* ProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -738,12 +717,12 @@
 		53B76A52287C762800A56095 /* ViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				53B76A58287C762800A56095 /* RightArrowFieldViewCell.swift */,
 				53B76A53287C762800A56095 /* RightArrowFieldViewCell.xib */,
-				53B76A54287C762800A56095 /* ImageFieldViewCell.xib */,
 				53B76A55287C762800A56095 /* ChangeProfileFieldViewCell.swift */,
 				53B76A56287C762800A56095 /* ChangeProfileFieldViewCell.xib */,
 				53B76A57287C762800A56095 /* ImageFieldViewCell.swift */,
-				53B76A58287C762800A56095 /* RightArrowFieldViewCell.swift */,
+				53B76A54287C762800A56095 /* ImageFieldViewCell.xib */,
 			);
 			path = ViewCells;
 			sourceTree = "<group>";
@@ -2522,6 +2501,7 @@
 				62139A1028685FF5003C34CB /* FilterBrandHeaderViewCell.swift in Sources */,
 				D10CB4EF284F9DB500F675B2 /* LoginViewController.swift in Sources */,
 				6242118F2862D1C300180D8A /* SearchViewModel.swift in Sources */,
+				5371D92E288B0B5C0040EBF0 /* ProfileViewModel.swift in Sources */,
 				62BBB362285B2F3400E984C6 /* Int+Ext.swift in Sources */,
 				D1B171A5285D7930002511F8 /* UITapGestureRecognizer+Ext.swift in Sources */,
 				628EAFF22875D51B0061A1E9 /* WishlistRepositoryInterface.swift in Sources */,

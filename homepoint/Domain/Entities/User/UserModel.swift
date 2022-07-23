@@ -67,7 +67,7 @@ struct UserDataModel : Equatable {
     
     var id: String
     var addresses: Array<Any>
-    var name, phoneNumber, email, password, roles, joinedSince, birthDate, gender: String
+    var name, phoneNumber, email, joinedSince, birthDate, gender: String
     var isActive: Bool
     
     init(object: JSON) {
@@ -76,8 +76,6 @@ struct UserDataModel : Equatable {
         self.name = object["name"].stringValue
         self.phoneNumber = object["phoneNumber"].stringValue
         self.email = object["email"].stringValue
-        self.password = object["password"].stringValue
-        self.roles = object["roles"].stringValue
         self.joinedSince = object["joinedSince"].stringValue
         self.birthDate = object["birthDate"].stringValue
         self.gender = object["gender"].stringValue
@@ -90,8 +88,6 @@ struct UserDataModel : Equatable {
         (lhs.name == rhs.name) &&
         (lhs.phoneNumber == rhs.phoneNumber) &&
         (lhs.email == rhs.email) &&
-        (lhs.password == rhs.password) &&
-        (lhs.roles == rhs.password) &&
         (lhs.joinedSince == rhs.joinedSince) &&
         (lhs.birthDate == rhs.birthDate) &&
         (lhs.gender == rhs.gender) &&
