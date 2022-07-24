@@ -221,23 +221,8 @@
                                                 </view>
                                             </subviews>
                                         </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SN2-UP-rOK">
-                                            <rect key="frame" x="20" y="178" width="374" height="38"/>
-                                            <color key="backgroundColor" name="Yellow"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="38" id="FVL-Fh-Ta1"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                            <state key="normal" title="Masuk">
-                                                <color key="titleColor" name="DarkBlue"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="didTapLogin:" destination="-1" eventType="touchUpInside" id="Qtm-7y-auM"/>
-                                            </connections>
-                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngS-Qp-jfD">
-                                            <rect key="frame" x="20" y="123" width="109" height="31"/>
+                                            <rect key="frame" x="28" y="123" width="109" height="31"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="tintColor" systemColor="labelColor"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -246,11 +231,25 @@
                                                 <action selector="didTapForget:" destination="-1" eventType="touchUpInside" id="ugL-Ng-CCh"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SN2-UP-rOK">
+                                            <rect key="frame" x="20" y="178" width="374" height="38"/>
+                                            <color key="backgroundColor" name="Yellow"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="38" id="FVL-Fh-Ta1"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                            <color key="tintColor" name="DarkBlue"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="Masuk"/>
+                                            <connections>
+                                                <action selector="didTapLogin:" destination="-1" eventType="touchUpInside" id="Qtm-7y-auM"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="SN2-UP-rOK" firstAttribute="top" secondItem="ngS-Qp-jfD" secondAttribute="bottom" constant="24" id="Bd6-UP-Fpv"/>
-                                        <constraint firstItem="ngS-Qp-jfD" firstAttribute="leading" secondItem="9Ex-Bd-9f5" secondAttribute="leading" constant="20" id="RPe-7E-HA8"/>
+                                        <constraint firstItem="ngS-Qp-jfD" firstAttribute="leading" secondItem="9Ex-Bd-9f5" secondAttribute="leading" constant="28" id="RPe-7E-HA8"/>
                                         <constraint firstAttribute="height" constant="230" id="TOH-AS-LBd"/>
                                         <constraint firstAttribute="trailing" secondItem="SN2-UP-rOK" secondAttribute="trailing" constant="20" id="esA-bd-aof"/>
                                         <constraint firstItem="SN2-UP-rOK" firstAttribute="leading" secondItem="9Ex-Bd-9f5" secondAttribute="leading" constant="20" id="iRD-1b-GTz"/>

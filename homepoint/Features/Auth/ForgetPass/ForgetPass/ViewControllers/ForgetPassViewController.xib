@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -147,9 +148,9 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </stackView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Kami akan mengirimkan password baru ke alamat emailmu. Masukkan alamat email yang terdaftar dalam aplikasi." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPb-xP-oTq">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" verticalCompressionResistancePriority="751" text="Kami akan mengirimkan password baru ke alamat emailmu. Masukkan alamat email yang terdaftar dalam aplikasi." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPb-xP-oTq">
                                             <rect key="frame" x="20" y="14" width="374" height="61"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -158,11 +159,11 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="38" id="Xws-IL-Adg"/>
                                             </constraints>
+                                            <color key="tintColor" name="DarkBlue"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="gray" title="Kirim Permintaan" cornerStyle="fixed">
                                                 <backgroundConfiguration key="background" cornerRadius="8"/>
-                                                <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                                <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="16"/>
                                                 <color key="baseBackgroundColor" red="0.98431372549999996" green="0.77647058820000003" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </buttonConfiguration>
                                             <connections>
@@ -170,7 +171,7 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZb-xv-wRp">
-                                            <rect key="frame" x="20" y="99" width="374" height="17"/>
+                                            <rect key="frame" x="26" y="99" width="362" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -189,9 +190,9 @@
                                         <constraint firstAttribute="trailing" secondItem="LJx-dw-9Pv" secondAttribute="trailing" constant="20" id="HfL-aB-KDE"/>
                                         <constraint firstItem="LJx-dw-9Pv" firstAttribute="top" secondItem="njC-rf-HDr" secondAttribute="bottom" constant="4" id="MlV-cV-02a"/>
                                         <constraint firstItem="njC-rf-HDr" firstAttribute="top" secondItem="HZb-xv-wRp" secondAttribute="bottom" constant="5" id="OUa-9k-yPU"/>
-                                        <constraint firstItem="HZb-xv-wRp" firstAttribute="leading" secondItem="7ob-Gr-W7F" secondAttribute="leading" constant="20" id="TwA-2w-Eq5"/>
+                                        <constraint firstItem="HZb-xv-wRp" firstAttribute="leading" secondItem="7ob-Gr-W7F" secondAttribute="leading" constant="26" id="TwA-2w-Eq5"/>
                                         <constraint firstItem="WFd-lg-xbx" firstAttribute="top" secondItem="LJx-dw-9Pv" secondAttribute="bottom" constant="8" id="WXZ-Fl-iMP"/>
-                                        <constraint firstAttribute="trailing" secondItem="HZb-xv-wRp" secondAttribute="trailing" constant="20" id="Xkn-XN-SxU"/>
+                                        <constraint firstAttribute="trailing" secondItem="HZb-xv-wRp" secondAttribute="trailing" constant="26" id="Xkn-XN-SxU"/>
                                         <constraint firstItem="WFd-lg-xbx" firstAttribute="leading" secondItem="7ob-Gr-W7F" secondAttribute="leading" constant="20" id="cbb-T2-ao1"/>
                                         <constraint firstAttribute="height" constant="236" id="dCg-af-JRD"/>
                                         <constraint firstItem="hPb-xP-oTq" firstAttribute="top" secondItem="7ob-Gr-W7F" secondAttribute="top" constant="14" id="g7c-Nv-cPd"/>
@@ -240,6 +241,9 @@
         <image name="bg_auth" width="500" height="285"/>
         <image name="ic_clearButton" width="24" height="24"/>
         <image name="ic_homepoint.logo" width="185" height="50.5"/>
+        <namedColor name="DarkBlue">
+            <color red="0.13300000131130219" green="0.21199999749660492" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

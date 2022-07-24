@@ -88,14 +88,14 @@
                                     <rect key="frame" x="0.0" y="275" width="414" height="230"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNs-dO-EFY">
-                                            <rect key="frame" x="20" y="14" width="374" height="81.5"/>
+                                            <rect key="frame" x="20" y="14" width="374" height="50.5"/>
                                             <string key="text">Silahkan cek kotak masuk emailmu, Kami telah mengirimkan email berisi password baru, kamu dapat mengubah password tersebut di pengaturan profil.</string>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yTq-sX-RjJ">
-                                            <rect key="frame" x="20" y="115.5" width="374" height="38"/>
+                                            <rect key="frame" x="20" y="84.5" width="374" height="38"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="38" id="aUR-86-MV3"/>
                                             </constraints>
@@ -111,18 +111,18 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ep-fL-Fys">
-                                            <rect key="frame" x="20" y="177.5" width="374" height="28.5"/>
+                                            <rect key="frame" x="20" y="146.5" width="374" height="59.5"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="Belum mendapat email? ">
                                                     <attributes>
-                                                        <font key="NSFont" metaFont="system" size="17"/>
+                                                        <font key="NSFont" size="14" name=".SFNS-Regular"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
                                                 <fragment content="Kirim ulang">
                                                     <attributes>
                                                         <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <font key="NSFont" metaFont="system" size="17"/>
+                                                        <font key="NSFont" size="14" name=".SFNS-Regular"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>

@@ -298,10 +298,9 @@
                                                 <constraint firstAttribute="height" constant="38" id="Z2C-aj-8ZI"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                            <color key="tintColor" name="DarkBlue"/>
                                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                            <state key="normal" title="Daftar">
-                                                <color key="titleColor" name="DarkBlue"/>
-                                            </state>
+                                            <state key="normal" title="Daftar"/>
                                             <connections>
                                                 <action selector="didTapRegister:" destination="-1" eventType="touchUpInside" id="AWB-4E-8Td"/>
                                             </connections>
