@@ -11,6 +11,7 @@ import RxRelay
 
 protocol ProfileViewModelInput {
     func getUserData(userId: String)
+    func updateUserData(request: UserDataModel)
 }
 
 protocol ProfileViewModelOutput {
@@ -41,6 +42,34 @@ final class ProfileViewModel :
             guard let self = self else { return }
             if let result = result {
                 if result.success || result.status == "200 OK" {
+                    self.successGetUserData.onNext(result.data[0])
+                } else {
+                    self.error.onNext(result.message)
+                }
+            } else {
+                self.error.onNext(error?.localizedDescription ?? "ERROR")
+            }
+            self.isLoading.accept(false)
+        }
+    }
+    
+    func updateUserData(request: UserDataModel) {
+        isLoading.accept(true)
+        let params: [String: Any] = [
+            "id": request.id,
+            "addresses": request.addresses,
+            "name": request.name,
+            "phoneNumber": request.phoneNumber,
+            "email": request.email,
+            "joinedSince": request.joinedSince,
+            "birthDate": request.birthDate,
+            "gender": request.gender,
+            "isActive": request.isActive
+        ]
+        userUseCase.updateUser(request: params) { [weak self] result, error in
+            guard let self = self else { return }
+            if let result = result {
+                if result.success || result.status == "200" {
                     self.successGetUserData.onNext(result.data[0])
                 } else {
                     self.error.onNext(result.message)

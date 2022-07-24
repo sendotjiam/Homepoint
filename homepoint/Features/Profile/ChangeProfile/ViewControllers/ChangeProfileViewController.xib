@@ -25,6 +25,7 @@
                 <outlet property="femaleButton" destination="xnf-4A-rUS" id="tae-ym-Zpz"/>
                 <outlet property="maleButton" destination="iXt-gX-4kg" id="zMh-ux-kqN"/>
                 <outlet property="nameField" destination="OLH-w1-aPz" id="Qub-r8-uMX"/>
+                <outlet property="overlayView" destination="VA5-IH-EA5" id="AaR-hx-jwi"/>
                 <outlet property="phoneNumberField" destination="8hN-6q-8tG" id="V95-qR-gv0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -34,6 +35,10 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VA5-IH-EA5" userLabel="Overlay View">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q0m-Hs-3Jb">
                     <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <subviews>
@@ -53,6 +58,17 @@
                             <rect key="frame" x="20" y="76.5" width="374" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                    <integer key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                    <color key="value" red="0.19215686274509802" green="0.37647058823529411" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O8n-Ma-Mfr">
                             <rect key="frame" x="20" y="782" width="374" height="36"/>
@@ -62,6 +78,9 @@
                                 <color key="baseForegroundColor" systemColor="labelColor"/>
                                 <color key="baseBackgroundColor" red="0.98431372549019602" green="0.77647058823529413" blue="0.27450980392156865" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                             </buttonConfiguration>
+                            <connections>
+                                <action selector="submitDidTap:" destination="-1" eventType="touchUpInside" id="sLS-Yj-F7o"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tanggal Lahir" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gie-fc-gbC">
                             <rect key="frame" x="30" y="126.5" width="364" height="15"/>
@@ -73,6 +92,14 @@
                             <rect key="frame" x="20" y="145.5" width="374" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                    <integer key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jenis Kelamin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acP-MQ-1l9">
                             <rect key="frame" x="20" y="199.5" width="106.5" height="19.5"/>
@@ -96,6 +123,14 @@
                             <rect key="frame" x="20" y="315.5" width="374" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                    <integer key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nomor HP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UmO-hI-xyx">
                             <rect key="frame" x="30" y="365.5" width="364" height="15"/>
@@ -107,6 +142,14 @@
                             <rect key="frame" x="20" y="384.5" width="374" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                    <integer key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="8"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </textField>
                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pDG-Sd-gB0">
                             <rect key="frame" x="20" y="225" width="97.5" height="14"/>
@@ -207,8 +250,12 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="LightBlue-2"/>
             <constraints>
+                <constraint firstItem="VA5-IH-EA5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="1ZG-3x-cJz"/>
                 <constraint firstItem="Q0m-Hs-3Jb" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="7Dn-64-qYK"/>
+                <constraint firstItem="VA5-IH-EA5" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="8Og-WS-BrL"/>
                 <constraint firstItem="Q0m-Hs-3Jb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="FTt-g5-BQR"/>
+                <constraint firstItem="VA5-IH-EA5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="M77-bB-Xjt"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="VA5-IH-EA5" secondAttribute="bottom" id="nWo-gD-sMz"/>
                 <constraint firstItem="Q0m-Hs-3Jb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="qFI-Cx-F8g"/>
                 <constraint firstItem="Q0m-Hs-3Jb" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="z0V-Pr-e4T"/>
             </constraints>

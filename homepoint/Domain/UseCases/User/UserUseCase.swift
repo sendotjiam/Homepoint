@@ -28,7 +28,7 @@ protocol UserUseCaseProvider {
         completion: @escaping ((ForgetResponseModel?, Error?) -> ())
     )
     func updateUser(
-        request: UserRequestModel,
+        request: [String: Any],
         completion: @escaping UserCompletion
     )
         
@@ -91,10 +91,10 @@ extension UserUseCase : UserUseCaseProvider {
 
     
     func updateUser(
-        request: UserRequestModel,
+        request: [String: Any],
         completion: @escaping UserCompletion
     ) {
-        repository.updateUser(params: request.toDictionary()) { result, error in
+        repository.updateUser(params: request) { result, error in
             completion(result, error)
         }
     }
