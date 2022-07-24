@@ -43,6 +43,9 @@ final class ProfileViewController: UIViewController {
     
     init() {
         super.init(nibName: Constants.ProfileVC, bundle: nil)
+        if(isUserLoggedIn()) {
+            callApi()
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -84,6 +87,10 @@ final class ProfileViewController: UIViewController {
     @objc func reloadView() {
         notLoginView.isHidden = true
         // call API
+        callApi()
+    }
+    
+    func callApi() {
         vm.getUserData(userId: userId)
         bindViewModel()
     }

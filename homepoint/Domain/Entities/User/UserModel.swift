@@ -66,13 +66,12 @@ struct UserResponseModel : Equatable {
 struct UserDataModel : Equatable {
     
     var id: String
-    var addresses: Array<Any>
+    var addresses: [AddressDataModel]
     var name, phoneNumber, email, joinedSince, birthDate, gender: String
     var isActive: Bool
     
     init(object: JSON) {
         self.id = object["id"].stringValue
-        self.addresses = object["addresses"].arrayValue
         self.name = object["name"].stringValue
         self.phoneNumber = object["phoneNumber"].stringValue
         self.email = object["email"].stringValue
@@ -80,11 +79,21 @@ struct UserDataModel : Equatable {
         self.birthDate = object["birthDate"].stringValue
         self.gender = object["gender"].stringValue
         self.isActive = object["isActive"].boolValue
+        
+        var data = [AddressDataModel]()
+        if !object["addresses"].arrayValue.isEmpty {
+            object["addresses"].arrayValue.forEach {
+                data.append(AddressDataModel(object: $0))
+            }
+            self.addresses = data
+        } else {
+            self.addresses = [AddressDataModel(object: object["data"])]
+        }
     }
     
     static func == (lhs: UserDataModel, rhs: UserDataModel) -> Bool {
         (lhs.id == rhs.id) &&
-//        (lhs.addresses == rhs.addresses) &&
+        (lhs.addresses == rhs.addresses) &&
         (lhs.name == rhs.name) &&
         (lhs.phoneNumber == rhs.phoneNumber) &&
         (lhs.email == rhs.email) &&
@@ -92,5 +101,24 @@ struct UserDataModel : Equatable {
         (lhs.birthDate == rhs.birthDate) &&
         (lhs.gender == rhs.gender) &&
         (lhs.isActive == rhs.isActive)
+    }
+}
+
+struct AddressDataModel : Equatable {
+    var id, label, province, city, districts, village, zipCode, fullAddress, recipientName, phoneNumber: String
+    var isActive: Bool
+    
+    init(object : JSON) {
+        self.id = object["id"].stringValue
+        self.label = object["label"].stringValue
+        self.province = object["province"].stringValue
+        self.city = object["city"].stringValue
+        self.districts = object["districts"].stringValue
+        self.village = object["village"].stringValue
+        self.zipCode = object["zipCode"].stringValue
+        self.fullAddress = object["fullAddress"].stringValue
+        self.recipientName = object["recipientName"].stringValue
+        self.phoneNumber = object["phoneNumber"].stringValue
+        self.isActive = object["isActive"].boolValue
     }
 }
