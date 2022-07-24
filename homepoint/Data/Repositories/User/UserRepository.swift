@@ -91,6 +91,7 @@ extension UserRepository : UserRepositoryInterface {
         }
     }
     
+//    func updateUser (params: [String: Any], completion: @escaping UserCompletion) {
     func updateUser (params: [String: Any], completion: @escaping UserCompletion) {
         apiClient.request(
             urlString,
