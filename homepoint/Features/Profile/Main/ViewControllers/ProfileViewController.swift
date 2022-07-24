@@ -52,8 +52,6 @@ final class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        bindViewModel()
-        vm.getUserData(userId: userId)
         
         self.addNotificationCenter(
             label: "reload_view",
@@ -218,19 +216,6 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             notLoginView.isHidden = isUserLoggedIn()
         default:
             break
-        }
-    }
-}
-
-extension ProfileViewController : ChangeProfileFieldDelegate {
-    func didTap() {
-        guard let userData = userData else { return }
-        let vc = ChangeProfileViewController(userData)
-        DispatchQueue.main.async { [weak self] in
-            self?.navigationController?.pushViewController(
-                vc,
-                animated: true
-            )
         }
     }
 }
