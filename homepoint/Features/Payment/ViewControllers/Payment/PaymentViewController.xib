@@ -19,6 +19,7 @@
                 <outlet property="addressView" destination="rrT-ko-7Bb" id="4K6-gF-efK"/>
                 <outlet property="collectionView" destination="SQg-Aa-KyT" id="Uo7-k8-oxW"/>
                 <outlet property="discountLabel" destination="wSQ-2h-RTu" id="TX5-xy-l74"/>
+                <outlet property="overlayView" destination="EzQ-0Q-RPh" id="Fma-5X-aIX"/>
                 <outlet property="paymentButton" destination="lZ6-MQ-h7K" id="KMQ-6w-LDT"/>
                 <outlet property="paymentMethodButton" destination="ELE-dY-Iyd" id="nqL-a9-YoO"/>
                 <outlet property="paymentMethodImageView" destination="7qJ-gI-Ss1" id="FWx-bg-bHl"/>
@@ -588,18 +589,26 @@
                     <viewLayoutGuide key="contentLayoutGuide" id="Wax-Fo-cNC"/>
                     <viewLayoutGuide key="frameLayoutGuide" id="Ya7-DD-2Hn"/>
                 </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EzQ-0Q-RPh">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="LightBlue-2"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="EzQ-0Q-RPh" secondAttribute="bottom" id="6Xb-ct-vl5"/>
                 <constraint firstItem="aW5-NF-H0n" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="8sU-1B-WY4"/>
                 <constraint firstItem="VGr-P3-No8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="AbB-cr-cQv"/>
                 <constraint firstItem="VGr-P3-No8" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="I1L-mz-nWP"/>
+                <constraint firstItem="EzQ-0Q-RPh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="IOz-Kh-UTT"/>
                 <constraint firstAttribute="bottom" secondItem="VGr-P3-No8" secondAttribute="bottom" id="KhD-SO-n8V"/>
                 <constraint firstItem="aW5-NF-H0n" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="NEc-eD-kZf"/>
                 <constraint firstAttribute="bottom" secondItem="aW5-NF-H0n" secondAttribute="bottom" id="Vjc-zD-YhU"/>
                 <constraint firstItem="VGr-P3-No8" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="dbB-7C-Ppd"/>
                 <constraint firstItem="aW5-NF-H0n" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="eyk-YZ-Yky"/>
+                <constraint firstItem="EzQ-0Q-RPh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="gdW-I7-5wf"/>
+                <constraint firstItem="EzQ-0Q-RPh" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="oS0-6q-u6C"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="68.973214285714278"/>
         </view>

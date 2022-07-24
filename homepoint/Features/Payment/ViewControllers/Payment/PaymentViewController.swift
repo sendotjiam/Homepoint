@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import RxSwift
+import NVActivityIndicatorView
+import SDWebImage
 
 final class PaymentViewController: UIViewController {
 
@@ -32,14 +35,26 @@ final class PaymentViewController: UIViewController {
     @IBOutlet weak var paymentMethodView: UIView!
     @IBOutlet weak var paymentMethodImageView: UIImageView!
     @IBOutlet weak var paymentMethodLabel: UILabel!
+    @IBOutlet weak var overlayView: UIView!
+    
+    private lazy var loaderView : UIView = {
+        let view = UIView()
+        view.roundedCorner(with: 8)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        return view
+    }()
+    private let loader = NVActivityIndicatorView(
+        frame: .zero,
+        type: .circleStrokeSpin,
+        color: ColorCollection.primaryColor.value,
+        padding: 0
+    )
     
     // MARK: - Variables
-    let courierData : [CourierCellModel] = [
-        CourierCellModel(title: "Kurir reguler", image: "ic_regular.courier", price: 25000),
-        CourierCellModel(title: "Kurir homepoint", image: "ic_homepoint.courier", price: 0),
-        CourierCellModel(title: "Ambil di tempat", image: "ic_pickup.shop", price: 0)
-    ]
-    var totalPrice = 0.0
+    private var couriers = [ShippingResponseModel]()
+    private var banks = [BankResponseModel]()
+    private var totalPrice = 0.0
     private var subtotalPrice = 0.0 {
         didSet {
             totalSpending = subtotalPrice
@@ -75,10 +90,14 @@ final class PaymentViewController: UIViewController {
             needInsurance: false
         )
     ]
+    private let vm = TransactionViewModel()
+    private let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        bindViewModel()
+        vm.getBanksAndShipping().disposed(by: bag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,9 +118,9 @@ final class PaymentViewController: UIViewController {
         let vc = BottomSheetViewController()
         vc.type = .shopLocations
         vc.data = [
-            SheetItemCellModel(title: "Homepoint Cabang Malang", image: "ic_homepoint"),
-            SheetItemCellModel(title: "Homepoint Cabang Surabaya", image: "ic_homepoint"),
-            SheetItemCellModel(title: "Homepoint Cabang Jakarta", image: "ic_homepoint")
+            SheetItemCellModel(title: "Homepoint Cabang Malang", image: "ic_homepoint", imageFromUrl: false),
+            SheetItemCellModel(title: "Homepoint Cabang Surabaya", image: "ic_homepoint", imageFromUrl: false),
+            SheetItemCellModel(title: "Homepoint Cabang Jakarta", image: "ic_homepoint", imageFromUrl: false)
         ]
         vc.delegate = self
         vc.modalPresentationStyle = .pageSheet
@@ -111,13 +130,9 @@ final class PaymentViewController: UIViewController {
     @IBAction func paymentMethodButtonTapped(_ sender: Any) {
         let vc = BottomSheetViewController()
         vc.type = .paymentMethods
-        vc.data = [
-            SheetItemCellModel(title: "Bank Negara Indonesia", image: "ic_BNI"),
-            SheetItemCellModel(title: "Bank Rakyat Indonesia", image: "ic_BRI"),
-            SheetItemCellModel(title: "Bank Central Asia", image: "ic_BCA"),
-            SheetItemCellModel(title: "Bank Tabungan Negara", image: "ic_BTN"),
-            SheetItemCellModel(title: "Bank Mandiri", image: "ic_MANDIRI")
-        ]
+        vc.data = banks.map {
+            SheetItemCellModel(title: $0.bankName, image: $0.bankLogo)
+        }
         vc.delegate = self
         vc.modalPresentationStyle = .pageSheet
         present(vc, animated: true)
@@ -128,10 +143,7 @@ extension PaymentViewController {
     private func setupUI() {
         addressView.addBorder(width: 1, color: ColorCollection.primaryColor.value)
         paymentMethodView.addBorder(width: 1, color: ColorCollection.primaryColor.value)
-        [addressView,
-         shopLocationView,
-         paymentMethodView,
-         paymentButton].forEach {
+        [addressView,shopLocationView,paymentMethodView,paymentButton].forEach {
             $0?.roundedCorner(with: 8)
         }
         calculateTableViewHeightAndSubtotalPrice()
@@ -175,19 +187,10 @@ extension PaymentViewController {
         tableViewHeight.constant = height
     }
     
-    private func checkAccountType(title : String) -> (String, String){
-        switch title {
-        case "Bank Negara Indonesia":
-            return ("123 456 7890", "Homepointstore")
-        case "Bank Rakyat Indonesia":
-            return ("098 765 4321", "Homepointstore")
-        case "Bank Tabungan Negara":
-            return ("999 888 4111", "Homepointstore")
-        case "Bank Mandiri":
-            return ("222 512 1111", "Homepointstore")
-        default: // BCA
-            return ("375 178 5066", "Homepointstore")
-        }
+    private func checkAccount(title : String) -> BankResponseModel? {
+        return banks.filter {
+            $0.bankName == title
+        }.first
     }
     
     private func checkButton() {
@@ -195,6 +198,45 @@ extension PaymentViewController {
     }
 }
 
+// MARK: - Binding
+extension PaymentViewController {
+    func bindViewModel() {
+        vm.successGetBanksAndShipping.subscribe { [weak self] in
+            self?.handleSuccessGetBanksAndShipping($0, $1)
+        }.disposed(by: bag)
+        vm.error.subscribe { [weak self] in
+            self?.handleError($0.element)
+        }.disposed(by: bag)
+        vm.isLoading.subscribe { [weak self] in
+            self?.handleLoading($0.element)
+        }.disposed(by: bag)
+    }
+    
+    private func handleSuccessGetBanksAndShipping(
+        _ banks : [BankResponseModel],
+        _ shipping : [ShippingResponseModel]
+    ) {
+        self.couriers = shipping
+        self.banks = banks
+        tableView.reload()
+        collectionView.reload()
+    }
+    
+    private func handleError(_ error : String?) {
+        self.handleError(msg: error)
+    }
+    
+    private func handleLoading(_ isLoading: Bool?) {
+        guard let loading = isLoading
+        else { return }
+        DispatchQueue.main.async {
+            self.showLoader(self.loaderView, self.loader, loading)
+            self.overlayView.isHidden = loading ? false : true
+        }
+    }
+}
+
+// MARK: - Delegate
 extension PaymentViewController : PaymentOrderListDelegate {
     func didTapInsurance(_ includeInsurance: Bool) {
         subtotalPrice += (includeInsurance ? 100000 : -100000)
@@ -213,20 +255,22 @@ extension PaymentViewController : BottomSheetDelegate {
             hasChooseCourier = true
             checkButton()
         case .paymentMethods:
+            let imageUrl = URL(string: data.image)
+            paymentMethodImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "img_placeholder.small"))
             paymentMethodImageView.isHidden = false
-            paymentMethodImageView.image = UIImage(named: data.image)
             paymentMethodLabel.text = data.title
             paymentMethodLabel.textColor = .black
             accountInfoStackView.isHidden = false
-            let accountType = checkAccountType(title: data.title)
-            accountNameLabel.text = "a/n \(accountType.1)"
-            accountNumberLabel.text = accountType.0
             hasChoosePaymentMethod = true
             checkButton()
+            guard let account = checkAccount(title: data.title) else { return }
+            accountNameLabel.text = "a/n \(account.holderName)"
+            accountNumberLabel.text = account.accountNumber
         }
     }
 }
 
+// MARK: - TableView
 extension PaymentViewController :
     UITableViewDelegate,
     UITableViewDataSource {
@@ -259,7 +303,7 @@ extension PaymentViewController :
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        3
+        couriers.count
     }
     
     func collectionView(
@@ -270,7 +314,7 @@ extension PaymentViewController :
             withReuseIdentifier: CourierViewCell.identifier,
             for: indexPath
         ) as? CourierViewCell
-        cell?.courier = courierData[indexPath.row]
+        cell?.courier = couriers[indexPath.row]
         return cell ?? UICollectionViewCell()
     }
     

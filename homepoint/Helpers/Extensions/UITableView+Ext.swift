@@ -13,5 +13,4 @@ extension UITableView {
             self.reloadData()
         }
     }
-    
 }

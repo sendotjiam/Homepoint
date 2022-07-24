@@ -6,14 +6,17 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class SheetItemCellModel {
     let title: String
     let image: String
+    let imageFromUrl: Bool
     
-    init(title: String, image: String) {
+    init(title: String, image: String, imageFromUrl : Bool = true) {
         self.title = title
         self.image = image
+        self.imageFromUrl = imageFromUrl
     }
 }
 
@@ -56,8 +59,14 @@ extension SheetItemViewCell {
     
     private func configureCell() {
         guard let data = data else { return }
-        iconImageView.image = UIImage(named: data.image)
         titleLabel.text = data.title
+        switch data.imageFromUrl {
+        case true:
+            let imageUrl = URL(string: data.image)
+            iconImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "img_placeholder.small"))
+        case false:
+            iconImageView.image = UIImage(named: data.image)
+        }
     }
     
     class func nib() -> UINib {

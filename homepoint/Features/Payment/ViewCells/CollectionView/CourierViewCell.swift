@@ -6,18 +6,7 @@
 //
 
 import UIKit
-
-final class CourierCellModel {
-    let title : String
-    let image : String
-    let price : Double
-    
-    init(title: String, image: String, price: Double) {
-        self.title = title
-        self.image = image
-        self.price = price
-    }
-}
+import SDWebImage
 
 final class CourierViewCell: UICollectionViewCell {
 
@@ -30,7 +19,7 @@ final class CourierViewCell: UICollectionViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
     
-    var courier : CourierCellModel? {
+    var courier : ShippingResponseModel? {
         didSet { configureCell() }
     }
     
@@ -56,9 +45,10 @@ extension CourierViewCell {
     
     private func configureCell() {
         guard let data = courier else { return }
-        titleLabel.text = data.title
-        courierImageView.image = UIImage(named: data.image)
-        priceLabel.text = data.price == 0 ? "Gratis" : data.price.convertToCurrency()
+        titleLabel.text = data.courierType
+        priceLabel.text = data.shippingCost == 0 ? "Gratis" : Double(data.shippingCost).convertToCurrency()
+        let imageUrl = URL(string: data.icon)
+        courierImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "img_placeholder.small"))
     }
     
     private func setSelected() {
