@@ -52,8 +52,6 @@ final class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        bindViewModel()
-        vm.getUserData(userId: userId)
         
         self.addNotificationCenter(
             label: "reload_view",
@@ -86,6 +84,8 @@ final class ProfileViewController: UIViewController {
     @objc func reloadView() {
         notLoginView.isHidden = true
         // call API
+        vm.getUserData(userId: userId)
+        bindViewModel()
     }
 }
 
@@ -205,6 +205,17 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             let cell: ImageFieldViewCell = tableView.dequeueReusableCell(withIdentifier: "ImageFieldViewCell", for: indexPath) as! ImageFieldViewCell
             cell.selectionStyle = .none
             return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch sections[indexPath.section] {
+        case .logout:
+            UserDefaults.standard.set(nil, forKey: "user_id")
+            UserDefaults.standard.set(nil, forKey: "user_token")
+            notLoginView.isHidden = isUserLoggedIn()
+        default:
+            break
         }
     }
 }

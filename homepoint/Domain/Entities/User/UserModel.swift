@@ -92,6 +92,5 @@ struct UserDataModel : Equatable {
         (lhs.birthDate == rhs.birthDate) &&
         (lhs.gender == rhs.gender) &&
         (lhs.isActive == rhs.isActive)
-        
     }
 }
