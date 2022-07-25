@@ -5,6 +5,7 @@
 //  Created by Sendo Tjiam on 19/07/22.
 //
 
+import Alamofire
 import UIKit
 
 final class ConfirmPaymentViewController: UIViewController {
@@ -21,10 +22,13 @@ final class ConfirmPaymentViewController: UIViewController {
     @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var mediaImageView: UIImageView!
+    @IBOutlet weak var copyAccButton: UIButton!
+    @IBOutlet weak var copyTotalButton: UIButton!
     
     let imagePicker = UIImagePickerController()
     
     // MARK: - Variables
+    var data: TransactionDataModel?
     private var hasUploaded = false
     
     override func viewDidLoad() {
@@ -51,6 +55,14 @@ final class ConfirmPaymentViewController: UIViewController {
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: false)
     }
+    
+    @IBAction func copyAccButtonTapped(_ sender: Any) {
+        UIPasteboard.general.string = accountNumberLabel.text
+    }
+    
+    @IBAction func copyTotalButtonTapped(_ sender: Any) {
+        UIPasteboard.general.string = totalPaymentLabel.text
+    }
 }
 
 extension ConfirmPaymentViewController {
@@ -58,11 +70,26 @@ extension ConfirmPaymentViewController {
         deadlineStackView.roundedCorner(with: 8)
         confirmButton.roundedCorner(with: 8)
         accountInformationView.addBorder(width: 1, color: ColorCollection.blueLigthColor.value)
-        imagePicker.delegate = self
         confirmButton.isEnabled = false
+        confirmButton.alpha = 0.5
+        imagePicker.delegate = self
+        reuploadButton.isHidden = true
+        
+        copyAccButton.roundedCorner(with: 6)
+        copyTotalButton.roundedCorner(with: 6)
+        copyAccButton.addBorder(width: 1, color: ColorCollection.yellowColor.value)
+        copyTotalButton.addBorder(width: 1, color: ColorCollection.yellowColor.value)
+        
+        guard let data = data else { return }
+        deadlineLabel.text = data.paymentDeadline
+        bankNameLabel.text = data.bank.bankName
+        accountNumberLabel.text = data.bank.accountNumber
+        accountNameLabel.text = data.bank.holderName
+        totalPaymentLabel.text = Double(data.totalPrice).convertToCurrency()
     }
     
     private func setupAfterUpload() {
+        confirmButton.alpha = 1
         if !hasUploaded { hasUploaded = true }
         if hasUploaded {
             // Disable upload button
@@ -111,7 +138,82 @@ extension ConfirmPaymentViewController {
 // MARK: - Confirmation Alert
 extension ConfirmPaymentViewController : ConfirmationAlertDelegate {
     func didTapConfirm() {
-        dismiss(animated: true)
+        guard let data = data else { return }
+//        let urlString = Constants.BaseUrl + "api/v1/transaction/payment-confirmation/\(data.id)"
+        guard let url = URL(string: Constants.BaseUrl + "api/v1/transaction/payment-confirmation/\(data.id)") else { return }
+//        var urlRequest = URLRequest(url: url!, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 10.0 * 1000)
+        var urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 10.0 * 1000)
+        urlRequest.httpMethod = "PUT"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+//        let headers : HTTPHeaders = ["Content-Type" : "multipart/form-data"]
+        urlRequest.httpMethod = "PUT"
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "MM-dd-yyyy-hh-mm-ss"
+//        let dateString = dateFormatter.string(from: Date())
+        if let data = mediaImageView.image?.jpegData(compressionQuality: 0.5) {
+//            AF.upload(multipartFormData: { multipartFormData in
+//                multipartFormData.append(Data("Coming from iPhone Sim".utf8), withName: "postBody")
+//                multipartFormData.append(data, withName: "image", fileName: "uploads"+dateString+".png", mimeType: "image/jpg")
+//            },to: urlString,
+//                      method: .put,
+//                      headers: headers
+//            ) .uploadProgress(queue: .main, closure: { progress in
+//                print("Upload Progress: \(progress.fractionCompleted)")
+//            }).responseJSON(completionHandler: { data in
+//                print("upload finished: \(data)")
+//            }).response { (response) in
+//                switch response.result {
+//                case .success(let resut):
+//                    print("upload success result: \(String(describing: resut))")
+//                case .failure(let err):
+//                    print("upload err: \(err)")
+//                }
+//            }
+            
+            AF.upload(multipartFormData: { multiPart in
+                multiPart.append(data, withName: "file", fileName: "file.png", mimeType: "image/png")
+            }, with: urlRequest)
+                .uploadProgress(queue: .main, closure: { progress in
+                    //Current upload progress of file
+                    print("Upload Progress: \(progress.fractionCompleted)")
+                })
+                .responseJSON(completionHandler: { data in
+                    switch data.result {
+                    case .success(_):
+                        do {
+                            let dictionary = try JSONSerialization.jsonObject(with: data.data!, options: .fragmentsAllowed) as! NSDictionary
+                            print("Success!")
+                            print(dictionary)
+                        }
+                        catch {
+                            print("catch error")
+                        }
+                        break
+                    case .failure(_):
+                        print("failure")
+                        break
+                    }
+                })
+
+                      
+//                      to: url as! URLConvertible, method: .put, headers: headers).responseJSON { resp in
+//                print("resp is \(resp)")
+//            }.resume()
+//                      with: urlRequest).uploadProgress(queue: .main, closure: { progress in
+//                print("Upload Progress: \(progress.fractionCompleted)")
+//            }).response { data in
+//                print(data.data, "DAT")
+//                switch data.result {
+//                case .success(_):
+//                    print("S")
+//                case .failure(let err):
+//                    print(err)
+//                }
+//                print(data.value, "VAL")
+//                print(data.response, "RES")
+//                print(data.error, "ERR")
+//            }
+        }
     }
 }
 

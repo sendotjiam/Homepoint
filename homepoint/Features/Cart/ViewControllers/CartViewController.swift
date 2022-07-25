@@ -45,6 +45,7 @@ final class CartViewController: UIViewController {
     private var userId = ""
     private var selectedId = [String]()
     private var wishlistId = ""
+    private var price = 0.0
     
     init() {
         super.init(nibName: Constants.CartVC, bundle: nil)
@@ -79,6 +80,7 @@ final class CartViewController: UIViewController {
     
     @IBAction func purchaseButtonTapped(_ sender: Any) {
         let vc = PaymentViewController()
+        vc.carts = carts.filter { selectedId.contains($0.id) }
         navigationController?.pushViewController(vc, animated: true)
     }
 }
@@ -106,6 +108,13 @@ extension CartViewController {
         refreshControl.beginRefreshing()
         vm.getCarts(userId: userId)
         view.showShimmer()
+    }
+    
+    private func updatePrice() {
+        carts.filter { selectedId.contains($0.id) }.forEach {
+            price += ($0.products.getDiscounted(qty: $0.quantity))
+        }
+        priceLabel.text = price.convertToCurrency()
     }
     
     private func checkButton() {
@@ -222,6 +231,7 @@ extension CartViewController : CartItemInteraction {
             selectedId = selectedId.filter { $0 != id }
         } else { selectedId.append(id) }
         checkButton()
+        updatePrice()
     }
     
     func didLikeTapped(_ id: String) {

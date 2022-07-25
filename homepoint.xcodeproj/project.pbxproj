@@ -1019,12 +1019,12 @@
 			path = ViewCells;
 			sourceTree = "<group>";
 		};
-		622DD3DB288D176E00DC3A2F /* Payment */ = {
+		622DD3DB288D176E00DC3A2F /* Transaction */ = {
 			isa = PBXGroup;
 			children = (
 				622DD3DC288D179000DC3A2F /* TransactionRepository.swift */,
 			);
-			path = Payment;
+			path = Transaction;
 			sourceTree = "<group>";
 		};
 		622DD3DE288D17EE00DC3A2F /* Managers */ = {
@@ -1035,12 +1035,12 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		622DD3E1288D181B00DC3A2F /* Payment */ = {
+		622DD3E1288D181B00DC3A2F /* Transaction */ = {
 			isa = PBXGroup;
 			children = (
 				622DD3E2288D182E00DC3A2F /* TransactionRepositoryInterface.swift */,
 			);
-			path = Payment;
+			path = Transaction;
 			sourceTree = "<group>";
 		};
 		622DD3E4288D190C00DC3A2F /* Transaction */ = {
@@ -2217,7 +2217,7 @@
 				53D0AE8A288E358C009310DF /* Address */,
 				622DD40E288D70EE00DC3A2F /* Shipping */,
 				622DD408288D3A9E00DC3A2F /* Bank */,
-				622DD3E1288D181B00DC3A2F /* Payment */,
+				622DD3E1288D181B00DC3A2F /* Transaction */,
 				623FF16A2879BC4E002EAC7B /* Cart */,
 				628EAFF02875D50D0061A1E9 /* Wishlist */,
 				624B121928605AB80071D088 /* Products */,
@@ -2232,7 +2232,7 @@
 				53D0AE8D288E3D7C009310DF /* Address */,
 				622DD3FB288D25B700DC3A2F /* Shipping */,
 				622DD3FA288D25B300DC3A2F /* Bank */,
-				622DD3DB288D176E00DC3A2F /* Payment */,
+				622DD3DB288D176E00DC3A2F /* Transaction */,
 				623FF16E2879BD7A002EAC7B /* Cart */,
 				628EAFF32875D6750061A1E9 /* Wishlist */,
 				624B121628605A840071D088 /* Products */,

@@ -48,6 +48,7 @@ final class WishlistViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         selectedId = []
+        self.userId = getUserId() ?? ""
         checkButton()
         tableView.reload()
         setNavigationBar(type: .defaultNav)
@@ -88,8 +89,6 @@ extension WishlistViewController {
         
         notLoginView.delegate = self
         notLoginView.isHidden = isUserLoggedIn()
-        
-        self.userId = getUserId() ?? ""
     }
     
     private func setupTableView() {

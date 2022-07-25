@@ -10,6 +10,7 @@ import RxSwift
 
 protocol TransactionUseCaseProvider {
     func createTransaction(params: [String: Any]) -> Observable<(TransactionResponseModel)>
+//    func uploadPaymentProof(imageData: Data) -> Observable<(TransactionResponseModel)>
 }
 
 
@@ -22,7 +23,11 @@ final class TransactionUseCase {
 }
 
 extension TransactionUseCase : TransactionUseCaseProvider {
+//    func uploadPaymentProof(imageData: Data) -> Observable<(TransactionResponseModel)> {
+//        <#code#>
+//    }
+    
     func createTransaction(params: [String: Any]) -> Observable<(TransactionResponseModel)> {
-        return repository.createTransaction(params: params)
+        repository.createTransaction(params: params)
     }
 }

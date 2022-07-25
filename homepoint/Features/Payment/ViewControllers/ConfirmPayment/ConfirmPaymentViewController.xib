@@ -17,6 +17,8 @@
                 <outlet property="accountNumberLabel" destination="o0s-P7-JNO" id="KUn-E6-2al"/>
                 <outlet property="bankNameLabel" destination="d2R-hb-F2d" id="Ffm-JE-OoS"/>
                 <outlet property="confirmButton" destination="S12-gb-QSB" id="2zN-Wp-G6V"/>
+                <outlet property="copyAccButton" destination="U6R-eC-1aV" id="xro-dO-ohf"/>
+                <outlet property="copyTotalButton" destination="KLy-AQ-Ch7" id="HPe-aS-TYY"/>
                 <outlet property="deadlineLabel" destination="Yng-AD-asM" id="tAc-0K-gY1"/>
                 <outlet property="deadlineStackView" destination="tnn-qi-BM4" id="4Ra-2k-vaA"/>
                 <outlet property="mediaImageView" destination="Nvf-iK-ve1" id="3B8-g3-HUS"/>
@@ -132,11 +134,26 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="375 178 5066 1234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o0s-P7-JNO">
-                                                                    <rect key="frame" x="126" y="0.0" width="236" height="17"/>
+                                                                    <rect key="frame" x="126" y="0.0" width="180" height="17"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U6R-eC-1aV">
+                                                                    <rect key="frame" x="318" y="0.0" width="44" height="17"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="44" id="K0N-FX-6Tc"/>
+                                                                        <constraint firstAttribute="height" constant="17" id="zRT-Oc-l3I"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                    <state key="normal" title="Salin">
+                                                                        <color key="titleColor" name="PrimaryBlue"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="copyAccButtonTapped:" destination="-1" eventType="touchUpInside" id="kvl-h1-hfc"/>
+                                                                    </connections>
+                                                                </button>
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="kNi-Pg-XBH">
@@ -172,11 +189,26 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp 840.500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zx3-lE-5yt">
-                                                                    <rect key="frame" x="126" y="0.0" width="236" height="17"/>
+                                                                    <rect key="frame" x="126" y="0.0" width="180" height="17"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLy-AQ-Ch7">
+                                                                    <rect key="frame" x="318" y="0.0" width="44" height="17"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="17" id="Lls-Ab-cpx"/>
+                                                                        <constraint firstAttribute="width" constant="44" id="PVs-n8-SDG"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                    <state key="normal" title="Salin">
+                                                                        <color key="titleColor" name="PrimaryBlue"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="copyTotalButtonTapped:" destination="-1" eventType="touchUpInside" id="aHY-89-XyN"/>
+                                                                    </connections>
+                                                                </button>
                                                             </subviews>
                                                         </stackView>
                                                     </subviews>
@@ -215,13 +247,13 @@
                                             <rect key="frame" x="20" y="77.5" width="374" height="16"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Upload bukti transfer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFR-xe-VZH">
-                                                    <rect key="frame" x="0.0" y="0.0" width="136.5" height="16"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qdD-aB-SER">
-                                                    <rect key="frame" x="296" y="0.0" width="78" height="16"/>
+                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qdD-aB-SER">
+                                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="16"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="16" id="nDd-FZ-mcj"/>
                                                     </constraints>
@@ -284,7 +316,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cRG-vo-xLX">
                                     <rect key="frame" x="0.0" y="587" width="414" height="96"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S12-gb-QSB">
+                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S12-gb-QSB">
                                             <rect key="frame" x="20" y="48" width="374" height="40"/>
                                             <color key="backgroundColor" name="Yellow"/>
                                             <constraints>

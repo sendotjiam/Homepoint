@@ -56,7 +56,7 @@ struct ProductDataModel : Equatable {
     
     init(object: JSON) {
         self.id = object["id"].stringValue
-        self.productSubCategories = ProductSubCategoryModel(object: object["productSubCategories"])
+        self.productSubCategories = ProductSubCategoryModel(object: object["productSubcategories"])
         var images = [ProductImageModel]()
         object["productImages"].arrayValue.forEach {
             images.append(ProductImageModel(object: $0))
@@ -74,6 +74,11 @@ struct ProductDataModel : Equatable {
         self.amountSold = object["amountSold"].intValue
         self.createdAt = object["createdAt"].stringValue
         self.isDeleted = object["isDeleted"].boolValue
+    }
+    
+    func getDiscounted(qty: Int) -> Double {
+        let singleDiscountedPrice = price - (price * (discount / 100))
+        return singleDiscountedPrice * Double(qty)
     }
     
     static func == (lhs: ProductDataModel, rhs: ProductDataModel) -> Bool {

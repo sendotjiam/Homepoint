@@ -11,7 +11,8 @@ struct TransactionRequestModel {
     var addressesId : String
     var bankId : String
     var shippingServicesId : String
-    var totalPrice : Int
+    var storeLocation : String
+    var totalPrice : Double
     var userId : String
     var transactionItems : [TransactionItemRequestModel]
     
@@ -24,6 +25,7 @@ struct TransactionRequestModel {
             "addressesId" : addressesId,
             "bankId" : bankId,
             "shippingServicesId" : shippingServicesId,
+            "storeLocation": storeLocation,
             "totalPrice": totalPrice,
             "userId" : userId,
             "transactionItems" : items
@@ -32,17 +34,15 @@ struct TransactionRequestModel {
 }
 
 struct TransactionItemRequestModel {
-    var discount : Int
-    var id : String
+    var discount : Double
     var isInsurance : Bool
-    var price : Int
+    var price : Double
     var productId : String
     var quantity: Int
     
     func toDictionary() -> [String: Any] {
         [
             "discount" : discount,
-            "id": id,
             "isInsurance": isInsurance,
             "price": price,
             "productId": productId,

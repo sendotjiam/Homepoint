@@ -36,7 +36,9 @@ struct TransactionDataModel {
     var id : String
     var paymentDeadline : String
     var paymentProof : String
-    var shippingServices : String
+    var shippingServices : ShippingResponseModel
+    var bank : BankResponseModel
+    var storeLocation : String
     var status : String
     var totalPrice :Int
     var transactionItems : [TransactionItemDataModel]
@@ -47,7 +49,9 @@ struct TransactionDataModel {
         self.createdAt = object["createdAt"].stringValue
         self.paymentDeadline = object["paymentDeadline"].stringValue
         self.paymentProof = object["paymentProof"].stringValue
-        self.shippingServices = object["shippingServices"].stringValue
+        self.shippingServices = ShippingResponseModel(object: object["shippingServices"])
+        self.bank = BankResponseModel(object: object["bank"])
+        self.storeLocation = object["storeLocation"].stringValue
         self.status = object["status"].stringValue
         self.totalPrice = object["totalPrice"].intValue
         self.addresses = AddressResponseModel(object: object["addresses"])

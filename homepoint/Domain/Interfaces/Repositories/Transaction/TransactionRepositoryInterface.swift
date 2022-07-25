@@ -11,4 +11,5 @@ import RxSwift
 protocol TransactionRepositoryInterface {
     typealias Transaction = Observable<(TransactionResponseModel)>
     func createTransaction(params: [String: Any]) -> Transaction
+//    func uploadPaymentProof(imageData: Data) -> Transaction
 }

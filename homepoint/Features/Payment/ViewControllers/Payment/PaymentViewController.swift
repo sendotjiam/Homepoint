@@ -52,46 +52,41 @@ final class PaymentViewController: UIViewController {
     )
     
     // MARK: - Variables
-    private var couriers = [ShippingResponseModel]()
-    private var banks = [BankResponseModel]()
-    private var totalPrice = 0.0
-    private var subtotalPrice = 0.0 {
+    var userId = ""
+    var carts = [CartDataModel]() {
         didSet {
-            totalSpending = subtotalPrice
-            totalSpendingLabel.text = totalSpending.convertToCurrency()
+            ordersData = carts.map {
+                let product = $0.products
+                let needInsurance = product.productSubCategories.name.contains("Elektronik")
+                return PaymendOrderListCellModel(
+                    productId: product.id,
+                    title: product.name,
+                    quantity: $0.quantity,
+                    price: product.getDiscounted(qty: $0.quantity),
+                    needInsurance: needInsurance,
+                    discount: product.discount
+                )
+            }
         }
     }
+    private var couriers = [ShippingResponseModel]()
+    private var banks = [BankResponseModel]()
+    private var selectedBankId : String? = ""
+    private var selectedAddressId : String? = ""
+    private var selectedShippingId : String? = ""
+    private var totalPrice = 0.0
+    private var subtotalPrice = 0.0 {
+        didSet { updateTotalSpending(subtotalPrice) }
+    }
     private var totalSpending = 0.0 {
-        didSet {
-            totalPrice = totalSpending
-            totalPaymentLabel.text = totalPrice.convertToCurrency()
-        }
+        didSet { updateTotalPrice(totalSpending) }
     }
     private var hasChoosePaymentMethod = false
     private var hasChooseCourier = false
-    // Mock Data
-    let ordersData : [PaymendOrderListCellModel] = [
-        PaymendOrderListCellModel(
-            title: "Penggorengan Elektronik tanpa minyak / Air Fryer 2.5 L / Microwave Ori Penggorengan Elektronik tanpa minyak / Air Fryer 2.5 L / Microwave Ori",
-            quantity: 1,
-            price: 529000,
-            needInsurance: true
-        ),
-        PaymendOrderListCellModel(
-            title: "Non-Stick Cookware Set",
-            quantity: 1,
-            price: 529000,
-            needInsurance: true
-        ),
-        PaymendOrderListCellModel(
-            title: "Gelas Mug Keramik 300ml Hitam Polos",
-            quantity: 4,
-            price: 529000,
-            needInsurance: false
-        )
-    ]
+    private var ordersData = [PaymendOrderListCellModel]()
     private let vm = TransactionViewModel()
     private let bag = DisposeBag()
+    private var storeLocation = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,8 +105,29 @@ final class PaymentViewController: UIViewController {
     }
     
     @IBAction func paymentButtonTapped(_ sender: Any) {
-        let vc = ConfirmPaymentViewController()
-        navigationController?.pushViewController(vc, animated: true)
+        guard let bankId = selectedBankId,
+              let shippingId = selectedShippingId,
+              let addressId = selectedAddressId
+        else { return }
+        let transactionItem = ordersData.map {
+            TransactionItemRequestModel(
+                discount: $0.discount,
+                isInsurance: $0.isInsurance,
+                price: $0.price,
+                productId: $0.productId,
+                quantity: $0.quantity
+            )
+        }
+        let request = TransactionRequestModel(
+            addressesId: addressId,
+            bankId: bankId,
+            shippingServicesId: shippingId,
+            storeLocation: storeLocation,
+            totalPrice: totalPrice,
+            userId: userId,
+            transactionItems: transactionItem
+        )
+        vm.createTransaction(request: request).disposed(by: bag)
     }
     
     @IBAction func selectShopLocationButtonTapped(_ sender: Any) {
@@ -153,6 +169,9 @@ extension PaymentViewController {
         accountInfoStackView.isHidden = true
         paymentMethodImageView.isHidden = true
         
+        userId = getUserId() ?? ""
+        selectedAddressId = "7e88fcbd-0738-40af-8a69-46cba93d438e"
+        
         setupTableView()
         setupCollectionView()
     }
@@ -182,19 +201,36 @@ extension PaymentViewController {
             if $0.needInsurance { height += 17 }
             subtotalPrice += $0.price
         }
-        height += 34
+        height += 8
         subtotalLabel.text = subtotalPrice.convertToCurrency()
         tableViewHeight.constant = height
     }
     
     private func checkAccount(title : String) -> BankResponseModel? {
-        return banks.filter {
+        let bank = banks.filter {
             $0.bankName == title
         }.first
+        selectedBankId = bank?.id
+        return bank
     }
     
     private func checkButton() {
         paymentButton.isEnabled = (hasChooseCourier && hasChoosePaymentMethod) ? true : false
+    }
+    
+    private func updateTotalSpending(_ nominal : Double) {
+        totalSpending = subtotalPrice
+        totalSpendingLabel.text = totalSpending.convertToCurrency()
+    }
+    
+    private func updateTotalPrice(_ nominal : Double) {
+        totalPrice += nominal
+        totalPaymentLabel.text = totalPrice.convertToCurrency()
+    }
+    
+    private func resetTotalPrice() {
+        totalPrice = totalSpending
+        totalPaymentLabel.text = totalPrice.convertToCurrency()
     }
 }
 
@@ -202,7 +238,10 @@ extension PaymentViewController {
 extension PaymentViewController {
     func bindViewModel() {
         vm.successGetBanksAndShipping.subscribe { [weak self] in
-            self?.handleSuccessGetBanksAndShipping($0, $1)
+            self?.handleSuccessGetBanksAndShipping($0.0, $0.1)
+        }.disposed(by: bag)
+        vm.successCreateTransaction.subscribe { [weak self] in
+            self?.handleCreateTransaction($0)
         }.disposed(by: bag)
         vm.error.subscribe { [weak self] in
             self?.handleError($0.element)
@@ -210,6 +249,13 @@ extension PaymentViewController {
         vm.isLoading.subscribe { [weak self] in
             self?.handleLoading($0.element)
         }.disposed(by: bag)
+    }
+    
+    private func handleCreateTransaction(_ data : TransactionDataModel?) {
+        guard let data = data else { return }
+        let vc = ConfirmPaymentViewController()
+        vc.data = data
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     private func handleSuccessGetBanksAndShipping(
@@ -238,9 +284,10 @@ extension PaymentViewController {
 
 // MARK: - Delegate
 extension PaymentViewController : PaymentOrderListDelegate {
-    func didTapInsurance(_ includeInsurance: Bool) {
-        subtotalPrice += (includeInsurance ? 100000 : -100000)
+    func didTapInsurance(id: String, _ includeInsurance: Bool, _ insurancePrice: Double) {
+        subtotalPrice += (includeInsurance ? insurancePrice : -insurancePrice)
         subtotalLabel.text = subtotalPrice.convertToCurrency()
+        ordersData.forEach { if $0.productId == id { $0.isInsurance.toggle() } }
     }
 }
 
@@ -253,6 +300,8 @@ extension PaymentViewController : BottomSheetDelegate {
             selectShopLocationLabel.textColor = .black
             selectShopLocationLabel.tag = 1
             hasChooseCourier = true
+            guard let city = data.title.components(separatedBy: " ").last else { return }
+            storeLocation = city
             checkButton()
         case .paymentMethods:
             let imageUrl = URL(string: data.image)
@@ -338,6 +387,9 @@ extension PaymentViewController :
         selectShopLocationLabel.textColor = ColorCollection.darkTextColor.value
         shopLocationView.backgroundColor = ColorCollection.ligthTextColor.value
         shopLocationView.addBorder(width: 0, color: ColorCollection.primaryColor.value)
+        shippingCostLabel.text = "-"
+        storeLocation = ""
+        resetTotalPrice()
         switch indexPath.row {
         case 0:
             selectShopLocationLabel.text = "Homepoint Cabang Malang"
@@ -346,6 +398,11 @@ extension PaymentViewController :
             shopLocationView.addBorder(width: 1, color: ColorCollection.primaryColor.value)
             selectShopLocationLabel.textColor = .black
             hasChooseCourier = true
+            storeLocation = "Malang"
+            guard let courier = couriers.filter({ $0.courierType == "Regular" }).first else { return }
+            selectedShippingId = courier.id
+            shippingCostLabel.text = Double(courier.shippingCost).convertToCurrency()
+            updateTotalPrice(Double(courier.shippingCost))
         case 1:
             guard let address = addressLabel.text else { return }
             if (address.lowercased().contains("kota malang") || address.lowercased().contains("kota bandung") || address.lowercased().contains("kota jakarta")) {
@@ -359,12 +416,17 @@ extension PaymentViewController :
                 shopLocationView.addBorder(width: 1, color: ColorCollection.primaryColor.value)
                 selectShopLocationLabel.textColor = .black
                 hasChooseCourier = true
+                storeLocation = city
+                guard let courier = couriers.filter({ $0.courierType == "Homepoint" }).first else { return }
+                selectedShippingId = courier.id
             } else { hasChooseCourier = false }
         case 2:
             hasChooseCourier = false
             selectShopLocationButton.isEnabled = true
             shopLocationView.backgroundColor = .white
             shopLocationView.addBorder(width: 1, color: ColorCollection.primaryColor.value)
+            guard let courier = couriers.filter({ $0.courierType == "Ambil ditempat" }).first else { return }
+            selectedShippingId = courier.id
             if selectShopLocationLabel.tag != 1 {
                 selectShopLocationLabel.textColor = ColorCollection.primaryColor.value
             }

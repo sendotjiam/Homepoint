@@ -82,8 +82,7 @@ extension CartItemViewCell {
         nameLabel.text = data.products.name
         qty = data.quantity
         quantityLabel.text = "\(qty)"
-        let price = (data.products.price - (data.products.price * (data.products.discount / 100)))
-        priceLabel.text = (price * Double(data.quantity)).convertToCurrency()
+        priceLabel.text = data.products.getDiscounted(qty: qty).convertToCurrency()
     }
     
     class func nib() -> UINib {

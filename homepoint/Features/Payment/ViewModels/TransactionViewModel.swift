@@ -11,12 +11,11 @@ import RxRelay
 
 protocol TransactionViewModelInput {
     func createTransaction(request: TransactionRequestModel) -> Disposable
-    
     func getBanksAndShipping() -> Disposable
 }
 
 protocol TransactionViewModelOutput {
-    var successCreateTransaction : PublishSubject<[TransactionDataModel]> { get set }
+    var successCreateTransaction : PublishSubject<TransactionDataModel> { get set }
     var successGetBanksAndShipping: PublishSubject<([BankResponseModel], [ShippingResponseModel])> { get set }
     var error : PublishSubject<String> { get set }
     var isLoading : BehaviorRelay<Bool> { get set }
@@ -40,23 +39,25 @@ final class TransactionViewModel :
         self.shippingUseCase = shippingUseCase
     }
     
-    var successCreateTransaction = PublishSubject<[TransactionDataModel]>()
+    // MARK: - Output
+    var successCreateTransaction = PublishSubject<TransactionDataModel>()
     var successGetBanksAndShipping = PublishSubject<([BankResponseModel], [ShippingResponseModel])>()
     var error = PublishSubject<String>()
     var isLoading = BehaviorRelay<Bool>(value: false)
     
+    // MARK: - Input
     func getBanksAndShipping() -> Disposable {
         isLoading.accept(true)
         return Observable.zip(
             bankUseCase.fetchBanks().catchErrorJustReturn([]),
             shippingUseCase.fetchShipping().catchErrorJustReturn([])
-        ).subscribe(onNext: { [weak self] in
-            self?.successGetBanksAndShipping.onNext(($0, $1))
+        ).subscribe { [weak self] in
+            self?.successGetBanksAndShipping.onNext($0)
             self?.isLoading.accept(false)
-        }, onError: { [weak self] in
+        } onError: { [weak self] in
             self?.error.onNext($0.localizedDescription)
             self?.isLoading.accept(false)
-        })
+        }
     }
     
     func createTransaction(request: TransactionRequestModel) -> Disposable {
@@ -64,7 +65,9 @@ final class TransactionViewModel :
         return transactionUseCase
             .createTransaction(params: request.toDictionary())
             .subscribe { [weak self] in
-                self?.successCreateTransaction.onNext($0.data)
+                if $0.success || $0.status == "200 OK" {
+                    self?.successCreateTransaction.onNext($0.data.first!)
+                } else { self?.error.onNext($0.message) }
             } onError: { [weak self] in
                 self?.error.onNext($0.localizedDescription)
             } onCompleted: { [weak self] in

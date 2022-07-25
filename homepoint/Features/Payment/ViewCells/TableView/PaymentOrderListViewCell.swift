@@ -8,21 +8,27 @@
 import UIKit
 
 final class PaymendOrderListCellModel {
+    let productId : String
     let title : String
     let quantity : Int
     let price : Double
     let needInsurance: Bool
+    let discount : Double
+    var isInsurance : Bool
     
-    init(title: String, quantity: Int, price: Double, needInsurance: Bool) {
+    init(productId: String, title: String, quantity: Int, price: Double, needInsurance: Bool, discount : Double, isInsurance: Bool = false) {
+        self.productId = productId
         self.title = title
         self.quantity = quantity
         self.price = price
         self.needInsurance = needInsurance
+        self.discount = discount
+        self.isInsurance = isInsurance
     }
 }
 
 protocol PaymentOrderListDelegate : AnyObject {
-    func didTapInsurance(_ includeInsurance: Bool)
+    func didTapInsurance(id: String, _ includeInsurance: Bool, _ insurancePrice : Double)
 }
 
 final class PaymentOrderListViewCell: UITableViewCell {
@@ -30,17 +36,18 @@ final class PaymentOrderListViewCell: UITableViewCell {
     static let identifier = "PaymentOrderListViewCell"
     
     // MARK: - Outlets
-//    @IBOutlet weak var insuranceStackView: UIStackView!
     @IBOutlet weak var insuranceView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var insuranceCheckbox: Checkbox!
+    @IBOutlet weak var insurancePriceLabel: UILabel!
     
     // MARK: - Variables
     var data : PaymendOrderListCellModel? {
         didSet { configureCell() }
     }
+    var insurancePrice = 0.0
     weak var delegate : PaymentOrderListDelegate?
     
     override func awakeFromNib() {
@@ -66,6 +73,7 @@ extension PaymentOrderListViewCell {
         titleLabel.text = data.title
         priceLabel.text = data.price.convertToCurrency()
         quantityLabel.text = "\(data.quantity)x"
+        insurancePriceLabel.text = (data.price * 1/100).convertToCurrency()
         insuranceView.isHidden = data.needInsurance ? false : true
     }
     
@@ -76,6 +84,8 @@ extension PaymentOrderListViewCell {
 
 extension PaymentOrderListViewCell : CheckboxClickable {
     func didTap(_ isSelected: Bool) {
-        delegate?.didTapInsurance(isSelected)
+        guard let data = data else { return }
+        let insurancePrice = data.price * 1/100
+        delegate?.didTapInsurance(id: data.productId, isSelected, insurancePrice)
     }
 }
