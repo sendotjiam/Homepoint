@@ -10,8 +10,8 @@ import SwiftyJSON
 
 struct UserRequestModel {
     var id: String
-    var addresses: Array<Any>
-    var name, phoneNumber, email, password, roles, joinedSince, birthDate, gender: String
+    var addresses: [AddressDataModel]
+    var name, phoneNumber, email, joinedSince, birthDate, gender: String
     var isActive: Bool
     
     func toDictionary() -> [String: Any] {
@@ -21,8 +21,6 @@ struct UserRequestModel {
             "name": name,
             "phoneNumber": phoneNumber,
             "email": email,
-            "password": password,
-            "roles": roles,
             "joinedSince": joinedSince,
             "birthdate": birthDate,
             "gender": gender,
