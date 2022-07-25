@@ -5,8 +5,9 @@
 //  Created by Sendo Tjiam on 19/07/22.
 //
 
-import Alamofire
 import UIKit
+import RxSwift
+import NVActivityIndicatorView
 
 final class ConfirmPaymentViewController: UIViewController {
 
@@ -27,13 +28,30 @@ final class ConfirmPaymentViewController: UIViewController {
     
     let imagePicker = UIImagePickerController()
     
+    private lazy var loaderView : UIView = {
+        let view = UIView()
+        view.roundedCorner(with: 8)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        return view
+    }()
+    private let loader = NVActivityIndicatorView(
+        frame: .zero,
+        type: .circleStrokeSpin,
+        color: ColorCollection.primaryColor.value,
+        padding: 0
+    )
+    
     // MARK: - Variables
     var data: TransactionDataModel?
     private var hasUploaded = false
+    private let vm = ConfirmTransactionViewModel()
+    private let bag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        bindViewModel()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -135,84 +153,50 @@ extension ConfirmPaymentViewController {
     }
 }
 
+// MARK: - Binding
+extension ConfirmPaymentViewController {
+    private func bindViewModel() {
+        vm.successUploadProof.subscribe { [weak self] in
+            self?.handleSuccessUploadProof($0)
+        }.disposed(by: bag)
+        vm.error.subscribe { [weak self] in
+            self?.handleError($0)
+        }.disposed(by: bag)
+        vm.isLoading.subscribe { [weak self] in
+            self?.handleLoading($0)
+        }.disposed(by: bag)
+    }
+    
+    private func handleSuccessUploadProof(_ data : TransactionDataModel?) {
+        let alert = createSimpleAlert("Sukses", "Sukses mengirimkan bukti pembayaran, mohon menunggu dalam waktu 1x24 jam", "OK") { action in
+            self.navigationController?.popToRootViewController(animated: true)
+        }
+        present(alert, animated: true)
+    }
+    
+    private func handleError(_ error : String?) {
+        self.handleError(msg: error)
+    }
+    
+    private func handleLoading(_ isLoading: Bool?) {
+        guard let loading = isLoading
+        else { return }
+        DispatchQueue.main.async {
+            self.showLoader(self.loaderView, self.loader, loading)
+        }
+    }
+}
+
 // MARK: - Confirmation Alert
 extension ConfirmPaymentViewController : ConfirmationAlertDelegate {
     func didTapConfirm() {
-        guard let data = data else { return }
-//        let urlString = Constants.BaseUrl + "api/v1/transaction/payment-confirmation/\(data.id)"
-        guard let url = URL(string: Constants.BaseUrl + "api/v1/transaction/payment-confirmation/\(data.id)") else { return }
-//        var urlRequest = URLRequest(url: url!, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 10.0 * 1000)
-        var urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 10.0 * 1000)
-        urlRequest.httpMethod = "PUT"
-        urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
-//        let headers : HTTPHeaders = ["Content-Type" : "multipart/form-data"]
-        urlRequest.httpMethod = "PUT"
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "MM-dd-yyyy-hh-mm-ss"
-//        let dateString = dateFormatter.string(from: Date())
+        guard let id = data?.id else { return }
         if let data = mediaImageView.image?.jpegData(compressionQuality: 0.5) {
-//            AF.upload(multipartFormData: { multipartFormData in
-//                multipartFormData.append(Data("Coming from iPhone Sim".utf8), withName: "postBody")
-//                multipartFormData.append(data, withName: "image", fileName: "uploads"+dateString+".png", mimeType: "image/jpg")
-//            },to: urlString,
-//                      method: .put,
-//                      headers: headers
-//            ) .uploadProgress(queue: .main, closure: { progress in
-//                print("Upload Progress: \(progress.fractionCompleted)")
-//            }).responseJSON(completionHandler: { data in
-//                print("upload finished: \(data)")
-//            }).response { (response) in
-//                switch response.result {
-//                case .success(let resut):
-//                    print("upload success result: \(String(describing: resut))")
-//                case .failure(let err):
-//                    print("upload err: \(err)")
-//                }
-//            }
-            
-            AF.upload(multipartFormData: { multiPart in
-                multiPart.append(data, withName: "file", fileName: "file.png", mimeType: "image/png")
-            }, with: urlRequest)
-                .uploadProgress(queue: .main, closure: { progress in
-                    //Current upload progress of file
-                    print("Upload Progress: \(progress.fractionCompleted)")
-                })
-                .responseJSON(completionHandler: { data in
-                    switch data.result {
-                    case .success(_):
-                        do {
-                            let dictionary = try JSONSerialization.jsonObject(with: data.data!, options: .fragmentsAllowed) as! NSDictionary
-                            print("Success!")
-                            print(dictionary)
-                        }
-                        catch {
-                            print("catch error")
-                        }
-                        break
-                    case .failure(_):
-                        print("failure")
-                        break
-                    }
-                })
-
-                      
-//                      to: url as! URLConvertible, method: .put, headers: headers).responseJSON { resp in
-//                print("resp is \(resp)")
-//            }.resume()
-//                      with: urlRequest).uploadProgress(queue: .main, closure: { progress in
-//                print("Upload Progress: \(progress.fractionCompleted)")
-//            }).response { data in
-//                print(data.data, "DAT")
-//                switch data.result {
-//                case .success(_):
-//                    print("S")
-//                case .failure(let err):
-//                    print(err)
-//                }
-//                print(data.value, "VAL")
-//                print(data.response, "RES")
-//                print(data.error, "ERR")
-//            }
+            if data.count >= 3000000 {
+                let alert = createSimpleAlert("Gagal", "File melebihi ukuran upload", "Coba lagi")
+                return
+            }
+            vm.uploadPaymentProof(id: id, imageData: data).disposed(by: bag)
         }
     }
 }
