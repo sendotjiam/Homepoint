@@ -193,7 +193,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         case .policy:
             let cell: RightArrowFieldViewCell = tableView.dequeueReusableCell(withIdentifier: "RightArrowFieldViewCell", for: indexPath) as! RightArrowFieldViewCell
-            cell.title = "Kebajikan Layanan & Privasi"
+            cell.title = "Kebijakan Layanan & Privasi"
             cell.selectionStyle = .none
             return cell
         case .help:
