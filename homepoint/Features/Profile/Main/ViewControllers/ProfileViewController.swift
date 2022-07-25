@@ -218,10 +218,15 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch sections[indexPath.section] {
         case .logout:
-            ProfileViewController.userData = nil
-            UserDefaults.standard.set(nil, forKey: "user_id")
-            UserDefaults.standard.set(nil, forKey: "user_token")
-            notLoginView.isHidden = isUserLoggedIn()
+            let alert = self.createConfirmationAlert("Konfirmasi", "Yakin ingin keluar dari Hompoint?") { [weak self] _ in
+                guard let self = self else { return }
+                UserDefaults.standard.set(nil, forKey: "user_id")
+                UserDefaults.standard.set(nil, forKey: "user_token")
+                Self.userData = nil
+                self.notLoginView.isHidden = self.isUserLoggedIn()
+                self.postNotificationCenter(label: "reload_view")
+            }
+            self.present(alert, animated: true)
         default:
             break
         }
@@ -230,8 +235,6 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ProfileViewController : ChangeProfileFieldDelegate {
     func didTap() {
-//        guard let userData = userData else { return }
-//        let vc = ChangeProfileViewController(userData)
         let vc = ChangeProfileViewController()
         DispatchQueue.main.async { [weak self] in
             self?.navigationController?.pushViewController(
