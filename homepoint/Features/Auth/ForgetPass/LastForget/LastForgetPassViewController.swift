@@ -9,6 +9,7 @@ import UIKit
 
 final class LastForgetPassViewController: UIViewController {
     @IBOutlet weak var resendLabel: UILabel!
+    @IBOutlet weak var loginBtn: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +28,12 @@ final class LastForgetPassViewController: UIViewController {
 
 extension LastForgetPassViewController {
     private func setupUI() {
+        loginBtn.roundedCorner(with: 8)
         setupResendLabel()
     }
 
     @objc func didTapResend(recognizer: UITapGestureRecognizer){
         if recognizer.didTapAttributedTextInLabel(label: resendLabel, inRange: NSRange(location: 22, length: 11)) {
-            // resend reset password
         }
 }
 

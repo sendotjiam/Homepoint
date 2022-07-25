@@ -91,6 +91,7 @@ final class ForgetPassViewController: UIViewController {
 
 extension ForgetPassViewController {
     private func setupUI() {
+        requestBtn.roundedCorner(with: 8)
         setupTextField()
 
         emailError.isHidden = true

@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LastForgetPassViewController" customModule="homepoint" customModuleProvider="target">
             <connections>
+                <outlet property="loginBtn" destination="yTq-sX-RjJ" id="i60-Tn-J4Q"/>
                 <outlet property="resendLabel" destination="0ep-fL-Fys" id="d2O-eA-9bG"/>
                 <outlet property="view" destination="kcu-df-OqL" id="eWK-c2-JPY"/>
             </connections>
@@ -96,33 +98,31 @@
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yTq-sX-RjJ">
                                             <rect key="frame" x="20" y="84.5" width="374" height="38"/>
+                                            <color key="backgroundColor" name="Yellow"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="38" id="aUR-86-MV3"/>
                                             </constraints>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="gray" title="Masuk" cornerStyle="fixed">
-                                                <backgroundConfiguration key="background" cornerRadius="8"/>
-                                                <fontDescription key="titleFontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                                <color key="baseForegroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="baseBackgroundColor" red="0.98431372549999996" green="0.77647058820000003" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </buttonConfiguration>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                            <color key="tintColor" name="DarkBlue"/>
+                                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                            <state key="normal" title="Masuk"/>
                                             <connections>
                                                 <action selector="didTapLogin:" destination="-1" eventType="touchUpInside" id="G5q-qz-zlS"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ep-fL-Fys">
-                                            <rect key="frame" x="20" y="146.5" width="374" height="59.5"/>
+                                            <rect key="frame" x="20" y="122.5" width="374" height="83.5"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="Belum mendapat email? ">
                                                     <attributes>
-                                                        <font key="NSFont" size="14" name=".SFNS-Regular"/>
+                                                        <font key="NSFont" metaFont="system" size="14"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
                                                 <fragment content="Kirim ulang">
                                                     <attributes>
                                                         <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <font key="NSFont" size="14" name=".SFNS-Regular"/>
+                                                        <font key="NSFont" metaFont="system" size="14"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
@@ -134,7 +134,7 @@
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="0ep-fL-Fys" secondAttribute="trailing" constant="20" id="1Wj-Bn-FUt"/>
                                         <constraint firstItem="yTq-sX-RjJ" firstAttribute="top" secondItem="bNs-dO-EFY" secondAttribute="bottom" constant="20" id="F15-HX-qdb"/>
-                                        <constraint firstItem="0ep-fL-Fys" firstAttribute="top" secondItem="yTq-sX-RjJ" secondAttribute="bottom" constant="24" id="GUj-54-ijy"/>
+                                        <constraint firstItem="0ep-fL-Fys" firstAttribute="top" secondItem="yTq-sX-RjJ" secondAttribute="bottom" id="GUj-54-ijy"/>
                                         <constraint firstAttribute="height" constant="230" id="GoQ-WA-sDh"/>
                                         <constraint firstItem="0ep-fL-Fys" firstAttribute="leading" secondItem="T77-rO-7e5" secondAttribute="leading" constant="20" id="IGj-qh-emm"/>
                                         <constraint firstAttribute="trailing" secondItem="bNs-dO-EFY" secondAttribute="trailing" constant="20" id="JaT-em-Ut8"/>
@@ -182,6 +182,12 @@
     <resources>
         <image name="bg_auth" width="500" height="285"/>
         <image name="ic_homepoint.logo" width="185" height="50.5"/>
+        <namedColor name="DarkBlue">
+            <color red="0.13300000131130219" green="0.21199999749660492" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Yellow">
+            <color red="0.98400002717971802" green="0.77600002288818359" blue="0.27500000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

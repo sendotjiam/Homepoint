@@ -181,7 +181,7 @@ extension LoginViewController {
     
     private func handleSuccessLogin(_ response: LoginResponseModel) {
         self.postNotificationCenter(label: "reload_view")
-        navigationController?.popViewController(animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     private func togglePassword() {
