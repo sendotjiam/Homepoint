@@ -42,7 +42,7 @@ struct TransactionDataModel {
     var status : String
     var totalPrice :Int
     var transactionItems : [TransactionItemDataModel]
-    var users: UsersDataModel
+    var users: UserDataModel
     
     init(object: JSON) {
         self.id = object["id"].stringValue
@@ -55,7 +55,7 @@ struct TransactionDataModel {
         self.status = object["status"].stringValue
         self.totalPrice = object["totalPrice"].intValue
         self.addresses = AddressResponseModel(object: object["addresses"])
-        self.users = UsersDataModel(object: object["users"])
+        self.users = UserDataModel(object: object["users"])
         var transactionItems = [TransactionItemDataModel]()
         object["transactionItems"].arrayValue.forEach {
             transactionItems.append(TransactionItemDataModel(object: $0))

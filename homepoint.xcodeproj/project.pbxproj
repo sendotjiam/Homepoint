@@ -106,7 +106,6 @@
 		622DD3E3288D182E00DC3A2F /* TransactionRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622DD3E2288D182E00DC3A2F /* TransactionRepositoryInterface.swift */; };
 		622DD3E7288D198900DC3A2F /* TransactionResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622DD3E6288D198900DC3A2F /* TransactionResponseModel.swift */; };
 		622DD3E9288D19C000DC3A2F /* TransactionRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622DD3E8288D19C000DC3A2F /* TransactionRequestModel.swift */; };
-		622DD3EC288D1BEB00DC3A2F /* AddressResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622DD3EB288D1BEB00DC3A2F /* AddressResponseModel.swift */; };
 		622DD3EF288D1D1A00DC3A2F /* BankResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622DD3EE288D1D1A00DC3A2F /* BankResponseModel.swift */; };
 		622DD3F6288D246C00DC3A2F /* UICollectionView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622DD3F5288D246C00DC3A2F /* UICollectionView+Ext.swift */; };
 		622DD3F9288D249800DC3A2F /* EmptySearchHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622DD3F8288D249800DC3A2F /* EmptySearchHeaderReusableView.swift */; };
@@ -1062,14 +1061,6 @@
 			path = Transaction;
 			sourceTree = "<group>";
 		};
-		622DD3EA288D1BDD00DC3A2F /* Address */ = {
-			isa = PBXGroup;
-			children = (
-				622DD3EB288D1BEB00DC3A2F /* AddressResponseModel.swift */,
-			);
-			path = Address;
-			sourceTree = "<group>";
-		};
 		622DD3ED288D1D0E00DC3A2F /* Bank */ = {
 			isa = PBXGroup;
 			children = (
@@ -1625,6 +1616,7 @@
 		6280273C284E3C61005E5442 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
+				622DD3EB288D1BEB00DC3A2F /* AddressResponseModel.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -2757,7 +2749,6 @@
 				623FF17E287ACA4B002EAC7B /* TransactionViewModel.swift in Sources */,
 				629B41DA285345760051EB23 /* ReviewListViewCell.swift in Sources */,
 				53B76A61287C762800A56095 /* ChangeProfileViewController.swift in Sources */,
-				622DD3EC288D1BEB00DC3A2F /* AddressResponseModel.swift in Sources */,
 				53B76A5D287C762800A56095 /* DropdownViewCell.swift in Sources */,
 				62A33F04284B5E0500D030F8 /* CustomNavigationBar.swift in Sources */,
 				6275AF972858833000D3857D /* RegisterModel.swift in Sources */,
