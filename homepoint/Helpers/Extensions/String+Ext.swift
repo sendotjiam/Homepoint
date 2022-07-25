@@ -29,7 +29,7 @@ extension String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm:ss.SSSZ"
         let t = dateFormatter.date(from: time)
-        dateFormatter.dateFormat = "HH:mm:ss"
+        dateFormatter.dateFormat = "HH:mm"
         let resultString = dateFormatter.string(from: t!)
         return resultString + " WIB"
     }

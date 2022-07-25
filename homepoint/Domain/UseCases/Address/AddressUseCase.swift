@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol AddressUseCaseProvider {
     typealias AddressCompletion = ((AddressResponseModel?, Error?) -> Void)
@@ -14,6 +15,8 @@ protocol AddressUseCaseProvider {
         request: [String: Any],
         completion: @escaping AddressCompletion
     )
+    
+    func getAddress(by id: String) -> Observable<(AddressDataModel)>
         
 }
 
@@ -26,6 +29,10 @@ final class AddressUseCase {
 }
 
 extension AddressUseCase : AddressUseCaseProvider {
+    func getAddress(by id: String) -> Observable<(AddressDataModel)> {
+        repository.getAddress(by: id)
+    }
+    
     func AddAddress(request: [String : Any], completion: @escaping AddressCompletion) {
         repository.addAddress(params: request) { result, error in
             completion(result, error)

@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftyJSON
-import Alamofire
+import RxSwift
 
 final class AddressRepository {
     private let urlString = "api/v1/address/"
@@ -20,6 +20,28 @@ final class AddressRepository {
 }
 
 extension AddressRepository : AddressRepositoryInterface {
+    func getAddress(by id: String) -> Address {
+        Observable.create { observer in
+            self.apiClient.request(
+                self.urlString + id,
+                .get,
+                nil,
+                nil
+            ) { response, data, error in
+                let parsed = RepositoryManager.shared.parse(data: data)
+                if let json = parsed.json {
+                    let model = AddressDataModel(object: json)
+                    observer.onNext(model)
+                    observer.onCompleted()
+                } else {
+                    observer.onError(parsed.error!)
+                    observer.onCompleted()
+                }
+            }
+            return Disposables.create()
+        }
+    }
+    
     func addAddress(params: [String : Any], completion: @escaping AddressCompletion) {
         apiClient.request(
             urlString,

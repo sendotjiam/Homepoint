@@ -15,10 +15,12 @@
                 <outlet property="accountInfoStackView" destination="90z-eB-jGb" id="taN-2h-xrw"/>
                 <outlet property="accountNameLabel" destination="ly1-yk-pkk" id="YHs-eu-HTr"/>
                 <outlet property="accountNumberLabel" destination="Pjv-bP-cdy" id="JIF-qd-Mkk"/>
-                <outlet property="addressLabel" destination="tfU-0x-dQZ" id="Bd6-mY-Roq"/>
+                <outlet property="addressTypeLabel" destination="0cZ-7U-mE3" id="KQm-CH-Jza"/>
+                <outlet property="addressUsernameLabel" destination="Vav-kd-tyM" id="lmf-Jh-D6c"/>
                 <outlet property="addressView" destination="rrT-ko-7Bb" id="4K6-gF-efK"/>
                 <outlet property="collectionView" destination="SQg-Aa-KyT" id="Uo7-k8-oxW"/>
                 <outlet property="discountLabel" destination="wSQ-2h-RTu" id="TX5-xy-l74"/>
+                <outlet property="fullAddressLabel" destination="tfU-0x-dQZ" id="Bd6-mY-Roq"/>
                 <outlet property="overlayView" destination="EzQ-0Q-RPh" id="Fma-5X-aIX"/>
                 <outlet property="paymentButton" destination="lZ6-MQ-h7K" id="KMQ-6w-LDT"/>
                 <outlet property="paymentMethodButton" destination="ELE-dY-Iyd" id="nqL-a9-YoO"/>

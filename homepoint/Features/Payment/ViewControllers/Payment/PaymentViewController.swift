@@ -14,7 +14,9 @@ final class PaymentViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var addressView: UIView!
-    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var fullAddressLabel: UILabel!
+    @IBOutlet weak var addressUsernameLabel: UILabel!
+    @IBOutlet weak var addressTypeLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -71,6 +73,9 @@ final class PaymentViewController: UIViewController {
     }
     private var couriers = [ShippingResponseModel]()
     private var banks = [BankResponseModel]()
+    private var address : AddressDataModel? {
+        didSet { setupAddressView() }
+    }
     private var selectedBankId : String? = ""
     private var selectedAddressId : String? = ""
     private var selectedShippingId : String? = ""
@@ -92,7 +97,7 @@ final class PaymentViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         bindViewModel()
-        vm.getBanksAndShipping().disposed(by: bag)
+        vm.loadTransactionView().disposed(by: bag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,7 +106,8 @@ final class PaymentViewController: UIViewController {
     }
 
     @IBAction func changeAddressButtonTapped(_ sender: Any) {
-        
+        let vc = AddressViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func paymentButtonTapped(_ sender: Any) {
@@ -170,7 +176,6 @@ extension PaymentViewController {
         paymentMethodImageView.isHidden = true
         
         userId = getUserId() ?? ""
-        selectedAddressId = "7e88fcbd-0738-40af-8a69-46cba93d438e"
         
         setupTableView()
         setupCollectionView()
@@ -206,6 +211,14 @@ extension PaymentViewController {
         tableViewHeight.constant = height
     }
     
+    private func setupAddressView() {
+        guard let address = address else { return }
+        selectedAddressId = address.id
+        addressTypeLabel.text = address.label
+        addressUsernameLabel.text = "\(address.recipientName) (\(address.phoneNumber))"
+        fullAddressLabel.text = "\(address.fullAddress), \(address.village), \(address.city), \(address.province)"
+    }
+    
     private func checkAccount(title : String) -> BankResponseModel? {
         let bank = banks.filter {
             $0.bankName == title
@@ -237,8 +250,8 @@ extension PaymentViewController {
 // MARK: - Binding
 extension PaymentViewController {
     func bindViewModel() {
-        vm.successGetBanksAndShipping.subscribe { [weak self] in
-            self?.handleSuccessGetBanksAndShipping($0.0, $0.1)
+        vm.successLoadTransactionView.subscribe { [weak self] in
+            self?.handleSuccessLoadTransactionView($0.0, $0.1, $0.2)
         }.disposed(by: bag)
         vm.successCreateTransaction.subscribe { [weak self] in
             self?.handleCreateTransaction($0)
@@ -258,12 +271,14 @@ extension PaymentViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    private func handleSuccessGetBanksAndShipping(
+    private func handleSuccessLoadTransactionView(
         _ banks : [BankResponseModel],
-        _ shipping : [ShippingResponseModel]
+        _ shipping : [ShippingResponseModel],
+        _ address : AddressDataModel
     ) {
         self.couriers = shipping
         self.banks = banks
+        self.address = address
         tableView.reload()
         collectionView.reload()
     }
@@ -404,11 +419,11 @@ extension PaymentViewController :
             shippingCostLabel.text = Double(courier.shippingCost).convertToCurrency()
             updateTotalPrice(Double(courier.shippingCost))
         case 1:
-            guard let address = addressLabel.text else { return }
-            if (address.lowercased().contains("kota malang") || address.lowercased().contains("kota bandung") || address.lowercased().contains("kota jakarta")) {
+            guard let address = address else { return }
+            if (address.city.lowercased() == "malang" || address.city.lowercased() == "surabaya" || address.city.lowercased() == "jakarta") {
                 var city = ""
-                if address.lowercased().contains("kota malang") { city = "Malang" }
-                else if address.lowercased().contains("kota bandung") { city = "Bandung" }
+                if address.city.lowercased() == "malang" { city = "Malang" }
+                else if address.city.lowercased() == "surabaya" { city = "Surabaya" }
                 else { city = "Jakarta" }
                 selectShopLocationLabel.text = "Homepoint Cabang \(city)"
                 shopLocationLabel.isHidden = false
