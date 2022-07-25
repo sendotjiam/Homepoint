@@ -39,7 +39,7 @@ final class ForgetViewModel : ForgetViewModelInput, ForgetViewModelOutput {
             guard let self = self else { return }
             self.isLoading.accept(false)
             if let result = result {
-                if result.success && result.status == "200" {
+                if result.success || result.status == "200 OK" {
                     self.successForget.onNext(result)
                 } else {
                     self.error.onNext(result.message)
