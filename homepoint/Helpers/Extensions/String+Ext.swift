@@ -8,6 +8,32 @@
 import UIKit
 
 extension String {
+    
+    func getDateTimeFromTimestamp() -> String {
+        let strings = self.split(separator: "T")
+        let date = String(strings[0])
+        let time = String(strings[1])
+        return convertDate(date) + " | " + convertTime(time)
+    }
+    
+    private func convertDate(_ date : String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let d = dateFormatter.date(from: date)
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        let resultString = dateFormatter.string(from: d!)
+        return resultString
+    }
+    
+    private func convertTime(_ time: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm:ss.SSSZ"
+        let t = dateFormatter.date(from: time)
+        dateFormatter.dateFormat = "HH:mm:ss"
+        let resultString = dateFormatter.string(from: t!)
+        return resultString + " WIB"
+    }
+    
     func htmlAttributedString() -> NSAttributedString? {
         guard let data = self.data(using: String.Encoding.utf16, allowLossyConversion: false) else { return nil }
         guard let html = try? NSMutableAttributedString(

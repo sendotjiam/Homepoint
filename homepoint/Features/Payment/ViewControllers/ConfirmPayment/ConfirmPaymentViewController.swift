@@ -99,7 +99,7 @@ extension ConfirmPaymentViewController {
         copyTotalButton.addBorder(width: 1, color: ColorCollection.yellowColor.value)
         
         guard let data = data else { return }
-        deadlineLabel.text = data.paymentDeadline
+        deadlineLabel.text = data.paymentDeadline.getDateTimeFromTimestamp()
         bankNameLabel.text = data.bank.bankName
         accountNumberLabel.text = data.bank.accountNumber
         accountNameLabel.text = data.bank.holderName
