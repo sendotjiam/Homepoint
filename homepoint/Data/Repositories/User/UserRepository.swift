@@ -70,7 +70,6 @@ extension UserRepository : UserRepositoryInterface {
     }
     
     func getUser (by id: String, completion: @escaping UserCompletion) {
-//        if(!(id == ))
         apiClient.request(
             urlString + id,
             .get,

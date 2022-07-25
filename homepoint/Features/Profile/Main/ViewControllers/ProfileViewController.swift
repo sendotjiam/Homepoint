@@ -43,9 +43,7 @@ final class ProfileViewController: UIViewController {
     
     init() {
         super.init(nibName: Constants.ProfileVC, bundle: nil)
-        if(isUserLoggedIn()) {
-            callApi()
-        }
+        callApi()
     }
     
     required init?(coder: NSCoder) {
@@ -79,20 +77,20 @@ final class ProfileViewController: UIViewController {
         profileTableView.register(ChangeProfileFieldViewCell.nib(), forCellReuseIdentifier: "ChangeProfileFieldViewCell")
         profileTableView.register(RightArrowFieldViewCell.nib(), forCellReuseIdentifier: "RightArrowFieldViewCell")
         profileTableView.register(ImageFieldViewCell.nib(), forCellReuseIdentifier: "ImageFieldViewCell")
-        
-        notLoginView.isHidden = isUserLoggedIn()
-        userId = getUserId() ?? ""
     }
     
     @objc func reloadView() {
-        notLoginView.isHidden = true
+        notLoginView.isHidden = isUserLoggedIn()
         // call API
         callApi()
     }
     
     func callApi() {
-        vm.getUserData(userId: userId)
-        bindViewModel()
+        if(isUserLoggedIn()) {
+            userId = getUserId() ?? ""
+            vm.getUserData(userId: userId)
+            bindViewModel()
+        }
     }
 }
 
