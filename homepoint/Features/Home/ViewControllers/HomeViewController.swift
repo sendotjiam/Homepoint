@@ -32,6 +32,7 @@ final class HomeViewController: UIViewController {
     private var subCategories = [ProductSubCategoryModel]()
     private var latestProducts = [ProductDataModel]()
     private var discountProducts = [ProductDataModel]()
+    private let refreshControl = UIRefreshControl()
     
     // MARK: - Life Cycle
     init() {
@@ -98,6 +99,15 @@ extension HomeViewController {
                                           height: 1)
         floatingView.layer.shadowRadius = 5
         floatingView.layer.shadowOpacity = 0.5
+        
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        homeTableView.addSubview(refreshControl)
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        refreshControl.beginRefreshing()
+        vm.getProducts()
+        view.showShimmer()
     }
     
     @objc private func didTapFloatingButton() {
@@ -164,8 +174,9 @@ extension HomeViewController {
     private func handleLoading(_ isLoading: Bool?) {
         guard let isLoading = isLoading else { return }
         if !isLoading {
-            homeTableView.reload()
             DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+                self.homeTableView.reload()
                 self.view.stopShimmer()
             }
         }
