@@ -31,7 +31,7 @@ final class ProfileViewController: UIViewController {
     )
     
     // MARK: - Variables
-    var userData: UserDataModel?
+    static var userData: UserDataModel?
     
     private enum section {
         case changeProfile, address, changePassword, policy, help, chatAdmin, logout
@@ -118,7 +118,7 @@ extension ProfileViewController {
     private func handleSuccessGetUserData(_ user : UserDataModel?) {
         guard let data = user else { return }
         
-        self.userData = data
+        ProfileViewController.userData = data
         profileTableView.reload()
     }
     
@@ -169,8 +169,8 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         switch sections[indexPath.section] {
         case .changeProfile:
             let cell: ChangeProfileFieldViewCell = tableView.dequeueReusableCell(withIdentifier: "ChangeProfileFieldViewCell", for: indexPath) as! ChangeProfileFieldViewCell
-            cell.name = userData?.name
-            cell.number = userData?.phoneNumber
+            cell.name = ProfileViewController.userData?.name
+            cell.number = ProfileViewController.userData?.phoneNumber
             cell.selectionStyle = .none
             cell.delegate = self
             return cell
@@ -218,6 +218,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch sections[indexPath.section] {
         case .logout:
+            ProfileViewController.userData = nil
             UserDefaults.standard.set(nil, forKey: "user_id")
             UserDefaults.standard.set(nil, forKey: "user_token")
             notLoginView.isHidden = isUserLoggedIn()
@@ -229,8 +230,9 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ProfileViewController : ChangeProfileFieldDelegate {
     func didTap() {
-        guard let userData = userData else { return }
-        let vc = ChangeProfileViewController(userData)
+//        guard let userData = userData else { return }
+//        let vc = ChangeProfileViewController(userData)
+        let vc = ChangeProfileViewController()
         DispatchQueue.main.async { [weak self] in
             self?.navigationController?.pushViewController(
                 vc,

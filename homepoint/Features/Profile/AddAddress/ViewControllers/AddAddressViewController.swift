@@ -61,6 +61,11 @@ final class AddAddressViewController: UIViewController {
         setupView()
     }
     
+    @IBAction func didTapSubmit(_ sender: Any) {
+    }
+}
+
+extension AddAddressViewController {
     func setupView() {
         let provinsiTap = UITapGestureRecognizer(target: self, action: #selector(provinsiTapped))
         provinsiView.isUserInteractionEnabled = true

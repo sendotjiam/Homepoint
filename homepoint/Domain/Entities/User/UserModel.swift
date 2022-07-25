@@ -103,22 +103,3 @@ struct UserDataModel : Equatable {
         (lhs.isActive == rhs.isActive)
     }
 }
-
-struct AddressDataModel : Equatable {
-    var id, label, province, city, districts, village, zipCode, fullAddress, recipientName, phoneNumber: String
-    var isActive: Bool
-    
-    init(object : JSON) {
-        self.id = object["id"].stringValue
-        self.label = object["label"].stringValue
-        self.province = object["province"].stringValue
-        self.city = object["city"].stringValue
-        self.districts = object["districts"].stringValue
-        self.village = object["village"].stringValue
-        self.zipCode = object["zipCode"].stringValue
-        self.fullAddress = object["fullAddress"].stringValue
-        self.recipientName = object["recipientName"].stringValue
-        self.phoneNumber = object["phoneNumber"].stringValue
-        self.isActive = object["isActive"].boolValue
-    }
-}

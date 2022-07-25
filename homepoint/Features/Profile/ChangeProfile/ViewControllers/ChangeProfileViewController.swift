@@ -34,12 +34,11 @@ final class ChangeProfileViewController: UIViewController {
     
     var gender: String? = nil
     var borderColor = UIColor(red: 0.192, green: 0.376, blue: 0.576, alpha: 1).cgColor
-    var userData: UserDataModel?
+    var userData: UserDataModel? = ProfileViewController.userData
     private let vm = ProfileViewModel()
     private let bag = DisposeBag()
     
-    init(_ userData : UserDataModel) {
-        self.userData = userData
+    init() {
         super.init(nibName: Constants.ChangeProfileVC, bundle: nil)
         self.hidesBottomBarWhenPushed = true
     }

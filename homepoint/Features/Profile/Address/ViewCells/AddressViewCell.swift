@@ -13,7 +13,7 @@ final class AddressViewCell: UITableViewCell {
     @IBOutlet weak var mainAddressLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     
-    var item: Address? {
+    var item: AddressDataModel? {
         didSet {
             if let item = item {
                 setupCard(address: item)
@@ -26,14 +26,14 @@ final class AddressViewCell: UITableViewCell {
         
     }
     
-    func setupCard(address: Address) {
-        nameLabel.text = address.title
-        addressLabel.text = address.detail
+    func setupCard(address: AddressDataModel) {
+        nameLabel.text = address.label
+        addressLabel.text = "\(address.fullAddress), \(address.village), \(address.districts), \(address.city), \(address.province)"
         
         cardView.layer.cornerRadius = 5
         cardView.layer.borderWidth = 1
         
-        if address.isMain {
+        if address.isActive {
             mainAddressLabel.isHidden = false
             cardView.layer.backgroundColor = UIColor(red: 0.954, green: 0.982, blue: 1, alpha: 1).cgColor
             cardView.layer.borderColor = UIColor(red: 0.412, green: 0.6, blue: 0.722, alpha: 1).cgColor

@@ -7,11 +7,11 @@
 
 import UIKit
 
-struct Address {
-    var title: String
-    var detail: String
-    var isMain: Bool
-}
+//struct Address {
+//    var title: String
+//    var detail: String
+//    var isMain: Bool
+//}
 
 final class AddressViewController: UIViewController {
     @IBOutlet weak var noAddressView: UIStackView!
@@ -20,10 +20,12 @@ final class AddressViewController: UIViewController {
     
 //    var dataAddress: [Address]? = nil
     
-    var addressData: [Address]? = [
-        Address(title: "Rumah", detail: "Jl. Jend. Sudriman no. 72, Jakarta Pusat Cisauk, Tanggerang Selatan, Banten", isMain: true),
-        Address(title: "Alamat Kos", detail: "Jl. Jend. Sudriman no. 72, Jakarta Pusat Cisauk, Tanggerang Selatan, Banten", isMain: false)
-    ]
+//    var addressData: [Address]? = [
+//        Address(title: "Rumah", detail: "Jl. Jend. Sudriman no. 72, Jakarta Pusat Cisauk, Tanggerang Selatan, Banten", isMain: true),
+//        Address(title: "Alamat Kos", detail: "Jl. Jend. Sudriman no. 72, Jakarta Pusat Cisauk, Tanggerang Selatan, Banten", isMain: false)
+//    ]
+    
+    var addressData: [AddressDataModel]? = ProfileViewController.userData?.addresses
     
     init() {
         super.init(nibName: Constants.AddressVC, bundle: nil)
