@@ -101,6 +101,7 @@
 		6216E0872848ED4D0019747D /* LargeProductCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6216E0832848ED4D0019747D /* LargeProductCardViewCell.swift */; };
 		6216E0882848ED4D0019747D /* SmallProductCardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6216E0842848ED4D0019747D /* SmallProductCardViewCell.xib */; };
 		6219C68B285A2BBB006D9A5B /* MockApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6219C68A285A2BBB006D9A5B /* MockApiClient.swift */; };
+		622BD6EF2891751600D94052 /* OrderListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622BD6EE2891751600D94052 /* OrderListViewModel.swift */; };
 		622DD3DD288D179000DC3A2F /* TransactionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622DD3DC288D179000DC3A2F /* TransactionRepository.swift */; };
 		622DD3E0288D17EE00DC3A2F /* RepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622DD3DF288D17EE00DC3A2F /* RepositoryManager.swift */; };
 		622DD3E3288D182E00DC3A2F /* TransactionRepositoryInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622DD3E2288D182E00DC3A2F /* TransactionRepositoryInterface.swift */; };
@@ -362,6 +363,7 @@
 		6216E0832848ED4D0019747D /* LargeProductCardViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeProductCardViewCell.swift; sourceTree = "<group>"; };
 		6216E0842848ED4D0019747D /* SmallProductCardViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmallProductCardViewCell.xib; sourceTree = "<group>"; };
 		6219C68A285A2BBB006D9A5B /* MockApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockApiClient.swift; sourceTree = "<group>"; };
+		622BD6EE2891751600D94052 /* OrderListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListViewModel.swift; sourceTree = "<group>"; };
 		622DD3DC288D179000DC3A2F /* TransactionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepository.swift; sourceTree = "<group>"; };
 		622DD3DF288D17EE00DC3A2F /* RepositoryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryManager.swift; sourceTree = "<group>"; };
 		622DD3E2288D182E00DC3A2F /* TransactionRepositoryInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRepositoryInterface.swift; sourceTree = "<group>"; };
@@ -1020,6 +1022,14 @@
 			path = ViewCells;
 			sourceTree = "<group>";
 		};
+		622BD6ED2891750700D94052 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				622BD6EE2891751600D94052 /* OrderListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		622DD3DB288D176E00DC3A2F /* Transaction */ = {
 			isa = PBXGroup;
 			children = (
@@ -1570,6 +1580,7 @@
 		627A38FD284CCE13002ADC6B /* TransactionHistory */ = {
 			isa = PBXGroup;
 			children = (
+				622BD6ED2891750700D94052 /* ViewModels */,
 				627A3903284CCFA0002ADC6B /* ViewCells */,
 				627A38FE284CCE1B002ADC6B /* ViewControllers */,
 			);
@@ -2740,6 +2751,7 @@
 				623FF1602879A310002EAC7B /* ProductsResponseModel.swift in Sources */,
 				62103FFF2851DA5900A413F6 /* DetailHeaderViewCell.swift in Sources */,
 				D1D4A85A288AAD4C0015BFED /* ResetModel.swift in Sources */,
+				622BD6EF2891751600D94052 /* OrderListViewModel.swift in Sources */,
 				623FF190287B19BA002EAC7B /* SheetItemViewCell.swift in Sources */,
 				62759B81284A52AD00622184 /* SearchViewController.swift in Sources */,
 				53D773022849FC87008F2912 /* BannerViewCell.swift in Sources */,

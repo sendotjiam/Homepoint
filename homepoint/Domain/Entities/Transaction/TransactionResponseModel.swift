@@ -31,7 +31,7 @@ struct TransactionResponseModel {
 }
 
 struct TransactionDataModel {
-    var addresses : AddressResponseModel
+    var addresses : AddressDataModel
     var createdAt : String
     var id : String
     var paymentDeadline : String
@@ -54,7 +54,7 @@ struct TransactionDataModel {
         self.storeLocation = object["storeLocation"].stringValue
         self.status = object["status"].stringValue
         self.totalPrice = object["totalPrice"].intValue
-        self.addresses = AddressResponseModel(object: object["addresses"])
+        self.addresses = AddressDataModel(object: object["addresses"])
         self.users = UserDataModel(object: object["users"])
         var transactionItems = [TransactionItemDataModel]()
         object["transactionItems"].arrayValue.forEach {
@@ -76,9 +76,10 @@ struct TransactionItemDataModel {
         self.price = object["price"].intValue
         
         var products = [ProductDataModel]()
-        object["products"].arrayValue.forEach {
-            products.append(ProductDataModel(object: $0))
+        if !object["products"].arrayValue.isEmpty {
+            self.products = object["products"].arrayValue.map { ProductDataModel(object: $0) }
+        } else {
+            self.products = [ProductDataModel(object: object["products"])]
         }
-        self.products = products
     }
 }

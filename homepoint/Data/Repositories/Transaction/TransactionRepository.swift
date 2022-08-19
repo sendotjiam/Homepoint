@@ -43,6 +43,28 @@ extension TransactionRepository : TransactionRepositoryInterface {
         }
     }
     
+    func fetchTransactions(userId: String) -> Transaction {
+        Observable.create { observer in
+            self.apiClient.request(
+                self.urlString + "/user/\(userId)",
+                .get,
+                nil,
+                [:]
+            ) { response, data, error in
+                let parsed = RepositoryManager.shared.parse(data: data)
+                if let json = parsed.json {
+                    let model = TransactionResponseModel(object: json)
+                    observer.onNext(model)
+                    observer.onCompleted()
+                } else {
+                    observer.onError(parsed.error!)
+                    observer.onCompleted()
+                }
+            }
+            return Disposables.create()
+        }
+    }
+    
     func uploadPaymentProof(id: String, imageData: Data) -> Transaction {
         let headers : HTTPHeaders = [
             "Content-Type": "multipart/form-data",

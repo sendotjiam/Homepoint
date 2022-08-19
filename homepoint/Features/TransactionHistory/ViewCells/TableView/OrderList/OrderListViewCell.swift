@@ -58,13 +58,14 @@ extension OrderListViewCell {
     }
     
     private func configureCell() {
-//        productImageView.image = UIImage(named: "")
         guard let data = data else { return }
         setupStatusView()
-        dateLabel.text = data.date
+        dateLabel.text = data.date.getDateTimeFromTimestamp()
         productNameLabel.text = data.title
         productAmountLabel.text = "\(data.amount) Produk"
         priceLabel.text = "Rp\(data.price.separateInt(with: "."))"
+        let imageUrl = URL(string: data.imageUrl)
+        productImageView.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "img_placholder.small"))
     }
     
     private func setupStatusView() {

@@ -7,6 +7,7 @@
 
 import UIKit
 import SkeletonView
+import RxSwift
 
 final class OrderListViewController: UIViewController {
     
@@ -15,6 +16,8 @@ final class OrderListViewController: UIViewController {
     @IBOutlet weak var notLoginView: NotLoginView!
     @IBOutlet weak var emptyView: UIView!
     
+    private let refreshControl = UIRefreshControl()
+    
     // MARK: - Data
     private enum SectionType {
         case orderFilter, orderList
@@ -22,17 +25,7 @@ final class OrderListViewController: UIViewController {
     private let sections : [SectionType] = [
         .orderFilter, .orderList
     ]
-    /// Mock Data
-    private let orderListData = [
-        OrderListItemCellModel(title: "Barang Mantap", imageUrl: "", date: "20 Januari 2022", status: .finished, amount: 3, price: 90000),
-        OrderListItemCellModel(title: "Barang Mantap", imageUrl: "", date: "20 Januari 2022", status: .failed, amount: 3, price: 90000),
-        OrderListItemCellModel(title: "Barang Mantap", imageUrl: "", date: "20 Januari 2022", status: .unconfirm, amount: 3, price: 90000),
-        OrderListItemCellModel(title: "Barang Mantap", imageUrl: "", date: "20 Januari 2022", status: .unpaid, amount: 3, price: 90000),
-        OrderListItemCellModel(title: "Barang Mantap", imageUrl: "", date: "20 Januari 2022", status: .rated, amount: 3, price: 90000),
-        OrderListItemCellModel(title: "Barang Mantap", imageUrl: "", date: "20 Januari 2022", status: .sent, amount: 3, price: 90000),
-        OrderListItemCellModel(title: "Barang Mantap", imageUrl: "", date: "20 Januari 2022", status: .packed, amount: 3, price: 90000),
-        OrderListItemCellModel(title: "Barang Mantap", imageUrl: "", date: "20 Januari 2022", status: .arrived, amount: 3, price: 90000)
-    ]
+    private var orderListData = [OrderListItemCellModel]()
     
     // MARK: - Life Cycle
     init() {
@@ -43,9 +36,19 @@ final class OrderListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Variables
+    private let vm = OrderListViewModel()
+    private let bag = DisposeBag()
+    private var userId = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        bindViewModel()
+        
+        if userId != "" {
+            vm.getAllTransactions(userId: userId).disposed(by: bag)
+        }
         
         self.addNotificationCenter(
             label: "reload_view",
@@ -80,11 +83,74 @@ extension OrderListViewController {
         notLoginView.delegate = self
         notLoginView.isHidden = isUserLoggedIn()
         emptyView.isHidden = true
+        
+        userId = getUserId() ?? ""
+        
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        refreshControl.beginRefreshing()
+        vm.getAllTransactions(userId: userId).disposed(by: bag)
+        view.showShimmer()
     }
     
     @objc func reloadView() {
         notLoginView.isHidden = true
         // call API
+    }
+}
+
+// MARK: - Binding
+extension OrderListViewController {
+    private func bindViewModel() {
+        vm.successGetAllTransactions.subscribe { [weak self] in
+            self?.handleSuccessGetAllTransactions($0)
+        }.disposed(by: bag)
+        vm.error.subscribe { [weak self] in
+            self?.handleError($0.element)
+        }.disposed(by: bag)
+        vm.isLoading.subscribe { [weak self] in
+            self?.handleLoading($0.element)
+        }.disposed(by: bag)
+    }
+    
+    private func handleSuccessGetAllTransactions(_ data: [TransactionDataModel]?) {
+        guard let data = data else { return }
+        var orders = [OrderListItemCellModel]()
+        data.forEach {
+            let firstProduct = $0.transactionItems.first?.products.first
+            if let firstProduct = firstProduct,
+               let images = firstProduct.productImages.first {
+                let order = OrderListItemCellModel(
+                    title: firstProduct.name,
+                    imageUrl: images.image,
+                    date: $0.createdAt,
+                    status: .unconfirm,
+                    amount: $0.transactionItems.count,
+                    price: $0.totalPrice
+                )
+                orders.append(order)
+            }
+        }
+        self.orderListData = orders
+        tableView.reload()
+    }
+    
+    private func handleError(_ error : String?) {
+        self.handleError(msg: error)
+    }
+    
+    private func handleLoading(_ isLoading: Bool?) {
+        guard let loading = isLoading
+        else { return }
+        DispatchQueue.main.async {
+            if !loading {
+                self.refreshControl.endRefreshing()
+                self.view.stopShimmer()
+            }
+        }
     }
 }
 
