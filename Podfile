@@ -10,5 +10,12 @@ target 'homepoint' do
   pod 'Alamofire'
   pod 'RxSwift', '5.0.0'
   pod 'RxCocoa', '5.0.0'
+  pod 'SwiftyJSON', '~> 4.0'
+  pod 'SkeletonView'
+  pod 'NVActivityIndicatorView'
 
+  target 'homepointTests' do
+    pod 'Alamofire'
+    pod 'SwiftyJSON', '~> 4.0'
+  end
 end

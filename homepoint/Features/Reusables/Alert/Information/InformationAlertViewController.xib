@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InformationAlertViewController" customModule="homepoint" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="p0E-0D-PW4" id="jnn-fY-6eg"/>
+                <outlet property="imageView" destination="TTB-Ew-INi" id="kNo-rf-qyN"/>
+                <outlet property="subtitleLabel" destination="xTJ-JJ-UAz" id="GQ6-Uw-dua"/>
+                <outlet property="titleLabel" destination="knF-PF-dfj" id="NEt-6o-P2J"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" alpha="0.20000000298023224" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOM-tv-2d2">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <connections>
+                        <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="6Lj-f7-u06"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p0E-0D-PW4">
+                    <rect key="frame" x="51" y="324" width="312" height="248.5"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_house" translatesAutoresizingMaskIntoConstraints="NO" id="TTB-Ew-INi">
+                            <rect key="frame" x="87" y="26" width="138" height="120"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="138" id="9LY-qv-ngY"/>
+                                <constraint firstAttribute="height" constant="120" id="AJv-tS-E4x"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="knF-PF-dfj">
+                            <rect key="frame" x="20" y="158" width="272" height="33.5"/>
+                            <string key="text">Mohon maaf atas ketidaknyamanannya,
+komplainmu telah diajukan</string>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                            <color key="textColor" name="DarkBlue"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Admin kami akan segera menghubungi untuk menindaklanjuti komplainmu! " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTJ-JJ-UAz">
+                            <rect key="frame" x="20" y="199.5" width="272" height="29"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.31372549020000001" green="0.31372549020000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Wx-Ka-Sp8">
+                            <rect key="frame" x="280" y="8" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="24" id="UTI-F2-lda"/>
+                                <constraint firstAttribute="height" constant="24" id="VRy-zg-Myn"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="ic_close"/>
+                            <connections>
+                                <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="5sD-Re-Bux"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="xTJ-JJ-UAz" firstAttribute="leading" secondItem="p0E-0D-PW4" secondAttribute="leading" constant="20" id="8sI-1M-njl"/>
+                        <constraint firstItem="0Wx-Ka-Sp8" firstAttribute="top" secondItem="p0E-0D-PW4" secondAttribute="top" constant="8" id="Cif-w0-4Ck"/>
+                        <constraint firstAttribute="trailing" secondItem="xTJ-JJ-UAz" secondAttribute="trailing" constant="20" id="G1t-yS-ndR"/>
+                        <constraint firstAttribute="trailing" secondItem="0Wx-Ka-Sp8" secondAttribute="trailing" constant="8" id="HEa-Ma-CME"/>
+                        <constraint firstItem="xTJ-JJ-UAz" firstAttribute="top" secondItem="knF-PF-dfj" secondAttribute="bottom" constant="8" id="JEw-nG-2nb"/>
+                        <constraint firstAttribute="trailing" secondItem="knF-PF-dfj" secondAttribute="trailing" constant="20" id="Nq1-Ii-RIp"/>
+                        <constraint firstAttribute="width" constant="312" id="S7i-6M-SUl"/>
+                        <constraint firstItem="TTB-Ew-INi" firstAttribute="top" secondItem="p0E-0D-PW4" secondAttribute="top" constant="26" id="UXJ-oo-MIt"/>
+                        <constraint firstItem="TTB-Ew-INi" firstAttribute="centerX" secondItem="p0E-0D-PW4" secondAttribute="centerX" id="aqf-p2-svA"/>
+                        <constraint firstAttribute="bottom" secondItem="xTJ-JJ-UAz" secondAttribute="bottom" constant="20" id="clA-q4-0iy"/>
+                        <constraint firstItem="knF-PF-dfj" firstAttribute="top" secondItem="TTB-Ew-INi" secondAttribute="bottom" constant="12" id="eBV-0L-c1j"/>
+                        <constraint firstItem="knF-PF-dfj" firstAttribute="leading" secondItem="p0E-0D-PW4" secondAttribute="leading" constant="20" id="yaN-Va-mAG"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="nOM-tv-2d2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0ug-Zi-oPa"/>
+                <constraint firstItem="nOM-tv-2d2" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="U7U-G5-RRc"/>
+                <constraint firstItem="p0E-0D-PW4" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="aMl-kK-50X"/>
+                <constraint firstItem="p0E-0D-PW4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="kyO-2H-RWb"/>
+                <constraint firstAttribute="bottom" secondItem="nOM-tv-2d2" secondAttribute="bottom" id="ts6-T6-bxb"/>
+                <constraint firstItem="nOM-tv-2d2" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wAK-JS-nnw"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="110"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_close" width="32" height="32"/>
+        <image name="img_house" width="184" height="158.5"/>
+        <namedColor name="DarkBlue">
+            <color red="0.13300000131130219" green="0.21199999749660492" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
